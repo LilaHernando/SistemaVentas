@@ -1,0 +1,17 @@
+# Carpeta de configuración de Visual Studio
+.vs/
+
+# Carpeta de compilación
+CapaPresentacion/bin/
+CapaPresentacion/obj/
+CapaDatos/bin/
+CapaDatos/obj/
+CapaEntidad/bin/
+CapaEntidad/obj/
+CapaNegocio/bin/
+CapaNegocio/obj/
+
+
+
+# Ignorar el archivo de configuración App.config
+App.config
