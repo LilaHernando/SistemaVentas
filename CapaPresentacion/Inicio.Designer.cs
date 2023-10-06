@@ -36,8 +36,10 @@ namespace CapaPresentacion
             this.iconMenuItem4 = new FontAwesome.Sharp.IconMenuItem();
             this.iconMenuItem3 = new FontAwesome.Sharp.IconMenuItem();
             this.iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
-            this.iconMenuItem6 = new FontAwesome.Sharp.IconMenuItem();
+            this.MenuItemFactura = new FontAwesome.Sharp.IconMenuItem();
             this.iconMenuItem5 = new FontAwesome.Sharp.IconMenuItem();
+            this.subMenuRegistrarFactura = new FontAwesome.Sharp.IconMenuItem();
+            this.verFacturas = new FontAwesome.Sharp.IconMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +54,6 @@ namespace CapaPresentacion
             this.menuTitulo.Size = new System.Drawing.Size(1370, 103);
             this.menuTitulo.TabIndex = 1;
             this.menuTitulo.Text = "menuStrip2";
-            this.menuTitulo.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip2_ItemClicked);
             // 
             // label1
             // 
@@ -74,7 +75,7 @@ namespace CapaPresentacion
             this.iconMenuItem4,
             this.iconMenuItem3,
             this.iconMenuItem2,
-            this.iconMenuItem6,
+            this.MenuItemFactura,
             this.iconMenuItem5});
             this.menu.Location = new System.Drawing.Point(0, 103);
             this.menu.Name = "menu";
@@ -87,7 +88,7 @@ namespace CapaPresentacion
             // 
             this.iconMenuItem1.AutoSize = false;
             this.iconMenuItem1.ForeColor = System.Drawing.Color.Black;
-            this.iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.UserCog;
+            this.iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.UserGear;
             this.iconMenuItem1.IconColor = System.Drawing.Color.Black;
             this.iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconMenuItem1.IconSize = 50;
@@ -96,7 +97,6 @@ namespace CapaPresentacion
             this.iconMenuItem1.Size = new System.Drawing.Size(122, 69);
             this.iconMenuItem1.Text = "Usuarios";
             this.iconMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.iconMenuItem1.Click += new System.EventHandler(this.iconMenuItem1_Click);
             // 
             // iconMenuItem4
             // 
@@ -141,20 +141,22 @@ namespace CapaPresentacion
             this.iconMenuItem2.Text = "Preventas";
             this.iconMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // iconMenuItem6
+            // MenuItemFactura
             // 
-            this.iconMenuItem6.AutoSize = false;
-            this.iconMenuItem6.ForeColor = System.Drawing.Color.Black;
-            this.iconMenuItem6.IconChar = FontAwesome.Sharp.IconChar.FileText;
-            this.iconMenuItem6.IconColor = System.Drawing.Color.Black;
-            this.iconMenuItem6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconMenuItem6.IconSize = 50;
-            this.iconMenuItem6.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.iconMenuItem6.Name = "iconMenuItem6";
-            this.iconMenuItem6.Size = new System.Drawing.Size(122, 69);
-            this.iconMenuItem6.Text = "Facturas";
-            this.iconMenuItem6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.iconMenuItem6.Click += new System.EventHandler(this.iconMenuItem6_Click);
+            this.MenuItemFactura.AutoSize = false;
+            this.MenuItemFactura.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.subMenuRegistrarFactura,
+            this.verFacturas});
+            this.MenuItemFactura.ForeColor = System.Drawing.Color.Black;
+            this.MenuItemFactura.IconChar = FontAwesome.Sharp.IconChar.FileText;
+            this.MenuItemFactura.IconColor = System.Drawing.Color.Black;
+            this.MenuItemFactura.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MenuItemFactura.IconSize = 50;
+            this.MenuItemFactura.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.MenuItemFactura.Name = "MenuItemFactura";
+            this.MenuItemFactura.Size = new System.Drawing.Size(122, 69);
+            this.MenuItemFactura.Text = "Facturas";
+            this.MenuItemFactura.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // iconMenuItem5
             // 
@@ -169,6 +171,25 @@ namespace CapaPresentacion
             this.iconMenuItem5.Size = new System.Drawing.Size(122, 69);
             this.iconMenuItem5.Text = "Remitos";
             this.iconMenuItem5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // subMenuRegistrarFactura
+            // 
+            this.subMenuRegistrarFactura.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.subMenuRegistrarFactura.IconColor = System.Drawing.Color.Black;
+            this.subMenuRegistrarFactura.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.subMenuRegistrarFactura.Name = "subMenuRegistrarFactura";
+            this.subMenuRegistrarFactura.Size = new System.Drawing.Size(180, 22);
+            this.subMenuRegistrarFactura.Text = "Registrar";
+            this.subMenuRegistrarFactura.Click += new System.EventHandler(this.subMenuRegistrarFactura_Click);
+            // 
+            // verFacturas
+            // 
+            this.verFacturas.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.verFacturas.IconColor = System.Drawing.Color.Black;
+            this.verFacturas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.verFacturas.Name = "verFacturas";
+            this.verFacturas.Size = new System.Drawing.Size(180, 22);
+            this.verFacturas.Text = "Facturas";
             // 
             // Inicio
             // 
@@ -203,8 +224,10 @@ namespace CapaPresentacion
         private FontAwesome.Sharp.IconMenuItem iconMenuItem4;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem3;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem2;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItem6;
+        private FontAwesome.Sharp.IconMenuItem MenuItemFactura;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem5;
+        private FontAwesome.Sharp.IconMenuItem subMenuRegistrarFactura;
+        private FontAwesome.Sharp.IconMenuItem verFacturas;
     }
 }
 

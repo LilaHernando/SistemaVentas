@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class Inicio : Form
+    public partial class FormFactura : Form
     {
-        public Inicio()
+        public FormFactura()
         {
             InitializeComponent();
         }
 
-        private void Inicio_Load(object sender, EventArgs e)
+        private void FormFactura_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void subMenuRegistrarFactura_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
