@@ -18,6 +18,17 @@ namespace CapaEntidad
         public DateTime FechaDeCarga { get; set; }
     }
 
+
+    class CE_FacturaPorPreventa
+    {
+        public int Iden { get; set; }
+        public int GN_Sucursal_iden { get; set; }
+        public int PVTA_Preventa_iden { get; set; }
+        public int PVTA_Preventa_sucursal { get; set; }
+        public int CMP_Factura_iden { get; set; }
+        public int CMP_Factura_sucursal { get; set; }
+
+    }
     class CE_Estado
     {
         public int Iden { get; set; }
