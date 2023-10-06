@@ -6,20 +6,18 @@ using System.Threading.Tasks;
 
 namespace CapaEntidad
 {
-    class CE_Preventa {
-
-        private int id { get; set; }
-        private DateTime fecha { get; set; }
-        private int numero { get; set; }
-        private int monto { get; set; }
-        private int baja { get; set; } 
-        private int idOperacion { get; set; }
+    public class CE_Preventa {
+        public int id { get; set; }
+        public DateTime fecha { get; set; }
+        public int numero { get; set; }
+        public Decimal monto { get; set; }
+        public int baja { get; set; }
+        public int idOperacion { get; set; }
 
         /*Foreign Key*/
-        private int id_sucursal { get; set; }
-        private int id_cliente { get; set; }
+        public int id_sucursal { get; set; }
+        public int id_cliente { get; set; }
         
-       
     }
 }
 
