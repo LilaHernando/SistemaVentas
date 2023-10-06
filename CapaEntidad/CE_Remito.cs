@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidad
 {
-    class CE_Remito
+    public class CE_Remito
     {
         /*Atributos llave*/
         public int iden {get;set;}

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidad
 {
-    class CMP_RemitoPorFactura {
+     public class CMP_RemitoPorFactura {
         public int iden { get; set; }
         public int GN_Sucursal_iden { get; set; }
 
