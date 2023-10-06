@@ -9,10 +9,10 @@ namespace CapaDatos
 {
     class CD_Factura
     {
-        public List<CE_Factura> ObtenerFacturas
-        {
-            //lógica
-        }
+        //public List<CE_Factura> ObtenerFacturas
+        //{
+        //    //lógica
+        //}
 
 
     }

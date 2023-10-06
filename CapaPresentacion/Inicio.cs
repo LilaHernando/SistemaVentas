@@ -85,9 +85,19 @@ namespace CapaPresentacion
         }
        
 
-    private void menuRemitos_Click(object sender, EventArgs e)
+        private void menuRemitos_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new Form());
+        }
+
+        private void SubVerFacturas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuFacturas, new FormVerFacturas());
+        }
+
+        private void SubNuevaFactura_Click(object sender, EventArgs e)
+        {
+             AbrirFormulario(menuFacturas, new FormFactura());
         }
     }
 }
