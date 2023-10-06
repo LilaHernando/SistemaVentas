@@ -8,10 +8,15 @@ namespace CapaEntidad
 {
     class CE_ItemPreventaPorArticulo
     {
-        public int iden { get; set; }
-        public int GN_Sucursal_iden { get; set; }
-        public int PVTA_Preventa_iden { get; set; }
-        public int GN_Articulo_iden { get; set; }
-        public int PVTA_Preventa_sucursal { get; set; }
+        /*Primary Key*/
+        public int id { get; set; }
+
+        /*Foreing Key*/
+        public int id_sucursal { get; set; }
+        public int id_preventa { get; set; }
+        public int id_articulo { get; set; }
+
+        /*Primary Key Compuesta*/
+        public int id_preventa_sucursal { get; set; }
     }
 }
