@@ -12,17 +12,19 @@ using System.Data.SqlClient;
 
 namespace CapaDatos
 {
-    public class CD_Usuario
+    public class CD_Permiso
     {
-        public List<CE_Usuario> Listar() //Este método va a retornar una Lista de tipo CE_Usuario (Clase Entidad de la tabla Usuario en la DB)
+        public List<CE_Permiso> Listar(int idUsuario) //Este método va a retornar una Lista de tipo CE_Permiso (Clase Entidad de la tabla Permiso en la DB)
         {
-            List<CE_Usuario> lista = new List<CE_Usuario>(); //Instanciamos una Lista de tipo CE_Usuario
+            List<CE_Permiso> lista = new List<CE_Permiso>(); //Instanciamos una Lista de tipo CE_Permiso
 
             using (SqlConnection conexion = new SqlConnection(Conexion.cadena)) //Consumimos la Cadena de Conexion de la Clase Conexion situada en CapaDatos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("US_TraerUsuarios_SEL_Todos", conexion); //Pasamos la Conexion y el SP a ejecutar al CMD
+                    SqlCommand cmd = new SqlCommand("PER_TraerPermisos_SEL_Todos", conexion); //Pasamos la Conexion y el SP a ejecutar al CMD
+
+                    cmd.Parameters.AddWithValue("@idUsuario", idUsuario); //Pasamos el id del Usuario logeado como parametro al SP
 
                     cmd.CommandType = CommandType.StoredProcedure; //Especificamos que el tipo de Comando que va a recibir el CMD es un SP
 
@@ -35,20 +37,14 @@ namespace CapaDatos
                     {
                         while (dr.Read()) //Mientras lea datos...
                         {
-                            lista.Add(new CE_Usuario() //Añadimos a la Lista nuevos Objetos de tipo Usuario
+                            lista.Add(new CE_Permiso() //Añadimos a la Lista nuevos Objetos de tipo Permiso
                             {
                                 //Atributos
-                                Iden = Convert.ToInt32(dr["idenU"]),
                                 Rol = new CE_Rol()
                                 {
                                     Iden = Convert.ToInt32(dr["idenR"]),
-                                    Rol = dr["rol"].ToString()
                                 },
-                                Nombre = dr["Nombre"].ToString(),
-                                Apellido = dr["Apellido"].ToString(),
-                                Dni = dr["DNI"].ToString(),
-                                Clave = dr["Clave"].ToString(),
-                                Estado = Convert.ToInt32(dr["Estado"])
+                                NombreMenu = dr["nombremenu"].ToString(),
                             });
                         }
                     }
@@ -57,7 +53,7 @@ namespace CapaDatos
                 }
                 catch (Exception ex)
                 {
-                    lista = new List<CE_Usuario>(); //En caso de error retornamos una Lista vacia
+                    lista = new List<CE_Permiso>(); //En caso de error retornamos una Lista vacia
                 }
             }
             return lista; //Retornamos la Lista
