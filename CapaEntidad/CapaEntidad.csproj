@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CE_Factura.cs" />
+    <Compile Include="CE_Remito.cs" />
+    <Compile Include="CE_RemitoPorFactura.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Remito.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
