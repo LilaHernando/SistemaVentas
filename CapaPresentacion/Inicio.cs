@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 //Consumimos la Capa Entidad
-//using CapaEntidad;
-//using CapaNegocio;
+using CapaEntidad;
+using CapaNegocio;
 //Consumimos FontAwesome para el Atributo MenuActivo
 using FontAwesome.Sharp;
 
@@ -18,17 +18,32 @@ namespace CapaPresentacion
 {
     public partial class Inicio : Form
     {
+        private static CE_Usuario UsuarioActual; //Atributo de tipo Static que va a almacenar el Usuario logeado
         private static IconMenuItem MenuActivo = null; //Atributo de tipo Static que va a almacenar el Menu seleccionado por el Usuario
         private static Form FormActivo = null; //Atributo de tipo Static que va a almacenar el Formulario seleccionado por el Usuario respecto del Menu
 
-        public Inicio()
+        public Inicio(CE_Usuario objUsuario) //El constructor solicita un parametro de tipo Objeto Usuario (clase de la CapaEntidad CE_Usuario)
         {
+            UsuarioActual = objUsuario; //Este Objeto Usuario lo almacenamos en el Atributo de tipo Static UsuarioActual
+
             InitializeComponent();
         }
 
-        private void Inicio_Load(object sender, EventArgs e)
+        private void Inicio_Load(object sender, EventArgs e) //En el Método Filtramos que IconsMenu puede manipular el Usuario logeado
         {
-            
+            List<CE_Permiso> ListaPermiso = new CN_Permiso().Listar(UsuarioActual.Iden); //Generamos un listado de los Permisos
+
+            foreach (IconMenuItem iconMenu in menu.Items) //Recorremos el Menu recolectando sus Items (O sea IconMenuItem)
+            {
+                bool permiso = ListaPermiso.Any(m => m.NombreMenu == iconMenu.Name); //En la ListaPermiso buscamos algun Menu que contenga el mismo nombre de su Atributo "NombreMenu"
+
+                if(permiso == false) //Aquel que sea falso...
+                {
+                    iconMenu.Visible = false; //Se lo vuelve invisible
+                }
+            }
+
+            textUsuarioActual.Text = UsuarioActual.Nombre + " " + UsuarioActual.Apellido; //Cargamos el Nombre y Apellido del Usuario logeado en un Label
         }
 
         private void AbrirFormulario(IconMenuItem menu, Form formulario)  //Método encargado de Abril el Formulario y marcar el Menu activo
@@ -60,7 +75,7 @@ namespace CapaPresentacion
             //Por defecto, se le intancia un Nuevo Formulario, esta completamente vacio
             //Por lo tanto donde dice "new Form()" remplazar por el Formulario adecuado...
             //Ejemplo: new Form() ---> new FormUsuario()
-            AbrirFormulario((IconMenuItem)sender, new Form());
+            AbrirFormulario((IconMenuItem)sender, new FormUsuario());
         }
 
         private void menuClientes_Click(object sender, EventArgs e)
