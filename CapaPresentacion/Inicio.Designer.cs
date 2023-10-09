@@ -172,7 +172,7 @@ namespace CapaPresentacion
             this.SubNuevaFactura.IconColor = System.Drawing.Color.Black;
             this.SubNuevaFactura.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.SubNuevaFactura.Name = "SubNuevaFactura";
-            this.SubNuevaFactura.Size = new System.Drawing.Size(180, 22);
+            this.SubNuevaFactura.Size = new System.Drawing.Size(150, 22);
             this.SubNuevaFactura.Text = "Nueva Factura";
             this.SubNuevaFactura.Click += new System.EventHandler(this.SubNuevaFactura_Click);
             // 
@@ -182,7 +182,7 @@ namespace CapaPresentacion
             this.SubVerFacturas.IconColor = System.Drawing.Color.Black;
             this.SubVerFacturas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.SubVerFacturas.Name = "SubVerFacturas";
-            this.SubVerFacturas.Size = new System.Drawing.Size(180, 22);
+            this.SubVerFacturas.Size = new System.Drawing.Size(150, 22);
             this.SubVerFacturas.Text = "Ver Facturas";
             this.SubVerFacturas.Click += new System.EventHandler(this.SubVerFacturas_Click);
             // 
@@ -226,6 +226,7 @@ namespace CapaPresentacion
             // contenedor
             // 
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contenedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.contenedor.ForeColor = System.Drawing.Color.Black;
             this.contenedor.Location = new System.Drawing.Point(0, 182);
             this.contenedor.Name = "contenedor";
