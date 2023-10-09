@@ -85,7 +85,14 @@ namespace CapaPresentacion
 
         private void menuRemitos_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new CP_Remito());
+            AbrirFormulario((IconMenuItem)sender, new CP_Remito()); //Instancia el formulario de remito.
         }
+
+        private void contenedor_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+                    //.......//
+
     }
 }
