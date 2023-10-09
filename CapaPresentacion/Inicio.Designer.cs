@@ -48,6 +48,7 @@ namespace CapaPresentacion
             // 
             this.menuTitulo.AutoSize = false;
             this.menuTitulo.BackColor = System.Drawing.Color.DarkRed;
+            this.menuTitulo.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuTitulo.Location = new System.Drawing.Point(0, 0);
             this.menuTitulo.Name = "menuTitulo";
             this.menuTitulo.Padding = new System.Windows.Forms.Padding(16, 5, 0, 5);
@@ -64,13 +65,14 @@ namespace CapaPresentacion
             this.label1.Location = new System.Drawing.Point(53, 37);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 31);
+            this.label1.Size = new System.Drawing.Size(308, 39);
             this.label1.TabIndex = 2;
             this.label1.Text = "Sistema De Ventas";
             // 
             // menu
             // 
             this.menu.BackColor = System.Drawing.Color.White;
+            this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuUsuarios,
             this.menuClientes,
@@ -183,7 +185,7 @@ namespace CapaPresentacion
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(976, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 24);
+            this.label2.Size = new System.Drawing.Size(102, 29);
             this.label2.TabIndex = 3;
             this.label2.Text = "Usuario:";
             // 
@@ -194,13 +196,15 @@ namespace CapaPresentacion
             this.textUsuarioActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textUsuarioActual.Location = new System.Drawing.Point(1061, 40);
             this.textUsuarioActual.Name = "textUsuarioActual";
-            this.textUsuarioActual.Size = new System.Drawing.Size(16, 24);
+            this.textUsuarioActual.Size = new System.Drawing.Size(21, 29);
             this.textUsuarioActual.TabIndex = 4;
             this.textUsuarioActual.Text = "-";
             // 
             // contenedor
             // 
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contenedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.contenedor.ForeColor = System.Drawing.Color.Black;
             this.contenedor.Location = new System.Drawing.Point(0, 182);
             this.contenedor.Name = "contenedor";
             this.contenedor.Size = new System.Drawing.Size(1370, 567);
@@ -208,7 +212,7 @@ namespace CapaPresentacion
             // 
             // Inicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 38F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1370, 749);

@@ -117,38 +117,68 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="boolean" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\boolean.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="calendar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\calendar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="checklist" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\checklist.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="checklist__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\checklist (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="customer__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\customer (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="money" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\money.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="money__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\money (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="office" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\office.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="plus_sign" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\plus-sign.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="Numero.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Numero.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        pgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANjSURBVEhLtZRZ
+        SFRhFMd96LHM9igIESSksnDJmsylxmbGMbV03NoNKygieurJHnoIIpA0W41CpSzNvQkct3QUF3oQo5Ae
+        fCyCEJzFWe+/c77b1Zm4LpE9/Jj7fd85//93zj1zQwD8V0JCK/TloRW6b8T3ZYY09eVkoJMIMNENBsQ2
+        /RusoeixNhuIxbbnehx4lz4vO14bEP5CL+BntRgF1lJ0hcEeclULZPa3pWNr1VyCAu/xmVoOw5ocJwwS
+        WtWDmIhqWTz8qREn2wtxzlyEyGcZYo/P1HIY1lzUYB/dcPV9Hdbc1+Nm/zmcIoPsprxZAz7jGLXceQ12
+        U2mbnugR02iYLXPDAwNuDRTD0JCLhNpsrKucaxnHcCzncO6iBpG1smhUnQG73sxNREx1lmjP9a7TuNF7
+        ZnafYziWnzl3UQOGx41/45vlIGYt3ZpbE1eTjduDxdj8UBblmMAchQUNAtlMpXOM5uUx0abSvrM4Up8r
+        9vhMiUsm0szp0LTL6yUbcH/DKn+P5iMaWYKfeY/Prlmy4Px8GdL4BWD0BKaseSipMyK6Xq5QGGx8rBe9
+        VDNg4qgNW2juY6qMmB67KMSkkSK4BvLg7SGD1mTY62LheKuBy6wVZ6bnZHDviGzArKEbLfTHSSWkiavw
+        9mbBUb9XiLnNh4XYdE0MrQ/A/joezndp8FlzMdmdi1V304TBV8Vk/SO5GjXGB89AGjsP2ysSa6YbK2If
+        jsHTfRS22mjYaqLFnoeqcg3mY9UdrSckrCwljL56utBKnX4h3B/P2mfakuFoSYH9TQKmq3fCO1QE/+hp
+        ePuOw9F4EFNPouDqSIevPwdOS4ZvdZk2QvUbroZvwDTpfq+Fs10Le6MG0pcrJH4SM82JcLWnwm/NofeR
+        CWdLkjB0dxpHOU9VTA2/1VQqDRdghl6if6wEZAjbS2pXYyIcralwth0C+MW/pxZ1ZvwEUlZwnqrYfJDJ
+        BI+i9OkSnA0Johruu70uTn4f1Bpf//HpwJwggaUgKhnKl5xNiUJUMXBbjGJ6PD2ZPwLjg5KXin/ANO7p
+        0AkDO42rozmJJilT7r0lYyQwNihxqbispu0YLvT5B/Pg7joqxPn2LovRix7TysDYoMS/gU24EmmoYMbb
+        m+2iqZm0d2Zu+jMuaLH8IOQXWV6VN1SV7vwAAAAASUVORK5CYII=
+</value>
   </data>
 </root>
