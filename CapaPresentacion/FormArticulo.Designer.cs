@@ -1,0 +1,321 @@
+﻿
+namespace CapaPresentacion
+{
+    partial class FormArticulo
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dataGridArticulo = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.idenArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoDeMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MarcaArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Baja = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.btn_actualizar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridArticulo)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(220, 341);
+            this.label1.TabIndex = 4;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.textBox1.Location = new System.Drawing.Point(15, 58);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(199, 24);
+            this.textBox1.TabIndex = 6;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(15, 116);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(199, 25);
+            this.comboBox1.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.textBox2.Location = new System.Drawing.Point(15, 171);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(199, 24);
+            this.textBox2.TabIndex = 10;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(15, 225);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(199, 25);
+            this.comboBox2.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.DarkRed;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(220, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(697, 32);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Listado de Artículos";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Location = new System.Drawing.Point(220, 32);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(697, 309);
+            this.label7.TabIndex = 14;
+            // 
+            // dataGridArticulo
+            // 
+            this.dataGridArticulo.AllowUserToAddRows = false;
+            this.dataGridArticulo.AllowUserToDeleteRows = false;
+            this.dataGridArticulo.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridArticulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridArticulo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idenArticulo,
+            this.CodigoDeMaterial,
+            this.rubro,
+            this.CostoArticulo,
+            this.MarcaArticulo,
+            this.Baja,
+            this.btn_actualizar});
+            this.dataGridArticulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridArticulo.Location = new System.Drawing.Point(220, 32);
+            this.dataGridArticulo.MultiSelect = false;
+            this.dataGridArticulo.Name = "dataGridArticulo";
+            this.dataGridArticulo.Size = new System.Drawing.Size(697, 309);
+            this.dataGridArticulo.TabIndex = 15;
+            this.dataGridArticulo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // button2
+            // 
+            this.button2.Image = global::CapaPresentacion.Properties.Resources.pen;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(138, 281);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(76, 32);
+            this.button2.TabIndex = 17;
+            this.button2.Text = " Editar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Image = global::CapaPresentacion.Properties.Resources.plus;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(56, 281);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(76, 32);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Registrar";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.label5.Image = global::CapaPresentacion.Properties.Resources.price_tag;
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Location = new System.Drawing.Point(12, 203);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(75, 19);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Marca:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label4.Image = global::CapaPresentacion.Properties.Resources.money;
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label4.Location = new System.Drawing.Point(12, 149);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 19);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Costo:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label3.Image = global::CapaPresentacion.Properties.Resources.box;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(12, 94);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 19);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Rubro:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label2.Image = global::CapaPresentacion.Properties.Resources.bar_code;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(15, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(137, 23);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Codigo de material:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // idenArticulo
+            // 
+            this.idenArticulo.HeaderText = "";
+            this.idenArticulo.Name = "idenArticulo";
+            this.idenArticulo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.idenArticulo.Visible = false;
+            this.idenArticulo.Width = 25;
+            // 
+            // CodigoDeMaterial
+            // 
+            this.CodigoDeMaterial.HeaderText = "Codigo Material";
+            this.CodigoDeMaterial.Name = "CodigoDeMaterial";
+            // 
+            // rubro
+            // 
+            this.rubro.HeaderText = "Rubro";
+            this.rubro.Name = "rubro";
+            // 
+            // CostoArticulo
+            // 
+            this.CostoArticulo.HeaderText = "Costo";
+            this.CostoArticulo.Name = "CostoArticulo";
+            // 
+            // MarcaArticulo
+            // 
+            this.MarcaArticulo.HeaderText = "Marca";
+            this.MarcaArticulo.Name = "MarcaArticulo";
+            // 
+            // Baja
+            // 
+            this.Baja.HeaderText = "Baja";
+            this.Baja.Name = "Baja";
+            this.Baja.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // btn_actualizar
+            // 
+            this.btn_actualizar.HeaderText = "";
+            this.btn_actualizar.Name = "btn_actualizar";
+            this.btn_actualizar.Width = 25;
+            // 
+            // FormArticulo
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(917, 341);
+            this.ControlBox = false;
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dataGridArticulo);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "FormArticulo";
+            this.ShowIcon = false;
+            this.Text = "FormArticulo";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridArticulo)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dataGridArticulo;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idenArticulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoDeMaterial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rubro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CostoArticulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MarcaArticulo;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Baja;
+        private System.Windows.Forms.DataGridViewTextBoxColumn btn_actualizar;
+    }
+}

@@ -201,6 +201,8 @@ namespace CapaPresentacion
             // contenedor
             // 
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contenedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.contenedor.ForeColor = System.Drawing.Color.Black;
             this.contenedor.Location = new System.Drawing.Point(0, 182);
             this.contenedor.Name = "contenedor";
             this.contenedor.Size = new System.Drawing.Size(1370, 567);
