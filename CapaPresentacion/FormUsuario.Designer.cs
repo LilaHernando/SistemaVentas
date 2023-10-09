@@ -46,9 +46,6 @@ namespace CapaPresentacion
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.inputBuscar = new System.Windows.Forms.TextBox();
-            this.comboBuscar = new System.Windows.Forms.ComboBox();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +57,9 @@ namespace CapaPresentacion
             this.confClave = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.inputBuscar = new System.Windows.Forms.TextBox();
+            this.comboBuscar = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.btnLimpiarBuscar = new FontAwesome.Sharp.IconButton();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
@@ -175,7 +175,6 @@ namespace CapaPresentacion
             // comboRol
             // 
             this.comboRol.BackColor = System.Drawing.Color.White;
-            this.comboRol.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboRol.FormattingEnabled = true;
             this.comboRol.Location = new System.Drawing.Point(85, 163);
@@ -186,7 +185,6 @@ namespace CapaPresentacion
             // comboEstado
             // 
             this.comboEstado.BackColor = System.Drawing.Color.White;
-            this.comboEstado.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboEstado.FormattingEnabled = true;
             this.comboEstado.Location = new System.Drawing.Point(18, 163);
@@ -237,36 +235,6 @@ namespace CapaPresentacion
             this.dgvData.ReadOnly = true;
             this.dgvData.Size = new System.Drawing.Size(669, 265);
             this.dgvData.TabIndex = 23;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.DarkRed;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(527, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Buscar por:";
-            // 
-            // inputBuscar
-            // 
-            this.inputBuscar.Location = new System.Drawing.Point(716, 21);
-            this.inputBuscar.Multiline = true;
-            this.inputBuscar.Name = "inputBuscar";
-            this.inputBuscar.Size = new System.Drawing.Size(120, 21);
-            this.inputBuscar.TabIndex = 28;
-            // 
-            // comboBuscar
-            // 
-            this.comboBuscar.BackColor = System.Drawing.Color.White;
-            this.comboBuscar.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBuscar.FormattingEnabled = true;
-            this.comboBuscar.Location = new System.Drawing.Point(589, 21);
-            this.comboBuscar.Name = "comboBuscar";
-            this.comboBuscar.Size = new System.Drawing.Size(121, 21);
-            this.comboBuscar.TabIndex = 29;
             // 
             // nombre
             // 
@@ -341,6 +309,35 @@ namespace CapaPresentacion
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.ReadOnly = true;
             this.btnEliminar.Width = 25;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.DarkRed;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(527, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Buscar por:";
+            // 
+            // inputBuscar
+            // 
+            this.inputBuscar.Location = new System.Drawing.Point(716, 21);
+            this.inputBuscar.Multiline = true;
+            this.inputBuscar.Name = "inputBuscar";
+            this.inputBuscar.Size = new System.Drawing.Size(120, 21);
+            this.inputBuscar.TabIndex = 28;
+            // 
+            // comboBuscar
+            // 
+            this.comboBuscar.BackColor = System.Drawing.Color.White;
+            this.comboBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBuscar.FormattingEnabled = true;
+            this.comboBuscar.Location = new System.Drawing.Point(589, 21);
+            this.comboBuscar.Name = "comboBuscar";
+            this.comboBuscar.Size = new System.Drawing.Size(121, 21);
+            this.comboBuscar.TabIndex = 29;
             // 
             // btnBuscar
             // 
