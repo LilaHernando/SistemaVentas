@@ -54,6 +54,7 @@ namespace CapaPresentacion
             this.GridTipoDeFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GridNumeroFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GridMonto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LabelListadoFacturas = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -63,10 +64,10 @@ namespace CapaPresentacion
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 9);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(23, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 25);
+            this.label2.Size = new System.Drawing.Size(113, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nueva Factura";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -152,14 +153,18 @@ namespace CapaPresentacion
             // 
             // AddBtn
             // 
+            this.AddBtn.Flip = FontAwesome.Sharp.FlipOrientation.Vertical;
             this.AddBtn.IconChar = FontAwesome.Sharp.IconChar.Add;
             this.AddBtn.IconColor = System.Drawing.Color.Green;
             this.AddBtn.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.AddBtn.IconSize = 25;
-            this.AddBtn.Location = new System.Drawing.Point(32, 232);
+            this.AddBtn.IconSize = 20;
+            this.AddBtn.Location = new System.Drawing.Point(46, 222);
             this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(133, 31);
+            this.AddBtn.Size = new System.Drawing.Size(98, 54);
             this.AddBtn.TabIndex = 9;
+            this.AddBtn.Text = "Agregar";
+            this.AddBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AddBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.AddBtn.UseVisualStyleBackColor = true;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
@@ -235,15 +240,16 @@ namespace CapaPresentacion
             // 
             this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(226, 23);
+            this.panel1.Location = new System.Drawing.Point(226, 47);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(669, 306);
+            this.panel1.Size = new System.Drawing.Size(669, 282);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GridEstado,
@@ -253,10 +259,10 @@ namespace CapaPresentacion
             this.GridTipoDeFactura,
             this.GridNumeroFactura,
             this.GridMonto});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dataGridView1.Size = new System.Drawing.Size(725, 287);
+            this.dataGridView1.Size = new System.Drawing.Size(725, 290);
             this.dataGridView1.TabIndex = 4;
             // 
             // GridEstado
@@ -304,11 +310,24 @@ namespace CapaPresentacion
             this.GridMonto.Name = "GridMonto";
             this.GridMonto.ReadOnly = true;
             // 
+            // LabelListadoFacturas
+            // 
+            this.LabelListadoFacturas.AutoSize = true;
+            this.LabelListadoFacturas.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LabelListadoFacturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelListadoFacturas.Location = new System.Drawing.Point(222, 14);
+            this.LabelListadoFacturas.Name = "LabelListadoFacturas";
+            this.LabelListadoFacturas.Size = new System.Drawing.Size(153, 20);
+            this.LabelListadoFacturas.TabIndex = 5;
+            this.LabelListadoFacturas.Text = "Listado De Facturas";
+            this.LabelListadoFacturas.Click += new System.EventHandler(this.label3_Click_4);
+            // 
             // FormFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(917, 341);
+            this.Controls.Add(this.LabelListadoFacturas);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
@@ -351,5 +370,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn GridTipoDeFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn GridNumeroFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn GridMonto;
+        private System.Windows.Forms.Label LabelListadoFacturas;
     }
 }
