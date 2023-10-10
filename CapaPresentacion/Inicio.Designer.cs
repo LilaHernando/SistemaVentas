@@ -92,6 +92,7 @@ namespace CapaPresentacion
             // 
             // contenedor
             // 
+            this.contenedor.BackColor = System.Drawing.Color.Transparent;
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contenedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.contenedor.Location = new System.Drawing.Point(0, 182);
