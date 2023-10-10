@@ -55,6 +55,8 @@ namespace CapaPresentacion
             this.GridNumeroFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GridMonto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LabelListadoFacturas = new System.Windows.Forms.Label();
+            this.BoxIdUsuario = new System.Windows.Forms.TextBox();
+            this.LabelUsuario = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -70,11 +72,12 @@ namespace CapaPresentacion
             this.label2.Size = new System.Drawing.Size(113, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nueva Factura";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox1.Controls.Add(this.BoxIdUsuario);
+            this.groupBox1.Controls.Add(this.LabelUsuario);
             this.groupBox1.Controls.Add(this.BoxNumeroFactura);
             this.groupBox1.Controls.Add(this.LabelNumeroFactura);
             this.groupBox1.Controls.Add(this.textBox1);
@@ -94,62 +97,60 @@ namespace CapaPresentacion
             this.groupBox1.Size = new System.Drawing.Size(202, 292);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // BoxNumeroFactura
             // 
-            this.BoxNumeroFactura.Location = new System.Drawing.Point(85, 137);
+            this.BoxNumeroFactura.Location = new System.Drawing.Point(84, 162);
             this.BoxNumeroFactura.Name = "BoxNumeroFactura";
             this.BoxNumeroFactura.ReadOnly = true;
             this.BoxNumeroFactura.Size = new System.Drawing.Size(111, 20);
             this.BoxNumeroFactura.TabIndex = 15;
-            this.BoxNumeroFactura.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.BoxNumeroFactura.TextChanged += new System.EventHandler(this.BoxNumeroFactura_TextChanged);
             // 
             // LabelNumeroFactura
             // 
             this.LabelNumeroFactura.AutoSize = true;
-            this.LabelNumeroFactura.Location = new System.Drawing.Point(82, 121);
+            this.LabelNumeroFactura.Location = new System.Drawing.Point(81, 146);
             this.LabelNumeroFactura.Name = "LabelNumeroFactura";
             this.LabelNumeroFactura.Size = new System.Drawing.Size(83, 13);
             this.LabelNumeroFactura.TabIndex = 14;
             this.LabelNumeroFactura.Text = "Numero Factura";
-            this.LabelNumeroFactura.Click += new System.EventHandler(this.label3_Click_3);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(85, 89);
+            this.textBox1.Location = new System.Drawing.Point(85, 118);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(111, 20);
             this.textBox1.TabIndex = 13;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // LabelSucursal
             // 
             this.LabelSucursal.AutoSize = true;
-            this.LabelSucursal.Location = new System.Drawing.Point(82, 72);
+            this.LabelSucursal.Location = new System.Drawing.Point(82, 101);
             this.LabelSucursal.Name = "LabelSucursal";
             this.LabelSucursal.Size = new System.Drawing.Size(48, 13);
             this.LabelSucursal.TabIndex = 12;
             this.LabelSucursal.Text = "Sucursal";
-            this.LabelSucursal.Click += new System.EventHandler(this.label3_Click_2);
             // 
             // BoxEstado
             // 
             this.BoxEstado.FormattingEnabled = true;
-            this.BoxEstado.Location = new System.Drawing.Point(9, 136);
+            this.BoxEstado.Location = new System.Drawing.Point(8, 161);
             this.BoxEstado.Name = "BoxEstado";
             this.BoxEstado.Size = new System.Drawing.Size(67, 21);
             this.BoxEstado.TabIndex = 11;
+            this.BoxEstado.SelectedIndexChanged += new System.EventHandler(this.BoxEstado_SelectedIndexChanged);
             // 
             // LabelEstado
             // 
             this.LabelEstado.AutoSize = true;
-            this.LabelEstado.Location = new System.Drawing.Point(6, 120);
+            this.LabelEstado.Location = new System.Drawing.Point(5, 145);
             this.LabelEstado.Name = "LabelEstado";
             this.LabelEstado.Size = new System.Drawing.Size(40, 13);
             this.LabelEstado.TabIndex = 10;
             this.LabelEstado.Text = "Estado";
-            this.LabelEstado.Click += new System.EventHandler(this.label3_Click_1);
             // 
             // AddBtn
             // 
@@ -158,9 +159,9 @@ namespace CapaPresentacion
             this.AddBtn.IconColor = System.Drawing.Color.Green;
             this.AddBtn.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.AddBtn.IconSize = 20;
-            this.AddBtn.Location = new System.Drawing.Point(46, 222);
+            this.AddBtn.Location = new System.Drawing.Point(9, 239);
             this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(98, 54);
+            this.AddBtn.Size = new System.Drawing.Size(187, 37);
             this.AddBtn.TabIndex = 9;
             this.AddBtn.Text = "Agregar";
             this.AddBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -170,59 +171,57 @@ namespace CapaPresentacion
             // 
             // InputMonto
             // 
-            this.InputMonto.Location = new System.Drawing.Point(9, 186);
+            this.InputMonto.Location = new System.Drawing.Point(7, 204);
             this.InputMonto.Name = "InputMonto";
             this.InputMonto.ReadOnly = true;
             this.InputMonto.Size = new System.Drawing.Size(187, 20);
             this.InputMonto.TabIndex = 8;
+            this.InputMonto.TextChanged += new System.EventHandler(this.InputMonto_TextChanged);
             // 
             // LabelMonto
             // 
             this.LabelMonto.AutoSize = true;
-            this.LabelMonto.Location = new System.Drawing.Point(6, 170);
+            this.LabelMonto.Location = new System.Drawing.Point(4, 188);
             this.LabelMonto.Name = "LabelMonto";
             this.LabelMonto.Size = new System.Drawing.Size(64, 13);
             this.LabelMonto.TabIndex = 7;
             this.LabelMonto.Text = "Monto Total";
-            this.LabelMonto.Click += new System.EventHandler(this.label5_Click);
             // 
             // BoxIdOperacion
             // 
             this.BoxIdOperacion.FormattingEnabled = true;
-            this.BoxIdOperacion.Location = new System.Drawing.Point(9, 41);
+            this.BoxIdOperacion.Location = new System.Drawing.Point(9, 74);
             this.BoxIdOperacion.Name = "BoxIdOperacion";
             this.BoxIdOperacion.Size = new System.Drawing.Size(187, 21);
             this.BoxIdOperacion.TabIndex = 6;
-            this.BoxIdOperacion.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.BoxIdOperacion.SelectedIndexChanged += new System.EventHandler(this.BoxIdOperacion_SelectedIndexChanged);
             // 
             // LabelIdOperacion
             // 
             this.LabelIdOperacion.AutoSize = true;
-            this.LabelIdOperacion.Location = new System.Drawing.Point(6, 25);
+            this.LabelIdOperacion.Location = new System.Drawing.Point(6, 58);
             this.LabelIdOperacion.Name = "LabelIdOperacion";
             this.LabelIdOperacion.Size = new System.Drawing.Size(70, 13);
             this.LabelIdOperacion.TabIndex = 5;
             this.LabelIdOperacion.Text = "ID Operacion";
-            this.LabelIdOperacion.Click += new System.EventHandler(this.label4_Click_1);
             // 
             // BoxTipoFactura
             // 
             this.BoxTipoFactura.FormattingEnabled = true;
-            this.BoxTipoFactura.Location = new System.Drawing.Point(9, 88);
+            this.BoxTipoFactura.Location = new System.Drawing.Point(9, 117);
             this.BoxTipoFactura.Name = "BoxTipoFactura";
             this.BoxTipoFactura.Size = new System.Drawing.Size(67, 21);
             this.BoxTipoFactura.TabIndex = 4;
-            this.BoxTipoFactura.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.BoxTipoFactura.SelectedIndexChanged += new System.EventHandler(this.BoxTipoFactura_SelectedIndexChanged);
             // 
             // LabelTipoFactura
             // 
             this.LabelTipoFactura.AutoSize = true;
-            this.LabelTipoFactura.Location = new System.Drawing.Point(6, 72);
+            this.LabelTipoFactura.Location = new System.Drawing.Point(6, 101);
             this.LabelTipoFactura.Name = "LabelTipoFactura";
             this.LabelTipoFactura.Size = new System.Drawing.Size(46, 13);
             this.LabelTipoFactura.TabIndex = 2;
             this.LabelTipoFactura.Text = " Factura";
-            this.LabelTipoFactura.Click += new System.EventHandler(this.label4_Click);
             // 
             // label1
             // 
@@ -234,7 +233,6 @@ namespace CapaPresentacion
             this.label1.TabIndex = 0;
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.UseMnemonic = false;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel1
             // 
@@ -244,7 +242,6 @@ namespace CapaPresentacion
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(669, 282);
             this.panel1.TabIndex = 4;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // dataGridView1
             // 
@@ -264,6 +261,7 @@ namespace CapaPresentacion
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridView1.Size = new System.Drawing.Size(725, 290);
             this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // GridEstado
             // 
@@ -320,7 +318,24 @@ namespace CapaPresentacion
             this.LabelListadoFacturas.Size = new System.Drawing.Size(153, 20);
             this.LabelListadoFacturas.TabIndex = 5;
             this.LabelListadoFacturas.Text = "Listado De Facturas";
-            this.LabelListadoFacturas.Click += new System.EventHandler(this.label3_Click_4);
+            // 
+            // BoxIdUsuario
+            // 
+            this.BoxIdUsuario.Location = new System.Drawing.Point(10, 31);
+            this.BoxIdUsuario.Name = "BoxIdUsuario";
+            this.BoxIdUsuario.Size = new System.Drawing.Size(186, 20);
+            this.BoxIdUsuario.TabIndex = 17;
+            this.BoxIdUsuario.TextChanged += new System.EventHandler(this.BoxIdUsuario_TextChanged);
+            // 
+            // LabelUsuario
+            // 
+            this.LabelUsuario.AutoSize = true;
+            this.LabelUsuario.Location = new System.Drawing.Point(7, 14);
+            this.LabelUsuario.Name = "LabelUsuario";
+            this.LabelUsuario.Size = new System.Drawing.Size(67, 13);
+            this.LabelUsuario.TabIndex = 16;
+            this.LabelUsuario.Text = "D.N.I Cliente";
+            this.LabelUsuario.Click += new System.EventHandler(this.LabelUsuario_Click);
             // 
             // FormFactura
             // 
@@ -371,5 +386,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn GridNumeroFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn GridMonto;
         private System.Windows.Forms.Label LabelListadoFacturas;
+        private System.Windows.Forms.TextBox BoxIdUsuario;
+        private System.Windows.Forms.Label LabelUsuario;
     }
 }

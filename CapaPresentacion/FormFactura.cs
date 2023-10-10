@@ -7,11 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaPresentacion.Utilidades;
+
+
 
 namespace CapaPresentacion
 {
     public partial class FormFactura : Form
     {
+        Random random = new Random();
+        //OpcionCombo opcionCombo = new OpcionCombo();
+
+
         public FormFactura()
         {
             InitializeComponent();
@@ -20,94 +27,60 @@ namespace CapaPresentacion
         private void FormFactura_Load(object sender, EventArgs e)
         {
 
+
+            string numFactura = Convert.ToString(random.Next(10000000, 99999999));
+            BoxNumeroFactura.Text = numFactura;
+
+            //Box Tipo Factura
+            BoxTipoFactura.Items.Add(new OpcionCombo { Texto = "A", Valor = "A" });
+            BoxTipoFactura.Items.Add(new OpcionCombo { Texto = "B", Valor = "B" });
+            BoxTipoFactura.DisplayMember = "Texto";
+            BoxTipoFactura.ValueMember = "Valor";
+
+            //Box Estado Factura
+            BoxEstado.Items.Add(new OpcionCombo { Texto = "Activo", Valor = "Activo" });
+            BoxEstado.Items.Add(new OpcionCombo { Texto = "Inactivo", Valor = "Inactivo" });
+            BoxEstado.DisplayMember = "Texto";
+            BoxEstado.ValueMember = "Valor";
+
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void LabelUsuario_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void BoxTipoFactura_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void BoxIdUsuario_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void BoxIdOperacion_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void BoxEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void InputFecha_TextChanged(object sender, EventArgs e)
+        private void InputMonto_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label4_Click_1(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelFecha_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click_3(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void BoxNumeroFactura_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -117,7 +90,7 @@ namespace CapaPresentacion
 
         }
 
-        private void label3_Click_4(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
