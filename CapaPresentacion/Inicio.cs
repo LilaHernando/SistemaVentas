@@ -31,11 +31,11 @@ namespace CapaPresentacion
             
         }
 
-        private void AbrirFormulario(IconMenuItem menu, Form formulario)  //Método encargado de Abril el Formulario y marcar el Menu activo
+        private void AbrirFormulario(IconMenuItem menu, Form formulario)  //Método encargado de Abrir el Formulario y marcar el Menu activo
         {
             if (MenuActivo != null) //Preguntamos si hay un Menu ACTIVO, en caso de "True" 
             {
-                MenuActivo.BackColor = Color.White; //Cambiamos el color a Blaco, o sea, NO ACTIVO
+                MenuActivo.BackColor = Color.White; //Cambiamos el color a Blanco, o sea, NO ACTIVO
             }
             menu.BackColor = Color.Silver; //Cambiamos el color del Menu a Silver para marcar el Menu ACTIVO
             MenuActivo = menu; //Asignamos el Menu en el atributo Static MenuActivo
