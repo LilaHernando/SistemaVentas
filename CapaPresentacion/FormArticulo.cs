@@ -72,36 +72,6 @@ namespace CapaPresentacion
 
         }
 
-        private void FormArticulo_Load(object sender, EventArgs e)
-        {
-            //Agregar opciones al ComboBox comboRubro
-            comboRubro.Items.Add(new OpcionCombo() { Valor = 0, Texto = "HELADERAS" });
-            comboRubro.Items.Add(new OpcionCombo() { Valor = 1, Texto = "TELEFONOS" });
-            comboRubro.Items.Add(new OpcionCombo() { Valor = 2, Texto = "COCINAS" });
-            comboRubro.Items.Add(new OpcionCombo() { Valor = 3, Texto = "LAVARROPAS" });
-            comboRubro.Items.Add(new OpcionCombo() { Valor = 4, Texto = "TELEVISORES" });
-
-            // Establecer el valor predeterminado en comboRubro
-            comboRubro.SelectedIndex = 0;
-
-            // Configurar el ComboBox comboRubro
-            comboRubro.DisplayMember = "Texto";
-            comboRubro.ValueMember = "Valor";
-            comboRubro.SelectedIndexChanged += ComboRubro_SelectedIndexChanged;
-            // Agregar opciones al ComboBox comboMarca (inicialmente, según la selección predeterminada)
-            ActualizarComboMarca(0); // Usar 0 como índice predeterminado
-
-            textBoxCodigoMaterial.KeyPress += textBoxCodigoMaterial_TextChanged;
-
-            //List<CE_Articulo> listadoArticulo = new CN_Articulo().Listar(textBoxBuscador.Text);
-            foreach (DataGridViewColumn columna in dataGridArticulo.Columns)
-            {
-                if (columna.Visible == true)
-                {
-
-                }
-            }
-        }
         private void ComboRubro_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Obtener la selección actual del comboRubro
@@ -177,6 +147,46 @@ namespace CapaPresentacion
         private void buttonEditar_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormArticulo_Load_1(object sender, EventArgs e)
+        {
+            //Agregar opciones al ComboBox comboRubro
+            comboRubro.Items.Add(new OpcionCombo() { Valor = 0, Texto = "HELADERAS" });
+            comboRubro.Items.Add(new OpcionCombo() { Valor = 1, Texto = "TELEFONOS" });
+            comboRubro.Items.Add(new OpcionCombo() { Valor = 2, Texto = "COCINAS" });
+            comboRubro.Items.Add(new OpcionCombo() { Valor = 3, Texto = "LAVARROPAS" });
+            comboRubro.Items.Add(new OpcionCombo() { Valor = 4, Texto = "TELEVISORES" });
+
+            // Establecer el valor predeterminado en comboRubro
+            comboRubro.SelectedIndex = 0;
+
+            // Configurar el ComboBox comboRubro
+            comboRubro.DisplayMember = "Texto";
+            comboRubro.ValueMember = "Valor";
+            comboRubro.SelectedIndexChanged += ComboRubro_SelectedIndexChanged;
+            // Agregar opciones al ComboBox comboMarca (inicialmente, según la selección predeterminada)
+            ActualizarComboMarca(0); // Usar 0 como índice predeterminado
+
+            textBoxCodigoMaterial.KeyPress += textBoxCodigoMaterial_TextChanged;
+
+            //List<CE_Articulo> listadoArticulo = new CN_Articulo().Listar(textBoxBuscador.Text);
+            foreach (DataGridViewColumn columna in dataGridArticulo.Columns)
+            {
+                if (columna.Visible == true)
+                {
+
+                }
+            }
+        }
+
+        private void textBoxCosto_TextChanged_1(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada no es un dígito o es el carácter '-' (menos)
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8) // 8 es el código ASCII de la tecla Retroceso (Backspace)
+            {
+                e.Handled = true; // Bloquear la entrada de caracteres no válidos
+            }
         }
     }
 }

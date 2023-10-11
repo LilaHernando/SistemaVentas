@@ -50,6 +50,10 @@ namespace CapaPresentacion
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.labelBuscar = new System.Windows.Forms.Label();
+            this.buttonBuscar = new FontAwesome.Sharp.IconButton();
+            this.buttonLimipiar = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridArticulo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -259,12 +263,63 @@ namespace CapaPresentacion
             this.label2.Text = "Codigo de material:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.textBox1.Location = new System.Drawing.Point(674, 6);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(136, 24);
+            this.textBox1.TabIndex = 18;
+            // 
+            // labelBuscar
+            // 
+            this.labelBuscar.AutoSize = true;
+            this.labelBuscar.BackColor = System.Drawing.Color.DarkRed;
+            this.labelBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.labelBuscar.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelBuscar.Location = new System.Drawing.Point(618, 8);
+            this.labelBuscar.Name = "labelBuscar";
+            this.labelBuscar.Size = new System.Drawing.Size(59, 18);
+            this.labelBuscar.TabIndex = 19;
+            this.labelBuscar.Text = "Buscar:";
+            // 
+            // buttonBuscar
+            // 
+            this.buttonBuscar.CausesValidation = false;
+            this.buttonBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.buttonBuscar.IconColor = System.Drawing.Color.Black;
+            this.buttonBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buttonBuscar.IconSize = 15;
+            this.buttonBuscar.Location = new System.Drawing.Point(816, 6);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(15, 15);
+            this.buttonBuscar.TabIndex = 20;
+            this.buttonBuscar.UseVisualStyleBackColor = true;
+            // 
+            // buttonLimipiar
+            // 
+            this.buttonLimipiar.CausesValidation = false;
+            this.buttonLimipiar.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.buttonLimipiar.IconColor = System.Drawing.Color.Black;
+            this.buttonLimipiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buttonLimipiar.IconSize = 15;
+            this.buttonLimipiar.Location = new System.Drawing.Point(837, 6);
+            this.buttonLimipiar.Name = "buttonLimipiar";
+            this.buttonLimipiar.Size = new System.Drawing.Size(15, 15);
+            this.buttonLimipiar.TabIndex = 21;
+            this.buttonLimipiar.UseVisualStyleBackColor = true;
+            // 
             // FormArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(917, 341);
             this.ControlBox = false;
+            this.Controls.Add(this.buttonLimipiar);
+            this.Controls.Add(this.buttonBuscar);
+            this.Controls.Add(this.labelBuscar);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonRegistrar);
             this.Controls.Add(this.dataGridArticulo);
@@ -284,6 +339,7 @@ namespace CapaPresentacion
             this.Name = "FormArticulo";
             this.ShowIcon = false;
             this.Text = "FormArticulo";
+            this.Load += new System.EventHandler(this.FormArticulo_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridArticulo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -312,5 +368,9 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn MarcaArticulo;
         private System.Windows.Forms.DataGridViewComboBoxColumn Baja;
         private System.Windows.Forms.DataGridViewTextBoxColumn btn_actualizar;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label labelBuscar;
+        private FontAwesome.Sharp.IconButton buttonBuscar;
+        private FontAwesome.Sharp.IconButton buttonLimipiar;
     }
 }
