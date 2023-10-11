@@ -116,13 +116,19 @@ namespace CapaPresentacion
             textBoxCodigoMaterial.KeyPress += textBoxCodigoMaterial_TextChanged;
             textBoxCosto.KeyPress += textBoxCosto_TextChanged;
 
-            //List<CE_Articulo> listadoArticulo = new CN_Articulo().Listar(textBoxBuscador.Text);
-            foreach (DataGridViewColumn columna in dataGridArticulo.Columns)
+            List<CE_Articulo> listadoArticulo = new CN_Articulo().Listar(textBoxBuscador.Text);
+            foreach (CE_Articulo articulo in listadoArticulo)
             {
-                if (columna.Visible == true)
+                dataGridArticulo.Rows.Add(new object[]
                 {
+                    articulo.iden,
+                    articulo.codigoDeMaterial,
+                    articulo.rubro,
+                    articulo.costo,
+                    articulo.marca,
+                    articulo.baja == true ? "Si": "No" 
 
-                }
+                });
             }
         }
 

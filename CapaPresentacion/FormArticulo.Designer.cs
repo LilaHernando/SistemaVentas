@@ -37,23 +37,23 @@ namespace CapaPresentacion
             this.labelSuperior = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridArticulo = new System.Windows.Forms.DataGridView();
-            this.idenArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoDeMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MarcaArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Baja = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.btn_actualizar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonRegistrar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxBuscador = new System.Windows.Forms.TextBox();
             this.labelBuscar = new System.Windows.Forms.Label();
             this.buttonBuscar = new FontAwesome.Sharp.IconButton();
             this.buttonLimipiar = new FontAwesome.Sharp.IconButton();
+            this.idenArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoDeMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MarcaArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_actualizar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridArticulo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,44 +148,6 @@ namespace CapaPresentacion
             this.dataGridArticulo.Size = new System.Drawing.Size(697, 309);
             this.dataGridArticulo.TabIndex = 15;
             // 
-            // idenArticulo
-            // 
-            this.idenArticulo.HeaderText = "";
-            this.idenArticulo.Name = "idenArticulo";
-            this.idenArticulo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.idenArticulo.Visible = false;
-            // 
-            // CodigoDeMaterial
-            // 
-            this.CodigoDeMaterial.HeaderText = "Codigo Material";
-            this.CodigoDeMaterial.Name = "CodigoDeMaterial";
-            // 
-            // rubro
-            // 
-            this.rubro.HeaderText = "Rubro";
-            this.rubro.Name = "rubro";
-            // 
-            // CostoArticulo
-            // 
-            this.CostoArticulo.HeaderText = "Costo";
-            this.CostoArticulo.Name = "CostoArticulo";
-            // 
-            // MarcaArticulo
-            // 
-            this.MarcaArticulo.HeaderText = "Marca";
-            this.MarcaArticulo.Name = "MarcaArticulo";
-            // 
-            // Baja
-            // 
-            this.Baja.HeaderText = "Baja";
-            this.Baja.Name = "Baja";
-            this.Baja.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // btn_actualizar
-            // 
-            this.btn_actualizar.HeaderText = "";
-            this.btn_actualizar.Name = "btn_actualizar";
-            // 
             // buttonEditar
             // 
             this.buttonEditar.Image = global::CapaPresentacion.Properties.Resources.pen;
@@ -262,13 +224,13 @@ namespace CapaPresentacion
             this.label2.Text = "Codigo de material:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // textBoxBuscador
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox1.Location = new System.Drawing.Point(674, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(136, 24);
-            this.textBox1.TabIndex = 18;
+            this.textBoxBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.textBoxBuscador.Location = new System.Drawing.Point(674, 6);
+            this.textBoxBuscador.Name = "textBoxBuscador";
+            this.textBoxBuscador.Size = new System.Drawing.Size(136, 24);
+            this.textBoxBuscador.TabIndex = 18;
             // 
             // labelBuscar
             // 
@@ -309,6 +271,42 @@ namespace CapaPresentacion
             this.buttonLimipiar.TabIndex = 21;
             this.buttonLimipiar.UseVisualStyleBackColor = true;
             // 
+            // idenArticulo
+            // 
+            this.idenArticulo.HeaderText = "Iden";
+            this.idenArticulo.Name = "idenArticulo";
+            this.idenArticulo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // CodigoDeMaterial
+            // 
+            this.CodigoDeMaterial.HeaderText = "Codigo Material";
+            this.CodigoDeMaterial.Name = "CodigoDeMaterial";
+            // 
+            // rubro
+            // 
+            this.rubro.HeaderText = "Rubro";
+            this.rubro.Name = "rubro";
+            // 
+            // CostoArticulo
+            // 
+            this.CostoArticulo.HeaderText = "Costo";
+            this.CostoArticulo.Name = "CostoArticulo";
+            // 
+            // MarcaArticulo
+            // 
+            this.MarcaArticulo.HeaderText = "Marca";
+            this.MarcaArticulo.Name = "MarcaArticulo";
+            // 
+            // Baja
+            // 
+            this.Baja.HeaderText = "Baja";
+            this.Baja.Name = "Baja";
+            // 
+            // btn_actualizar
+            // 
+            this.btn_actualizar.HeaderText = "";
+            this.btn_actualizar.Name = "btn_actualizar";
+            // 
             // FormArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,7 +316,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.buttonLimipiar);
             this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.labelBuscar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxBuscador);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonRegistrar);
             this.Controls.Add(this.dataGridArticulo);
@@ -360,16 +358,16 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridView dataGridArticulo;
         private System.Windows.Forms.Button buttonRegistrar;
         private System.Windows.Forms.Button buttonEditar;
+        private System.Windows.Forms.TextBox textBoxBuscador;
+        private System.Windows.Forms.Label labelBuscar;
+        private FontAwesome.Sharp.IconButton buttonBuscar;
+        private FontAwesome.Sharp.IconButton buttonLimipiar;
         private System.Windows.Forms.DataGridViewTextBoxColumn idenArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoDeMaterial;
         private System.Windows.Forms.DataGridViewTextBoxColumn rubro;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn MarcaArticulo;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Baja;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Baja;
         private System.Windows.Forms.DataGridViewTextBoxColumn btn_actualizar;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label labelBuscar;
-        private FontAwesome.Sharp.IconButton buttonBuscar;
-        private FontAwesome.Sharp.IconButton buttonLimipiar;
     }
 }

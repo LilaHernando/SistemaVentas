@@ -15,12 +15,8 @@ namespace CapaNegocio
 
         public List<CE_Articulo> Listar(string parametros)
         {
-            return null;
-            //if(parametros.)
-            //{
-
-            //}
-            //return cdArticulo.Listar();
+           
+            return cdArticulo.Listar(parametros);
         }
 
     }
