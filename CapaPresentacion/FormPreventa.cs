@@ -27,7 +27,7 @@ namespace CapaPresentacion
             foreach (CE_Preventa p in listPreventas)
             {
                 dgvDataPreventa.Rows.Add(new Object[]{
-                    p.numero,p.fecha,p.monto,p.id_cliente,p.id_sucursal,p.idOperacion,p.baja});
+                    p.numero,p.fecha,"$"+p.monto,p.id_cliente,p.id_sucursal,p.idOperacion,p.baja});
             }
             }
         
