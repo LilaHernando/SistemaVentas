@@ -16,5 +16,7 @@ namespace CapaEntidad
         public int numero { get; set; }
         public string tipoRemito { get; set; }
         public DateTime fechadecarga { get; set; }
+            //Falta agregar los atributos objeto, que me permiten traer los atributos de los otros modulos generados por los chicos y hacer uso de sus atributos.
+
     }
 }
