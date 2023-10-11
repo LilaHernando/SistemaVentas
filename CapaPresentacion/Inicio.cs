@@ -80,7 +80,7 @@ namespace CapaPresentacion
 
         private void menuFacturas_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new Form());
+            AbrirFormulario((IconMenuItem)sender, new FormFactura());
 
         }
        
@@ -90,14 +90,6 @@ namespace CapaPresentacion
             AbrirFormulario((IconMenuItem)sender, new Form());
         }
 
-        private void SubVerFacturas_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(menuFacturas, new FormVerFacturas());
-        }
-
-        private void SubNuevaFactura_Click(object sender, EventArgs e)
-        {
-             AbrirFormulario(menuFacturas, new FormFactura());
-        }
+     
     }
 }

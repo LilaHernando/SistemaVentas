@@ -7,7 +7,7 @@ using CapaEntidad;
 
 namespace CapaDatos
 {
-    class CD_Factura
+    public class CD_Factura
     {
         //public List<CE_Factura> ObtenerFacturas
         //{

@@ -37,8 +37,6 @@ namespace CapaPresentacion
             this.menuArticulos = new FontAwesome.Sharp.IconMenuItem();
             this.menuPreventas = new FontAwesome.Sharp.IconMenuItem();
             this.menuFacturas = new FontAwesome.Sharp.IconMenuItem();
-            this.SubNuevaFactura = new FontAwesome.Sharp.IconMenuItem();
-            this.SubVerFacturas = new FontAwesome.Sharp.IconMenuItem();
             this.menuRemitos = new FontAwesome.Sharp.IconMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.textUsuarioActual = new System.Windows.Forms.Label();
@@ -151,9 +149,6 @@ namespace CapaPresentacion
             // menuFacturas
             // 
             this.menuFacturas.AutoSize = false;
-            this.menuFacturas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SubNuevaFactura,
-            this.SubVerFacturas});
             this.menuFacturas.ForeColor = System.Drawing.Color.Black;
             this.menuFacturas.IconChar = FontAwesome.Sharp.IconChar.FileText;
             this.menuFacturas.IconColor = System.Drawing.Color.Black;
@@ -165,26 +160,6 @@ namespace CapaPresentacion
             this.menuFacturas.Text = "Facturas";
             this.menuFacturas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuFacturas.Click += new System.EventHandler(this.menuFacturas_Click);
-            // 
-            // SubNuevaFactura
-            // 
-            this.SubNuevaFactura.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.SubNuevaFactura.IconColor = System.Drawing.Color.Black;
-            this.SubNuevaFactura.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SubNuevaFactura.Name = "SubNuevaFactura";
-            this.SubNuevaFactura.Size = new System.Drawing.Size(150, 22);
-            this.SubNuevaFactura.Text = "Nueva Factura";
-            this.SubNuevaFactura.Click += new System.EventHandler(this.SubNuevaFactura_Click);
-            // 
-            // SubVerFacturas
-            // 
-            this.SubVerFacturas.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.SubVerFacturas.IconColor = System.Drawing.Color.Black;
-            this.SubVerFacturas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SubVerFacturas.Name = "SubVerFacturas";
-            this.SubVerFacturas.Size = new System.Drawing.Size(150, 22);
-            this.SubVerFacturas.Text = "Ver Facturas";
-            this.SubVerFacturas.Click += new System.EventHandler(this.SubVerFacturas_Click);
             // 
             // menuRemitos
             // 
@@ -274,8 +249,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label textUsuarioActual;
         private System.Windows.Forms.Panel contenedor;
-        private FontAwesome.Sharp.IconMenuItem SubNuevaFactura;
-        private FontAwesome.Sharp.IconMenuItem SubVerFacturas;
     }
 }
 

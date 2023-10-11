@@ -44,55 +44,5 @@ namespace CapaPresentacion
             BoxEstado.ValueMember = "Valor";
 
         }
-
-        private void LabelUsuario_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BoxTipoFactura_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BoxIdUsuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BoxIdOperacion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BoxEstado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void InputMonto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BoxNumeroFactura_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }
