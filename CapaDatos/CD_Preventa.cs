@@ -27,23 +27,22 @@ namespace CapaDatos
                         while (dr.Read()) {
                             listPreventas.Add(new CE_Preventa()
                             {
-                                id = Convert.ToInt32(dr["iden"]),
-                                fecha = Convert.ToDateTime(dr["fechadecarga"]),
-                                numero = Convert.ToInt32(dr["numero"]),
-                                monto = Convert.ToDecimal(dr["monto"]),
-                                baja = Convert.ToInt32(dr["baja"]),
-                                idOperacion = Convert.ToInt32(dr["idOperacion"]),
-                                id_sucursal = Convert.ToInt32(dr["GN_Sucursal_iden"]),
-                                id_cliente= Convert.ToInt32(dr["GN_Cliente_iden"]),
+                                IdPreventa = Convert.ToInt32(dr["iden"]),
+                                Fecha = Convert.ToDateTime(dr["fechadecarga"]),
+                                Numero = Convert.ToInt32(dr["numero"]),
+                                Monto = Convert.ToDecimal(dr["monto"]),
+                                Baja = Convert.ToInt32(dr["baja"]),
+                                IdOperacion = Convert.ToInt32(dr["idOperacion"]),
+                                CE_Surcusal = new CE_Sucursal() {Descripcion = Convert.ToString(dr["descripcion"]) },
+                                CE_Cliente = new CE_Cliente {nombre = Convert.ToString(dr["nombre"]), apellido = Convert.ToString(dr["apellido"])},
                             });
                         }
                     }
-
+                    onConexion.Close();
                 }
                 catch (SqlException e) {
                     Console.WriteLine("Error SQL: " + e);   
                 }
-                
                 return listPreventas;
             }
         
