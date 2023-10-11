@@ -9,7 +9,7 @@ namespace CapaEntidad
     public class CE_Sucursal
     {
         public int Id { get; set; }
-        public int Descripcion { get; set; }
+        public string Descripcion { get; set; }
         public string Telefono { get; set; }
     }
 }
