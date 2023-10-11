@@ -7,7 +7,7 @@ using CapaEntidad;
 
 namespace CapaNegocio
 {
-    public clasee CN_Factura
+    public class CN_Factura
     {
         //public List<CE_Factura> ListarFacturas
         //{ Lógica para listar facturas }
