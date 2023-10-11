@@ -98,6 +98,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{3ae907f2-72a5-473b-961f-6e2fcfc963b3}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
       <Project>{d78026ad-21c2-4e6b-acc9-80f347f85f95}</Project>
       <Name>CapaEntidad</Name>
@@ -142,6 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\boolean.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -18,10 +18,9 @@ namespace CapaDatos
             using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))
             {
                 try {
-                    String queryListar = "SELECT iden,fechadecarga,numero,monto,baja,idOperacion,GN_Sucursal_iden,GN_Cliente_iden"
-                            + " FROM PVTA_Preventa";
-                    SqlCommand cmd = new SqlCommand(queryListar, onConexion);
-                    cmd.CommandType = CommandType.Text;
+                    SqlCommand cmd = new SqlCommand("PVTA_List_Preventa_SEL", onConexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
                     onConexion.Open();
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
@@ -44,13 +43,7 @@ namespace CapaDatos
                 catch (SqlException e) {
                     Console.WriteLine("Error SQL: " + e);   
                 }
-                finally
-                {
-                    if (onConexion.State != ConnectionState.Closed)
-                    {
-                        onConexion.Close();
-                    }
-                }
+                
                 return listPreventas;
             }
         

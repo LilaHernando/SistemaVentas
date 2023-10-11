@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaNegocio;
+using CapaEntidad;
+using CapaDatos;
 
 namespace CapaPresentacion
 {
@@ -17,9 +20,16 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void FormPreventa_Load(object sender, EventArgs e)
         {
-
-        }
+            /*Listar Preventas*/
+            List<CE_Preventa> listPreventas = new CN_Preventa().listar_Preventas();
+            foreach (CE_Preventa p in listPreventas)
+            {
+                dgvDataPreventa.Rows.Add(new Object[]{
+                    p.numero,p.fecha,p.monto,p.id_cliente,p.id_sucursal,p.idOperacion,p.baja});
+            }
+            }
+        
     }
 }
