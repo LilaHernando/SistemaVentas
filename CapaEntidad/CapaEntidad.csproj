@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CE_Sucursal.cs" />
     <Compile Include="CE_ItemPreventaPorArticulo.cs" />
     <Compile Include="CE_Preventa.cs" />
     <Compile Include="Cliente.cs" />

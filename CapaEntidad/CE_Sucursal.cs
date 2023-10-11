@@ -11,6 +11,5 @@ namespace CapaEntidad
         public int Id { get; set; }
         public int Descripcion { get; set; }
         public string Telefono { get; set; }
-
     }
 }
