@@ -35,6 +35,13 @@ namespace CapaPresentacion
             this.cbbCliente = new System.Windows.Forms.ComboBox();
             this.cbbSucursal = new System.Windows.Forms.ComboBox();
             this.dgvDataPreventa = new System.Windows.Forms.DataGridView();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numeroOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbbEstado = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,13 +58,6 @@ namespace CapaPresentacion
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numeroOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPreventa)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -119,6 +119,42 @@ namespace CapaPresentacion
             this.dgvDataPreventa.Size = new System.Drawing.Size(744, 334);
             this.dgvDataPreventa.TabIndex = 12;
             // 
+            // Numero
+            // 
+            this.Numero.HeaderText = "N° Preventa";
+            this.Numero.Name = "Numero";
+            this.Numero.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha De Carga";
+            this.Fecha.Name = "Fecha";
+            // 
+            // Monto
+            // 
+            this.Monto.HeaderText = "Monto";
+            this.Monto.Name = "Monto";
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            // 
+            // Sucursal
+            // 
+            this.Sucursal.HeaderText = "Sucursal";
+            this.Sucursal.Name = "Sucursal";
+            // 
+            // numeroOperacion
+            // 
+            this.numeroOperacion.HeaderText = "N° Operacion";
+            this.numeroOperacion.Name = "numeroOperacion";
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
+            // 
             // cbbEstado
             // 
             this.cbbEstado.AccessibleDescription = "Clientes";
@@ -159,7 +195,7 @@ namespace CapaPresentacion
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(519, 32);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(744, 51);
+            this.panel2.Size = new System.Drawing.Size(839, 51);
             this.panel2.TabIndex = 20;
             // 
             // label8
@@ -168,7 +204,7 @@ namespace CapaPresentacion
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label8.Image = global::CapaPresentacion.Properties.Resources.find;
             this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label8.Location = new System.Drawing.Point(453, 16);
+            this.label8.Location = new System.Drawing.Point(545, 16);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(101, 22);
             this.label8.TabIndex = 15;
@@ -178,7 +214,7 @@ namespace CapaPresentacion
             // txtBuscar
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(560, 16);
+            this.txtBuscar.Location = new System.Drawing.Point(652, 16);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(172, 22);
             this.txtBuscar.TabIndex = 14;
@@ -297,45 +333,9 @@ namespace CapaPresentacion
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label9.Location = new System.Drawing.Point(1196, 8);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(135, 13);
+            this.label9.Size = new System.Drawing.Size(141, 13);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Administración de Prevetas";
-            // 
-            // Numero
-            // 
-            this.Numero.HeaderText = "N° Preventa";
-            this.Numero.Name = "Numero";
-            this.Numero.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha De Carga";
-            this.Fecha.Name = "Fecha";
-            // 
-            // Monto
-            // 
-            this.Monto.HeaderText = "Monto";
-            this.Monto.Name = "Monto";
-            // 
-            // Cliente
-            // 
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.Name = "Cliente";
-            // 
-            // Sucursal
-            // 
-            this.Sucursal.HeaderText = "Sucursal";
-            this.Sucursal.Name = "Sucursal";
-            // 
-            // numeroOperacion
-            // 
-            this.numeroOperacion.HeaderText = "N° Operacion";
-            this.numeroOperacion.Name = "numeroOperacion";
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
+            this.label9.Text = "Administración de Preventas";
             // 
             // FormPreventa
             // 
