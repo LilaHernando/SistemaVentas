@@ -29,6 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.inputNombre = new System.Windows.Forms.TextBox();
@@ -46,6 +47,14 @@ namespace CapaPresentacion
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.inputBuscar = new System.Windows.Forms.TextBox();
+            this.comboBuscar = new System.Windows.Forms.ComboBox();
+            this.btnBuscar = new FontAwesome.Sharp.IconButton();
+            this.btnLimpiarBuscar = new FontAwesome.Sharp.IconButton();
+            this.btnGuardar = new FontAwesome.Sharp.IconButton();
+            this.btnLimpiar = new FontAwesome.Sharp.IconButton();
+            this.idUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,17 +63,7 @@ namespace CapaPresentacion
             this.idRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clave = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.confClave = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.inputBuscar = new System.Windows.Forms.TextBox();
-            this.comboBuscar = new System.Windows.Forms.ComboBox();
-            this.btnBuscar = new FontAwesome.Sharp.IconButton();
-            this.btnLimpiarBuscar = new FontAwesome.Sharp.IconButton();
-            this.btnLimpiar = new FontAwesome.Sharp.IconButton();
-            this.btnEditar = new FontAwesome.Sharp.IconButton();
-            this.btnGuardar = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,9 +113,11 @@ namespace CapaPresentacion
             // inputDNI
             // 
             this.inputDNI.Location = new System.Drawing.Point(18, 117);
+            this.inputDNI.MaxLength = 8;
             this.inputDNI.Name = "inputDNI";
             this.inputDNI.Size = new System.Drawing.Size(185, 20);
             this.inputDNI.TabIndex = 10;
+            this.inputDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputDNI_KeyPress);
             // 
             // label6
             // 
@@ -132,6 +133,7 @@ namespace CapaPresentacion
             // 
             this.inputClave.Location = new System.Drawing.Point(18, 211);
             this.inputClave.Name = "inputClave";
+            this.inputClave.PasswordChar = '*';
             this.inputClave.Size = new System.Drawing.Size(185, 20);
             this.inputClave.TabIndex = 12;
             // 
@@ -149,6 +151,7 @@ namespace CapaPresentacion
             // 
             this.inputConfClave.Location = new System.Drawing.Point(18, 258);
             this.inputConfClave.Name = "inputConfClave";
+            this.inputConfClave.PasswordChar = '*';
             this.inputConfClave.Size = new System.Drawing.Size(185, 20);
             this.inputConfClave.TabIndex = 14;
             // 
@@ -216,9 +219,12 @@ namespace CapaPresentacion
             // 
             // dgvData
             // 
+            this.dgvData.AllowUserToAddRows = false;
+            this.dgvData.AllowUserToDeleteRows = false;
             this.dgvData.BackgroundColor = System.Drawing.Color.White;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idUsuario,
             this.nombre,
             this.apellido,
             this.dni,
@@ -227,88 +233,14 @@ namespace CapaPresentacion
             this.idRol,
             this.rol,
             this.clave,
-            this.confClave,
-            this.btnSeleccionar,
-            this.btnEliminar});
+            this.btnSeleccionar});
             this.dgvData.Location = new System.Drawing.Point(232, 60);
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
             this.dgvData.Size = new System.Drawing.Size(669, 265);
             this.dgvData.TabIndex = 23;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // apellido
-            // 
-            this.apellido.HeaderText = "Apellido";
-            this.apellido.Name = "apellido";
-            this.apellido.ReadOnly = true;
-            // 
-            // dni
-            // 
-            this.dni.HeaderText = "DNI";
-            this.dni.Name = "dni";
-            this.dni.ReadOnly = true;
-            // 
-            // valorEstado
-            // 
-            this.valorEstado.HeaderText = "Valor Estado";
-            this.valorEstado.Name = "valorEstado";
-            this.valorEstado.ReadOnly = true;
-            this.valorEstado.Visible = false;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            // 
-            // idRol
-            // 
-            this.idRol.HeaderText = "ID Rol";
-            this.idRol.Name = "idRol";
-            this.idRol.ReadOnly = true;
-            this.idRol.Visible = false;
-            // 
-            // rol
-            // 
-            this.rol.HeaderText = "Rol";
-            this.rol.Name = "rol";
-            this.rol.ReadOnly = true;
-            // 
-            // clave
-            // 
-            this.clave.HeaderText = "Clave";
-            this.clave.Name = "clave";
-            this.clave.ReadOnly = true;
-            this.clave.Visible = false;
-            // 
-            // confClave
-            // 
-            this.confClave.HeaderText = "Confirmar Clave";
-            this.confClave.Name = "confClave";
-            this.confClave.ReadOnly = true;
-            this.confClave.Visible = false;
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 25;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.HeaderText = "";
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.ReadOnly = true;
-            this.btnEliminar.Width = 25;
+            this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
+            this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
             // 
             // label2
             // 
@@ -373,41 +305,6 @@ namespace CapaPresentacion
             this.btnLimpiarBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLimpiarBuscar.UseVisualStyleBackColor = false;
             // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.ArrowRotateBackward;
-            this.btnLimpiar.IconColor = System.Drawing.Color.White;
-            this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnLimpiar.IconSize = 38;
-            this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpiar.Location = new System.Drawing.Point(174, 296);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(29, 29);
-            this.btnLimpiar.TabIndex = 21;
-            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
-            this.btnEditar.IconColor = System.Drawing.Color.White;
-            this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnEditar.IconSize = 22;
-            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar.Location = new System.Drawing.Point(96, 296);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 29);
-            this.btnEditar.TabIndex = 20;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEditar.UseVisualStyleBackColor = false;
-            // 
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.MediumSeaGreen;
@@ -420,11 +317,104 @@ namespace CapaPresentacion
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.Location = new System.Drawing.Point(18, 296);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 29);
+            this.btnGuardar.Size = new System.Drawing.Size(90, 29);
             this.btnGuardar.TabIndex = 19;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.Crimson;
+            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnLimpiar.IconColor = System.Drawing.Color.White;
+            this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnLimpiar.IconSize = 22;
+            this.btnLimpiar.Location = new System.Drawing.Point(114, 296);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(89, 29);
+            this.btnLimpiar.TabIndex = 21;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // idUsuario
+            // 
+            this.idUsuario.HeaderText = "ID Usuario";
+            this.idUsuario.Name = "idUsuario";
+            this.idUsuario.ReadOnly = true;
+            this.idUsuario.Visible = false;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 200;
+            // 
+            // apellido
+            // 
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.Name = "apellido";
+            this.apellido.ReadOnly = true;
+            this.apellido.Width = 200;
+            // 
+            // dni
+            // 
+            this.dni.HeaderText = "DNI";
+            this.dni.Name = "dni";
+            this.dni.ReadOnly = true;
+            // 
+            // valorEstado
+            // 
+            this.valorEstado.HeaderText = "Valor Estado";
+            this.valorEstado.Name = "valorEstado";
+            this.valorEstado.ReadOnly = true;
+            this.valorEstado.Visible = false;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            // 
+            // idRol
+            // 
+            this.idRol.HeaderText = "ID Rol";
+            this.idRol.Name = "idRol";
+            this.idRol.ReadOnly = true;
+            this.idRol.Visible = false;
+            // 
+            // rol
+            // 
+            this.rol.HeaderText = "Rol";
+            this.rol.Name = "rol";
+            this.rol.ReadOnly = true;
+            this.rol.Width = 200;
+            // 
+            // clave
+            // 
+            this.clave.HeaderText = "Clave";
+            this.clave.Name = "clave";
+            this.clave.ReadOnly = true;
+            this.clave.Visible = false;
+            // 
+            // btnSeleccionar
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle2;
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 28;
             // 
             // FormUsuario
             // 
@@ -439,7 +429,6 @@ namespace CapaPresentacion
             this.Controls.Add(this.dgvData);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.comboEstado);
             this.Controls.Add(this.label10);
@@ -457,7 +446,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Name = "FormUsuario";
-            this.Text = "FormUsuario";
+            this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.FormUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
@@ -482,8 +471,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.ComboBox comboEstado;
         private System.Windows.Forms.Label label10;
         private FontAwesome.Sharp.IconButton btnGuardar;
-        private FontAwesome.Sharp.IconButton btnEditar;
-        private FontAwesome.Sharp.IconButton btnLimpiar;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dgvData;
         private FontAwesome.Sharp.IconButton btnLimpiarBuscar;
@@ -491,6 +478,8 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox inputBuscar;
         private System.Windows.Forms.ComboBox comboBuscar;
+        private FontAwesome.Sharp.IconButton btnLimpiar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn dni;
@@ -499,8 +488,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn idRol;
         private System.Windows.Forms.DataGridViewTextBoxColumn rol;
         private System.Windows.Forms.DataGridViewTextBoxColumn clave;
-        private System.Windows.Forms.DataGridViewTextBoxColumn confClave;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
-        private System.Windows.Forms.DataGridViewButtonColumn btnEliminar;
     }
 }

@@ -40,13 +40,20 @@ namespace CapaPresentacion
             }
             else if(objUsuario != null) //Si la busqueda arroja distinto de nulo, significa que se encontro una coincidencia
             {
-                Inicio inicio = new Inicio(objUsuario); //Se instancia el Formulario Inicio y le pasamos por parametro el Usuario logeado
+                if (objUsuario.Estado != true) //Preguntamos si el Usuario esta INACTIVO
+                {
+                    MessageBox.Show("Usuario INACTIVO", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else //Si esta ACTIVO se logea
+                {
+                    Inicio inicio = new Inicio(objUsuario); //Se instancia el Formulario Inicio y le pasamos por parametro el Usuario logeado
 
-                inicio.Show(); //Mostramos Inicio
+                    inicio.Show(); //Mostramos Inicio
 
-                this.Hide(); //Ocultamos Login
+                    this.Hide(); //Ocultamos Login
 
-                inicio.FormClosing += Form_Closing; //Añadimos el metodo Form_Closing al Formulario Inicio y solo se ejecuta cuando se cierra el mismo
+                    inicio.FormClosing += Form_Closing; //Añadimos el metodo Form_Closing al Formulario Inicio y solo se ejecuta cuando se cierra el mismo
+                }
             }
             else //Caso de no encontrar un coincidencia, lo notificamos...
             {
@@ -62,6 +69,14 @@ namespace CapaPresentacion
             inputClave.Text = "";
 
             this.Show(); //Se muestra el Login
+        }
+
+        private void inputUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

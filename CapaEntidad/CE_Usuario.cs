@@ -14,6 +14,6 @@ namespace CapaEntidad
         public string Apellido { get; set; }
         public string Dni { get; set; }
         public string Clave { get; set; }
-        public int Estado { get; set; }
+        public bool Estado { get; set; }
     }
 }
