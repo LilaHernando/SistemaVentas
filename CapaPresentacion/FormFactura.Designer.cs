@@ -31,6 +31,9 @@ namespace CapaPresentacion
         {
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.SearchBtn = new FontAwesome.Sharp.IconButton();
+            this.BoxIdUsuario = new System.Windows.Forms.TextBox();
+            this.LabelUsuario = new System.Windows.Forms.Label();
             this.BoxNumeroFactura = new System.Windows.Forms.TextBox();
             this.LabelNumeroFactura = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -54,8 +57,6 @@ namespace CapaPresentacion
             this.GridNumeroFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GridMonto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LabelListadoFacturas = new System.Windows.Forms.Label();
-            this.BoxIdUsuario = new System.Windows.Forms.TextBox();
-            this.LabelUsuario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -76,6 +77,7 @@ namespace CapaPresentacion
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox1.Controls.Add(this.SearchBtn);
             this.groupBox1.Controls.Add(this.BoxIdUsuario);
             this.groupBox1.Controls.Add(this.LabelUsuario);
             this.groupBox1.Controls.Add(this.BoxNumeroFactura);
@@ -97,6 +99,37 @@ namespace CapaPresentacion
             this.groupBox1.Size = new System.Drawing.Size(202, 292);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // SearchBtn
+            // 
+            this.SearchBtn.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.SearchBtn.IconColor = System.Drawing.Color.Maroon;
+            this.SearchBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SearchBtn.IconSize = 20;
+            this.SearchBtn.Location = new System.Drawing.Point(147, 26);
+            this.SearchBtn.Name = "SearchBtn";
+            this.SearchBtn.Size = new System.Drawing.Size(47, 29);
+            this.SearchBtn.TabIndex = 18;
+            this.SearchBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SearchBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.SearchBtn.UseVisualStyleBackColor = true;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
+            // 
+            // BoxIdUsuario
+            // 
+            this.BoxIdUsuario.Location = new System.Drawing.Point(10, 31);
+            this.BoxIdUsuario.Name = "BoxIdUsuario";
+            this.BoxIdUsuario.Size = new System.Drawing.Size(129, 20);
+            this.BoxIdUsuario.TabIndex = 17;
+            // 
+            // LabelUsuario
+            // 
+            this.LabelUsuario.AutoSize = true;
+            this.LabelUsuario.Location = new System.Drawing.Point(7, 14);
+            this.LabelUsuario.Name = "LabelUsuario";
+            this.LabelUsuario.Size = new System.Drawing.Size(67, 13);
+            this.LabelUsuario.TabIndex = 16;
+            this.LabelUsuario.Text = "D.N.I Cliente";
             // 
             // BoxNumeroFactura
             // 
@@ -227,6 +260,8 @@ namespace CapaPresentacion
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -240,6 +275,7 @@ namespace CapaPresentacion
             this.GridMonto});
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridView1.Size = new System.Drawing.Size(725, 290);
             this.dataGridView1.TabIndex = 4;
@@ -299,22 +335,6 @@ namespace CapaPresentacion
             this.LabelListadoFacturas.Size = new System.Drawing.Size(153, 20);
             this.LabelListadoFacturas.TabIndex = 5;
             this.LabelListadoFacturas.Text = "Listado De Facturas";
-            // 
-            // BoxIdUsuario
-            // 
-            this.BoxIdUsuario.Location = new System.Drawing.Point(10, 31);
-            this.BoxIdUsuario.Name = "BoxIdUsuario";
-            this.BoxIdUsuario.Size = new System.Drawing.Size(186, 20);
-            this.BoxIdUsuario.TabIndex = 17;
-            // 
-            // LabelUsuario
-            // 
-            this.LabelUsuario.AutoSize = true;
-            this.LabelUsuario.Location = new System.Drawing.Point(7, 14);
-            this.LabelUsuario.Name = "LabelUsuario";
-            this.LabelUsuario.Size = new System.Drawing.Size(67, 13);
-            this.LabelUsuario.TabIndex = 16;
-            this.LabelUsuario.Text = "D.N.I Cliente";
             // 
             // label1
             // 
@@ -378,5 +398,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.TextBox BoxIdUsuario;
         private System.Windows.Forms.Label LabelUsuario;
         private System.Windows.Forms.Label label1;
+        private FontAwesome.Sharp.IconButton SearchBtn;
     }
 }

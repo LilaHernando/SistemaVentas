@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaPresentacion.Modales;
 using CapaPresentacion.Utilidades;
+using CapaNegocio;
 
 
 
@@ -22,6 +24,23 @@ namespace CapaPresentacion
         public FormFactura()
         {
             InitializeComponent();
+        }
+        private void ListarFacturas(int dni)
+        {
+
+            ListaFacturas = new CN_Factura().ListarFacturas();
+
+            foreach (CE_Cliente cliente in ListaClientes)
+            {
+                GridClientes.Rows.Add(new object[] {
+
+                    cliente.Id,
+                    cliente.Dni,
+                    cliente.Nombre,
+                    cliente.Apellido,
+                });
+            }
+
         }
 
         private void FormFactura_Load(object sender, EventArgs e)
@@ -43,6 +62,20 @@ namespace CapaPresentacion
             BoxEstado.DisplayMember = "Texto";
             BoxEstado.ValueMember = "Valor";
 
+        }
+
+        private void SearchBtn_Click(object sender, EventArgs e)
+        {
+            using (var modal = new MD_Cliente())
+            {
+                var result = modal.ShowDialog();
+                 
+                if (result == DialogResult.OK)
+                {
+                    BoxIdUsuario.Text = modal._Cliente.Dni;
+                }
+
+            }
         }
     }
 }
