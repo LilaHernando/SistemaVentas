@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CN_Cliente.cs" />
-    <Compile Include="CN_Factura.cs" />
     <Compile Include="CN_Preventa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

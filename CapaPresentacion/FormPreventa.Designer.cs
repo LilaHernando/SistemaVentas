@@ -32,7 +32,6 @@ namespace CapaPresentacion
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPreventa));
             this.txtDate = new System.Windows.Forms.DateTimePicker();
             this.txtMonto = new System.Windows.Forms.TextBox();
-            this.cbbCliente = new System.Windows.Forms.ComboBox();
             this.cbbSucursal = new System.Windows.Forms.ComboBox();
             this.dgvDataPreventa = new System.Windows.Forms.DataGridView();
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +48,10 @@ namespace CapaPresentacion
             this.label8 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtCliente = new System.Windows.Forms.TextBox();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
@@ -56,8 +59,6 @@ namespace CapaPresentacion
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPreventa)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -81,16 +82,7 @@ namespace CapaPresentacion
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(279, 22);
             this.txtMonto.TabIndex = 7;
-            // 
-            // cbbCliente
-            // 
-            this.cbbCliente.AccessibleDescription = "Clientes";
-            this.cbbCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbCliente.FormattingEnabled = true;
-            this.cbbCliente.Location = new System.Drawing.Point(135, 232);
-            this.cbbCliente.Name = "cbbCliente";
-            this.cbbCliente.Size = new System.Drawing.Size(279, 24);
-            this.cbbCliente.TabIndex = 8;
+            this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             // 
             // cbbSucursal
             // 
@@ -104,6 +96,8 @@ namespace CapaPresentacion
             // 
             // dgvDataPreventa
             // 
+            this.dgvDataPreventa.AllowUserToAddRows = false;
+            this.dgvDataPreventa.AllowUserToDeleteRows = false;
             this.dgvDataPreventa.ColumnHeadersHeight = 30;
             this.dgvDataPreventa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDataPreventa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -232,6 +226,44 @@ namespace CapaPresentacion
             this.label5.Text = "Listado de Preventas";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.DarkRed;
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Location = new System.Drawing.Point(12, 481);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1346, 28);
+            this.panel3.TabIndex = 21;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label9.Location = new System.Drawing.Point(1196, 8);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(141, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Administración de Preventas";
+            // 
+            // txtCliente
+            // 
+            this.txtCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCliente.Location = new System.Drawing.Point(135, 232);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Size = new System.Drawing.Size(279, 22);
+            this.txtCliente.TabIndex = 22;
+            // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.Image = global::CapaPresentacion.Properties.Resources.find;
+            this.btnBuscarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(420, 228);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(35, 32);
+            this.btnBuscarCliente.TabIndex = 23;
+            this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
+            // 
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -318,31 +350,14 @@ namespace CapaPresentacion
             this.label1.Text = "Fecha ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.DarkRed;
-            this.panel3.Controls.Add(this.label9);
-            this.panel3.Location = new System.Drawing.Point(12, 481);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1346, 28);
-            this.panel3.TabIndex = 21;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label9.Location = new System.Drawing.Point(1196, 8);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(141, 13);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Administración de Preventas";
-            // 
             // FormPreventa
             // 
             this.AccessibleName = "";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1355, 511);
+            this.Controls.Add(this.btnBuscarCliente);
+            this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -354,7 +369,6 @@ namespace CapaPresentacion
             this.Controls.Add(this.cbbSucursal);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.cbbCliente);
             this.Controls.Add(this.txtMonto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDate);
@@ -380,7 +394,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.DateTimePicker txtDate;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMonto;
-        private System.Windows.Forms.ComboBox cbbCliente;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbbSucursal;
@@ -404,5 +417,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Sucursal;
         private System.Windows.Forms.DataGridViewTextBoxColumn numeroOperacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.TextBox txtCliente;
+        private System.Windows.Forms.Button btnBuscarCliente;
     }
 }

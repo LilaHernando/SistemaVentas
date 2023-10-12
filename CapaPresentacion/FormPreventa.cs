@@ -10,11 +10,18 @@ using System.Windows.Forms;
 using CapaNegocio;
 using CapaEntidad;
 using CapaDatos;
+using FontAwesome.Sharp;
+using CapaPresentacion.Modales;
+using CapaPresentacion.Utilidades;
 
 namespace CapaPresentacion
 {
     public partial class FormPreventa : Form
     {
+        private bool addingDollarSign = true;
+        private static IconMenuItem MenuActivo = null; //Atributo de tipo Static que va a almacenar el Menu seleccionado por el Usuario
+        private static Form FormActivo = null; //Atributo de tipo Static que va a almacenar el Formulario seleccionado por el Usuario respecto del Menu
+
         public FormPreventa()
         {
             InitializeComponent();
@@ -34,13 +41,57 @@ namespace CapaPresentacion
                     p.Numero,
                     fechaFormateada,
                     "$"+p.Monto,
-                    p.CE_Cliente.nombre +" "+p.CE_Cliente.apellido,
+                    p.CE_Cliente.Nombre +" "+p.CE_Cliente.Apellido,
                     p.CE_Surcusal.Descripcion,
                     p.IdOperacion,
                     estado
                 });
+
+                cbbSucursal.Items.Add(new OpcionCombo() { Valor = p.CE_Surcusal.Id, Texto = p.CE_Surcusal.Descripcion });
+                cbbSucursal.DisplayMember = "Texto";
+                cbbSucursal.ValueMember = "Valor";
+                cbbSucursal.SelectedIndex = 0;
             }
         }
-        
+
+        private void btnBuscarCliente_Click(object sender, EventArgs e)
+        {
+            using (var modal = new MD_Cliente())
+            {
+                var result = modal.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    txtCliente.Text = modal._Cliente.Nombre+" "+modal._Cliente.Apellido;
+                }
+            }
+        }
+
+        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+
+            if (e.KeyChar == '.' && ((TextBox)sender).Text.Contains("."))
+            {
+                e.Handled = true;
+                return;
+            }
+l
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (e.KeyChar == '-' && ((TextBox)sender).SelectionStart == 0)
+            {
+                e.Handled = true;
+            }
+        }
+
     }
 }
