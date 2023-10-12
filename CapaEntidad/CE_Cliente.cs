@@ -8,13 +8,13 @@ namespace CapaEntidad
 {
     public class CE_Cliente
     {
-        public int id { get; set; }
-        public string dni { get; set; }
-        public String nombre { get; set; }
-        public String apellido { get; set; }
-        public DateTime feche_nacimiento { get; set; }
-        public string correo_electronico { get; set; }
-        public string telefono { get; set; }
+        public int Id { get; set; }
+        public string Dni { get; set; }
+        public String Nombre { get; set; }
+        public String Apellido { get; set; }
+        public DateTime Fecha_nacimiento { get; set; }
+        public string Correo_electronico { get; set; }
+        public string Telefono { get; set; }
 
     }
 }
