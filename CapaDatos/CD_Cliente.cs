@@ -34,7 +34,7 @@ namespace CapaDatos
                             ListaClientes.Add(new CE_Cliente() 
                             {
                                 //Atributos
-
+                                Id = Convert.ToInt32(dr["iden"]),
                                 Nombre = dr["Nombre"].ToString(),
                                 Apellido = dr["Apellido"].ToString(),
                                 Dni = dr["DNI"].ToString(),
