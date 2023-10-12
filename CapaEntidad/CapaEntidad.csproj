@@ -44,7 +44,6 @@
     <Compile Include="CE_Sucursal.cs" />
     <Compile Include="CE_Factura.cs" />
     <Compile Include="CE_Remito.cs" />
-    <Compile Include="CE_RemitoPorFactura.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
