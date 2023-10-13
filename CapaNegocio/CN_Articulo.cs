@@ -13,10 +13,10 @@ namespace CapaNegocio
     {
         private CD_Articulo cdArticulo = new CD_Articulo();
 
-        public List<CE_Articulo> Listar(string parametros)
+        public List<CE_Articulo> Listar(int? iden,string rubroMarca)
         {
            
-            return cdArticulo.Listar(parametros);
+            return cdArticulo.Listar(iden,rubroMarca);
         }
 
     }

@@ -116,7 +116,7 @@ namespace CapaPresentacion
             textBoxCodigoMaterial.KeyPress += textBoxCodigoMaterial_TextChanged;
             textBoxCosto.KeyPress += textBoxCosto_TextChanged;
 
-            List<CE_Articulo> listadoArticulo = new CN_Articulo().Listar(textBoxBuscador.Text);
+            List<CE_Articulo> listadoArticulo = new CN_Articulo().Listar(0,null);
             foreach (CE_Articulo articulo in listadoArticulo)
             {
                 dataGridArticulo.Rows.Add(new object[]
@@ -141,5 +141,52 @@ namespace CapaPresentacion
             }
         }
 
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+            textBoxBuscador_TextChanged(textBoxBuscador, EventArgs.Empty);
+        }
+
+        private void textBoxBuscador_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            string input = textBox.Text;
+            dataGridArticulo.Rows.Clear();
+
+            // Intenta convertir el valor del TextBox a un número entero
+            if (int.TryParse(input, out int numeroEntero))
+            {
+                List<CE_Articulo> listadoArticulo = new CN_Articulo().Listar(numeroEntero,null);
+                foreach (CE_Articulo articulo in listadoArticulo)
+                {
+                    dataGridArticulo.Rows.Add(new object[]
+                    {
+                    articulo.iden,
+                    articulo.codigoDeMaterial,
+                    articulo.rubro,
+                    articulo.costo,
+                    articulo.marca,
+                    articulo.baja == true ? "Si": "No"
+
+                    });
+                }
+            }
+            else
+            {
+                List<CE_Articulo> listadoArticulo = new CN_Articulo().Listar(null, input);
+                foreach (CE_Articulo articulo in listadoArticulo)
+                {
+                    dataGridArticulo.Rows.Add(new object[]
+                    {
+                    articulo.iden,
+                    articulo.codigoDeMaterial,
+                    articulo.rubro,
+                    articulo.costo,
+                    articulo.marca,
+                    articulo.baja == true ? "Si": "No"
+
+                    });
+                }
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace CapaDatos
 {
     public class CD_Articulo
     {
-        public List<CE_Articulo> Listar(string filtro)
+        public List<CE_Articulo> Listar(int? iden, string filtro)
         {
             List<CE_Articulo> lista = new List<CE_Articulo>();
 
@@ -17,10 +17,10 @@ namespace CapaDatos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("ART_Articulo_SEL", conexion);
-                    cmd.Parameters.AddWithValue("@iden", filtro);
-                    cmd.Parameters.AddWithValue("@rubro", filtro);
-                    cmd.Parameters.AddWithValue("@marca", filtro);
+                    SqlCommand cmd = new SqlCommand("GN_Articulo_SEL", conexion);
+                    cmd.Parameters.AddWithValue("iden", iden);
+                    cmd.Parameters.AddWithValue("rubroMarca", filtro);
+
                     cmd.CommandType = CommandType.StoredProcedure;
 
 
