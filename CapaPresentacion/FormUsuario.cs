@@ -69,7 +69,8 @@ namespace CapaPresentacion
             foreach (DataGridViewColumn column in dgvData.Columns) 
             {
                 //Agregamos aquellos que sean Visibles (Los NO Visibles y el Boton quedan excluidos)
-                if (column.Visible == true && column.GetType().ToString() != "System.Windows.Forms.DataGridViewButtonColumn") 
+                //if (column.Visible == true && column.GetType().ToString() != "System.Windows.Forms.DataGridViewButtonColumn") 
+                if (column.Name == "dni" || column.Name == "rol")
                 {
                     comboBuscar.Items.Add(new OpcionCombo()
                     {
@@ -187,6 +188,8 @@ namespace CapaPresentacion
                     });
 
                     Limpiar(); //Limpiamos
+
+                    MessageBox.Show("Usuario registrado con éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -215,6 +218,8 @@ namespace CapaPresentacion
                         row.Cells["clave"].Value = inputClave.Text;
 
                         //dgvData.Rows[DgvIndice].Selected = true;
+
+                        MessageBox.Show("Usuario editado con éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         Limpiar(); //Limpiamos
                     }
@@ -295,6 +300,24 @@ namespace CapaPresentacion
         {
             //Cosume el Evento si lo que se intenta ingresar por Teclado NO es Numero y No es la tecla "borrar"
             if(!char.IsNumber(e.KeyChar) && e.KeyChar != (char)Keys.Back) 
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void inputNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Cosume el Evento si lo que se intenta ingresar por Teclado NO es Numero, tecla "borrar"
+            if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void inputApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Cosume el Evento si lo que se intenta ingresar por Teclado NO es Numero, tecla "borrar"
+            if (char.IsNumber(e.KeyChar))
             {
                 e.Handled = true;
             }
