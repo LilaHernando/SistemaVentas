@@ -23,14 +23,20 @@ namespace CapaPresentacion
 
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
-            dataGridArticulo.Rows.Add(new object[] {"", textBoxCodigoMaterial.Text, ((OpcionCombo)comboRubro.SelectedItem).Texto, textBoxCosto.Text,
-            ((OpcionCombo)comboMarca.SelectedItem).Texto});
+            dataGridArticulo.Rows.Add(new object[] {"", textBoxCodigoMaterial.Text, ((OpcionCombo)comboRubro.SelectedItem).Texto,
+                textBoxCosto.Text,((OpcionCombo)comboMarca.SelectedItem).Texto,(checkBoxBaja.Checked == true ? "Si" : "No")});
 
-            //Limpiar();
+            Limpiar();
         }
 
-        //private void Limpiar() {
-        //}
+        private void Limpiar()
+        {
+            textBoxCodigoMaterial.Text = "";
+            comboRubro.SelectedIndex = 0;
+            textBoxCosto.Text = "";
+            comboMarca.SelectedIndex = 0;
+            checkBoxBaja.Checked = false;
+        }
 
         private void ComboRubro_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -87,11 +93,11 @@ namespace CapaPresentacion
 
         private void textBoxCodigoMaterial_TextChanged(object sender, KeyPressEventArgs e)
         {
-                // Verificar si la tecla presionada no es un dígito o es el carácter '-' (menos)
-                if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8) // 8 es el código ASCII de la tecla Retroceso (Backspace)
-                {
-                    e.Handled = true; // Bloquear la entrada de caracteres no válidos
-                }
+            // Verificar si la tecla presionada no es un dígito o es el carácter '-' (menos)
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8) // 8 es el código ASCII de la tecla Retroceso (Backspace)
+            {
+                e.Handled = true; // Bloquear la entrada de caracteres no válidos
+            }
         }
 
         private void FormArticulo_Load_1(object sender, EventArgs e)
@@ -116,7 +122,7 @@ namespace CapaPresentacion
             textBoxCodigoMaterial.KeyPress += textBoxCodigoMaterial_TextChanged;
             textBoxCosto.KeyPress += textBoxCosto_TextChanged;
 
-            List<CE_Articulo> listadoArticulo = new CN_Articulo().Listar(0,null);
+            List<CE_Articulo> listadoArticulo = new CN_Articulo().Listar(0, null);
             foreach (CE_Articulo articulo in listadoArticulo)
             {
                 dataGridArticulo.Rows.Add(new object[]
@@ -126,7 +132,7 @@ namespace CapaPresentacion
                     articulo.rubro,
                     articulo.costo,
                     articulo.marca,
-                    articulo.baja == true ? "Si": "No" 
+                    articulo.baja == true ? "Si": "No"
 
                 });
             }
@@ -155,7 +161,7 @@ namespace CapaPresentacion
             // Intenta convertir el valor del TextBox a un número entero
             if (int.TryParse(input, out int numeroEntero))
             {
-                List<CE_Articulo> listadoArticulo = new CN_Articulo().Listar(numeroEntero,null);
+                List<CE_Articulo> listadoArticulo = new CN_Articulo().Listar(numeroEntero, null);
                 foreach (CE_Articulo articulo in listadoArticulo)
                 {
                     dataGridArticulo.Rows.Add(new object[]
@@ -189,22 +195,40 @@ namespace CapaPresentacion
             }
         }
 
-        private void dataGridArticulo_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+
+        private void dataGridArticulo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
-                return;
-
-            if(e.ColumnIndex == 6)
+            if (dataGridArticulo.Columns[e.ColumnIndex].Name == "botonSeleccionar")
             {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                int indice = e.RowIndex;
 
-                var w = Properties.Resources.plus.Width;
-                var h = Properties.Resources.plus.Height;
-                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
-                var y= e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                if (indice >= 0)
+                {
+                    textBoxCodigoMaterial.Text = dataGridArticulo.Rows[indice].Cells["CodigoMaterial"].Value.ToString();
+                    textBoxCosto.Text = dataGridArticulo.Rows[indice].Cells["CostoArticulo"].Value.ToString();
+                    checkBoxBaja.Checked = (dataGridArticulo.Rows[indice].Cells["Baja"].Value.ToString() == "Si") ? true : false;
 
-                e.Graphics.DrawImage(Properties.Resources.plus, new Rectangle(x, y, w, h));
-                e.Handled = true;
+                    foreach (OpcionCombo oc in comboRubro.Items)
+                    {
+                        if (oc.Texto == dataGridArticulo.Rows[indice].Cells["RubroArticulo"].Value.ToString())
+                        {
+                            int indiceCombo = comboRubro.Items.IndexOf(oc);
+                            comboRubro.SelectedItem = indiceCombo;
+                            ActualizarComboMarca(indiceCombo);
+                            break;                       
+                        }
+                    }
+                    foreach (OpcionCombo oc in comboMarca.Items)
+                    {
+                        if (oc.Texto == dataGridArticulo.Rows[indice].Cells["MarcaArticulo"].Value.ToString())
+                        {
+                            int indiceCombo = comboMarca.Items.IndexOf(oc);
+                            comboMarca.SelectedItem = indiceCombo;
+                            break;
+                        }
+                    }
+
+                }
             }
         }
     }

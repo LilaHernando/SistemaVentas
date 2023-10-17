@@ -51,5 +51,39 @@ namespace CapaDatos
             }
             return lista;
         }
+
+        public int Registrar(CE_Articulo articulo)
+        {
+            int idArticuloGenerado = 0;
+ 
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("GN_Articulo_INSUPD", conexion);
+                    cmd.Parameters.AddWithValue("iden", articulo.iden);
+                    cmd.Parameters.AddWithValue("codigoMaterial", articulo.codigoDeMaterial);
+                    cmd.Parameters.AddWithValue("rubro", articulo.rubro);
+                    cmd.Parameters.AddWithValue("costo", articulo.costo);
+                    cmd.Parameters.AddWithValue("marca", articulo.marca);
+                    cmd.Parameters.AddWithValue("baja", articulo.baja);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+
+
+                    conexion.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    string mensaje = "Ocurrió un error inesperado: " + ex.Message;
+                    Console.WriteLine(mensaje);
+                }
+            }
+            
+            return idArticuloGenerado;
+        }
     }
 }

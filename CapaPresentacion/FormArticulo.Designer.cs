@@ -37,24 +37,24 @@ namespace CapaPresentacion
             this.labelSuperior = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridArticulo = new System.Windows.Forms.DataGridView();
+            this.textBoxBuscador = new System.Windows.Forms.TextBox();
+            this.labelBuscar = new System.Windows.Forms.Label();
+            this.checkBoxBaja = new System.Windows.Forms.CheckBox();
+            this.buttonLimipiar = new FontAwesome.Sharp.IconButton();
+            this.buttonBuscar = new FontAwesome.Sharp.IconButton();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonRegistrar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxBuscador = new System.Windows.Forms.TextBox();
-            this.labelBuscar = new System.Windows.Forms.Label();
-            this.buttonBuscar = new FontAwesome.Sharp.IconButton();
-            this.buttonLimipiar = new FontAwesome.Sharp.IconButton();
-            this.checkBoxBaja = new System.Windows.Forms.CheckBox();
             this.idenArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoDeMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RubroArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CostoArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MarcaArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.boton = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.botonSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridArticulo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,19 +135,78 @@ namespace CapaPresentacion
             this.dataGridArticulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridArticulo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idenArticulo,
-            this.CodigoDeMaterial,
-            this.rubro,
+            this.CodigoMaterial,
+            this.RubroArticulo,
             this.CostoArticulo,
             this.MarcaArticulo,
             this.Baja,
-            this.boton});
+            this.botonSeleccionar});
             this.dataGridArticulo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridArticulo.Location = new System.Drawing.Point(220, 32);
             this.dataGridArticulo.MultiSelect = false;
             this.dataGridArticulo.Name = "dataGridArticulo";
             this.dataGridArticulo.Size = new System.Drawing.Size(697, 309);
             this.dataGridArticulo.TabIndex = 15;
-            this.dataGridArticulo.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridArticulo_CellPainting);
+            this.dataGridArticulo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridArticulo_CellContentClick);
+            // 
+            // textBoxBuscador
+            // 
+            this.textBoxBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.textBoxBuscador.Location = new System.Drawing.Point(674, 6);
+            this.textBoxBuscador.Name = "textBoxBuscador";
+            this.textBoxBuscador.Size = new System.Drawing.Size(136, 24);
+            this.textBoxBuscador.TabIndex = 18;
+            // 
+            // labelBuscar
+            // 
+            this.labelBuscar.AutoSize = true;
+            this.labelBuscar.BackColor = System.Drawing.Color.DarkRed;
+            this.labelBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.labelBuscar.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelBuscar.Location = new System.Drawing.Point(618, 8);
+            this.labelBuscar.Name = "labelBuscar";
+            this.labelBuscar.Size = new System.Drawing.Size(59, 18);
+            this.labelBuscar.TabIndex = 19;
+            this.labelBuscar.Text = "Buscar:";
+            // 
+            // checkBoxBaja
+            // 
+            this.checkBoxBaja.BackColor = System.Drawing.Color.White;
+            this.checkBoxBaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.checkBoxBaja.Location = new System.Drawing.Point(12, 233);
+            this.checkBoxBaja.Name = "checkBoxBaja";
+            this.checkBoxBaja.Size = new System.Drawing.Size(62, 33);
+            this.checkBoxBaja.TabIndex = 22;
+            this.checkBoxBaja.Text = "Baja";
+            this.checkBoxBaja.UseVisualStyleBackColor = false;
+            // 
+            // buttonLimipiar
+            // 
+            this.buttonLimipiar.CausesValidation = false;
+            this.buttonLimipiar.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.buttonLimipiar.IconColor = System.Drawing.Color.Black;
+            this.buttonLimipiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buttonLimipiar.IconSize = 15;
+            this.buttonLimipiar.Location = new System.Drawing.Point(837, 6);
+            this.buttonLimipiar.Name = "buttonLimipiar";
+            this.buttonLimipiar.Size = new System.Drawing.Size(15, 15);
+            this.buttonLimipiar.TabIndex = 21;
+            this.buttonLimipiar.UseVisualStyleBackColor = true;
+            // 
+            // buttonBuscar
+            // 
+            this.buttonBuscar.CausesValidation = false;
+            this.buttonBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.buttonBuscar.IconColor = System.Drawing.Color.Black;
+            this.buttonBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buttonBuscar.IconSize = 15;
+            this.buttonBuscar.Location = new System.Drawing.Point(816, 6);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(15, 15);
+            this.buttonBuscar.TabIndex = 20;
+            this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
             // buttonEditar
             // 
@@ -225,65 +284,6 @@ namespace CapaPresentacion
             this.label2.Text = "Codigo de material:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBoxBuscador
-            // 
-            this.textBoxBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBoxBuscador.Location = new System.Drawing.Point(674, 6);
-            this.textBoxBuscador.Name = "textBoxBuscador";
-            this.textBoxBuscador.Size = new System.Drawing.Size(136, 24);
-            this.textBoxBuscador.TabIndex = 18;
-            // 
-            // labelBuscar
-            // 
-            this.labelBuscar.AutoSize = true;
-            this.labelBuscar.BackColor = System.Drawing.Color.DarkRed;
-            this.labelBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.labelBuscar.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelBuscar.Location = new System.Drawing.Point(618, 8);
-            this.labelBuscar.Name = "labelBuscar";
-            this.labelBuscar.Size = new System.Drawing.Size(59, 18);
-            this.labelBuscar.TabIndex = 19;
-            this.labelBuscar.Text = "Buscar:";
-            // 
-            // buttonBuscar
-            // 
-            this.buttonBuscar.CausesValidation = false;
-            this.buttonBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.buttonBuscar.IconColor = System.Drawing.Color.Black;
-            this.buttonBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.buttonBuscar.IconSize = 15;
-            this.buttonBuscar.Location = new System.Drawing.Point(816, 6);
-            this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(15, 15);
-            this.buttonBuscar.TabIndex = 20;
-            this.buttonBuscar.UseVisualStyleBackColor = true;
-            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
-            // 
-            // buttonLimipiar
-            // 
-            this.buttonLimipiar.CausesValidation = false;
-            this.buttonLimipiar.IconChar = FontAwesome.Sharp.IconChar.X;
-            this.buttonLimipiar.IconColor = System.Drawing.Color.Black;
-            this.buttonLimipiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.buttonLimipiar.IconSize = 15;
-            this.buttonLimipiar.Location = new System.Drawing.Point(837, 6);
-            this.buttonLimipiar.Name = "buttonLimipiar";
-            this.buttonLimipiar.Size = new System.Drawing.Size(15, 15);
-            this.buttonLimipiar.TabIndex = 21;
-            this.buttonLimipiar.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxBaja
-            // 
-            this.checkBoxBaja.BackColor = System.Drawing.Color.White;
-            this.checkBoxBaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.checkBoxBaja.Location = new System.Drawing.Point(12, 233);
-            this.checkBoxBaja.Name = "checkBoxBaja";
-            this.checkBoxBaja.Size = new System.Drawing.Size(62, 33);
-            this.checkBoxBaja.TabIndex = 22;
-            this.checkBoxBaja.Text = "Baja";
-            this.checkBoxBaja.UseVisualStyleBackColor = false;
-            // 
             // idenArticulo
             // 
             this.idenArticulo.FillWeight = 375.7426F;
@@ -291,19 +291,19 @@ namespace CapaPresentacion
             this.idenArticulo.Name = "idenArticulo";
             this.idenArticulo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // CodigoDeMaterial
+            // CodigoMaterial
             // 
-            this.CodigoDeMaterial.FillWeight = 174.2379F;
-            this.CodigoDeMaterial.HeaderText = "Codigo Material";
-            this.CodigoDeMaterial.Name = "CodigoDeMaterial";
-            this.CodigoDeMaterial.Width = 150;
+            this.CodigoMaterial.FillWeight = 174.2379F;
+            this.CodigoMaterial.HeaderText = "Codigo Material";
+            this.CodigoMaterial.Name = "CodigoMaterial";
+            this.CodigoMaterial.Width = 150;
             // 
-            // rubro
+            // RubroArticulo
             // 
-            this.rubro.FillWeight = 35.50134F;
-            this.rubro.HeaderText = "Rubro";
-            this.rubro.Name = "rubro";
-            this.rubro.Width = 200;
+            this.RubroArticulo.FillWeight = 35.50134F;
+            this.RubroArticulo.HeaderText = "Rubro";
+            this.RubroArticulo.Name = "RubroArticulo";
+            this.RubroArticulo.Width = 200;
             // 
             // CostoArticulo
             // 
@@ -326,12 +326,12 @@ namespace CapaPresentacion
             this.Baja.Name = "Baja";
             this.Baja.Width = 50;
             // 
-            // boton
+            // botonSeleccionar
             // 
-            this.boton.FillWeight = 48.22705F;
-            this.boton.HeaderText = "";
-            this.boton.Name = "boton";
-            this.boton.Width = 20;
+            this.botonSeleccionar.FillWeight = 48.22705F;
+            this.botonSeleccionar.HeaderText = "";
+            this.botonSeleccionar.Name = "botonSeleccionar";
+            this.botonSeleccionar.Width = 20;
             // 
             // FormArticulo
             // 
@@ -391,11 +391,11 @@ namespace CapaPresentacion
         private FontAwesome.Sharp.IconButton buttonLimipiar;
         private System.Windows.Forms.CheckBox checkBoxBaja;
         private System.Windows.Forms.DataGridViewTextBoxColumn idenArticulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoDeMaterial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rubro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoMaterial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RubroArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn MarcaArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Baja;
-        private System.Windows.Forms.DataGridViewButtonColumn boton;
+        private System.Windows.Forms.DataGridViewButtonColumn botonSeleccionar;
     }
 }
