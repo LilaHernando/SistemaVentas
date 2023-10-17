@@ -17,5 +17,13 @@ namespace CapaNegocio
         {
             return cD_Preventa.ListarPreventas();
         }
+
+        public void InsertarPreventa(CE_Preventa cE_Preventa){
+            cD_Preventa.InsertarPreventa(cE_Preventa);
+        }
+
+        public int ObtenerIdCliente(int dni) {
+            return cD_Preventa.ObtenerIdCliente(dni);
+        }
     }
 }

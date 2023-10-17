@@ -19,9 +19,10 @@ namespace CapaPresentacion
     public partial class FormPreventa : Form
     {
         private bool addingDollarSign = true;
-        private static IconMenuItem MenuActivo = null; //Atributo de tipo Static que va a almacenar el Menu seleccionado por el Usuario
-        private static Form FormActivo = null; //Atributo de tipo Static que va a almacenar el Formulario seleccionado por el Usuario respecto del Menu
-
+        private static IconMenuItem MenuActivo = null;
+        private static Form FormActivo = null;
+        private int DniCliente = 0; /* Atributo usado en el método btnBuscarCliente_Click()
+                                     * para obtener idCliente en el metodo de agregar*/
         public FormPreventa()
         {
             InitializeComponent();
@@ -29,11 +30,13 @@ namespace CapaPresentacion
 
         private void FormPreventa_Load(object sender, EventArgs e)
         {
-            /*Listar Preventas*/
-            List<CE_Preventa> listPreventas = new CN_Preventa().listar_Preventas();
-
+            listarPreventas();
             listarEstado(cbbEstado);
+        }
 
+        public void listarPreventas()
+        {
+            List<CE_Preventa> listPreventas = new CN_Preventa().listar_Preventas();
             foreach (CE_Preventa p in listPreventas)
             {
                 string estado = (p.Baja == 0) ? "Inactivo" : "Activo";
@@ -48,7 +51,7 @@ namespace CapaPresentacion
                     p.IdOperacion,
                     estado
                 });
-
+                
                 cbbSucursal.Items.Add(new OpcionCombo() { Valor = p.CE_Surcusal.Id, Texto = p.CE_Surcusal.Descripcion });
                 cbbSucursal.DisplayMember = "Texto";
                 cbbSucursal.ValueMember = "Valor";
@@ -56,6 +59,10 @@ namespace CapaPresentacion
             }
         }
 
+        public void listarSucursal(CE_Preventa p)
+        {
+            
+        }
         public void listarEstado(ComboBox cbb)
         {
             cbb.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activa" });
@@ -72,6 +79,7 @@ namespace CapaPresentacion
 
                 if (result == DialogResult.OK)
                 {
+                    DniCliente = Convert.ToInt32( modal._Cliente.Dni);
                     txtCliente.Text = modal._Cliente.Nombre+" "+modal._Cliente.Apellido;
                 }
             }
@@ -103,5 +111,43 @@ namespace CapaPresentacion
             }
         }
 
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            CN_Preventa cN_preventa = new CN_Preventa();
+            cN_preventa.InsertarPreventa(crearPreventa());
+            dgvDataPreventa.Rows.Clear();
+            listarPreventas();
+            limpiarCampos();
+        }
+
+        public CE_Preventa crearPreventa()
+        {
+            Random RandomOperacion = new Random();
+            CN_Preventa cN_preventa = new CN_Preventa();
+            CE_Preventa Preventa = new CE_Preventa()
+            {
+                
+                Id_Sucursal = Convert.ToInt32(((OpcionCombo)cbbSucursal.SelectedItem).Valor),
+                Id_Cliente = cN_preventa.ObtenerIdCliente(DniCliente),
+                Fecha = Convert.ToDateTime(txtDate.Text),
+                Numero = RandomOperacion.Next(7, 10000),
+                Baja = Convert.ToInt32(((OpcionCombo)cbbEstado.SelectedItem).Valor),
+                Monto = Convert.ToDecimal(txtMonto.Text),
+                IdOperacion = RandomOperacion.Next(6, 10000)
+            };
+            
+            return Preventa;
+        }
+
+        public void limpiarCampos()
+        {
+            txtMonto.Text = "";
+            txtCliente.Text = "";
+            cbbEstado.Items.Clear();
+            listarEstado(cbbEstado);
+        }
+
     }
+
+    
 }

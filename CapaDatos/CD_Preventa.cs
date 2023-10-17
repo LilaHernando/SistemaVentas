@@ -48,7 +48,62 @@ namespace CapaDatos
         
         }
 
-       
+        public void InsertarPreventa(CE_Preventa Preventa)
+        {
+            using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("PVTA_Preventa_INSUPD", onConexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@iden", SqlDbType.Int)).Value = Preventa.IdPreventa;
+                    cmd.Parameters.Add(new SqlParameter("@numero", SqlDbType.Int)).Value = Preventa.Numero;
+                    cmd.Parameters.Add(new SqlParameter("@GN_Sucursal_iden", SqlDbType.Int)).Value = Preventa.Id_Sucursal;
+                    cmd.Parameters.Add(new SqlParameter("@GN_Cliente_iden", SqlDbType.Int)).Value = Preventa.Id_Cliente;
+                    cmd.Parameters.Add(new SqlParameter("@baja", SqlDbType.Bit)).Value = Preventa.Baja;
+                    cmd.Parameters.Add(new SqlParameter("@monto", SqlDbType.Money)).Value = Preventa.Monto;
+                    cmd.Parameters.Add(new SqlParameter("@fecha", SqlDbType.DateTime)).Value = Preventa.Fecha;
+                    cmd.Parameters.Add(new SqlParameter("@idOperacion", SqlDbType.Int)).Value = Preventa.IdOperacion;
+
+                    onConexion.Open();
+                
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+
+                    onConexion.Close();
+
+                    if (filasAfectadas >= 0)
+                    {
+                        Console.WriteLine("Inserción exitosa.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No se insertaron registros.");
+                    }
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Error SQL: " + e);
+                }
+
+            }
+        }
+
+        public int ObtenerIdCliente(int dni)
+        {
+            int idCliente = 0;
+
+            using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))
+            {
+                onConexion.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT iden FROM GN_Cliente WHERE dni = @Dni", onConexion))
+                {
+                    cmd.Parameters.AddWithValue("@Dni", dni);
+                    idCliente = (int)cmd.ExecuteScalar();
+                    onConexion.Close();
+                }
+            }
+            return idCliente;
+        }
 
     }
 }
