@@ -188,5 +188,24 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void dataGridArticulo_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            if(e.ColumnIndex == 6)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = Properties.Resources.plus.Width;
+                var h = Properties.Resources.plus.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y= e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.plus, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
     }
 }

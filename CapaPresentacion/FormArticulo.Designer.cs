@@ -37,13 +37,6 @@ namespace CapaPresentacion
             this.labelSuperior = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridArticulo = new System.Windows.Forms.DataGridView();
-            this.idenArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoDeMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MarcaArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_actualizar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonRegistrar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,6 +48,13 @@ namespace CapaPresentacion
             this.buttonBuscar = new FontAwesome.Sharp.IconButton();
             this.buttonLimipiar = new FontAwesome.Sharp.IconButton();
             this.checkBoxBaja = new System.Windows.Forms.CheckBox();
+            this.idenArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoDeMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MarcaArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.boton = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridArticulo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,7 +131,6 @@ namespace CapaPresentacion
             // 
             this.dataGridArticulo.AllowUserToAddRows = false;
             this.dataGridArticulo.AllowUserToDeleteRows = false;
-            this.dataGridArticulo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridArticulo.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridArticulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridArticulo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -141,49 +140,14 @@ namespace CapaPresentacion
             this.CostoArticulo,
             this.MarcaArticulo,
             this.Baja,
-            this.btn_actualizar});
+            this.boton});
             this.dataGridArticulo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridArticulo.Location = new System.Drawing.Point(220, 32);
             this.dataGridArticulo.MultiSelect = false;
             this.dataGridArticulo.Name = "dataGridArticulo";
             this.dataGridArticulo.Size = new System.Drawing.Size(697, 309);
             this.dataGridArticulo.TabIndex = 15;
-            // 
-            // idenArticulo
-            // 
-            this.idenArticulo.HeaderText = "Iden";
-            this.idenArticulo.Name = "idenArticulo";
-            this.idenArticulo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // CodigoDeMaterial
-            // 
-            this.CodigoDeMaterial.HeaderText = "Codigo Material";
-            this.CodigoDeMaterial.Name = "CodigoDeMaterial";
-            // 
-            // rubro
-            // 
-            this.rubro.HeaderText = "Rubro";
-            this.rubro.Name = "rubro";
-            // 
-            // CostoArticulo
-            // 
-            this.CostoArticulo.HeaderText = "Costo";
-            this.CostoArticulo.Name = "CostoArticulo";
-            // 
-            // MarcaArticulo
-            // 
-            this.MarcaArticulo.HeaderText = "Marca";
-            this.MarcaArticulo.Name = "MarcaArticulo";
-            // 
-            // Baja
-            // 
-            this.Baja.HeaderText = "Baja";
-            this.Baja.Name = "Baja";
-            // 
-            // btn_actualizar
-            // 
-            this.btn_actualizar.HeaderText = "";
-            this.btn_actualizar.Name = "btn_actualizar";
+            this.dataGridArticulo.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridArticulo_CellPainting);
             // 
             // buttonEditar
             // 
@@ -320,6 +284,55 @@ namespace CapaPresentacion
             this.checkBoxBaja.Text = "Baja";
             this.checkBoxBaja.UseVisualStyleBackColor = false;
             // 
+            // idenArticulo
+            // 
+            this.idenArticulo.FillWeight = 375.7426F;
+            this.idenArticulo.HeaderText = "Iden";
+            this.idenArticulo.Name = "idenArticulo";
+            this.idenArticulo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // CodigoDeMaterial
+            // 
+            this.CodigoDeMaterial.FillWeight = 174.2379F;
+            this.CodigoDeMaterial.HeaderText = "Codigo Material";
+            this.CodigoDeMaterial.Name = "CodigoDeMaterial";
+            this.CodigoDeMaterial.Width = 150;
+            // 
+            // rubro
+            // 
+            this.rubro.FillWeight = 35.50134F;
+            this.rubro.HeaderText = "Rubro";
+            this.rubro.Name = "rubro";
+            this.rubro.Width = 200;
+            // 
+            // CostoArticulo
+            // 
+            this.CostoArticulo.FillWeight = 35.50134F;
+            this.CostoArticulo.HeaderText = "Costo";
+            this.CostoArticulo.Name = "CostoArticulo";
+            this.CostoArticulo.Width = 180;
+            // 
+            // MarcaArticulo
+            // 
+            this.MarcaArticulo.FillWeight = 35.50134F;
+            this.MarcaArticulo.HeaderText = "Marca";
+            this.MarcaArticulo.Name = "MarcaArticulo";
+            this.MarcaArticulo.Width = 200;
+            // 
+            // Baja
+            // 
+            this.Baja.FillWeight = 35.50134F;
+            this.Baja.HeaderText = "Baja";
+            this.Baja.Name = "Baja";
+            this.Baja.Width = 50;
+            // 
+            // boton
+            // 
+            this.boton.FillWeight = 48.22705F;
+            this.boton.HeaderText = "";
+            this.boton.Name = "boton";
+            this.boton.Width = 20;
+            // 
             // FormArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,13 +389,13 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label labelBuscar;
         private FontAwesome.Sharp.IconButton buttonBuscar;
         private FontAwesome.Sharp.IconButton buttonLimipiar;
+        private System.Windows.Forms.CheckBox checkBoxBaja;
         private System.Windows.Forms.DataGridViewTextBoxColumn idenArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoDeMaterial;
         private System.Windows.Forms.DataGridViewTextBoxColumn rubro;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn MarcaArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Baja;
-        private System.Windows.Forms.DataGridViewTextBoxColumn btn_actualizar;
-        private System.Windows.Forms.CheckBox checkBoxBaja;
+        private System.Windows.Forms.DataGridViewButtonColumn boton;
     }
 }
