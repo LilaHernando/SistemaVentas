@@ -31,7 +31,9 @@ namespace CapaPresentacion
         {
             /*Listar Preventas*/
             List<CE_Preventa> listPreventas = new CN_Preventa().listar_Preventas();
-           
+
+            listarEstado(cbbEstado);
+
             foreach (CE_Preventa p in listPreventas)
             {
                 string estado = (p.Baja == 0) ? "Inactivo" : "Activo";
@@ -54,6 +56,14 @@ namespace CapaPresentacion
             }
         }
 
+        public void listarEstado(ComboBox cbb)
+        {
+            cbb.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activa" });
+            cbb.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Inactiva" });
+            cbb.DisplayMember = "Texto";
+            cbb.ValueMember = "Valor";
+            cbb.SelectedIndex = 0;
+        }
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             using (var modal = new MD_Cliente())
@@ -80,7 +90,7 @@ namespace CapaPresentacion
                 e.Handled = true;
                 return;
             }
-l
+
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;

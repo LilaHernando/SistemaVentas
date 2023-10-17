@@ -33,7 +33,7 @@ namespace CapaDatos
                                 Monto = Convert.ToDecimal(dr["monto"]),
                                 Baja = Convert.ToInt32(dr["baja"]),
                                 IdOperacion = Convert.ToInt32(dr["idOperacion"]),
-                                CE_Surcusal = new CE_Sucursal() {Descripcion = Convert.ToString(dr["descripcion"]) },
+                                CE_Surcusal = new CE_Sucursal() {Id=Convert.ToInt32(dr["iden"]),Descripcion = Convert.ToString(dr["descripcion"]) },
                                 CE_Cliente = new CE_Cliente {Nombre = Convert.ToString(dr["nombre"]), Apellido = Convert.ToString(dr["apellido"])},
                             });
                         }
