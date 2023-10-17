@@ -80,7 +80,7 @@ namespace CapaPresentacion
 
         private void menuClientes_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new Form());
+            AbrirFormulario((IconMenuItem)sender, new FormCliente());
         }
 
         private void menuArticulos_Click(object sender, EventArgs e)
