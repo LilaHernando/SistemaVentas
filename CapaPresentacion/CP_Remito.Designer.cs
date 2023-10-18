@@ -45,7 +45,7 @@ namespace CapaPresentacion
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Titulo1 = new System.Windows.Forms.Label();
-            this.TablaRemitos = new System.Windows.Forms.DataGridView();
+            this.tablaRemito = new System.Windows.Forms.DataGridView();
             this.IDRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +55,7 @@ namespace CapaPresentacion
             this.TipoRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TablaRemitos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaRemito)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -122,41 +122,41 @@ namespace CapaPresentacion
             // 
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(30, 276);
+            this.comboBox2.Location = new System.Drawing.Point(22, 343);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(155, 28);
+            this.comboBox2.Size = new System.Drawing.Size(183, 28);
             this.comboBox2.TabIndex = 7;
             // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(30, 201);
+            this.textBox2.Location = new System.Drawing.Point(22, 269);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(155, 26);
+            this.textBox2.Size = new System.Drawing.Size(183, 26);
             this.textBox2.TabIndex = 6;
             // 
             // comboBox1
             // 
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(30, 125);
+            this.comboBox1.Location = new System.Drawing.Point(22, 193);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(155, 28);
+            this.comboBox1.Size = new System.Drawing.Size(183, 28);
             this.comboBox1.TabIndex = 5;
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(30, 55);
+            this.textBox1.Location = new System.Drawing.Point(22, 123);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 26);
+            this.textBox1.Size = new System.Drawing.Size(183, 26);
             this.textBox1.TabIndex = 4;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(27, 111);
+            this.label5.Location = new System.Drawing.Point(19, 179);
             this.label5.Margin = new System.Windows.Forms.Padding(4);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 16);
@@ -168,7 +168,7 @@ namespace CapaPresentacion
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(27, 262);
+            this.label4.Location = new System.Drawing.Point(19, 330);
             this.label4.Margin = new System.Windows.Forms.Padding(4);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 16);
@@ -179,7 +179,7 @@ namespace CapaPresentacion
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(27, 187);
+            this.label3.Location = new System.Drawing.Point(19, 255);
             this.label3.Margin = new System.Windows.Forms.Padding(4);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 16);
@@ -191,7 +191,7 @@ namespace CapaPresentacion
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(27, 42);
+            this.label2.Location = new System.Drawing.Point(19, 110);
             this.label2.Margin = new System.Windows.Forms.Padding(4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 16);
@@ -211,15 +211,16 @@ namespace CapaPresentacion
             this.Titulo1.TabIndex = 2;
             this.Titulo1.Text = "LISTADO DE REMITOS";
             this.Titulo1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Titulo1.Click += new System.EventHandler(this.Titulo1_Click);
             // 
-            // TablaRemitos
+            // tablaRemito
             // 
-            this.TablaRemitos.AllowUserToAddRows = false;
-            this.TablaRemitos.AllowUserToDeleteRows = false;
-            this.TablaRemitos.BackgroundColor = System.Drawing.Color.DarkRed;
-            this.TablaRemitos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TablaRemitos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TablaRemitos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tablaRemito.AllowUserToAddRows = false;
+            this.tablaRemito.AllowUserToDeleteRows = false;
+            this.tablaRemito.BackgroundColor = System.Drawing.Color.DarkRed;
+            this.tablaRemito.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tablaRemito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaRemito.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDRemito,
             this.Sucursal,
             this.Estado,
@@ -228,11 +229,11 @@ namespace CapaPresentacion
             this.LetraRemito,
             this.TipoRemito,
             this.FechaRemito});
-            this.TablaRemitos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TablaRemitos.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TablaRemitos.Location = new System.Drawing.Point(250, 40);
-            this.TablaRemitos.Name = "TablaRemitos";
-            this.TablaRemitos.ReadOnly = true;
+            this.tablaRemito.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tablaRemito.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tablaRemito.Location = new System.Drawing.Point(250, 40);
+            this.tablaRemito.Name = "tablaRemito";
+            this.tablaRemito.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -240,9 +241,10 @@ namespace CapaPresentacion
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TablaRemitos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.TablaRemitos.Size = new System.Drawing.Size(550, 410);
-            this.TablaRemitos.TabIndex = 3;
+            this.tablaRemito.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.tablaRemito.Size = new System.Drawing.Size(550, 410);
+            this.tablaRemito.TabIndex = 3;
+            this.tablaRemito.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TablaRemitos_CellContentClick);
             // 
             // IDRemito
             // 
@@ -301,15 +303,16 @@ namespace CapaPresentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkRed;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.TablaRemitos);
+            this.Controls.Add(this.tablaRemito);
             this.Controls.Add(this.Titulo1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Name = "CP_Remito";
             this.Text = "CP_Remito1";
+            this.Load += new System.EventHandler(this.CP_Remito_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TablaRemitos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaRemito)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -320,7 +323,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label Titulo1;
-        private System.Windows.Forms.DataGridView TablaRemitos;
+        private System.Windows.Forms.DataGridView tablaRemito;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
