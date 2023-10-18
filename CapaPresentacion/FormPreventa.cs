@@ -31,6 +31,7 @@ namespace CapaPresentacion
         private void FormPreventa_Load(object sender, EventArgs e)
         {
             listarPreventas();
+            listarSucursal(cbbSucursal);
             listarEstado(cbbEstado);
         }
 
@@ -51,18 +52,19 @@ namespace CapaPresentacion
                     p.IdOperacion,
                     estado
                 });
-                
-                cbbSucursal.Items.Add(new OpcionCombo() { Valor = p.CE_Surcusal.Id, Texto = p.CE_Surcusal.Descripcion });
-                cbbSucursal.DisplayMember = "Texto";
-                cbbSucursal.ValueMember = "Valor";
-                cbbSucursal.SelectedIndex = 0;
             }
         }
-
-        public void listarSucursal(CE_Preventa p)
+        
+        public void listarSucursal(ComboBox cbbSucursal)
         {
-            
+            List<CE_Sucursal> listSucursales = new CN_Preventa().Listar_Sucursales();
+            cbbSucursal.DataSource = listSucursales;
+            cbbSucursal.DisplayMember = "Descripcion";
+            cbbSucursal.ValueMember = "Id";
+            cbbSucursal.SelectedIndex = -1;
+
         }
+
         public void listarEstado(ComboBox cbb)
         {
             cbb.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activa" });
@@ -113,21 +115,38 @@ namespace CapaPresentacion
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            MessageBoxButtons botones = MessageBoxButtons.OK;
             CN_Preventa cN_preventa = new CN_Preventa();
-            cN_preventa.InsertarPreventa(crearPreventa());
-            dgvDataPreventa.Rows.Clear();
-            listarPreventas();
-            limpiarCampos();
+            if (VerificarVacio(txtMonto.Text,txtDate.Text,txtCliente.Text))
+            {
+                CE_Preventa PreventaCreada = crearPreventa();
+                cN_preventa.InsertarPreventa(PreventaCreada);
+                dgvDataPreventa.Rows.Clear();
+                listarPreventas();
+                cbbSucursal.Items.Clear();
+                LimpiarCampos();
+                MessageBox.Show("Preventa registrada correctamente", "Estado de registro", botones, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                MessageBox.Show("Por favor, complete todos los campos y seleccione un elemento en el ComboBox antes de registrar.", "Campos Incompletos",botones ,MessageBoxIcon.Error);
+            }
+
         }
 
         public CE_Preventa crearPreventa()
         {
             Random RandomOperacion = new Random();
             CN_Preventa cN_preventa = new CN_Preventa();
+            CE_Sucursal selectedSucursal = (CE_Sucursal)cbbSucursal.SelectedItem;
             CE_Preventa Preventa = new CE_Preventa()
+
             {
                 
-                Id_Sucursal = Convert.ToInt32(((OpcionCombo)cbbSucursal.SelectedItem).Valor),
+                //Id_Sucursal = Convert.ToInt32(((OpcionCombo)cbbSucursal.SelectedItem).Valor),
+                
+                Id_Sucursal = selectedSucursal.Id,
                 Id_Cliente = cN_preventa.ObtenerIdCliente(DniCliente),
                 Fecha = Convert.ToDateTime(txtDate.Text),
                 Numero = RandomOperacion.Next(7, 10000),
@@ -139,12 +158,26 @@ namespace CapaPresentacion
             return Preventa;
         }
 
-        public void limpiarCampos()
+        public void LimpiarCampos()
         {
             txtMonto.Text = "";
             txtCliente.Text = "";
             cbbEstado.Items.Clear();
+            listarSucursal(cbbSucursal);
             listarEstado(cbbEstado);
+        }
+
+        public Boolean VerificarVacio(String txtMonto, String txtDate, String txtCliente)
+        {
+            if( string.IsNullOrEmpty(txtMonto)|| string.IsNullOrEmpty(txtDate) ||
+                string.IsNullOrEmpty(txtCliente) || cbbSucursal.SelectedIndex == -1 || cbbEstado.SelectedIndex == -1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
     }

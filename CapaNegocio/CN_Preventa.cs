@@ -25,5 +25,10 @@ namespace CapaNegocio
         public int ObtenerIdCliente(int dni) {
             return cD_Preventa.ObtenerIdCliente(dni);
         }
+
+        public List<CE_Sucursal> Listar_Sucursales()
+        {
+            return cD_Preventa.ObtenerSucursales();
+        }
     }
 }

@@ -105,5 +105,36 @@ namespace CapaDatos
             return idCliente;
         }
 
+        public List<CE_Sucursal> ObtenerSucursales()
+        {
+            List<CE_Sucursal> listSucursales = new List<CE_Sucursal>();
+            using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("GN_ObtenerSuc_SEL", onConexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    onConexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            listSucursales.Add(new CE_Sucursal()
+                            {
+                                Id = Convert.ToInt32(dr["iden"]),
+                                Descripcion = Convert.ToString(dr["descripcion"]),
+                            }) ;
+                        }
+                    }
+                    onConexion.Close();
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Error SQL: " + e);
+                }
+                return listSucursales;
+            }
+        }
+
     }
 }
