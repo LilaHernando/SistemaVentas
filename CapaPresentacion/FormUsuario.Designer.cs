@@ -29,7 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.inputNombre = new System.Windows.Forms.TextBox();
@@ -59,7 +59,6 @@ namespace CapaPresentacion
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.inputBuscar = new System.Windows.Forms.TextBox();
-            this.comboBuscar = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.btnLimpiarBuscar = new FontAwesome.Sharp.IconButton();
             this.btnGuardar = new FontAwesome.Sharp.IconButton();
@@ -307,9 +306,9 @@ namespace CapaPresentacion
             // 
             // btnSeleccionar
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle3;
             this.btnSeleccionar.HeaderText = "";
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.ReadOnly = true;
@@ -322,11 +321,11 @@ namespace CapaPresentacion
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.DarkRed;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(527, 24);
+            this.label2.Location = new System.Drawing.Point(670, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 26;
-            this.label2.Text = "Buscar por:";
+            this.label2.Text = "Buscar:";
             // 
             // inputBuscar
             // 
@@ -335,16 +334,6 @@ namespace CapaPresentacion
             this.inputBuscar.Name = "inputBuscar";
             this.inputBuscar.Size = new System.Drawing.Size(120, 21);
             this.inputBuscar.TabIndex = 28;
-            // 
-            // comboBuscar
-            // 
-            this.comboBuscar.BackColor = System.Drawing.Color.White;
-            this.comboBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBuscar.FormattingEnabled = true;
-            this.comboBuscar.Location = new System.Drawing.Point(589, 21);
-            this.comboBuscar.Name = "comboBuscar";
-            this.comboBuscar.Size = new System.Drawing.Size(121, 21);
-            this.comboBuscar.TabIndex = 29;
             // 
             // btnBuscar
             // 
@@ -425,7 +414,6 @@ namespace CapaPresentacion
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(917, 341);
-            this.Controls.Add(this.comboBuscar);
             this.Controls.Add(this.inputBuscar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnBuscar);
@@ -481,7 +469,6 @@ namespace CapaPresentacion
         private FontAwesome.Sharp.IconButton btnBuscar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox inputBuscar;
-        private System.Windows.Forms.ComboBox comboBuscar;
         private FontAwesome.Sharp.IconButton btnLimpiar;
         private System.Windows.Forms.DataGridViewTextBoxColumn idUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;

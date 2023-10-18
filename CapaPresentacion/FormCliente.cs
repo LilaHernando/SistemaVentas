@@ -36,23 +36,23 @@ namespace CapaPresentacion
 
             inputNombre.Select(); //Al iniciar dejamos seleccionado el input Nombre
 
-            //Agregamos los Campos de la Grid al ComboBox Buscar
-            foreach (DataGridViewColumn column in dgvData.Columns)
-            {
-                //Agregamos aquellos que sean Visibles (Los NO Visibles y el Boton quedan excluidos)
-                //if (column.Visible == true && column.GetType().ToString() != "System.Windows.Forms.DataGridViewButtonColumn")
-                if (column.Name == "dni" || column.Name == "correo")
-                {
-                    comboBuscar.Items.Add(new OpcionCombo()
-                    {
-                        Valor = column.Name,
-                        Texto = column.HeaderText
-                    });
-                }
-            }
-            comboBuscar.DisplayMember = "Texto"; //De manera visual (En el Formulario) se vera el Texto
-            comboBuscar.ValueMember = "Valor"; // Y como valor del campo (Atras, en la logica) maneja Valor
-            comboBuscar.SelectedIndex = 0; // Inicia en 0, o sea la primera opción
+            ////Agregamos los Campos de la Grid al ComboBox Buscar
+            //foreach (DataGridViewColumn column in dgvData.Columns)
+            //{
+            //    //Agregamos aquellos que sean Visibles (Los NO Visibles y el Boton quedan excluidos)
+            //    //if (column.Visible == true && column.GetType().ToString() != "System.Windows.Forms.DataGridViewButtonColumn")
+            //    if (column.Name == "dni" || column.Name == "correo")
+            //    {
+            //        comboBuscar.Items.Add(new OpcionCombo()
+            //        {
+            //            Valor = column.Name,
+            //            Texto = column.HeaderText
+            //        });
+            //    }
+            //}
+            //comboBuscar.DisplayMember = "Texto"; //De manera visual (En el Formulario) se vera el Texto
+            //comboBuscar.ValueMember = "Valor"; // Y como valor del campo (Atras, en la logica) maneja Valor
+            //comboBuscar.SelectedIndex = 0; // Inicia en 0, o sea la primera opción
 
             Listar();
         }

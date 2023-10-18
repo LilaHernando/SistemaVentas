@@ -29,8 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.comboBuscar = new System.Windows.Forms.ComboBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.inputBuscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
@@ -63,16 +62,6 @@ namespace CapaPresentacion
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBuscar
-            // 
-            this.comboBuscar.BackColor = System.Drawing.Color.White;
-            this.comboBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBuscar.FormattingEnabled = true;
-            this.comboBuscar.Location = new System.Drawing.Point(589, 21);
-            this.comboBuscar.Name = "comboBuscar";
-            this.comboBuscar.Size = new System.Drawing.Size(121, 21);
-            this.comboBuscar.TabIndex = 53;
-            // 
             // inputBuscar
             // 
             this.inputBuscar.Location = new System.Drawing.Point(716, 21);
@@ -86,11 +75,11 @@ namespace CapaPresentacion
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.DarkRed;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(527, 24);
+            this.label2.Location = new System.Drawing.Point(670, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 51;
-            this.label2.Text = "Buscar por:";
+            this.label2.Text = "Buscar:";
             // 
             // btnBuscar
             // 
@@ -199,9 +188,9 @@ namespace CapaPresentacion
             // 
             // btnSeleccionar
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle5;
             this.btnSeleccionar.HeaderText = "";
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.ReadOnly = true;
@@ -391,7 +380,6 @@ namespace CapaPresentacion
             this.Controls.Add(this.inputCorreo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBuscar);
             this.Controls.Add(this.inputBuscar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnBuscar);
@@ -417,8 +405,6 @@ namespace CapaPresentacion
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox comboBuscar;
         private System.Windows.Forms.TextBox inputBuscar;
         private System.Windows.Forms.Label label2;
         private FontAwesome.Sharp.IconButton btnBuscar;
