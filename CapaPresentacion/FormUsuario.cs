@@ -232,6 +232,8 @@ namespace CapaPresentacion
             //Si la Columna que se Capto atravez del evento es el Boton Seleccionar, entonces...
             if (dgvData.Columns[e.ColumnIndex].Name == "btnSeleccionar") 
             {
+                inputNombre.Select();
+
                 ModificarBoton(); //Llamamos al metodo para Modificar las propiedades del Boton Guardar
 
                 int indice = e.RowIndex; //Almacenamos el Indice de la Fila captada por el Evento

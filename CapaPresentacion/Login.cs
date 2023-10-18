@@ -69,6 +69,7 @@ namespace CapaPresentacion
             inputClave.Text = "";
 
             this.Show(); //Se muestra el Login
+            inputUsuario.Select();
         }
 
         private void inputUsuario_KeyPress(object sender, KeyPressEventArgs e)
@@ -77,6 +78,11 @@ namespace CapaPresentacion
             {
                 e.Handled = true;
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            inputUsuario.Select();
         }
     }
 }
