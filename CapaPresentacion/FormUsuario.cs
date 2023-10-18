@@ -83,31 +83,7 @@ namespace CapaPresentacion
             comboBuscar.ValueMember = "Valor"; // Y como valor del campo (Atras, en la logica) maneja Valor
             comboBuscar.SelectedIndex = 0; // Inicia en 0, o sea la primera opción
 
-            //Listamos lo Usuarios
-            List<CE_Usuario> listaUsuarios = new CN_Usuario().Listar();
-
-            //Modificamos el Alto de las filas
-            DataGridViewRow row = dgvData.RowTemplate;
-            row.Height = 28;
-
-            //Recorremos la Lista de Usuarios
-            foreach (CE_Usuario usuario in listaUsuarios)
-            {
-                //Y agregamos a cada Usuario a la Grid
-                dgvData.Rows.Add(new object[]
-                {
-                    usuario.Iden,
-                    usuario.Nombre,
-                    usuario.Apellido,
-                    usuario.Dni,
-                    usuario.Estado == true ? 1 : 0, //Preguntamos si es True, si lo es, su Valor es 1, caso contrario 0
-                    usuario.Estado == true ? "Activo" : "Inactivo", //Preguntamos si es True, si lo es, su Valor es "Activo", caso contrario "Inactivo"
-                    usuario.Rol.Iden,
-                    usuario.Rol.Rol,
-                    usuario.Clave,
-                    "",
-                });
-            }
+            Listar();
         }
 
         private void Limpiar() //Metodo para limpiar los Campos, Seleccionar el input Nombre y Restablecer el Boton Guardar a su estado Original
@@ -320,6 +296,73 @@ namespace CapaPresentacion
             if (char.IsNumber(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            dgvData.Rows.Clear(); //Vaciar tabla
+
+            //Filtramos lo Usuarios
+            List<CE_Usuario> listaUsuarios = new CN_Usuario().Filtrar(inputBuscar.Text);
+
+            //Modificamos el Alto de las filas
+            DataGridViewRow row = dgvData.RowTemplate;
+            row.Height = 28;
+
+            //Recorremos la Lista de Usuarios
+            foreach (CE_Usuario usuario in listaUsuarios)
+            {
+                //Y agregamos a cada Usuario a la Grid
+                dgvData.Rows.Add(new object[]
+                {
+                    usuario.Iden,
+                    usuario.Nombre,
+                    usuario.Apellido,
+                    usuario.Dni,
+                    usuario.Estado == true ? 1 : 0, //Preguntamos si es True, si lo es, su Valor es 1, caso contrario 0
+                    usuario.Estado == true ? "Activo" : "Inactivo", //Preguntamos si es True, si lo es, su Valor es "Activo", caso contrario "Inactivo"
+                    usuario.Rol.Iden,
+                    usuario.Rol.Rol,
+                    usuario.Clave,
+                    "",
+                });
+            }
+        }
+
+        private void btnLimpiarBuscar_Click(object sender, EventArgs e)
+        {
+            dgvData.Rows.Clear(); //Vaciar tabla
+            inputBuscar.Text = ""; //Vaciar campo
+            Listar(); //Volver a Listar los Usuarios
+        }
+
+        private void Listar() 
+        {
+            //Listamos lo Usuarios
+            List<CE_Usuario> listaUsuarios = new CN_Usuario().Listar();
+
+            //Modificamos el Alto de las filas
+            DataGridViewRow row = dgvData.RowTemplate;
+            row.Height = 28;
+
+            //Recorremos la Lista de Usuarios
+            foreach (CE_Usuario usuario in listaUsuarios)
+            {
+                //Y agregamos a cada Usuario a la Grid
+                dgvData.Rows.Add(new object[]
+                {
+                    usuario.Iden,
+                    usuario.Nombre,
+                    usuario.Apellido,
+                    usuario.Dni,
+                    usuario.Estado == true ? 1 : 0, //Preguntamos si es True, si lo es, su Valor es 1, caso contrario 0
+                    usuario.Estado == true ? "Activo" : "Inactivo", //Preguntamos si es True, si lo es, su Valor es "Activo", caso contrario "Inactivo"
+                    usuario.Rol.Iden,
+                    usuario.Rol.Rol,
+                    usuario.Clave,
+                    "",
+                });
             }
         }
     }

@@ -156,5 +156,56 @@ namespace CapaDatos
             }
             return resultado; //Retornamos el resultado del SP
         }
+
+        public List<CE_Usuario> Filtrar(string filtrar) 
+        {
+            List<CE_Usuario> lista = new List<CE_Usuario>(); //Instanciamos una Lista de tipo CE_Usuario
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena)) //Consumimos la Cadena de Conexion de la Clase Conexion situada en CapaDatos
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("US_FiltrarUsuario_SEL", conexion); //Pasamos la Conexion y el SP a ejecutar al CMD
+
+                    //Parametros de entrada
+                    cmd.Parameters.AddWithValue("filtro",filtrar);
+
+                    cmd.CommandType = CommandType.StoredProcedure; //Especificamos que el tipo de Comando que va a recibir el CMD es un SP
+
+                    //Abrimos la Conexion
+                    conexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader()) //Usamos SqlDataReader para leer los datos devueltos por la DB
+                    {
+                        while (dr.Read()) //Mientras lea datos...
+                        {
+                            lista.Add(new CE_Usuario() //Añadimos a la Lista nuevos Objetos de tipo Usuario
+                            {
+                                //Atributos
+                                Iden = Convert.ToInt32(dr["idenU"]),
+                                Rol = new CE_Rol()
+                                {
+                                    Iden = Convert.ToInt32(dr["idenR"]),
+                                    Rol = dr["rol"].ToString()
+                                },
+                                Nombre = dr["Nombre"].ToString(),
+                                Apellido = dr["Apellido"].ToString(),
+                                Dni = dr["DNI"].ToString(),
+                                Clave = dr["Clave"].ToString(),
+                                Estado = Convert.ToBoolean(dr["Estado"])
+                            });
+                        }
+                    }
+
+                    conexion.Close(); //Cerramos la Conexion
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    lista = new List<CE_Usuario>(); //En caso de error retornamos una Lista vacia
+                }
+            }
+            return lista; //Retornamos la Lista
+        }
     }
 }

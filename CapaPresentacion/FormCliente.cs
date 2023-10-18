@@ -54,29 +54,7 @@ namespace CapaPresentacion
             comboBuscar.ValueMember = "Valor"; // Y como valor del campo (Atras, en la logica) maneja Valor
             comboBuscar.SelectedIndex = 0; // Inicia en 0, o sea la primera opción
 
-            //Listamos los Clientes
-            List<CE_Cliente> listaClientes = new CN_Cliente().ListarClientes(0);
-
-            //Modificamos el Alto de las filas
-            DataGridViewRow row = dgvData.RowTemplate;
-            row.Height = 28;
-
-            //Recorremos la Lista de Clientes
-            foreach (CE_Cliente cliente in listaClientes)
-            {
-                //Y agregamos a cada Usuario a la Grid
-                dgvData.Rows.Add(new object[]
-                {
-                    cliente.Id,
-                    cliente.Nombre,
-                    cliente.Apellido,
-                    cliente.Dni,
-                    cliente.Fecha_nacimiento,
-                    cliente.Correo_electronico,
-                    cliente.Telefono,
-                    "",
-                });
-            }
+            Listar();
         }
 
         private void inputDNI_KeyPress(object sender, KeyPressEventArgs e)
@@ -269,6 +247,70 @@ namespace CapaPresentacion
             if (char.IsNumber(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            dgvData.Rows.Clear(); //Vaciar tabla
+
+            //Filtramos los Clientes
+            List<CE_Cliente> listaClientes = new CN_Cliente().Filtrar(inputBuscar.Text);
+
+            //Modificamos el Alto de las filas
+            DataGridViewRow row = dgvData.RowTemplate;
+            row.Height = 28;
+
+            //Recorremos la Lista de Clientes
+            foreach (CE_Cliente cliente in listaClientes)
+            {
+                //Y agregamos a cada Usuario a la Grid
+                dgvData.Rows.Add(new object[]
+                {
+                    cliente.Id,
+                    cliente.Nombre,
+                    cliente.Apellido,
+                    cliente.Dni,
+                    cliente.Fecha_nacimiento,
+                    cliente.Correo_electronico,
+                    cliente.Telefono,
+                    "",
+                });
+            }
+
+        }
+
+        private void btnLimpiarBuscar_Click(object sender, EventArgs e)
+        {
+            dgvData.Rows.Clear(); //Vaciar tabla
+            inputBuscar.Text = "";
+            Listar(); //Volver a Listar los Clientes
+        }
+
+        private void Listar()
+        {
+            //Listamos los Clientes
+            List<CE_Cliente> listaClientes = new CN_Cliente().ListarClientes(0);
+
+            //Modificamos el Alto de las filas
+            DataGridViewRow row = dgvData.RowTemplate;
+            row.Height = 28;
+
+            //Recorremos la Lista de Clientes
+            foreach (CE_Cliente cliente in listaClientes)
+            {
+                //Y agregamos a cada Usuario a la Grid
+                dgvData.Rows.Add(new object[]
+                {
+                    cliente.Id,
+                    cliente.Nombre,
+                    cliente.Apellido,
+                    cliente.Dni,
+                    cliente.Fecha_nacimiento,
+                    cliente.Correo_electronico,
+                    cliente.Telefono,
+                    "",
+                });
             }
         }
     }

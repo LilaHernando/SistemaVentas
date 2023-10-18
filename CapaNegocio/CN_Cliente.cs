@@ -63,5 +63,10 @@ namespace CapaNegocio
                 return ObjCliente.Editar(Obj, out mensaje); //Retorna el Obj con su método, pasamos el Obj y el mensaje de salida
             }
         }
+
+        public List<CE_Cliente> Filtrar(string filtrar) //Método que retorna una Lista Filtrada de tipo CE_Cliente (Clase Entidad de la tabla Cliente en la DB)
+        {
+            return ObjCliente.Filtrar(filtrar); //Retorna el Obj con su método
+        }
     }
 }

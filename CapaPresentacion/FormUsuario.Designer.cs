@@ -362,6 +362,7 @@ namespace CapaPresentacion
             this.btnBuscar.TabIndex = 25;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiarBuscar
             // 
@@ -379,6 +380,7 @@ namespace CapaPresentacion
             this.btnLimpiarBuscar.TabIndex = 24;
             this.btnLimpiarBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLimpiarBuscar.UseVisualStyleBackColor = false;
+            this.btnLimpiarBuscar.Click += new System.EventHandler(this.btnLimpiarBuscar_Click);
             // 
             // btnGuardar
             // 
