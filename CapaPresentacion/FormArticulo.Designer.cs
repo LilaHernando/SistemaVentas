@@ -29,6 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxCodigoMaterial = new System.Windows.Forms.TextBox();
             this.comboRubro = new System.Windows.Forms.ComboBox();
@@ -55,7 +56,11 @@ namespace CapaPresentacion
             this.MarcaArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.botonSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.textBoxIden = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridArticulo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -75,6 +80,7 @@ namespace CapaPresentacion
             this.textBoxCodigoMaterial.Name = "textBoxCodigoMaterial";
             this.textBoxCodigoMaterial.Size = new System.Drawing.Size(199, 24);
             this.textBoxCodigoMaterial.TabIndex = 6;
+            this.textBoxCodigoMaterial.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCodigoMaterial_Validating);
             // 
             // comboRubro
             // 
@@ -93,6 +99,7 @@ namespace CapaPresentacion
             this.textBoxCosto.Name = "textBoxCosto";
             this.textBoxCosto.Size = new System.Drawing.Size(199, 24);
             this.textBoxCosto.TabIndex = 10;
+            this.textBoxCosto.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCosto_Validating);
             // 
             // comboMarca
             // 
@@ -148,6 +155,7 @@ namespace CapaPresentacion
             this.dataGridArticulo.Size = new System.Drawing.Size(697, 309);
             this.dataGridArticulo.TabIndex = 15;
             this.dataGridArticulo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridArticulo_CellContentClick);
+            this.dataGridArticulo.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridArticulo_CellPainting);
             // 
             // textBoxBuscador
             // 
@@ -193,6 +201,7 @@ namespace CapaPresentacion
             this.buttonLimipiar.Size = new System.Drawing.Size(15, 15);
             this.buttonLimipiar.TabIndex = 21;
             this.buttonLimipiar.UseVisualStyleBackColor = true;
+            this.buttonLimipiar.Click += new System.EventHandler(this.buttonLimipiar_Click);
             // 
             // buttonBuscar
             // 
@@ -218,6 +227,7 @@ namespace CapaPresentacion
             this.buttonEditar.TabIndex = 17;
             this.buttonEditar.Text = " Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // buttonRegistrar
             // 
@@ -331,7 +341,36 @@ namespace CapaPresentacion
             this.botonSeleccionar.FillWeight = 48.22705F;
             this.botonSeleccionar.HeaderText = "";
             this.botonSeleccionar.Name = "botonSeleccionar";
-            this.botonSeleccionar.Width = 20;
+            this.botonSeleccionar.Width = 28;
+            // 
+            // textBoxIden
+            // 
+            this.textBoxIden.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.textBoxIden.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.textBoxIden.Location = new System.Drawing.Point(190, 26);
+            this.textBoxIden.Name = "textBoxIden";
+            this.textBoxIden.ReadOnly = true;
+            this.textBoxIden.Size = new System.Drawing.Size(24, 24);
+            this.textBoxIden.TabIndex = 23;
+            this.textBoxIden.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label6.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.Location = new System.Drawing.Point(165, 30);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 16);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Iden:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FormArticulo
             // 
@@ -339,6 +378,8 @@ namespace CapaPresentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(917, 341);
             this.ControlBox = false;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.textBoxIden);
             this.Controls.Add(this.checkBoxBaja);
             this.Controls.Add(this.buttonLimipiar);
             this.Controls.Add(this.buttonBuscar);
@@ -365,6 +406,7 @@ namespace CapaPresentacion
             this.Text = "FormArticulo";
             this.Load += new System.EventHandler(this.FormArticulo_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridArticulo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -397,5 +439,8 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn MarcaArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Baja;
         private System.Windows.Forms.DataGridViewButtonColumn botonSeleccionar;
+        private System.Windows.Forms.TextBox textBoxIden;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

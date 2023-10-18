@@ -61,6 +61,49 @@ namespace CapaDatos
                 try
                 {
                     SqlCommand cmd = new SqlCommand("GN_Articulo_INSUPD", conexion);
+
+                    cmd.Parameters.AddWithValue("codigoMaterial", articulo.codigoDeMaterial);
+                    cmd.Parameters.AddWithValue("rubro", articulo.rubro);
+                    cmd.Parameters.AddWithValue("costo", articulo.costo);
+                    cmd.Parameters.AddWithValue("marca", articulo.marca);
+                    cmd.Parameters.AddWithValue("baja", articulo.baja);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    conexion.Open();
+                    //cmd.ExecuteNonQuery();
+
+                    // Ejecutar el stored procedure
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            idArticuloGenerado = Convert.ToInt32(reader["NuevoID"]);
+                        }
+                    }
+
+                    conexion.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    idArticuloGenerado = 0;
+                    string mensaje = "Ocurrió un error inesperado: " + ex.Message;
+                    Console.WriteLine(mensaje);
+                }
+            }
+            
+            return idArticuloGenerado;
+        }
+
+        public bool Editar(CE_Articulo articulo)
+        {
+            bool respuesta = false;
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("GN_Articulo_INSUPD", conexion);
                     cmd.Parameters.AddWithValue("iden", articulo.iden);
                     cmd.Parameters.AddWithValue("codigoMaterial", articulo.codigoDeMaterial);
                     cmd.Parameters.AddWithValue("rubro", articulo.rubro);
@@ -72,18 +115,20 @@ namespace CapaDatos
                     conexion.Open();
                     cmd.ExecuteNonQuery();
 
+                    respuesta = true;
 
                     conexion.Close();
 
                 }
                 catch (Exception ex)
                 {
+                    respuesta = false; 
                     string mensaje = "Ocurrió un error inesperado: " + ex.Message;
                     Console.WriteLine(mensaje);
                 }
             }
-            
-            return idArticuloGenerado;
+
+            return respuesta;
         }
     }
 }
