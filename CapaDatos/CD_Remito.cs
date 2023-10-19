@@ -18,7 +18,7 @@ namespace CapaDatos
 
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("CMP_Remito_SEL", onConexion);              //Nuevo comando SQL, indico el SP a utilizar y la conexion
+                    SqlCommand cmd = new SqlCommand("[dbo].[CMP_Remito_SEL]", onConexion);              //Nuevo comando SQL, indico el SP a utilizar y la conexion
                     cmd.CommandType = CommandType.StoredProcedure;                              //Indico que es un comando de tipo SP
 
                     onConexion.Open();

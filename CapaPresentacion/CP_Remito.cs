@@ -63,5 +63,15 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
     }
 }
