@@ -35,20 +35,8 @@ namespace CapaPresentacion
             this.comboRubro = new System.Windows.Forms.ComboBox();
             this.textBoxCosto = new System.Windows.Forms.TextBox();
             this.comboMarca = new System.Windows.Forms.ComboBox();
-            this.labelSuperior = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridArticulo = new System.Windows.Forms.DataGridView();
-            this.textBoxBuscador = new System.Windows.Forms.TextBox();
-            this.labelBuscar = new System.Windows.Forms.Label();
-            this.checkBoxBaja = new System.Windows.Forms.CheckBox();
-            this.buttonLimipiar = new FontAwesome.Sharp.IconButton();
-            this.buttonBuscar = new FontAwesome.Sharp.IconButton();
-            this.buttonEditar = new System.Windows.Forms.Button();
-            this.buttonRegistrar = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.idenArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodigoMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RubroArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,9 +44,22 @@ namespace CapaPresentacion
             this.MarcaArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.botonSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.textBoxBuscador = new System.Windows.Forms.TextBox();
+            this.labelBuscar = new System.Windows.Forms.Label();
+            this.checkBoxBaja = new System.Windows.Forms.CheckBox();
             this.textBoxIden = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label8 = new System.Windows.Forms.Label();
+            this.buttonLimipiar = new FontAwesome.Sharp.IconButton();
+            this.buttonBuscar = new FontAwesome.Sharp.IconButton();
+            this.buttonEditar = new System.Windows.Forms.Button();
+            this.buttonRegistrar = new System.Windows.Forms.Button();
+            this.labelSuperior = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -76,7 +77,7 @@ namespace CapaPresentacion
             // textBoxCodigoMaterial
             // 
             this.textBoxCodigoMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBoxCodigoMaterial.Location = new System.Drawing.Point(12, 52);
+            this.textBoxCodigoMaterial.Location = new System.Drawing.Point(12, 70);
             this.textBoxCodigoMaterial.Name = "textBoxCodigoMaterial";
             this.textBoxCodigoMaterial.Size = new System.Drawing.Size(199, 24);
             this.textBoxCodigoMaterial.TabIndex = 6;
@@ -87,7 +88,7 @@ namespace CapaPresentacion
             this.comboRubro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboRubro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.comboRubro.FormattingEnabled = true;
-            this.comboRubro.Location = new System.Drawing.Point(12, 101);
+            this.comboRubro.Location = new System.Drawing.Point(12, 119);
             this.comboRubro.Name = "comboRubro";
             this.comboRubro.Size = new System.Drawing.Size(199, 26);
             this.comboRubro.TabIndex = 8;
@@ -95,7 +96,7 @@ namespace CapaPresentacion
             // textBoxCosto
             // 
             this.textBoxCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBoxCosto.Location = new System.Drawing.Point(12, 152);
+            this.textBoxCosto.Location = new System.Drawing.Point(12, 170);
             this.textBoxCosto.Name = "textBoxCosto";
             this.textBoxCosto.Size = new System.Drawing.Size(199, 24);
             this.textBoxCosto.TabIndex = 10;
@@ -106,24 +107,10 @@ namespace CapaPresentacion
             this.comboMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.comboMarca.FormattingEnabled = true;
-            this.comboMarca.Location = new System.Drawing.Point(12, 201);
+            this.comboMarca.Location = new System.Drawing.Point(12, 219);
             this.comboMarca.Name = "comboMarca";
             this.comboMarca.Size = new System.Drawing.Size(199, 26);
             this.comboMarca.TabIndex = 12;
-            // 
-            // labelSuperior
-            // 
-            this.labelSuperior.BackColor = System.Drawing.Color.DarkRed;
-            this.labelSuperior.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelSuperior.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelSuperior.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSuperior.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelSuperior.Location = new System.Drawing.Point(220, 0);
-            this.labelSuperior.Name = "labelSuperior";
-            this.labelSuperior.Size = new System.Drawing.Size(697, 32);
-            this.labelSuperior.TabIndex = 13;
-            this.labelSuperior.Text = "Listado de Artículos";
-            this.labelSuperior.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label7
             // 
@@ -157,6 +144,55 @@ namespace CapaPresentacion
             this.dataGridArticulo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridArticulo_CellContentClick);
             this.dataGridArticulo.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridArticulo_CellPainting);
             // 
+            // idenArticulo
+            // 
+            this.idenArticulo.FillWeight = 375.7426F;
+            this.idenArticulo.HeaderText = "Iden";
+            this.idenArticulo.Name = "idenArticulo";
+            this.idenArticulo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // CodigoMaterial
+            // 
+            this.CodigoMaterial.FillWeight = 174.2379F;
+            this.CodigoMaterial.HeaderText = "Codigo Material";
+            this.CodigoMaterial.Name = "CodigoMaterial";
+            this.CodigoMaterial.Width = 150;
+            // 
+            // RubroArticulo
+            // 
+            this.RubroArticulo.FillWeight = 35.50134F;
+            this.RubroArticulo.HeaderText = "Rubro";
+            this.RubroArticulo.Name = "RubroArticulo";
+            this.RubroArticulo.Width = 200;
+            // 
+            // CostoArticulo
+            // 
+            this.CostoArticulo.FillWeight = 35.50134F;
+            this.CostoArticulo.HeaderText = "Costo";
+            this.CostoArticulo.Name = "CostoArticulo";
+            this.CostoArticulo.Width = 180;
+            // 
+            // MarcaArticulo
+            // 
+            this.MarcaArticulo.FillWeight = 35.50134F;
+            this.MarcaArticulo.HeaderText = "Marca";
+            this.MarcaArticulo.Name = "MarcaArticulo";
+            this.MarcaArticulo.Width = 200;
+            // 
+            // Baja
+            // 
+            this.Baja.FillWeight = 35.50134F;
+            this.Baja.HeaderText = "Baja";
+            this.Baja.Name = "Baja";
+            this.Baja.Width = 50;
+            // 
+            // botonSeleccionar
+            // 
+            this.botonSeleccionar.FillWeight = 48.22705F;
+            this.botonSeleccionar.HeaderText = "";
+            this.botonSeleccionar.Name = "botonSeleccionar";
+            this.botonSeleccionar.Width = 28;
+            // 
             // textBoxBuscador
             // 
             this.textBoxBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
@@ -182,12 +218,57 @@ namespace CapaPresentacion
             // 
             this.checkBoxBaja.BackColor = System.Drawing.Color.White;
             this.checkBoxBaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.checkBoxBaja.Location = new System.Drawing.Point(12, 233);
+            this.checkBoxBaja.Location = new System.Drawing.Point(12, 242);
             this.checkBoxBaja.Name = "checkBoxBaja";
             this.checkBoxBaja.Size = new System.Drawing.Size(62, 33);
             this.checkBoxBaja.TabIndex = 22;
             this.checkBoxBaja.Text = "Baja";
             this.checkBoxBaja.UseVisualStyleBackColor = false;
+            // 
+            // textBoxIden
+            // 
+            this.textBoxIden.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.textBoxIden.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.textBoxIden.Location = new System.Drawing.Point(190, 44);
+            this.textBoxIden.Name = "textBoxIden";
+            this.textBoxIden.ReadOnly = true;
+            this.textBoxIden.Size = new System.Drawing.Size(24, 24);
+            this.textBoxIden.TabIndex = 23;
+            this.textBoxIden.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label6.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.Location = new System.Drawing.Point(165, 48);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 16);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Iden:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label8.BackColor = System.Drawing.Color.DarkRed;
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.Control;
+            this.label8.Image = global::CapaPresentacion.Properties.Resources.carretilla;
+            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label8.Location = new System.Drawing.Point(12, 1);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(208, 32);
+            this.label8.TabIndex = 25;
+            this.label8.Text = "    Carga de Artículos";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // buttonLimipiar
             // 
@@ -242,13 +323,28 @@ namespace CapaPresentacion
             this.buttonRegistrar.UseVisualStyleBackColor = true;
             this.buttonRegistrar.Click += new System.EventHandler(this.buttonRegistrar_Click);
             // 
+            // labelSuperior
+            // 
+            this.labelSuperior.BackColor = System.Drawing.Color.DarkRed;
+            this.labelSuperior.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.labelSuperior.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelSuperior.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSuperior.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelSuperior.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelSuperior.Location = new System.Drawing.Point(220, 0);
+            this.labelSuperior.Name = "labelSuperior";
+            this.labelSuperior.Size = new System.Drawing.Size(697, 32);
+            this.labelSuperior.TabIndex = 13;
+            this.labelSuperior.Text = "     Listado de Artículos";
+            this.labelSuperior.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.White;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.label5.Image = global::CapaPresentacion.Properties.Resources.price_tag;
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(9, 179);
+            this.label5.Location = new System.Drawing.Point(9, 197);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 19);
             this.label5.TabIndex = 11;
@@ -261,7 +357,7 @@ namespace CapaPresentacion
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.label4.Image = global::CapaPresentacion.Properties.Resources.money;
             this.label4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label4.Location = new System.Drawing.Point(9, 130);
+            this.label4.Location = new System.Drawing.Point(9, 148);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 19);
             this.label4.TabIndex = 9;
@@ -274,7 +370,7 @@ namespace CapaPresentacion
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.label3.Image = global::CapaPresentacion.Properties.Resources.box;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(12, 79);
+            this.label3.Location = new System.Drawing.Point(12, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 19);
             this.label3.TabIndex = 7;
@@ -287,90 +383,12 @@ namespace CapaPresentacion
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.label2.Image = global::CapaPresentacion.Properties.Resources.bar_code;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(12, 26);
+            this.label2.Location = new System.Drawing.Point(12, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(137, 23);
             this.label2.TabIndex = 5;
             this.label2.Text = "Codigo de material:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // idenArticulo
-            // 
-            this.idenArticulo.FillWeight = 375.7426F;
-            this.idenArticulo.HeaderText = "Iden";
-            this.idenArticulo.Name = "idenArticulo";
-            this.idenArticulo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // CodigoMaterial
-            // 
-            this.CodigoMaterial.FillWeight = 174.2379F;
-            this.CodigoMaterial.HeaderText = "Codigo Material";
-            this.CodigoMaterial.Name = "CodigoMaterial";
-            this.CodigoMaterial.Width = 150;
-            // 
-            // RubroArticulo
-            // 
-            this.RubroArticulo.FillWeight = 35.50134F;
-            this.RubroArticulo.HeaderText = "Rubro";
-            this.RubroArticulo.Name = "RubroArticulo";
-            this.RubroArticulo.Width = 200;
-            // 
-            // CostoArticulo
-            // 
-            this.CostoArticulo.FillWeight = 35.50134F;
-            this.CostoArticulo.HeaderText = "Costo";
-            this.CostoArticulo.Name = "CostoArticulo";
-            this.CostoArticulo.Width = 180;
-            // 
-            // MarcaArticulo
-            // 
-            this.MarcaArticulo.FillWeight = 35.50134F;
-            this.MarcaArticulo.HeaderText = "Marca";
-            this.MarcaArticulo.Name = "MarcaArticulo";
-            this.MarcaArticulo.Width = 200;
-            // 
-            // Baja
-            // 
-            this.Baja.FillWeight = 35.50134F;
-            this.Baja.HeaderText = "Baja";
-            this.Baja.Name = "Baja";
-            this.Baja.Width = 50;
-            // 
-            // botonSeleccionar
-            // 
-            this.botonSeleccionar.FillWeight = 48.22705F;
-            this.botonSeleccionar.HeaderText = "";
-            this.botonSeleccionar.Name = "botonSeleccionar";
-            this.botonSeleccionar.Width = 28;
-            // 
-            // textBoxIden
-            // 
-            this.textBoxIden.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBoxIden.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.textBoxIden.Location = new System.Drawing.Point(190, 26);
-            this.textBoxIden.Name = "textBoxIden";
-            this.textBoxIden.ReadOnly = true;
-            this.textBoxIden.Size = new System.Drawing.Size(24, 24);
-            this.textBoxIden.TabIndex = 23;
-            this.textBoxIden.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.label6.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(165, 30);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 16);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "Iden:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
             // 
             // FormArticulo
             // 
@@ -378,6 +396,7 @@ namespace CapaPresentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(917, 341);
             this.ControlBox = false;
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxIden);
             this.Controls.Add(this.checkBoxBaja);
@@ -442,5 +461,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.TextBox textBoxIden;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label8;
     }
 }
