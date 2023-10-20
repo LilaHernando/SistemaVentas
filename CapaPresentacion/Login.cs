@@ -28,37 +28,47 @@ namespace CapaPresentacion
 
         private void btnIngresar_Click(object sender, EventArgs e) //Método para Ingresar al Formulario Inicio
         {
-            //Instanciamos un Objeto de tipo Usuario con su Método Listar 
-            //Buscamos un Usuario en la base de datos él cual contega los mismos datos ingresados en los Inputs del Formulario
-            CE_Usuario objUsuario = new CN_Usuario().Listar().Where(u => u.Dni == inputUsuario.Text && u.Clave == inputClave.Text).FirstOrDefault();
-
             //Si uno o más de los Campos estan vacios, se lo notificamos al Usuario
             if (inputClave.Text.Equals("") || inputUsuario.Text.Equals(""))
             {
                 //Mensaje
                 MessageBox.Show("Uno o más de los Campos estan vacios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if(objUsuario != null) //Si la busqueda arroja distinto de nulo, significa que se encontro una coincidencia
+            else
             {
-                if (objUsuario.Estado != true) //Preguntamos si el Usuario esta INACTIVO
+                //Instanciamos un Objeto de tipo Usuario con su Método Listar 
+                //Buscamos un Usuario en la base de datos él cual contega los mismos datos ingresados en los Inputs del Formulario
+                List<CE_Usuario> listaUsuarios = new CN_Usuario().Listar(); //Codigo anterior: CE_Usuario objUsuario = new CN_Usuario().Listar().Where(u => u.Dni == inputUsuario.Text && u.Clave == inputClave.Text).FirstOrDefault();
+
+                //Linq
+                var userQuery =
+                    (from u in listaUsuarios
+                     where u.Dni == inputUsuario.Text
+                     && u.Clave == inputClave.Text
+                     select u).FirstOrDefault(); //Gracias a FirstOrDefault nos quedamos con un Usuario en vez de una Lista, por lo tanto no es necesario usar un foreach
+
+                if (userQuery != null) //Si la busqueda arroja distinto de nulo, significa que se encontro una coincidencia
                 {
-                    MessageBox.Show("Usuario INACTIVO", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    if (userQuery.Estado != true) //Preguntamos si el Usuario esta INACTIVO
+                    {
+                        MessageBox.Show("Usuario INACTIVO", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else //Si esta ACTIVO se logea
+                    {
+                        Inicio inicio = new Inicio(userQuery); //Se instancia el Formulario Inicio y le pasamos por parametro el Usuario logeado
+
+                        inicio.Show(); //Mostramos Inicio
+
+                        this.Hide(); //Ocultamos Login
+
+                        inicio.FormClosing += Form_Closing; //Añadimos el metodo Form_Closing al Formulario Inicio y solo se ejecuta cuando se cierra el mismo
+                    }
                 }
-                else //Si esta ACTIVO se logea
+                else //Caso de no encontrar un coincidencia, lo notificamos...
                 {
-                    Inicio inicio = new Inicio(objUsuario); //Se instancia el Formulario Inicio y le pasamos por parametro el Usuario logeado
-
-                    inicio.Show(); //Mostramos Inicio
-
-                    this.Hide(); //Ocultamos Login
-
-                    inicio.FormClosing += Form_Closing; //Añadimos el metodo Form_Closing al Formulario Inicio y solo se ejecuta cuando se cierra el mismo
+                    //Mensaje
+                    MessageBox.Show("Documento o Contraseña incorrectas", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-            }
-            else //Caso de no encontrar un coincidencia, lo notificamos...
-            {
-                //Mensaje
-                MessageBox.Show("Documento o Contraseña incorrectas", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);   
             }
         }
 

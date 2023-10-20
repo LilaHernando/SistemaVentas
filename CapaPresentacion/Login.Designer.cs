@@ -178,8 +178,8 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton btnIngresar;
         private FontAwesome.Sharp.IconButton btnSalir;
-        private System.Windows.Forms.TextBox inputClave;
         private System.Windows.Forms.TextBox inputUsuario;
+        private System.Windows.Forms.TextBox inputClave;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
