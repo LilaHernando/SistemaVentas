@@ -38,9 +38,10 @@ namespace CapaPresentacion
             {
                 //Instanciamos un Objeto de tipo Usuario con su Método Listar 
                 //Buscamos un Usuario en la base de datos él cual contega los mismos datos ingresados en los Inputs del Formulario
-                List<CE_Usuario> listaUsuarios = new CN_Usuario().Listar(); //Codigo anterior: CE_Usuario objUsuario = new CN_Usuario().Listar().Where(u => u.Dni == inputUsuario.Text && u.Clave == inputClave.Text).FirstOrDefault();
+                List<CE_Usuario> listaUsuarios = new CN_Usuario().Listar();
+                //Codigo anterior: CE_Usuario objUsuario = new CN_Usuario().Listar().Where(u => u.Dni == inputUsuario.Text && u.Clave == inputClave.Text).FirstOrDefault();
 
-                //Linq
+                //aplicamos Linq
                 var userQuery =
                     (from u in listaUsuarios
                      where u.Dni == inputUsuario.Text
