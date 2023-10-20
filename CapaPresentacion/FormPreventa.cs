@@ -39,6 +39,17 @@ namespace CapaPresentacion
             listarPreventas();
             listarSucursal(cbbSucursal);
             listarEstado(cbbEstado);
+            iniciarCbbBuscar();
+        }
+
+        public void iniciarCbbBuscar()
+        {
+            cbbBusqueda.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Numero" });
+            cbbBusqueda.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Cliente" });
+            cbbBusqueda.Items.Add(new OpcionCombo() { Valor = 2, Texto = "Sucursal" });
+            cbbBusqueda.DisplayMember = "Texto";
+            cbbBusqueda.ValueMember = "Valor";
+            cbbBusqueda.SelectedIndex = -1;
         }
 
         public void listarPreventas()
@@ -72,7 +83,6 @@ namespace CapaPresentacion
             cbbSucursal.DisplayMember = "Descripcion";
             cbbSucursal.ValueMember = "Id";
             cbbSucursal.SelectedIndex = -1;
-
         }
 
         public void listarEstado(ComboBox cbb)
@@ -297,6 +307,54 @@ namespace CapaPresentacion
             listarEstado(cbbEstado);
         }
 
+        private void labelBuscar_Click(object sender, EventArgs e)
+        {
+            MessageBoxButtons btn = MessageBoxButtons.OK;
+
+            // Verifica si se ha seleccionado un elemento en el ComboBox
+            if (cbbBusqueda.SelectedItem != null)
+            {
+                string columnaFiltro = ((OpcionCombo)cbbBusqueda.SelectedItem).Texto;
+                if (!string.IsNullOrEmpty(columnaFiltro))
+                {
+                    try
+                    {
+                        if (dgvDataPreventa.Rows.Count > 0)
+                        {
+                            foreach (DataGridViewRow row in dgvDataPreventa.Rows)
+                            {
+                                if (row.Cells[columnaFiltro].Value != null && row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtBuscar.Text.Trim().ToUpper()))
+                                    row.Visible = true;
+                                else
+                                    row.Visible = false;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El campo de búsqueda se encuentra vacío", "Campos Incompletos", btn, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se ha seleccionado una columna de búsqueda", "Campos Incompletos", btn, MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        private void labelLimpiar_Click(object sender, EventArgs e)
+        {
+            dgvDataPreventa.Rows.Clear();
+            listarPreventas();
+            iniciarCbbBuscar();
+            txtBuscar.Text = "";
+        }
     }
 
 

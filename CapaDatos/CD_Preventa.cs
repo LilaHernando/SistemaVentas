@@ -67,16 +67,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("monto", Preventa.Monto);
                     cmd.Parameters.AddWithValue("fecha", Preventa.Fecha);
                     cmd.Parameters.AddWithValue("idOperacion", Preventa.IdOperacion);
-                    /*
-                    cmd.Parameters.Add(new SqlParameter("iden", SqlDbType.Int)).Value = Preventa.IdPreventa;
-                    cmd.Parameters.Add(new SqlParameter("numero", SqlDbType.Int)).Value = Preventa.Numero;
-                    cmd.Parameters.Add(new SqlParameter("GN_Sucursal_iden", SqlDbType.Int)).Value = Preventa.Id_Sucursal;
-                    cmd.Parameters.Add(new SqlParameter("GN_Cliente_iden", SqlDbType.Int)).Value = Preventa.Id_Cliente;
-                    cmd.Parameters.Add(new SqlParameter("baja", SqlDbType.Bit)).Value = Preventa.Baja;
-                    cmd.Parameters.Add(new SqlParameter("monto", SqlDbType.Money)).Value = Preventa.Monto;
-                    cmd.Parameters.Add(new SqlParameter("fecha", SqlDbType.DateTime)).Value = Preventa.Fecha;
-                    cmd.Parameters.Add(new SqlParameter("idOperacion", SqlDbType.Int)).Value = Preventa.IdOperacion;
-                    */
+                   
                     cmd.CommandType = CommandType.StoredProcedure;
                     onConexion.Open();
                     cmd.ExecuteNonQuery();
