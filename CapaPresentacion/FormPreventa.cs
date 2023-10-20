@@ -91,7 +91,7 @@ namespace CapaPresentacion
             cbb.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Inactiva" });
             cbb.DisplayMember = "Texto";
             cbb.ValueMember = "Valor";
-            cbb.SelectedIndex = 0;
+            cbb.SelectedIndex = -1;
         }
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
