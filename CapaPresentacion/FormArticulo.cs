@@ -419,6 +419,26 @@ namespace CapaPresentacion
 
                 });
             }
+            if (string.IsNullOrWhiteSpace(textBoxBuscador.Text))
+            {
+                textBoxBuscador.Text = "Filtrar por iden, rubro o marca";
+            }
+        }
+
+        private void textBoxBuscador_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBoxBuscador.Text))
+            {
+                textBoxBuscador.Text = "Filtrar por iden, rubro o marca";
+            }
+        }
+
+        private void textBoxBuscador_Click(object sender, EventArgs e)
+        {
+            if (textBoxBuscador.Text == "Filtrar por iden, rubro o marca")
+            {
+                textBoxBuscador.Text = "";
+            }
         }
     }
 }

@@ -197,11 +197,14 @@ namespace CapaPresentacion
             // 
             // textBoxBuscador
             // 
-            this.textBoxBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBoxBuscador.Location = new System.Drawing.Point(674, 6);
+            this.textBoxBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.textBoxBuscador.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBoxBuscador.Location = new System.Drawing.Point(674, 7);
             this.textBoxBuscador.Name = "textBoxBuscador";
-            this.textBoxBuscador.Size = new System.Drawing.Size(136, 24);
+            this.textBoxBuscador.Size = new System.Drawing.Size(136, 20);
             this.textBoxBuscador.TabIndex = 18;
+            this.textBoxBuscador.Text = "Filtrar por iden, rubro o marca";
+            this.textBoxBuscador.Click += new System.EventHandler(this.textBoxBuscador_Click);
             // 
             // checkBoxBaja
             // 
