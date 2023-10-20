@@ -128,6 +128,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\before.png" />
+    <None Include="Resources\remove.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\magnifying-glass.png" />
+    <None Include="Resources\trash-bin.png" />
     <None Include="Resources\lista-de-verificacion.png" />
     <None Include="Resources\carretilla.png" />
   </ItemGroup>

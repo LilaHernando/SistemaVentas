@@ -48,31 +48,32 @@ namespace CapaPresentacion
                         Limpiar();
                     }
 
-                }else
-                {
-                    bool articuloEditado = new CN_Articulo().Editar(art);
-
-                    if (articuloEditado)
-                    {
-                        int indiceFilaSeleccionada = -1; // Establece un valor predeterminado
-
-                        if (dataGridArticulo.SelectedCells.Count > 0)
-                        {
-                            // Obtiene el índice de la fila de la celda seleccionada.
-                            indiceFilaSeleccionada = dataGridArticulo.SelectedCells[0].RowIndex;
-                        }
-
-                        DataGridViewRow row = dataGridArticulo.Rows[indiceFilaSeleccionada];
-                        row.Cells["idenArticulo"].Value = textBoxIden.Text;
-                        row.Cells["CodigoMaterial"].Value = textBoxCodigoMaterial.Text;
-                        row.Cells["RubroArticulo"].Value = ((OpcionCombo)comboRubro.SelectedItem).Texto;
-                        row.Cells["CostoArticulo"].Value = textBoxCosto.Text;
-                        row.Cells["MarcaArticulo"].Value = ((OpcionCombo)comboMarca.SelectedItem).Texto;
-                        row.Cells["Baja"].Value = (checkBoxBaja.Checked == true ? "Si" : "No");
-
-                        Limpiar();
-                    }
                 }
+                //else
+                //{
+                //    bool articuloEditado = new CN_Articulo().Editar(art);
+
+                //    if (articuloEditado)
+                //    {
+                //        int indiceFilaSeleccionada = -1; // Establece un valor predeterminado
+
+                //        if (dataGridArticulo.SelectedCells.Count > 0)
+                //        {
+                //            // Obtiene el índice de la fila de la celda seleccionada.
+                //            indiceFilaSeleccionada = dataGridArticulo.SelectedCells[0].RowIndex;
+                //        }
+
+                //        DataGridViewRow row = dataGridArticulo.Rows[indiceFilaSeleccionada];
+                //        row.Cells["idenArticulo"].Value = textBoxIden.Text;
+                //        row.Cells["CodigoMaterial"].Value = textBoxCodigoMaterial.Text;
+                //        row.Cells["RubroArticulo"].Value = ((OpcionCombo)comboRubro.SelectedItem).Texto;
+                //        row.Cells["CostoArticulo"].Value = textBoxCosto.Text;
+                //        row.Cells["MarcaArticulo"].Value = ((OpcionCombo)comboMarca.SelectedItem).Texto;
+                //        row.Cells["Baja"].Value = (checkBoxBaja.Checked == true ? "Si" : "No");
+
+                //        Limpiar();
+                //    }
+                //}
 
             }
             else
@@ -195,6 +196,9 @@ namespace CapaPresentacion
 
                 });
             }
+
+            //Deshabilito el boton editar 
+            buttonEditar.Enabled = false;
         }
 
         private void textBoxCosto_TextChanged(object sender, KeyPressEventArgs e)
@@ -307,6 +311,8 @@ namespace CapaPresentacion
                     }
 
                 }
+                buttonEditar.Enabled = true;
+                buttonRegistrar.Enabled = false;
             }
         }
 
@@ -372,6 +378,7 @@ namespace CapaPresentacion
                 }
 
                 Limpiar();
+                buttonRegistrar.Enabled = true;
             }
             else
             {
@@ -379,7 +386,19 @@ namespace CapaPresentacion
             }
         }
 
-        private void buttonLimipiar_Click(object sender, EventArgs e)
+        private void buttonLimpiarCarga_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+            buttonEditar.Enabled = false;
+            buttonRegistrar.Enabled = true;
+        }
+
+        private void buttonBusqueda_Click(object sender, EventArgs e)
+        {
+            textBoxBuscador_TextChanged(textBoxBuscador, EventArgs.Empty);
+        }
+
+        private void buttonLimpiarListado_Click(object sender, EventArgs e)
         {
             textBoxBuscador.Text = "";
             dataGridArticulo.Rows.Clear();      // Borra todas las filas

@@ -45,14 +45,15 @@ namespace CapaPresentacion
             this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.botonSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.textBoxBuscador = new System.Windows.Forms.TextBox();
-            this.labelBuscar = new System.Windows.Forms.Label();
             this.checkBoxBaja = new System.Windows.Forms.CheckBox();
             this.textBoxIden = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.buttonLimpiarListado = new System.Windows.Forms.Button();
+            this.buttonBusqueda = new System.Windows.Forms.Button();
+            this.buttonLimpiarCarga = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.buttonLimipiar = new FontAwesome.Sharp.IconButton();
-            this.buttonBuscar = new FontAwesome.Sharp.IconButton();
+            this.labelBuscar = new System.Windows.Forms.Label();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonRegistrar = new System.Windows.Forms.Button();
             this.labelSuperior = new System.Windows.Forms.Label();
@@ -150,6 +151,7 @@ namespace CapaPresentacion
             this.idenArticulo.HeaderText = "Iden";
             this.idenArticulo.Name = "idenArticulo";
             this.idenArticulo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.idenArticulo.Visible = false;
             // 
             // CodigoMaterial
             // 
@@ -201,19 +203,6 @@ namespace CapaPresentacion
             this.textBoxBuscador.Size = new System.Drawing.Size(136, 24);
             this.textBoxBuscador.TabIndex = 18;
             // 
-            // labelBuscar
-            // 
-            this.labelBuscar.AutoSize = true;
-            this.labelBuscar.BackColor = System.Drawing.Color.DarkRed;
-            this.labelBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.labelBuscar.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelBuscar.Location = new System.Drawing.Point(618, 8);
-            this.labelBuscar.Name = "labelBuscar";
-            this.labelBuscar.Size = new System.Drawing.Size(59, 18);
-            this.labelBuscar.TabIndex = 19;
-            this.labelBuscar.Text = "Buscar:";
-            // 
             // checkBoxBaja
             // 
             this.checkBoxBaja.BackColor = System.Drawing.Color.White;
@@ -254,6 +243,38 @@ namespace CapaPresentacion
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // buttonLimpiarListado
+            // 
+            this.buttonLimpiarListado.Image = global::CapaPresentacion.Properties.Resources.remove;
+            this.buttonLimpiarListado.Location = new System.Drawing.Point(836, 6);
+            this.buttonLimpiarListado.Name = "buttonLimpiarListado";
+            this.buttonLimpiarListado.Size = new System.Drawing.Size(14, 15);
+            this.buttonLimpiarListado.TabIndex = 28;
+            this.buttonLimpiarListado.UseVisualStyleBackColor = true;
+            this.buttonLimpiarListado.Click += new System.EventHandler(this.buttonLimpiarListado_Click);
+            // 
+            // buttonBusqueda
+            // 
+            this.buttonBusqueda.Image = global::CapaPresentacion.Properties.Resources.search;
+            this.buttonBusqueda.Location = new System.Drawing.Point(816, 6);
+            this.buttonBusqueda.Name = "buttonBusqueda";
+            this.buttonBusqueda.Size = new System.Drawing.Size(14, 15);
+            this.buttonBusqueda.TabIndex = 27;
+            this.buttonBusqueda.UseVisualStyleBackColor = true;
+            this.buttonBusqueda.Click += new System.EventHandler(this.buttonBusqueda_Click);
+            // 
+            // buttonLimpiarCarga
+            // 
+            this.buttonLimpiarCarga.Image = global::CapaPresentacion.Properties.Resources.trash_bin;
+            this.buttonLimpiarCarga.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonLimpiarCarga.Location = new System.Drawing.Point(153, 281);
+            this.buttonLimpiarCarga.Name = "buttonLimpiarCarga";
+            this.buttonLimpiarCarga.Size = new System.Drawing.Size(61, 32);
+            this.buttonLimpiarCarga.TabIndex = 26;
+            this.buttonLimpiarCarga.Text = "    Limpiar";
+            this.buttonLimpiarCarga.UseVisualStyleBackColor = true;
+            this.buttonLimpiarCarga.Click += new System.EventHandler(this.buttonLimpiarCarga_Click);
+            // 
             // label8
             // 
             this.label8.BackColor = System.Drawing.Color.DarkRed;
@@ -269,43 +290,30 @@ namespace CapaPresentacion
             this.label8.Text = "     Carga de Artículos";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // buttonLimipiar
+            // labelBuscar
             // 
-            this.buttonLimipiar.CausesValidation = false;
-            this.buttonLimipiar.IconChar = FontAwesome.Sharp.IconChar.X;
-            this.buttonLimipiar.IconColor = System.Drawing.Color.Black;
-            this.buttonLimipiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.buttonLimipiar.IconSize = 15;
-            this.buttonLimipiar.Location = new System.Drawing.Point(837, 6);
-            this.buttonLimipiar.Name = "buttonLimipiar";
-            this.buttonLimipiar.Size = new System.Drawing.Size(15, 15);
-            this.buttonLimipiar.TabIndex = 21;
-            this.buttonLimipiar.UseVisualStyleBackColor = true;
-            this.buttonLimipiar.Click += new System.EventHandler(this.buttonLimipiar_Click);
-            // 
-            // buttonBuscar
-            // 
-            this.buttonBuscar.CausesValidation = false;
-            this.buttonBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.buttonBuscar.IconColor = System.Drawing.Color.Black;
-            this.buttonBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.buttonBuscar.IconSize = 15;
-            this.buttonBuscar.Location = new System.Drawing.Point(816, 6);
-            this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(15, 15);
-            this.buttonBuscar.TabIndex = 20;
-            this.buttonBuscar.UseVisualStyleBackColor = true;
-            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
+            this.labelBuscar.AutoSize = true;
+            this.labelBuscar.BackColor = System.Drawing.Color.DarkRed;
+            this.labelBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
+            this.labelBuscar.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelBuscar.Image = global::CapaPresentacion.Properties.Resources.magnifying_glass;
+            this.labelBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelBuscar.Location = new System.Drawing.Point(602, 7);
+            this.labelBuscar.Name = "labelBuscar";
+            this.labelBuscar.Size = new System.Drawing.Size(96, 22);
+            this.labelBuscar.TabIndex = 19;
+            this.labelBuscar.Text = "     Buscar:";
+            this.labelBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonEditar
             // 
             this.buttonEditar.Image = global::CapaPresentacion.Properties.Resources.pen;
             this.buttonEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEditar.Location = new System.Drawing.Point(138, 281);
+            this.buttonEditar.Location = new System.Drawing.Point(89, 281);
             this.buttonEditar.Name = "buttonEditar";
-            this.buttonEditar.Size = new System.Drawing.Size(76, 32);
+            this.buttonEditar.Size = new System.Drawing.Size(58, 32);
             this.buttonEditar.TabIndex = 17;
-            this.buttonEditar.Text = " Editar";
+            this.buttonEditar.Text = "   Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
             this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
@@ -313,11 +321,11 @@ namespace CapaPresentacion
             // 
             this.buttonRegistrar.Image = global::CapaPresentacion.Properties.Resources.plus;
             this.buttonRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRegistrar.Location = new System.Drawing.Point(56, 281);
+            this.buttonRegistrar.Location = new System.Drawing.Point(12, 281);
             this.buttonRegistrar.Name = "buttonRegistrar";
-            this.buttonRegistrar.Size = new System.Drawing.Size(76, 32);
+            this.buttonRegistrar.Size = new System.Drawing.Size(72, 32);
             this.buttonRegistrar.TabIndex = 16;
-            this.buttonRegistrar.Text = "Registrar";
+            this.buttonRegistrar.Text = "  Registrar";
             this.buttonRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonRegistrar.UseVisualStyleBackColor = true;
             this.buttonRegistrar.Click += new System.EventHandler(this.buttonRegistrar_Click);
@@ -396,12 +404,13 @@ namespace CapaPresentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(917, 341);
             this.ControlBox = false;
+            this.Controls.Add(this.buttonLimpiarListado);
+            this.Controls.Add(this.buttonBusqueda);
+            this.Controls.Add(this.buttonLimpiarCarga);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxIden);
             this.Controls.Add(this.checkBoxBaja);
-            this.Controls.Add(this.buttonLimipiar);
-            this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.labelBuscar);
             this.Controls.Add(this.textBoxBuscador);
             this.Controls.Add(this.buttonEditar);
@@ -448,9 +457,11 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button buttonEditar;
         private System.Windows.Forms.TextBox textBoxBuscador;
         private System.Windows.Forms.Label labelBuscar;
-        private FontAwesome.Sharp.IconButton buttonBuscar;
-        private FontAwesome.Sharp.IconButton buttonLimipiar;
         private System.Windows.Forms.CheckBox checkBoxBaja;
+        private System.Windows.Forms.TextBox textBoxIden;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewTextBoxColumn idenArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoMaterial;
         private System.Windows.Forms.DataGridViewTextBoxColumn RubroArticulo;
@@ -458,9 +469,8 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn MarcaArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Baja;
         private System.Windows.Forms.DataGridViewButtonColumn botonSeleccionar;
-        private System.Windows.Forms.TextBox textBoxIden;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button buttonLimpiarCarga;
+        private System.Windows.Forms.Button buttonBusqueda;
+        private System.Windows.Forms.Button buttonLimpiarListado;
     }
 }
