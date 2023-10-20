@@ -65,6 +65,12 @@
     <Compile Include="Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modales\Articulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\Articulos.Designer.cs">
+      <DependentUpon>Articulos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modales\MD_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modales\Articulos.resx">
+      <DependentUpon>Articulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\MD_Cliente.resx">
       <DependentUpon>MD_Cliente.cs</DependentUpon>
@@ -168,6 +177,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\clean.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\multiply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disk.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

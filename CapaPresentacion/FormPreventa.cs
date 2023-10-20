@@ -140,8 +140,8 @@ namespace CapaPresentacion
             CN_Preventa cN_preventa = new CN_Preventa();
             if (VerificarVacio(txtMonto.Text,txtDate.Text,txtCliente.Text))
             {
-                CE_Preventa PreventaCreada = crearPreventa();
-                cN_preventa.InsertarPreventa(PreventaCreada);
+                //CE_Preventa PreventaCreada = crearPreventa();
+                //cN_preventa.InsertarPreventa(PreventaCreada);
                 dgvDataPreventa.Rows.Clear();
                 listarPreventas();
                 LimpiarCampos();

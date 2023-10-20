@@ -45,6 +45,7 @@
     <Compile Include="CE_ItemPreventaPorArticulo.cs" />
     <Compile Include="CE_Preventa.cs" />
     <Compile Include="CE_Cliente.cs" />
+    <Compile Include="Item_Preventa_Articulo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
