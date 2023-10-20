@@ -22,16 +22,6 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void CP_Remito_Load(object sender, EventArgs e)         //Metodo LOAD, precarga los datos antes de mostrar el formulario.
         {
             List<CE_Remito> listaRemitos = new CN_Remito().Listar();    //Instancio una lista de objetos denominada listaremitos, que proviene del metodo Listar que ya contiene enlistado a los objetos en la capa NEGOCIO.
@@ -52,26 +42,6 @@ namespace CapaPresentacion
                     });
 
             }
-        }
-
-        private void TablaRemitos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void Titulo1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
-        {
-
         }
     }
 }

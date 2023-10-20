@@ -29,30 +29,18 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label1 = new System.Windows.Forms.Label();
-            this.NuevoRemito = new System.Windows.Forms.GroupBox();
-            this.BotonGuardar = new System.Windows.Forms.Button();
-            this.BotonEditar = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Titulo1 = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tablaRemito = new System.Windows.Forms.DataGridView();
+            this.Titulo = new System.Windows.Forms.Label();
             this.IDRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,198 +49,37 @@ namespace CapaPresentacion
             this.LetraRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Identificador = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.LetraDeRemito = new System.Windows.Forms.TextBox();
-            this.LetRemito = new System.Windows.Forms.Label();
-            this.IDOPBox = new System.Windows.Forms.TextBox();
-            this.IDOp = new System.Windows.Forms.Label();
-            this.NuevoRemito.SuspendLayout();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tablaRemito)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(250, 341);
-            this.label1.TabIndex = 0;
-            // 
-            // NuevoRemito
-            // 
-            this.NuevoRemito.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.NuevoRemito.Controls.Add(this.IDOPBox);
-            this.NuevoRemito.Controls.Add(this.IDOp);
-            this.NuevoRemito.Controls.Add(this.LetraDeRemito);
-            this.NuevoRemito.Controls.Add(this.LetRemito);
-            this.NuevoRemito.Controls.Add(this.textBox3);
-            this.NuevoRemito.Controls.Add(this.Identificador);
-            this.NuevoRemito.Controls.Add(this.BotonGuardar);
-            this.NuevoRemito.Controls.Add(this.BotonEditar);
-            this.NuevoRemito.Controls.Add(this.comboBox2);
-            this.NuevoRemito.Controls.Add(this.textBox2);
-            this.NuevoRemito.Controls.Add(this.comboBox1);
-            this.NuevoRemito.Controls.Add(this.textBox1);
-            this.NuevoRemito.Controls.Add(this.label5);
-            this.NuevoRemito.Controls.Add(this.label4);
-            this.NuevoRemito.Controls.Add(this.label3);
-            this.NuevoRemito.Controls.Add(this.label2);
-            this.NuevoRemito.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NuevoRemito.ForeColor = System.Drawing.Color.Black;
-            this.NuevoRemito.Location = new System.Drawing.Point(12, 11);
-            this.NuevoRemito.Name = "NuevoRemito";
-            this.NuevoRemito.Padding = new System.Windows.Forms.Padding(1);
-            this.NuevoRemito.Size = new System.Drawing.Size(226, 318);
-            this.NuevoRemito.TabIndex = 1;
-            this.NuevoRemito.TabStop = false;
-            this.NuevoRemito.Text = "Nuevo Remito";
-            // 
-            // BotonGuardar
-            // 
-            this.BotonGuardar.BackColor = System.Drawing.Color.DarkGreen;
-            this.BotonGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BotonGuardar.FlatAppearance.BorderSize = 2;
-            this.BotonGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BotonGuardar.ForeColor = System.Drawing.Color.Black;
-            this.BotonGuardar.Location = new System.Drawing.Point(3, 288);
-            this.BotonGuardar.Margin = new System.Windows.Forms.Padding(0);
-            this.BotonGuardar.Name = "BotonGuardar";
-            this.BotonGuardar.Size = new System.Drawing.Size(110, 27);
-            this.BotonGuardar.TabIndex = 9;
-            this.BotonGuardar.Text = "Guardar";
-            this.BotonGuardar.UseVisualStyleBackColor = false;
-            this.BotonGuardar.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // BotonEditar
-            // 
-            this.BotonEditar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BotonEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BotonEditar.Location = new System.Drawing.Point(113, 288);
-            this.BotonEditar.Margin = new System.Windows.Forms.Padding(0);
-            this.BotonEditar.Name = "BotonEditar";
-            this.BotonEditar.Size = new System.Drawing.Size(110, 27);
-            this.BotonEditar.TabIndex = 8;
-            this.BotonEditar.Text = "Editar";
-            this.BotonEditar.UseVisualStyleBackColor = true;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(22, 343);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(183, 28);
-            this.comboBox2.TabIndex = 7;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(17, 64);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(140, 20);
-            this.textBox2.TabIndex = 6;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(17, 256);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(85, 21);
-            this.comboBox1.TabIndex = 5;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(17, 112);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(140, 20);
-            this.textBox1.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 245);
-            this.label5.Margin = new System.Windows.Forms.Padding(0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 20);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Estado";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(17, 328);
-            this.label4.Margin = new System.Windows.Forms.Padding(4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 16);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "ID de Operacion";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 52);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 20);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Numero de Remito";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 100);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Sucursal";
-            // 
-            // Titulo1
-            // 
-            this.Titulo1.BackColor = System.Drawing.Color.DarkGray;
-            this.Titulo1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Titulo1.Font = new System.Drawing.Font("Javanese Text", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Titulo1.ForeColor = System.Drawing.Color.Black;
-            this.Titulo1.Location = new System.Drawing.Point(250, 0);
-            this.Titulo1.Name = "Titulo1";
-            this.Titulo1.Size = new System.Drawing.Size(667, 40);
-            this.Titulo1.TabIndex = 2;
-            this.Titulo1.Text = "LISTADO DE REMITOS";
-            this.Titulo1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Titulo1.Click += new System.EventHandler(this.Titulo1_Click);
             // 
             // tablaRemito
             // 
             this.tablaRemito.AllowUserToAddRows = false;
             this.tablaRemito.AllowUserToDeleteRows = false;
-            this.tablaRemito.BackgroundColor = System.Drawing.Color.DarkRed;
-            this.tablaRemito.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle71.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle71.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle71.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle71.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle71.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle71.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaRemito.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle71;
+            this.tablaRemito.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaRemito.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.tablaRemito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaRemito.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDRemito,
@@ -263,191 +90,308 @@ namespace CapaPresentacion
             this.LetraRemito,
             this.TipoRemito,
             this.FechaRemito});
-            this.tablaRemito.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablaRemito.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.tablaRemito.Location = new System.Drawing.Point(250, 0);
+            this.tablaRemito.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tablaRemito.GridColor = System.Drawing.Color.Black;
+            this.tablaRemito.Location = new System.Drawing.Point(233, 0);
+            this.tablaRemito.MultiSelect = false;
             this.tablaRemito.Name = "tablaRemito";
             this.tablaRemito.ReadOnly = true;
-            dataGridViewCellStyle80.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle80.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle80.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle80.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle80.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle80.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle80.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaRemito.RowHeadersDefaultCellStyle = dataGridViewCellStyle80;
-            this.tablaRemito.Size = new System.Drawing.Size(667, 341);
+            this.tablaRemito.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaRemito.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            this.tablaRemito.RowHeadersWidth = 51;
+            this.tablaRemito.Size = new System.Drawing.Size(684, 341);
             this.tablaRemito.TabIndex = 3;
-            this.tablaRemito.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TablaRemitos_CellContentClick);
+            // 
+            // Titulo
+            // 
+            this.Titulo.BackColor = System.Drawing.Color.Gray;
+            this.Titulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Titulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Titulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titulo.ForeColor = System.Drawing.Color.Black;
+            this.Titulo.Location = new System.Drawing.Point(0, 0);
+            this.Titulo.Name = "Titulo";
+            this.Titulo.Size = new System.Drawing.Size(233, 45);
+            this.Titulo.TabIndex = 28;
+            this.Titulo.Text = "Nuevo remito";
+            this.Titulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // IDRemito
             // 
-            dataGridViewCellStyle72.ForeColor = System.Drawing.Color.Black;
-            this.IDRemito.DefaultCellStyle = dataGridViewCellStyle72;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            this.IDRemito.DefaultCellStyle = dataGridViewCellStyle12;
             this.IDRemito.HeaderText = "ID";
+            this.IDRemito.MinimumWidth = 6;
             this.IDRemito.Name = "IDRemito";
             this.IDRemito.ReadOnly = true;
             this.IDRemito.Width = 50;
             // 
             // Sucursal
             // 
-            dataGridViewCellStyle73.ForeColor = System.Drawing.Color.Black;
-            this.Sucursal.DefaultCellStyle = dataGridViewCellStyle73;
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            this.Sucursal.DefaultCellStyle = dataGridViewCellStyle13;
             this.Sucursal.HeaderText = "Sucursal";
+            this.Sucursal.MinimumWidth = 6;
             this.Sucursal.Name = "Sucursal";
             this.Sucursal.ReadOnly = true;
-            this.Sucursal.Width = 180;
+            this.Sucursal.Width = 160;
             // 
             // Estado
             // 
-            dataGridViewCellStyle74.ForeColor = System.Drawing.Color.Black;
-            this.Estado.DefaultCellStyle = dataGridViewCellStyle74;
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            this.Estado.DefaultCellStyle = dataGridViewCellStyle14;
             this.Estado.HeaderText = "Estado";
+            this.Estado.MinimumWidth = 6;
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
             this.Estado.Width = 110;
             // 
             // IDOperacion
             // 
-            dataGridViewCellStyle75.ForeColor = System.Drawing.Color.Black;
-            this.IDOperacion.DefaultCellStyle = dataGridViewCellStyle75;
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            this.IDOperacion.DefaultCellStyle = dataGridViewCellStyle15;
             this.IDOperacion.HeaderText = "ID Operacion";
+            this.IDOperacion.MinimumWidth = 6;
             this.IDOperacion.Name = "IDOperacion";
             this.IDOperacion.ReadOnly = true;
             this.IDOperacion.Width = 160;
             // 
             // NumeroRemito
             // 
-            dataGridViewCellStyle76.ForeColor = System.Drawing.Color.Black;
-            this.NumeroRemito.DefaultCellStyle = dataGridViewCellStyle76;
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            this.NumeroRemito.DefaultCellStyle = dataGridViewCellStyle16;
             this.NumeroRemito.HeaderText = "Num";
+            this.NumeroRemito.MinimumWidth = 6;
             this.NumeroRemito.Name = "NumeroRemito";
             this.NumeroRemito.ReadOnly = true;
+            this.NumeroRemito.Width = 125;
             // 
             // LetraRemito
             // 
-            dataGridViewCellStyle77.ForeColor = System.Drawing.Color.Black;
-            this.LetraRemito.DefaultCellStyle = dataGridViewCellStyle77;
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
+            this.LetraRemito.DefaultCellStyle = dataGridViewCellStyle17;
             this.LetraRemito.HeaderText = "Letra";
+            this.LetraRemito.MinimumWidth = 6;
             this.LetraRemito.Name = "LetraRemito";
             this.LetraRemito.ReadOnly = true;
+            this.LetraRemito.Width = 90;
             // 
             // TipoRemito
             // 
-            dataGridViewCellStyle78.ForeColor = System.Drawing.Color.Black;
-            this.TipoRemito.DefaultCellStyle = dataGridViewCellStyle78;
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            this.TipoRemito.DefaultCellStyle = dataGridViewCellStyle18;
             this.TipoRemito.HeaderText = "Tipo";
+            this.TipoRemito.MinimumWidth = 6;
             this.TipoRemito.Name = "TipoRemito";
             this.TipoRemito.ReadOnly = true;
+            this.TipoRemito.Width = 125;
             // 
             // FechaRemito
             // 
-            dataGridViewCellStyle79.ForeColor = System.Drawing.Color.Black;
-            this.FechaRemito.DefaultCellStyle = dataGridViewCellStyle79;
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
+            this.FechaRemito.DefaultCellStyle = dataGridViewCellStyle19;
             this.FechaRemito.HeaderText = "Fecha";
+            this.FechaRemito.MinimumWidth = 6;
             this.FechaRemito.Name = "FechaRemito";
             this.FechaRemito.ReadOnly = true;
             this.FechaRemito.Width = 155;
             // 
-            // Identificador
+            // label1
             // 
-            this.Identificador.AutoSize = true;
-            this.Identificador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Identificador.Location = new System.Drawing.Point(16, 147);
-            this.Identificador.Margin = new System.Windows.Forms.Padding(0);
-            this.Identificador.Name = "Identificador";
-            this.Identificador.Size = new System.Drawing.Size(81, 20);
-            this.Identificador.TabIndex = 10;
-            this.Identificador.Text = "ID Remito";
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(9, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(140, 20);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Numero de remito";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(9, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(140, 20);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Sucursal";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(9, 150);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 20);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "ID Operacion";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(9, 196);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(140, 20);
+            this.label4.TabIndex = 32;
+            this.label4.Text = "Estado";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(9, 281);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(200, 20);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "FECHA";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(12, 74);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(123, 20);
+            this.textBox1.TabIndex = 34;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(12, 120);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(123, 20);
+            this.textBox2.TabIndex = 35;
             // 
             // textBox3
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(17, 159);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(0);
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(12, 166);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(140, 20);
-            this.textBox3.TabIndex = 11;
+            this.textBox3.Size = new System.Drawing.Size(123, 20);
+            this.textBox3.TabIndex = 36;
             // 
-            // LetraDeRemito
+            // comboBox1
             // 
-            this.LetraDeRemito.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LetraDeRemito.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LetraDeRemito.Location = new System.Drawing.Point(125, 257);
-            this.LetraDeRemito.Margin = new System.Windows.Forms.Padding(0);
-            this.LetraDeRemito.Name = "LetraDeRemito";
-            this.LetraDeRemito.Size = new System.Drawing.Size(85, 20);
-            this.LetraDeRemito.TabIndex = 13;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(12, 212);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(123, 21);
+            this.comboBox1.TabIndex = 37;
             // 
-            // LetRemito
+            // dateTimePicker1
             // 
-            this.LetRemito.AutoSize = true;
-            this.LetRemito.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LetRemito.Location = new System.Drawing.Point(124, 245);
-            this.LetRemito.Margin = new System.Windows.Forms.Padding(0);
-            this.LetRemito.Name = "LetRemito";
-            this.LetRemito.Size = new System.Drawing.Size(46, 20);
-            this.LetRemito.TabIndex = 12;
-            this.LetRemito.Text = "Letra";
+            this.dateTimePicker1.Location = new System.Drawing.Point(12, 296);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 38;
             // 
-            // IDOPBox
+            // button2
             // 
-            this.IDOPBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.IDOPBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IDOPBox.Location = new System.Drawing.Point(17, 207);
-            this.IDOPBox.Margin = new System.Windows.Forms.Padding(0);
-            this.IDOPBox.Name = "IDOPBox";
-            this.IDOPBox.Size = new System.Drawing.Size(140, 20);
-            this.IDOPBox.TabIndex = 15;
+            this.button2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Image = global::CapaPresentacion.Properties.Resources.editar;
+            this.button2.Location = new System.Drawing.Point(0, 301);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(233, 20);
+            this.button2.TabIndex = 39;
+            this.button2.Text = "Editar";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = false;
             // 
-            // IDOp
+            // button1
             // 
-            this.IDOp.AutoSize = true;
-            this.IDOp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IDOp.Location = new System.Drawing.Point(16, 195);
-            this.IDOp.Margin = new System.Windows.Forms.Padding(0);
-            this.IDOp.Name = "IDOp";
-            this.IDOp.Size = new System.Drawing.Size(103, 20);
-            this.IDOp.TabIndex = 14;
-            this.IDOp.Text = "ID Operacion";
+            this.button1.BackColor = System.Drawing.Color.ForestGreen;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::CapaPresentacion.Properties.Resources.disquete_2_;
+            this.button1.Location = new System.Drawing.Point(0, 321);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(233, 20);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Guardar";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(12, 251);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(123, 20);
+            this.textBox4.TabIndex = 41;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(9, 235);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(140, 20);
+            this.label6.TabIndex = 40;
+            this.label6.Text = "Tipo de remito";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(200, 55);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(21, 20);
+            this.txtID.TabIndex = 42;
+            this.txtID.Visible = false;
             // 
             // CP_Remito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkRed;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(917, 341);
-            this.Controls.Add(this.tablaRemito);
-            this.Controls.Add(this.Titulo1);
-            this.Controls.Add(this.NuevoRemito);
+            this.Controls.Add(this.txtID);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.Titulo);
+            this.Controls.Add(this.tablaRemito);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "CP_Remito";
             this.Text = "CP_Remito1";
             this.Load += new System.EventHandler(this.CP_Remito_Load);
-            this.NuevoRemito.ResumeLayout(false);
-            this.NuevoRemito.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaRemito)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox NuevoRemito;
-        private System.Windows.Forms.Label Titulo1;
         private System.Windows.Forms.DataGridView tablaRemito;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button BotonGuardar;
-        private System.Windows.Forms.Button BotonEditar;
+        private System.Windows.Forms.Label Titulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDRemito;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sucursal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
@@ -456,11 +400,20 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn LetraRemito;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoRemito;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRemito;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label Identificador;
-        private System.Windows.Forms.TextBox LetraDeRemito;
-        private System.Windows.Forms.Label LetRemito;
-        private System.Windows.Forms.TextBox IDOPBox;
-        private System.Windows.Forms.Label IDOp;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtID;
     }
 }
