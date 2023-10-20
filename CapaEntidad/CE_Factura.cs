@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace CapaEntidad
 {
     public class CE_Factura
@@ -16,5 +17,7 @@ namespace CapaEntidad
         public int CMP_Estado_iden { get; set; }
         public int IdOperacion { get; set; }
         public DateTime FechaDeCarga { get; set; }
+        public CE_Sucursal CE_Sucursal { get; set; }
+
     }
 }

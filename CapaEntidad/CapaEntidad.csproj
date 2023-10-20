@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CE_Cliente.cs" />
+    <Compile Include="CE_Estado.cs" />
+    <Compile Include="CE_Preventa.cs" />
     <Compile Include="CE_Sucursal.cs" />
     <Compile Include="CE_Factura.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

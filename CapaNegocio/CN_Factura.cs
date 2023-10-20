@@ -4,15 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CapaEntidad;
+using CapaDatos;
 
 namespace CapaNegocio
 {
     public class CN_Factura
     {
-        //public List<CE_Factura> ListarFacturas
-        //{ Lógica para listar facturas }
+        private CD_Factura ObjFactura = new CD_Factura(); 
+        public List<CE_Factura> ListarFacturas()
+        { 
+           return ObjFactura.ObtenerFacturas(); 
+        }
 
-        //public RegistrarFacturas
-        //{ lógica de registrar }
+        public List<CE_Preventa> ObtenerPreventasPorDNI(int dni)
+        {
+            return ObjFactura.ObtenerPreventasPorDNI(dni);
+        }
+        public void CrearFactura(CE_Factura Factura, out string mensaje)
+        {
+            ObjFactura.CrearFactura(Factura, out mensaje);
+        }
     }
 }

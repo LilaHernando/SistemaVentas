@@ -59,12 +59,6 @@
     <Compile Include="FormFactura.Designer.cs">
       <DependentUpon>FormFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormVerFacturas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormVerFacturas.Designer.cs">
-      <DependentUpon>FormVerFacturas.cs</DependentUpon>
-    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,9 +76,6 @@
     <Compile Include="Utilidades\OpcionCombo.cs" />
     <EmbeddedResource Include="FormFactura.resx">
       <DependentUpon>FormFactura.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormVerFacturas.resx">
-      <DependentUpon>FormVerFacturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
