@@ -8,13 +8,16 @@ using CapaEntidad;
 using System.Data;
 
 namespace CapaDatos
-{                                  
+{
     public class CD_Remito
     {
-        public List<CE_Remito> Listar() {                                                       //Metodo publico de Listar remitos
-                List<CE_Remito> listarRemitos = new List<CE_Remito>();                          //Creo el objeto y lo almaceno en la variable listarRemitos
+        //------------- LISTA DE REMITOS ------------------//
+        public List<CE_Remito> Listar()
+        {                                                       
+            List<CE_Remito> listarRemitos = new List<CE_Remito>();                          //Creo el objeto y lo almaceno en la variable listarRemitos
 
-            using (SqlConnection onConexion = new SqlConnection(Conexion.cadena)) {             //Creo la conexion con la DB
+            using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))
+            {             //Creo la conexion con la DB
 
                 try
                 {
@@ -28,8 +31,6 @@ namespace CapaDatos
                         {
                             listarRemitos.Add(new CE_Remito()
                             {
-                                //Atributos del SP, definirlos y convertirlos. ODEN DE LOS CAMPOS: idRemito, descripcionSucursal,  descripcionEstado,  idOperacion, numeroRemito, letraRemito, tipoRemito, fechaRemito
-                                //  iden, nombreSucursal, estadoRemito, idOperacion, numero, letra, tipoRemito, fechaRemito.
                                 iden = Convert.ToInt32(dr["idRemito"]),
                                 nombreSucursal = Convert.ToString(dr["descripcionSucursal"]),
                                 estadoRemito = Convert.ToString(dr["descripcionEstado"]),
@@ -45,7 +46,7 @@ namespace CapaDatos
                     }
                     onConexion.Close();
                 }
-                
+
                 catch (Exception ex)
                 {
                     Console.WriteLine("Error SQL: " + ex);
@@ -53,8 +54,82 @@ namespace CapaDatos
                 return listarRemitos;
             }
 
+        }
+
+        //------------- LISTA DE SUCURSALES ------------------//
+        public List<CE_Sucursal> ListarSucursal()
+        {                                                       
+            List<CE_Sucursal> listarSucursal = new List<CE_Sucursal>();                          
+
+            using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))
+            {
+
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("[dbo].[GN_Sucursal_SEL]", onConexion);              
+                    cmd.CommandType = CommandType.StoredProcedure;                              
+
+                    onConexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())                              
+                    {
+                        while (dr.Read())                                                       
+                        {
+                            listarSucursal.Add(new CE_Sucursal()
+                            {
+                                iden = Convert.ToInt32(dr["iden"]),
+                                Descripcion = Convert.ToString(dr["descripcion"]),
+                                Telefono = Convert.ToString(dr["telefono"]),
+                            });
+
+                        }
+                    }
+                    onConexion.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error SQL: " + ex);
+                }
+                return listarSucursal;
             }
         }
-    
-    
+
+        //------------- LISTA DE ESTADOS ------------------//
+        public List<CE_Estado> ListarEstado()
+        {
+            List<CE_Estado> listarEstado = new List<CE_Estado>();
+
+            using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))
+            {
+
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("[dbo].[CMP_Estado_SEL]", onConexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    onConexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            listarEstado.Add(new CE_Estado()
+                            {
+                                iden = Convert.ToInt32(dr["iden"]),
+                                descripcion = Convert.ToString(dr["descripcion"])
+                            });
+
+                        }
+                    }
+                    onConexion.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error SQL: " + ex);
+                }
+                return listarEstado;
+            }
+        }
+
+    }
 }

@@ -17,4 +17,31 @@ namespace CapaNegocio
             return cD_Remito.Listar();                  //Retorna el metodo Listar del objeto cD_Remito.
         }
     }
+    public class CN_Sucursal
+    {
+        private CD_Remito cD_Sucursal = new CD_Remito();
+
+        public List<CE_Sucursal> ListarSucursal()
+        {
+
+            return cD_Sucursal.ListarSucursal();
+        }
+
+    }
+    
+    public class CN_Estado
+    {
+        private CD_Remito cD_Estado = new CD_Remito();
+
+        public List<CE_Estado> ListarEstado()
+        {
+            return cD_Estado.ListarEstado();
+
+        }
+
+
+
+    }
+        
+        
 }

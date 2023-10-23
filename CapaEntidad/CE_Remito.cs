@@ -16,9 +16,7 @@ namespace CapaEntidad
 
         public char letra { get; set; }
         public string tipoRemito { get; set; }
-       
         public DateTime fechaRemito { get; set; }
-            //Falta agregar los atributos objeto, que me permiten traer los atributos de los otros modulos generados por los chicos y hacer uso de sus atributos.
 
     }
 }

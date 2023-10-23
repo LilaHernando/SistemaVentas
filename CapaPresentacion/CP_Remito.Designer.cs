@@ -40,7 +40,6 @@ namespace CapaPresentacion
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tablaRemito = new System.Windows.Forms.DataGridView();
-            this.Titulo = new System.Windows.Forms.Label();
             this.IDRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,21 +48,23 @@ namespace CapaPresentacion
             this.LetraRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Titulo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
+            this.cbSucursal = new System.Windows.Forms.ComboBox();
+            this.txtIDOP = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnBuscar = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.tablaRemito)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,21 +109,6 @@ namespace CapaPresentacion
             this.tablaRemito.RowHeadersWidth = 51;
             this.tablaRemito.Size = new System.Drawing.Size(684, 341);
             this.tablaRemito.TabIndex = 3;
-            // 
-            // Titulo
-            // 
-            this.Titulo.BackColor = System.Drawing.Color.Gray;
-            this.Titulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Titulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Titulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Titulo.ForeColor = System.Drawing.Color.Black;
-            this.Titulo.Location = new System.Drawing.Point(0, 0);
-            this.Titulo.Name = "Titulo";
-            this.Titulo.Size = new System.Drawing.Size(233, 45);
-            this.Titulo.TabIndex = 28;
-            this.Titulo.Text = "Nuevo remito";
-            this.Titulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // IDRemito
             // 
@@ -204,10 +190,25 @@ namespace CapaPresentacion
             this.FechaRemito.ReadOnly = true;
             this.FechaRemito.Width = 155;
             // 
+            // Titulo
+            // 
+            this.Titulo.BackColor = System.Drawing.Color.Gray;
+            this.Titulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Titulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Titulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titulo.ForeColor = System.Drawing.Color.Black;
+            this.Titulo.Location = new System.Drawing.Point(0, 0);
+            this.Titulo.Name = "Titulo";
+            this.Titulo.Size = new System.Drawing.Size(233, 45);
+            this.Titulo.TabIndex = 28;
+            this.Titulo.Text = "Nuevo remito";
+            this.Titulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 57);
+            this.label1.Location = new System.Drawing.Point(9, 149);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(140, 20);
             this.label1.TabIndex = 29;
@@ -224,20 +225,10 @@ namespace CapaPresentacion
             this.label2.Text = "Sucursal";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 150);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 20);
-            this.label3.TabIndex = 31;
-            this.label3.Text = "ID Operacion";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(9, 196);
+            this.label4.Location = new System.Drawing.Point(9, 194);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(140, 20);
             this.label4.TabIndex = 32;
@@ -256,40 +247,24 @@ namespace CapaPresentacion
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(12, 74);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(12, 166);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(123, 20);
+            this.textBox1.Size = new System.Drawing.Size(123, 23);
             this.textBox1.TabIndex = 34;
             // 
-            // textBox2
+            // cbEstado
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(12, 120);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(123, 20);
-            this.textBox2.TabIndex = 35;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(12, 166);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(123, 20);
-            this.textBox3.TabIndex = 36;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 212);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(123, 21);
-            this.comboBox1.TabIndex = 37;
+            this.cbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Location = new System.Drawing.Point(12, 210);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(123, 24);
+            this.cbEstado.TabIndex = 37;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 296);
+            this.dateTimePicker1.Location = new System.Drawing.Point(12, 298);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 38;
@@ -332,10 +307,10 @@ namespace CapaPresentacion
             // 
             // textBox4
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(12, 251);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(123, 20);
+            this.textBox4.Size = new System.Drawing.Size(123, 23);
             this.textBox4.TabIndex = 41;
             // 
             // label6
@@ -356,25 +331,66 @@ namespace CapaPresentacion
             this.txtID.TabIndex = 42;
             this.txtID.Visible = false;
             // 
+            // cbSucursal
+            // 
+            this.cbSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSucursal.FormattingEnabled = true;
+            this.cbSucursal.Location = new System.Drawing.Point(12, 119);
+            this.cbSucursal.Name = "cbSucursal";
+            this.cbSucursal.Size = new System.Drawing.Size(123, 24);
+            this.cbSucursal.TabIndex = 43;
+            // 
+            // txtIDOP
+            // 
+            this.txtIDOP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDOP.Location = new System.Drawing.Point(12, 71);
+            this.txtIDOP.Name = "txtIDOP";
+            this.txtIDOP.Size = new System.Drawing.Size(123, 23);
+            this.txtIDOP.TabIndex = 45;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(9, 55);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 20);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "ID Operacion";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnBuscar.IconColor = System.Drawing.Color.Black;
+            this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnBuscar.IconSize = 16;
+            this.btnBuscar.Location = new System.Drawing.Point(141, 71);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(30, 23);
+            this.btnBuscar.TabIndex = 46;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // CP_Remito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(917, 341);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.txtIDOP);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cbSucursal);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.cbEstado);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Titulo);
@@ -402,18 +418,19 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRemito;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.ComboBox cbSucursal;
+        private System.Windows.Forms.TextBox txtIDOP;
+        private System.Windows.Forms.Label label3;
+        private FontAwesome.Sharp.IconButton btnBuscar;
     }
 }
