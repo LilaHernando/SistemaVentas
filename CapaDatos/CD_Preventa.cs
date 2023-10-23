@@ -115,10 +115,6 @@ namespace CapaDatos
                 return listSucursales;
             }
         }
-       
-
-
-
 
     }
 }

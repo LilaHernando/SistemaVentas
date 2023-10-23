@@ -140,6 +140,17 @@ namespace CapaPresentacion
             CN_Preventa cN_preventa = new CN_Preventa();
             if (VerificarVacio(txtMonto.Text,txtDate.Text,txtCliente.Text))
             {
+                using (var modal = new MD_Articulo())
+                {
+                    var result = modal.ShowDialog();
+
+                    /*if (result == DialogResult.OK)
+                    {
+                        DniCliente = Convert.ToInt32(modal._Cliente.Dni);
+                        txtCliente.Text = modal._Cliente.Nombre + " " + modal._Cliente.Apellido;
+                        IdCliente = modal._Cliente.Id;
+                    }*/
+                }
                 //CE_Preventa PreventaCreada = crearPreventa();
                 //cN_preventa.InsertarPreventa(PreventaCreada);
                 dgvDataPreventa.Rows.Clear();

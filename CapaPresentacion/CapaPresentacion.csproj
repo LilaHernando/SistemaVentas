@@ -65,11 +65,11 @@
     <Compile Include="Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modales\Articulos.cs">
+    <Compile Include="Modales\MD_Articulo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modales\Articulos.Designer.cs">
-      <DependentUpon>Articulos.cs</DependentUpon>
+    <Compile Include="Modales\MD_Articulo.Designer.cs">
+      <DependentUpon>MD_Articulo.cs</DependentUpon>
     </Compile>
     <Compile Include="Modales\MD_Cliente.cs">
       <SubType>Form</SubType>
@@ -86,8 +86,8 @@
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modales\Articulos.resx">
-      <DependentUpon>Articulos.cs</DependentUpon>
+    <EmbeddedResource Include="Modales\MD_Articulo.resx">
+      <DependentUpon>MD_Articulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\MD_Cliente.resx">
       <DependentUpon>MD_Cliente.cs</DependentUpon>
