@@ -46,7 +46,7 @@ namespace CapaPresentacion
                     (from u in listaUsuarios
                      where u.Dni == inputUsuario.Text
                      && u.Clave == inputClave.Text
-                     select u).FirstOrDefault(); //Gracias a FirstOrDefault nos quedamos con un Usuario en vez de una Lista, por lo tanto no es necesario usar un foreach
+                     select u).FirstOrDefault(); //Gracias a FirstOrDefault nos quedamos con un Usuario en vez de una Lista, por lo tanto no es necesario usar un foreach para ejecutar la query
 
                 if (userQuery != null) //Si la busqueda arroja distinto de nulo, significa que se encontro una coincidencia
                 {
