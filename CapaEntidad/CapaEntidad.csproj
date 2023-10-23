@@ -45,6 +45,7 @@
     <Compile Include="CE_Permiso.cs" />
     <Compile Include="CE_Rol.cs" />
     <Compile Include="CE_Usuario.cs" />
+    <Compile Include="CE_Sucursal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
