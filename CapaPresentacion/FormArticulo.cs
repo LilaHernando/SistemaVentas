@@ -36,7 +36,17 @@ namespace CapaPresentacion
                     baja = checkBoxBaja.Checked
                 };
 
-                if (art.iden == 0)
+                List<CE_Articulo> listadoArticulo = new CN_Articulo().Listar(0, null);
+                bool codigoRepetido = false;
+                foreach (CE_Articulo articulo in listadoArticulo)
+                {
+                    if (Convert.ToInt32(textBoxCodigoMaterial.Text) == articulo.codigoDeMaterial)
+                    {
+                        codigoRepetido = true;
+                    }
+                }
+
+                if (art.iden == 0 && !codigoRepetido)
                 {
                     int articuloGenerado = new CN_Articulo().Registrar(art);
 
@@ -49,31 +59,11 @@ namespace CapaPresentacion
                     }
 
                 }
-                //else
-                //{
-                //    bool articuloEditado = new CN_Articulo().Editar(art);
-
-                //    if (articuloEditado)
-                //    {
-                //        int indiceFilaSeleccionada = -1; // Establece un valor predeterminado
-
-                //        if (dataGridArticulo.SelectedCells.Count > 0)
-                //        {
-                //            // Obtiene el índice de la fila de la celda seleccionada.
-                //            indiceFilaSeleccionada = dataGridArticulo.SelectedCells[0].RowIndex;
-                //        }
-
-                //        DataGridViewRow row = dataGridArticulo.Rows[indiceFilaSeleccionada];
-                //        row.Cells["idenArticulo"].Value = textBoxIden.Text;
-                //        row.Cells["CodigoMaterial"].Value = textBoxCodigoMaterial.Text;
-                //        row.Cells["RubroArticulo"].Value = ((OpcionCombo)comboRubro.SelectedItem).Texto;
-                //        row.Cells["CostoArticulo"].Value = textBoxCosto.Text;
-                //        row.Cells["MarcaArticulo"].Value = ((OpcionCombo)comboMarca.SelectedItem).Texto;
-                //        row.Cells["Baja"].Value = (checkBoxBaja.Checked == true ? "Si" : "No");
-
-                //        Limpiar();
-                //    }
-                //}
+                else
+                {
+                    // Muestra un mensaje de error en una ventana emergente
+                    MessageBox.Show("Ya existe un artículo con este Código de Material ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
             }
             else
@@ -356,29 +346,45 @@ namespace CapaPresentacion
                     baja = checkBoxBaja.Checked
                 };
 
-                bool articuloEditado = new CN_Articulo().Editar(art);
-
-                if (articuloEditado)
+                List<CE_Articulo> listadoArticulo = new CN_Articulo().Listar(0, null);
+                bool codigoRepetido = false;
+                foreach (CE_Articulo articulo in listadoArticulo)
                 {
-                    int indiceFilaSeleccionada = -1; // Establece un valor predeterminado
-
-                    if (dataGridArticulo.SelectedCells.Count > 0)
+                    if (Convert.ToInt32(textBoxCodigoMaterial.Text) == articulo.codigoDeMaterial)
                     {
-                        // Obtiene el índice de la fila de la celda seleccionada.
-                        indiceFilaSeleccionada = dataGridArticulo.SelectedCells[0].RowIndex;
+                        codigoRepetido = true;
+                    }
+                }
+                if (!codigoRepetido)
+                {
+                    bool articuloEditado = new CN_Articulo().Editar(art);
+                    if (articuloEditado)
+                    {
+                        int indiceFilaSeleccionada = -1; // Establece un valor predeterminado
+
+                        if (dataGridArticulo.SelectedCells.Count > 0)
+                        {
+                            // Obtiene el índice de la fila de la celda seleccionada.
+                            indiceFilaSeleccionada = dataGridArticulo.SelectedCells[0].RowIndex;
+                        }
+
+                        DataGridViewRow row = dataGridArticulo.Rows[indiceFilaSeleccionada];
+                        row.Cells["idenArticulo"].Value = textBoxIden.Text;
+                        row.Cells["CodigoMaterial"].Value = textBoxCodigoMaterial.Text;
+                        row.Cells["RubroArticulo"].Value = ((OpcionCombo)comboRubro.SelectedItem).Texto;
+                        row.Cells["CostoArticulo"].Value = textBoxCosto.Text;
+                        row.Cells["MarcaArticulo"].Value = ((OpcionCombo)comboMarca.SelectedItem).Texto;
+                        row.Cells["Baja"].Value = (checkBoxBaja.Checked == true ? "Si" : "No");
                     }
 
-                    DataGridViewRow row = dataGridArticulo.Rows[indiceFilaSeleccionada];
-                    row.Cells["idenArticulo"].Value = textBoxIden.Text;
-                    row.Cells["CodigoMaterial"].Value = textBoxCodigoMaterial.Text;
-                    row.Cells["RubroArticulo"].Value = ((OpcionCombo)comboRubro.SelectedItem).Texto;
-                    row.Cells["CostoArticulo"].Value = textBoxCosto.Text;
-                    row.Cells["MarcaArticulo"].Value = ((OpcionCombo)comboMarca.SelectedItem).Texto;
-                    row.Cells["Baja"].Value = (checkBoxBaja.Checked == true ? "Si" : "No");
+                    Limpiar();
+                    buttonRegistrar.Enabled = true;
                 }
-
-                Limpiar();
-                buttonRegistrar.Enabled = true;
+                else
+                {
+                    // Muestra un mensaje de error en una ventana emergente
+                    MessageBox.Show("Ya existe un artículo con este Código de Material ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -421,7 +427,7 @@ namespace CapaPresentacion
             }
             if (string.IsNullOrWhiteSpace(textBoxBuscador.Text))
             {
-                textBoxBuscador.Text = "Filtrar por iden, rubro o marca";
+                textBoxBuscador.Text = "Filtrar por Código Material, Rubro o Marca";
             }
         }
 
@@ -429,13 +435,13 @@ namespace CapaPresentacion
         {
             if (string.IsNullOrWhiteSpace(textBoxBuscador.Text))
             {
-                textBoxBuscador.Text = "Filtrar por iden, rubro o marca";
+                textBoxBuscador.Text = "Filtrar por Código Material, Rubro o Marca";
             }
         }
 
         private void textBoxBuscador_Click(object sender, EventArgs e)
         {
-            if (textBoxBuscador.Text == "Filtrar por iden, rubro o marca")
+            if (textBoxBuscador.Text == "Filtrar por Código Material, Rubro o Marca")
             {
                 textBoxBuscador.Text = "";
             }

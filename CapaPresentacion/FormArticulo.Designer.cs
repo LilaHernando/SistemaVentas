@@ -203,7 +203,7 @@ namespace CapaPresentacion
             this.textBoxBuscador.Name = "textBoxBuscador";
             this.textBoxBuscador.Size = new System.Drawing.Size(136, 20);
             this.textBoxBuscador.TabIndex = 18;
-            this.textBoxBuscador.Text = "Filtrar por iden, rubro o marca";
+            this.textBoxBuscador.Text = "Filtrar por Código Material, Rubro o Marca";
             this.textBoxBuscador.Click += new System.EventHandler(this.textBoxBuscador_Click);
             // 
             // checkBoxBaja

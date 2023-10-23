@@ -18,7 +18,7 @@ namespace CapaDatos
                 try
                 {
                     SqlCommand cmd = new SqlCommand("GN_Articulo_SEL", conexion);
-                    cmd.Parameters.AddWithValue("iden", iden);
+                    cmd.Parameters.AddWithValue("codigoMaterial", iden);
                     cmd.Parameters.AddWithValue("rubroMarca", filtro);
 
                     cmd.CommandType = CommandType.StoredProcedure;
