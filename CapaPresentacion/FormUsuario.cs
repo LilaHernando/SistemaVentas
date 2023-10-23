@@ -33,6 +33,8 @@ namespace CapaPresentacion
             DgvIden = 0;
 
             inputNombre.Select(); //Al iniciar dejamos seleccionado el input Nombre
+            inputBuscar.Text = "Filtrar por DNI o Rol"; //Agregamos "Placeholder" al input Buscar
+            inputBuscar.ForeColor = Color.Gray;
 
             //Agregamos Items al Combo Estado por medio del Objeto OpcionCombo ubicado en la carpeta Utilidades
             comboEstado.Items.Add(new OpcionCombo()
@@ -365,6 +367,24 @@ namespace CapaPresentacion
                     usuario.Clave,
                     "",
                 });
+            }
+        }
+
+        private void inputBuscar_Click(object sender, EventArgs e)
+        {
+            if (inputBuscar.Text == "Filtrar por DNI o Rol")
+            {
+                inputBuscar.Text = "";
+                inputBuscar.ForeColor = Color.Black;
+            }
+        }
+
+        private void inputBuscar_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(inputBuscar.Text))
+            {
+                inputBuscar.Text = "Filtrar por DNI o Rol";
+                inputBuscar.ForeColor = Color.Gray;
             }
         }
     }

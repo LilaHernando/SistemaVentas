@@ -35,6 +35,8 @@ namespace CapaPresentacion
             inputFechaNacimiento.MaxDate = DateTime.Today;
 
             inputNombre.Select(); //Al iniciar dejamos seleccionado el input Nombre
+            inputBuscar.Text = "Filtrar por DNI o Apellido"; //Agregamos "Placeholder" al input Buscar
+            inputBuscar.ForeColor = Color.Gray;
 
             ////Agregamos los Campos de la Grid al ComboBox Buscar
             //foreach (DataGridViewColumn column in dgvData.Columns)
@@ -313,6 +315,24 @@ namespace CapaPresentacion
                     cliente.Telefono,
                     "",
                 });
+            }
+        }
+
+        private void inputBuscar_Click(object sender, EventArgs e)
+        {
+            if (inputBuscar.Text == "Filtrar por DNI o Apellido")
+            {
+                inputBuscar.Text = "";
+                inputBuscar.ForeColor = Color.Black;
+            }
+        }
+
+        private void inputBuscar_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(inputBuscar.Text))
+            {
+                inputBuscar.Text = "Filtrar por DNI o Apellido";
+                inputBuscar.ForeColor = Color.Gray;
             }
         }
     }

@@ -29,7 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.inputNombre = new System.Windows.Forms.TextBox();
@@ -306,9 +306,9 @@ namespace CapaPresentacion
             // 
             // btnSeleccionar
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle4;
             this.btnSeleccionar.HeaderText = "";
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.ReadOnly = true;
@@ -334,6 +334,9 @@ namespace CapaPresentacion
             this.inputBuscar.Name = "inputBuscar";
             this.inputBuscar.Size = new System.Drawing.Size(120, 21);
             this.inputBuscar.TabIndex = 28;
+            this.inputBuscar.Tag = "";
+            this.inputBuscar.Click += new System.EventHandler(this.inputBuscar_Click);
+            this.inputBuscar.Leave += new System.EventHandler(this.inputBuscar_Leave);
             // 
             // btnBuscar
             // 

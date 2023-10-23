@@ -29,7 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.inputBuscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
@@ -69,6 +69,8 @@ namespace CapaPresentacion
             this.inputBuscar.Name = "inputBuscar";
             this.inputBuscar.Size = new System.Drawing.Size(120, 21);
             this.inputBuscar.TabIndex = 52;
+            this.inputBuscar.Click += new System.EventHandler(this.inputBuscar_Click);
+            this.inputBuscar.Leave += new System.EventHandler(this.inputBuscar_Leave);
             // 
             // label2
             // 
@@ -188,9 +190,9 @@ namespace CapaPresentacion
             // 
             // btnSeleccionar
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle2;
             this.btnSeleccionar.HeaderText = "";
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.ReadOnly = true;
