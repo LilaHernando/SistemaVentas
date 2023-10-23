@@ -32,15 +32,15 @@ namespace CapaPresentacion
             this.menuTitulo = new System.Windows.Forms.MenuStrip();
             this.label1 = new System.Windows.Forms.Label();
             this.menu = new System.Windows.Forms.MenuStrip();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textUsuarioActual = new System.Windows.Forms.Label();
+            this.contenedor = new System.Windows.Forms.Panel();
             this.menuUsuarios = new FontAwesome.Sharp.IconMenuItem();
             this.menuClientes = new FontAwesome.Sharp.IconMenuItem();
             this.menuArticulos = new FontAwesome.Sharp.IconMenuItem();
             this.menuPreventas = new FontAwesome.Sharp.IconMenuItem();
             this.menuFacturas = new FontAwesome.Sharp.IconMenuItem();
             this.menuRemitos = new FontAwesome.Sharp.IconMenuItem();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textUsuarioActual = new System.Windows.Forms.Label();
-            this.contenedor = new System.Windows.Forms.Panel();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@ namespace CapaPresentacion
             this.menuTitulo.Name = "menuTitulo";
             this.menuTitulo.Padding = new System.Windows.Forms.Padding(16, 5, 0, 5);
             this.menuTitulo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuTitulo.Size = new System.Drawing.Size(1370, 103);
+            this.menuTitulo.Size = new System.Drawing.Size(1370, 102);
             this.menuTitulo.TabIndex = 1;
             this.menuTitulo.Text = "menuStrip2";
             // 
@@ -62,7 +62,7 @@ namespace CapaPresentacion
             this.label1.BackColor = System.Drawing.Color.DarkRed;
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(53, 37);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(246, 31);
             this.label1.TabIndex = 2;
@@ -78,12 +78,49 @@ namespace CapaPresentacion
             this.menuPreventas,
             this.menuFacturas,
             this.menuRemitos});
-            this.menu.Location = new System.Drawing.Point(0, 103);
+            this.menu.Location = new System.Drawing.Point(0, 102);
             this.menu.Name = "menu";
             this.menu.Padding = new System.Windows.Forms.Padding(16, 5, 0, 5);
             this.menu.Size = new System.Drawing.Size(1370, 79);
             this.menu.TabIndex = 0;
             this.menu.Text = "menuStrip2";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.DarkRed;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(976, 40);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 24);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Usuario:";
+            // 
+            // textUsuarioActual
+            // 
+            this.textUsuarioActual.AutoSize = true;
+            this.textUsuarioActual.BackColor = System.Drawing.Color.DarkRed;
+            this.textUsuarioActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textUsuarioActual.ForeColor = System.Drawing.Color.White;
+            this.textUsuarioActual.Location = new System.Drawing.Point(1061, 40);
+            this.textUsuarioActual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.textUsuarioActual.Name = "textUsuarioActual";
+            this.textUsuarioActual.Size = new System.Drawing.Size(16, 24);
+            this.textUsuarioActual.TabIndex = 4;
+            this.textUsuarioActual.Text = "-";
+            // 
+            // contenedor
+            // 
+            this.contenedor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contenedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.contenedor.Location = new System.Drawing.Point(0, 181);
+            this.contenedor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.contenedor.Name = "contenedor";
+            this.contenedor.Size = new System.Drawing.Size(1370, 568);
+            this.contenedor.TabIndex = 5;
             // 
             // menuUsuarios
             // 
@@ -176,36 +213,6 @@ namespace CapaPresentacion
             this.menuRemitos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuRemitos.Click += new System.EventHandler(this.menuRemitos_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.DarkRed;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(976, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 24);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Usuario:";
-            // 
-            // textUsuarioActual
-            // 
-            this.textUsuarioActual.AutoSize = true;
-            this.textUsuarioActual.BackColor = System.Drawing.Color.DarkRed;
-            this.textUsuarioActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textUsuarioActual.Location = new System.Drawing.Point(1061, 40);
-            this.textUsuarioActual.Name = "textUsuarioActual";
-            this.textUsuarioActual.Size = new System.Drawing.Size(16, 24);
-            this.textUsuarioActual.TabIndex = 4;
-            this.textUsuarioActual.Text = "-";
-            // 
-            // contenedor
-            // 
-            this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contenedor.Location = new System.Drawing.Point(0, 182);
-            this.contenedor.Name = "contenedor";
-            this.contenedor.Size = new System.Drawing.Size(1370, 567);
-            this.contenedor.TabIndex = 5;
-            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -219,9 +226,9 @@ namespace CapaPresentacion
             this.Controls.Add(this.menu);
             this.Controls.Add(this.menuTitulo);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.White;
+            this.ForeColor = System.Drawing.Color.Black;
             this.MainMenuStrip = this.menu;
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
