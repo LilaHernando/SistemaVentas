@@ -155,9 +155,7 @@ namespace CapaPresentacion
                 
                 dgvDataPreventa.Rows.Clear();
                 listarPreventas();
-                //LimpiarCampos();
-                //MessageBox.Show("Preventa registrada correctamente", "Estado de registro", botones, MessageBoxIcon.Information);
-
+                LimpiarCampos();
             }
             else
             {

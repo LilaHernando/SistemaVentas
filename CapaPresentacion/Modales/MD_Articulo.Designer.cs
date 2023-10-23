@@ -218,6 +218,7 @@ namespace CapaPresentacion.Modales
             this.btnLimpiarBusqueda.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpiarBusqueda.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLimpiarBusqueda.UseVisualStyleBackColor = true;
+            this.btnLimpiarBusqueda.Click += new System.EventHandler(this.btnLimpiarBusqueda_Click);
             // 
             // btnBusqueda
             // 
@@ -232,6 +233,7 @@ namespace CapaPresentacion.Modales
             this.btnBusqueda.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBusqueda.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBusqueda.UseVisualStyleBackColor = true;
+            this.btnBusqueda.Click += new System.EventHandler(this.btnBusqueda_Click);
             // 
             // txtBusqueda
             // 

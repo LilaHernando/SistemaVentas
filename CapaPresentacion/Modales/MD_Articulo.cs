@@ -32,7 +32,7 @@ namespace CapaPresentacion.Modales
 
         public void iniciarCbbBusqueda()
         {
-            cbbBusqueda.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Código" });
+            cbbBusqueda.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Codigo" });
             cbbBusqueda.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Rubro" });
             cbbBusqueda.DisplayMember = "Texto";
             cbbBusqueda.ValueMember = "Valor";
@@ -57,21 +57,30 @@ namespace CapaPresentacion.Modales
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            MessageBoxButtons botones = MessageBoxButtons.OK;
             CN_Preventa cN_Preventa = new CN_Preventa();
             List<CE_Articulo> listaArticulos = CrearLista();
-            foreach(CE_Articulo articulos in listaArticulos)
-            {
-                CE_Item_Preventa_Articulo IPA = new CE_Item_Preventa_Articulo()
+            try {
+                foreach (CE_Articulo articulos in listaArticulos)
                 {
-                    GN_Sucursal_iden = IdSucursal,
-                    PVTA_Preventa_iden = IdPreventa,
-                    PVTA_Preventa_sucursal = IdSucursal,
-                    GN_Articulo_iden = articulos.iden
-                   
-                };
-                cN_Preventa.INS_Preventa_Articulo(IPA);
-            }
+                    CE_Item_Preventa_Articulo IPA = new CE_Item_Preventa_Articulo()
+                    {
+                        GN_Sucursal_iden = IdSucursal,
+                        PVTA_Preventa_iden = IdPreventa,
+                        PVTA_Preventa_sucursal = IdSucursal,
+                        GN_Articulo_iden = articulos.iden
 
+                    };
+                    cN_Preventa.INS_Preventa_Articulo(IPA);
+                    MessageBox.Show("Registro de Preventa " +
+                        "Efectuado Correctamente", "Informe de Registro", botones, MessageBoxIcon.Information);
+                    this.Close();
+                }
+            }
+            catch(Exception ex) {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
 
         public List<CE_Articulo> CrearLista()
@@ -100,6 +109,53 @@ namespace CapaPresentacion.Modales
             }
             return listaArticulos;
         }
-        
+
+        private void btnBusqueda_Click(object sender, EventArgs e)
+        {
+            MessageBoxButtons btn = MessageBoxButtons.OK;
+
+            // Verifica si se ha seleccionado un elemento en el ComboBox
+            if (cbbBusqueda.SelectedItem != null)
+            {
+                string columnaFiltro = ((OpcionCombo)cbbBusqueda.SelectedItem).Texto;
+                if (!string.IsNullOrEmpty(columnaFiltro))
+                {
+                    try
+                    {
+                        if (dgvDataArticulos.Rows.Count > 0)
+                        {
+                            foreach (DataGridViewRow row in dgvDataArticulos.Rows)
+                            {
+                                if (row.Cells[columnaFiltro].Value != null && row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper()))
+                                    row.Visible = true;
+                                else
+                                    row.Visible = false;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El campo de búsqueda se encuentra vacío", "Campos Incompletos", btn, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se ha seleccionado una columna de búsqueda", "Campos Incompletos", btn, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnLimpiarBusqueda_Click(object sender, EventArgs e)
+        {
+            dgvDataArticulos.Rows.Clear();
+            ListarArticulosActivos();
+            iniciarCbbBusqueda();
+            txtBusqueda.Text = "";
+
+        }
     }
 }
