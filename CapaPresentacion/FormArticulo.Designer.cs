@@ -37,13 +37,6 @@ namespace CapaPresentacion
             this.comboMarca = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridArticulo = new System.Windows.Forms.DataGridView();
-            this.idenArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RubroArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MarcaArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.botonSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.textBoxBuscador = new System.Windows.Forms.TextBox();
             this.checkBoxBaja = new System.Windows.Forms.CheckBox();
             this.textBoxIden = new System.Windows.Forms.TextBox();
@@ -61,6 +54,13 @@ namespace CapaPresentacion
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.idenArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RubroArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MarcaArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.botonSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -144,56 +144,6 @@ namespace CapaPresentacion
             this.dataGridArticulo.TabIndex = 15;
             this.dataGridArticulo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridArticulo_CellContentClick);
             this.dataGridArticulo.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridArticulo_CellPainting);
-            // 
-            // idenArticulo
-            // 
-            this.idenArticulo.FillWeight = 375.7426F;
-            this.idenArticulo.HeaderText = "Iden";
-            this.idenArticulo.Name = "idenArticulo";
-            this.idenArticulo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.idenArticulo.Visible = false;
-            // 
-            // CodigoMaterial
-            // 
-            this.CodigoMaterial.FillWeight = 174.2379F;
-            this.CodigoMaterial.HeaderText = "Codigo Material";
-            this.CodigoMaterial.Name = "CodigoMaterial";
-            this.CodigoMaterial.Width = 150;
-            // 
-            // RubroArticulo
-            // 
-            this.RubroArticulo.FillWeight = 35.50134F;
-            this.RubroArticulo.HeaderText = "Rubro";
-            this.RubroArticulo.Name = "RubroArticulo";
-            this.RubroArticulo.Width = 200;
-            // 
-            // CostoArticulo
-            // 
-            this.CostoArticulo.FillWeight = 35.50134F;
-            this.CostoArticulo.HeaderText = "Costo";
-            this.CostoArticulo.Name = "CostoArticulo";
-            this.CostoArticulo.Width = 180;
-            // 
-            // MarcaArticulo
-            // 
-            this.MarcaArticulo.FillWeight = 35.50134F;
-            this.MarcaArticulo.HeaderText = "Marca";
-            this.MarcaArticulo.Name = "MarcaArticulo";
-            this.MarcaArticulo.Width = 200;
-            // 
-            // Baja
-            // 
-            this.Baja.FillWeight = 35.50134F;
-            this.Baja.HeaderText = "Baja";
-            this.Baja.Name = "Baja";
-            this.Baja.Width = 50;
-            // 
-            // botonSeleccionar
-            // 
-            this.botonSeleccionar.FillWeight = 48.22705F;
-            this.botonSeleccionar.HeaderText = "";
-            this.botonSeleccionar.Name = "botonSeleccionar";
-            this.botonSeleccionar.Width = 28;
             // 
             // textBoxBuscador
             // 
@@ -401,6 +351,62 @@ namespace CapaPresentacion
             this.label2.Text = "Codigo de material:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // idenArticulo
+            // 
+            this.idenArticulo.FillWeight = 375.7426F;
+            this.idenArticulo.HeaderText = "Iden";
+            this.idenArticulo.Name = "idenArticulo";
+            this.idenArticulo.ReadOnly = true;
+            this.idenArticulo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.idenArticulo.Visible = false;
+            // 
+            // CodigoMaterial
+            // 
+            this.CodigoMaterial.FillWeight = 174.2379F;
+            this.CodigoMaterial.HeaderText = "Codigo Material";
+            this.CodigoMaterial.Name = "CodigoMaterial";
+            this.CodigoMaterial.ReadOnly = true;
+            this.CodigoMaterial.Width = 150;
+            // 
+            // RubroArticulo
+            // 
+            this.RubroArticulo.FillWeight = 35.50134F;
+            this.RubroArticulo.HeaderText = "Rubro";
+            this.RubroArticulo.Name = "RubroArticulo";
+            this.RubroArticulo.ReadOnly = true;
+            this.RubroArticulo.Width = 200;
+            // 
+            // CostoArticulo
+            // 
+            this.CostoArticulo.FillWeight = 35.50134F;
+            this.CostoArticulo.HeaderText = "Costo";
+            this.CostoArticulo.Name = "CostoArticulo";
+            this.CostoArticulo.ReadOnly = true;
+            this.CostoArticulo.Width = 180;
+            // 
+            // MarcaArticulo
+            // 
+            this.MarcaArticulo.FillWeight = 35.50134F;
+            this.MarcaArticulo.HeaderText = "Marca";
+            this.MarcaArticulo.Name = "MarcaArticulo";
+            this.MarcaArticulo.ReadOnly = true;
+            this.MarcaArticulo.Width = 200;
+            // 
+            // Baja
+            // 
+            this.Baja.FillWeight = 35.50134F;
+            this.Baja.HeaderText = "Baja";
+            this.Baja.Name = "Baja";
+            this.Baja.ReadOnly = true;
+            this.Baja.Width = 50;
+            // 
+            // botonSeleccionar
+            // 
+            this.botonSeleccionar.FillWeight = 48.22705F;
+            this.botonSeleccionar.HeaderText = "";
+            this.botonSeleccionar.Name = "botonSeleccionar";
+            this.botonSeleccionar.Width = 28;
+            // 
             // FormArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -465,6 +471,9 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button buttonLimpiarCarga;
+        private System.Windows.Forms.Button buttonBusqueda;
+        private System.Windows.Forms.Button buttonLimpiarListado;
         private System.Windows.Forms.DataGridViewTextBoxColumn idenArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoMaterial;
         private System.Windows.Forms.DataGridViewTextBoxColumn RubroArticulo;
@@ -472,8 +481,5 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn MarcaArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Baja;
         private System.Windows.Forms.DataGridViewButtonColumn botonSeleccionar;
-        private System.Windows.Forms.Button buttonLimpiarCarga;
-        private System.Windows.Forms.Button buttonBusqueda;
-        private System.Windows.Forms.Button buttonLimpiarListado;
     }
 }
