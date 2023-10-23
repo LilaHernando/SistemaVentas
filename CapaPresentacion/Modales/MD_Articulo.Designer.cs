@@ -30,8 +30,10 @@ namespace CapaPresentacion.Modales
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCantSeleccionados = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRegistrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cbbBusqueda = new System.Windows.Forms.ComboBox();
             this.dgvDataArticulos = new System.Windows.Forms.DataGridView();
@@ -39,7 +41,7 @@ namespace CapaPresentacion.Modales
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Elegir = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLimpiarBusqueda = new FontAwesome.Sharp.IconButton();
             this.btnBusqueda = new FontAwesome.Sharp.IconButton();
@@ -51,8 +53,10 @@ namespace CapaPresentacion.Modales
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox1.Controls.Add(this.txtCantSeleccionados);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnRegistrar);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cbbBusqueda);
             this.groupBox1.Controls.Add(this.dgvDataArticulos);
@@ -67,6 +71,26 @@ namespace CapaPresentacion.Modales
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
+            // txtCantSeleccionados
+            // 
+            this.txtCantSeleccionados.Location = new System.Drawing.Point(552, 233);
+            this.txtCantSeleccionados.Name = "txtCantSeleccionados";
+            this.txtCantSeleccionados.Size = new System.Drawing.Size(139, 20);
+            this.txtCantSeleccionados.TabIndex = 27;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Image = global::CapaPresentacion.Properties.Resources.box;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(548, 187);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(143, 43);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Cant. Seleccionados:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // button2
             // 
             this.button2.Image = global::CapaPresentacion.Properties.Resources.multiply;
@@ -80,17 +104,18 @@ namespace CapaPresentacion.Modales
             this.button2.Text = "       Cancelar Operación";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnRegistrar
             // 
-            this.button1.Image = global::CapaPresentacion.Properties.Resources.disk;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(556, 93);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 34);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Registrar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Image = global::CapaPresentacion.Properties.Resources.disk;
+            this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistrar.Location = new System.Drawing.Point(556, 93);
+            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(136, 34);
+            this.btnRegistrar.TabIndex = 24;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // label1
             // 
@@ -125,10 +150,9 @@ namespace CapaPresentacion.Modales
             this.Codigo,
             this.Rubro,
             this.Costo,
-            this.Elegir});
+            this.Seleccionar});
             this.dgvDataArticulos.Location = new System.Drawing.Point(10, 93);
             this.dgvDataArticulos.Name = "dgvDataArticulos";
-            this.dgvDataArticulos.ReadOnly = true;
             this.dgvDataArticulos.RowHeadersWidth = 51;
             this.dgvDataArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDataArticulos.Size = new System.Drawing.Size(532, 300);
@@ -139,7 +163,6 @@ namespace CapaPresentacion.Modales
             this.Iden.HeaderText = "Iden";
             this.Iden.MinimumWidth = 6;
             this.Iden.Name = "Iden";
-            this.Iden.ReadOnly = true;
             this.Iden.Visible = false;
             this.Iden.Width = 125;
             // 
@@ -148,7 +171,6 @@ namespace CapaPresentacion.Modales
             this.Codigo.HeaderText = "Codigo";
             this.Codigo.MinimumWidth = 6;
             this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
             this.Codigo.Width = 125;
             // 
             // Rubro
@@ -157,23 +179,18 @@ namespace CapaPresentacion.Modales
             this.Rubro.HeaderText = "Rubro";
             this.Rubro.MinimumWidth = 6;
             this.Rubro.Name = "Rubro";
-            this.Rubro.ReadOnly = true;
             // 
             // Costo
             // 
             this.Costo.HeaderText = "Costo";
             this.Costo.MinimumWidth = 6;
             this.Costo.Name = "Costo";
-            this.Costo.ReadOnly = true;
             this.Costo.Width = 125;
             // 
-            // Elegir
+            // Seleccionar
             // 
-            this.Elegir.HeaderText = "Elegir";
-            this.Elegir.MinimumWidth = 6;
-            this.Elegir.Name = "Elegir";
-            this.Elegir.ReadOnly = true;
-            this.Elegir.Width = 125;
+            this.Seleccionar.HeaderText = "Seleccionar";
+            this.Seleccionar.Name = "Seleccionar";
             // 
             // label2
             // 
@@ -248,13 +265,15 @@ namespace CapaPresentacion.Modales
         private FontAwesome.Sharp.IconButton btnBusqueda;
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbbBusqueda;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCantSeleccionados;
         private System.Windows.Forms.DataGridViewTextBoxColumn Iden;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rubro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Elegir;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionar;
     }
 }

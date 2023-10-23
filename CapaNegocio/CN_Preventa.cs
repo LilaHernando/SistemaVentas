@@ -27,5 +27,15 @@ namespace CapaNegocio
             return cD_Preventa.ObtenerSucursales();
         }
 
+        public int ObtenerUltimoIdPreventa()
+        {
+            return cD_Preventa.ObtenerUltimoIDPreventa();
+        }
+        public void INS_Preventa_Articulo(CE_Item_Preventa_Articulo Item_Preventa_Articulo)
+        {
+            cD_Preventa.INS_Preventa_Articulo(Item_Preventa_Articulo);
+        }
+
+
     }
 }

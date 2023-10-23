@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CapaEntidad
 {
     /* Clase que modela la tabla intermedia n:n ItemPreventaPorArticulo */
-    public class Item_Preventa_Articulo
+    public class CE_Item_Preventa_Articulo
     {
         public int Iden { get; set; }
         public int GN_Sucursal_iden { get; set; }

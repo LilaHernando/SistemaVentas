@@ -27,6 +27,7 @@ namespace CapaPresentacion
         private int IdOperacion;
         private int IdPreventa;
         private int IdCliente;
+        private int UltimoIdPreventa;
         public FormPreventa()
         {
             InitializeComponent();
@@ -136,27 +137,26 @@ namespace CapaPresentacion
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            CN_Preventa CN_Preventa  = new CN_Preventa();
             MessageBoxButtons botones = MessageBoxButtons.OK;
             CN_Preventa cN_preventa = new CN_Preventa();
             if (VerificarVacio(txtMonto.Text,txtDate.Text,txtCliente.Text))
             {
-                using (var modal = new MD_Articulo())
+                CE_Preventa PreventaCreada = crearPreventa();
+                cN_preventa.InsertarPreventa(PreventaCreada);
+
+                UltimoIdPreventa = CN_Preventa.ObtenerUltimoIdPreventa();
+
+                using (var modal = new MD_Articulo(UltimoIdPreventa,PreventaCreada.Id_Sucursal,PreventaCreada.Id_Cliente))
                 {
                     var result = modal.ShowDialog();
 
-                    /*if (result == DialogResult.OK)
-                    {
-                        DniCliente = Convert.ToInt32(modal._Cliente.Dni);
-                        txtCliente.Text = modal._Cliente.Nombre + " " + modal._Cliente.Apellido;
-                        IdCliente = modal._Cliente.Id;
-                    }*/
                 }
-                //CE_Preventa PreventaCreada = crearPreventa();
-                //cN_preventa.InsertarPreventa(PreventaCreada);
+                
                 dgvDataPreventa.Rows.Clear();
                 listarPreventas();
-                LimpiarCampos();
-                MessageBox.Show("Preventa registrada correctamente", "Estado de registro", botones, MessageBoxIcon.Information);
+                //LimpiarCampos();
+                //MessageBox.Show("Preventa registrada correctamente", "Estado de registro", botones, MessageBoxIcon.Information);
 
             }
             else
@@ -366,6 +366,9 @@ namespace CapaPresentacion
             iniciarCbbBuscar();
             txtBuscar.Text = "";
         }
+
+        
+
     }
 
 

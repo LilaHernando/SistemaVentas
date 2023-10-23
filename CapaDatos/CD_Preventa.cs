@@ -116,5 +116,64 @@ namespace CapaDatos
             }
         }
 
+        public int ObtenerUltimoIDPreventa()
+        {
+            int ultimoID = 0;
+
+            using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("PVTA_UltimoIDPreventa_SEL", onConexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    onConexion.Open();
+
+                    var result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        ultimoID = Convert.ToInt32(result);
+                    }
+
+                    onConexion.Close();
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Error SQL: " + e);
+                }
+
+                return ultimoID;
+            }
+        }
+
+        public void INS_Preventa_Articulo(CE_Item_Preventa_Articulo Item_Preventa_Articulo)
+        {
+            using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("PVTA_ItemPreventaPorArticulo_INSUPD", onConexion);
+
+                    cmd.Parameters.AddWithValue("GN_Sucursal_iden", Item_Preventa_Articulo.GN_Sucursal_iden);
+                    cmd.Parameters.AddWithValue("PVTA_Preventa_iden", Item_Preventa_Articulo.PVTA_Preventa_iden);
+                    cmd.Parameters.AddWithValue("PVTA_Preventa_sucursal", Item_Preventa_Articulo.PVTA_Preventa_sucursal);
+                    cmd.Parameters.AddWithValue("GN_Articulo_iden", Item_Preventa_Articulo.GN_Articulo_iden);
+                    
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    onConexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    onConexion.Close();
+
+
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Error SQL: " + e);
+                }
+
+            }
+        }
+
     }
 }
