@@ -11,9 +11,9 @@ namespace CapaNegocio
     public class CN_Factura
     {
         private CD_Factura ObjFactura = new CD_Factura(); 
-        public List<CE_Factura> ListarFacturas()
+        public List<CE_Factura> ListarFacturas(int idOperacion)
         { 
-           return ObjFactura.ObtenerFacturas(); 
+           return ObjFactura.ObtenerFacturas(idOperacion); 
         }
 
         public List<CE_Preventa> ObtenerPreventasPorDNI(int dni)

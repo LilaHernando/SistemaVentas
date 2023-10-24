@@ -20,13 +20,15 @@ namespace CapaPresentacion
         Random random = new Random();
         public List<CE_Factura> ListaFacturas;
         public List<CE_Preventa> ListaPreventas;
-        private int idSucursal { get; set; }
+        public int idSucursal { get; set; }
+        public string descripcionSucursal { get; set; }
+
         public FormFactura() { InitializeComponent(); }
 
-
-        private void ListarFacturas()
+       
+        private void ListarFacturas(int idOperacion)
         {
-            ListaFacturas = new CN_Factura().ListarFacturas();
+            ListaFacturas = new CN_Factura().ListarFacturas(idOperacion);
 
             foreach (CE_Factura factura in ListaFacturas)
             {
@@ -45,7 +47,7 @@ namespace CapaPresentacion
 
         private void ListarPreventasPorDNI(int dni)
         {
-            ListaPreventas = new CN_Factura().ObtenerPreventasPorDNI(dni); 
+            ListaPreventas = new CN_Factura().ObtenerPreventasPorDNI(dni);
 
             foreach (CE_Preventa preventa in ListaPreventas)
             {
@@ -53,35 +55,48 @@ namespace CapaPresentacion
 
                 BoxIdOperacion.Items.Add(new OpcionCombo { Texto = IdOperacion, Valor = IdOperacion });
             }
-                BoxIdOperacion.DisplayMember = "Texto";
-                BoxIdOperacion.ValueMember = "Valor";
+            BoxIdOperacion.DisplayMember = "Texto";
+            BoxIdOperacion.ValueMember = "Valor";
         }
 
-        private void CargarDatosPreventa(string IdOperacion)
+        private void CargarDatos(int IdOperacion, string entidad)
         {
+            if (entidad == "preventa")
+            {
+                int indice = ListaPreventas.FindIndex(prev => prev.IdOperacion == Convert.ToInt32(IdOperacion));
+                BoxSucursal.Text = ListaPreventas[indice].CE_Sucursal.Descripcion;
+                BoxMonto.Text = Convert.ToString(ListaPreventas[indice].Monto);
+                idSucursal = ListaPreventas[indice].CE_Sucursal.Id;
+                descripcionSucursal = ListaPreventas[indice].CE_Sucursal.Descripcion;
 
-            int indice = ListaPreventas.FindIndex(prev => prev.IdOperacion == Convert.ToInt32(IdOperacion));
-            BoxSucursal.Text = ListaPreventas[indice].CE_Sucursal.Descripcion;
-            BoxMonto.Text = Convert.ToString(ListaPreventas[indice].Monto);
-
-            idSucursal = ListaPreventas[indice].CE_Sucursal.Id;
+            }
+            else
+            {
+                BoxNombreUsuario.Text = 
+                BoxIdOperacion.Text = Convert.ToString(ListaFacturas[0].IdOperacion);
+                BoxTipoFactura.Text = Convert.ToString(ListaFacturas[0].Letra);
+                BoxSucursal.Text = ListaFacturas[0].CE_Sucursal.Descripcion;
+                BoxEstado.Text = ListaFacturas[0].CMP_Estado_iden == 1 ? "Pendiente" : (ListaFacturas[0].CMP_Estado_iden == 2 ? "Anulado" : "Cofirmado");
+                BoxNumeroFactura.Text = Convert.ToString(ListaFacturas[0].Numero);
+                BoxMonto.Text = Convert.ToString(ListaFacturas[0].MontoTotal);
+                BoxNombreUsuario.Text = $"{Convert.ToString(ListaFacturas[0].CE_Cliente.Nombre)}  {Convert.ToString(ListaFacturas[0].CE_Cliente.Nombre)}".ToUpper();
+                BoxIdUsuario.Text = Convert.ToString(ListaFacturas[0].CE_Cliente.Dni);
+            }
         }
 
 
         private void FormFactura_Load(object sender, EventArgs e)
         {
-            ListarFacturas();
+            //Listamos todas las facturas existentes en la DB
+            ListarFacturas(0);
 
-            string numFactura = Convert.ToString(random.Next(10000000, 99999999));
-            BoxNumeroFactura.Text = numFactura;
-
-            //Box Tipo Factura
+            //Cargamos los tipos de Facturas
             BoxTipoFactura.Items.Add(new OpcionCombo { Texto = "A", Valor = "A" });
             BoxTipoFactura.Items.Add(new OpcionCombo { Texto = "B", Valor = "B" });
             BoxTipoFactura.DisplayMember = "Texto";
             BoxTipoFactura.ValueMember = "Valor";
 
-            //Box Estado Factura
+            //Cargamos los tipos de Estado
             BoxEstado.Items.Add(new OpcionCombo { Texto = "Pendiente", Valor = 1 });
             BoxEstado.Items.Add(new OpcionCombo { Texto = "Anulado", Valor = 2 });
             BoxEstado.Items.Add(new OpcionCombo { Texto = "Cofirmado", Valor = 3 });
@@ -96,7 +111,18 @@ namespace CapaPresentacion
             {
                 var result = modal.ShowDialog();
 
-                if (result == DialogResult.OK) { 
+                if (result == DialogResult.OK)
+                {
+                    BoxIdOperacion.Text = "";
+                    BoxTipoFactura.Text = "";
+                    BoxSucursal.Text = "";
+                    BoxEstado.Text = "";
+                    BoxMonto.Text = "";
+
+                    string numFactura = Convert.ToString(random.Next(10000000, 99999999));
+                    BoxNumeroFactura.Text = numFactura;
+
+                    AddBtn.Enabled = true;
                     BoxIdUsuario.Text = modal._Cliente.Dni;
                     BoxNombreUsuario.Text = $"{modal._Cliente.Nombre}  {modal._Cliente.Apellido}".ToUpper();
                 }
@@ -120,7 +146,7 @@ namespace CapaPresentacion
         {
             if (BoxIdOperacion.SelectedItem != null)
             {
-                CargarDatosPreventa(BoxIdOperacion.Text);
+                CargarDatos(Convert.ToInt32(BoxIdOperacion.Text), "preventa");
             }
 
         }
@@ -145,6 +171,19 @@ namespace CapaPresentacion
             ToolTip toolTip = new ToolTip();
             toolTip.Show(mensaje, this, 90, 90, 8000);
 
+            GridFacturas.Rows.Add(new object[] {
+
+                    factura.CMP_Estado_iden == 1? "Pendiente" : (factura.CMP_Estado_iden == 2? "Anulado" : "Cofirmado"),
+                    factura.FechaDeCarga,
+                    descripcionSucursal,
+                    factura.IdOperacion,
+                    factura.Letra,
+                    factura.Numero,
+                    factura.MontoTotal,
+                });
+
+            GridFacturas.Refresh();
+
             BoxNombreUsuario.Clear();
             BoxIdUsuario.Clear();
             BoxIdOperacion.SelectedItem = null;
@@ -154,5 +193,27 @@ namespace CapaPresentacion
             BoxNumeroFactura.Clear();
             BoxMonto.Clear();
         }
+
+        private void GridFacturas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            BoxIdOperacion.Text = "";
+            BoxTipoFactura.Text = "";
+            BoxSucursal.Text = "";
+            BoxEstado.Text = "";
+            BoxNumeroFactura.Text = "";
+            BoxMonto.Text = "";
+
+            AddBtn.Enabled = false;
+
+
+            int iRow = e.RowIndex;
+            int iColumn = e.ColumnIndex;
+            int IdOperacion = Convert.ToInt32(GridFacturas.Rows[iRow].Cells["IdOperacion"].Value.ToString());
+            ListaFacturas = new CN_Factura().ListarFacturas(IdOperacion);
+
+            CargarDatos(IdOperacion, "factura");
+        }
+
+
     }
 }

@@ -18,6 +18,7 @@ namespace CapaEntidad
         public int IdOperacion { get; set; }
         public DateTime FechaDeCarga { get; set; }
         public CE_Sucursal CE_Sucursal { get; set; }
+        public CE_Cliente CE_Cliente { get; set; }
 
     }
 }

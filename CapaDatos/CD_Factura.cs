@@ -11,7 +11,7 @@ namespace CapaDatos
 {
     public class CD_Factura
     {
-        public List<CE_Factura> ObtenerFacturas()
+        public List<CE_Factura> ObtenerFacturas(int idOperacion)
         {
             List<CE_Factura> ListaFacturas = new List<CE_Factura>();
             using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
@@ -19,6 +19,8 @@ namespace CapaDatos
                 try
                 {
                     SqlCommand cmd = new SqlCommand("CMP_ObtenerFacturas_SEL", conexion);
+                    cmd.Parameters.AddWithValue("idOperacion", idOperacion);
+
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     conexion.Open();
@@ -38,7 +40,11 @@ namespace CapaDatos
                                 IdOperacion = Convert.ToInt32(dr["idOperacion"]),
                                 FechaDeCarga = Convert.ToDateTime(dr["fechadecarga"]),
                                 CE_Sucursal = new CE_Sucursal() { Descripcion = Convert.ToString(dr["descripcion"]) },
-
+                                CE_Cliente = new CE_Cliente() {
+                                    Nombre = Convert.ToString(dr["nombre"]),
+                                    Apellido = Convert.ToString(dr["apellido"]),
+                                    Dni = Convert.ToString(dr["dni"])
+                                }
                             });
 
                         }
@@ -129,6 +135,7 @@ namespace CapaDatos
                         cmdFacturaPreventa.Parameters.AddWithValue("idOperacion", Factura.IdOperacion);
 
                         cmdFacturaPreventa.CommandType = CommandType.StoredProcedure;
+                        cmdFacturaPreventa.ExecuteNonQuery();
                     }
 
                     conexion.Close();

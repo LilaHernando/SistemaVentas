@@ -31,6 +31,7 @@ namespace CapaPresentacion
         {
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BoxNombreUsuario = new System.Windows.Forms.TextBox();
             this.SearchBtn = new FontAwesome.Sharp.IconButton();
             this.BoxIdUsuario = new System.Windows.Forms.TextBox();
             this.LabelUsuario = new System.Windows.Forms.Label();
@@ -58,7 +59,6 @@ namespace CapaPresentacion
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LabelListadoFacturas = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.BoxNombreUsuario = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridFacturas)).BeginInit();
@@ -100,6 +100,24 @@ namespace CapaPresentacion
             this.groupBox1.Size = new System.Drawing.Size(202, 292);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // BoxNombreUsuario
+            // 
+            this.BoxNombreUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BoxNombreUsuario.BackColor = System.Drawing.SystemColors.Window;
+            this.BoxNombreUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BoxNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.BoxNombreUsuario.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.BoxNombreUsuario.Location = new System.Drawing.Point(6, 19);
+            this.BoxNombreUsuario.Multiline = true;
+            this.BoxNombreUsuario.Name = "BoxNombreUsuario";
+            this.BoxNombreUsuario.ReadOnly = true;
+            this.BoxNombreUsuario.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.BoxNombreUsuario.Size = new System.Drawing.Size(186, 23);
+            this.BoxNombreUsuario.TabIndex = 19;
+            this.BoxNombreUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // SearchBtn
             // 
@@ -283,6 +301,7 @@ namespace CapaPresentacion
             this.GridFacturas.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.GridFacturas.Size = new System.Drawing.Size(725, 290);
             this.GridFacturas.TabIndex = 4;
+            this.GridFacturas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridFacturas_CellDoubleClick);
             // 
             // Estado
             // 
@@ -357,24 +376,6 @@ namespace CapaPresentacion
             this.label1.TabIndex = 0;
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.UseMnemonic = false;
-            // 
-            // BoxNombreUsuario
-            // 
-            this.BoxNombreUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BoxNombreUsuario.BackColor = System.Drawing.SystemColors.Window;
-            this.BoxNombreUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.BoxNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.BoxNombreUsuario.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.BoxNombreUsuario.Location = new System.Drawing.Point(6, 19);
-            this.BoxNombreUsuario.Multiline = true;
-            this.BoxNombreUsuario.Name = "BoxNombreUsuario";
-            this.BoxNombreUsuario.ReadOnly = true;
-            this.BoxNombreUsuario.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BoxNombreUsuario.Size = new System.Drawing.Size(186, 23);
-            this.BoxNombreUsuario.TabIndex = 19;
-            this.BoxNombreUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FormFactura
             // 
