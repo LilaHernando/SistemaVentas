@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CapaEntidad
 {
     public class CE_Remito
-    {   //Atributos del objeto CE_Remito
+    {
         public int iden {get;set;}
         public String nombreSucursal { get; set; }
         public String estadoRemito { get; set; }

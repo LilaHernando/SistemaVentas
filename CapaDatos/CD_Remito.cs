@@ -11,25 +11,25 @@ namespace CapaDatos
 {
     public class CD_Remito
     {
-        //------------- LISTA DE REMITOS ------------------//
-        public List<CE_Remito> Listar()
-        {                                                       
+        //------------- CONEX SP DE REMITO ------------------//
+        public List<CE_Remito> Listar()                                                     //Creo un metodo de tipo LISTA de la Entidad Remito
+        {
             List<CE_Remito> listarRemitos = new List<CE_Remito>();                          //Creo el objeto y lo almaceno en la variable listarRemitos
 
-            using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))
-            {             //Creo la conexion con la DB
+            using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))           //Creo la conexion con la DB
+            {
 
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("[dbo].[CMP_Remito_SEL]", onConexion);              //Nuevo comando SQL, indico el SP a utilizar y la conexion
+                    SqlCommand cmd = new SqlCommand("[dbo].[CMP_Remito_SEL]", onConexion);      //Nuevo comando SQL, indico el SP a utilizar y la conexion
                     cmd.CommandType = CommandType.StoredProcedure;                              //Indico que es un comando de tipo SP
 
                     onConexion.Open();
                     using (SqlDataReader dr = cmd.ExecuteReader())                              //Llamo a la funcion de SQL Data Reader encargada de leer los datos de la base.
                     {
-                        while (dr.Read())                                                       //Mientras se ejecute dataReader
+                        while (dr.Read())                                                       //Mientras se ejecute dataReader, se construye uno a uno las instancias de la entidad CE_Remito, y se agregan a la lista.
                         {
-                            listarRemitos.Add(new CE_Remito()
+                            listarRemitos.Add(new CE_Remito()                                   //Funciona como un consstructor y almacena los datos del SP en las variables.
                             {
                                 iden = Convert.ToInt32(dr["idRemito"]),
                                 nombreSucursal = Convert.ToString(dr["descripcionSucursal"]),
@@ -56,23 +56,23 @@ namespace CapaDatos
 
         }
 
-        //------------- LISTA DE SUCURSALES ------------------//
+        //------------- CONEX SP DE SUCURSALES ------------------//
         public List<CE_Sucursal> ListarSucursal()
-        {                                                       
-            List<CE_Sucursal> listarSucursal = new List<CE_Sucursal>();                          
+        {
+            List<CE_Sucursal> listarSucursal = new List<CE_Sucursal>();
 
             using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))
             {
 
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("[dbo].[GN_Sucursal_SEL]", onConexion);              
-                    cmd.CommandType = CommandType.StoredProcedure;                              
+                    SqlCommand cmd = new SqlCommand("[dbo].[GN_Sucursal_SEL]", onConexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
                     onConexion.Open();
-                    using (SqlDataReader dr = cmd.ExecuteReader())                              
+                    using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        while (dr.Read())                                                       
+                        while (dr.Read())
                         {
                             listarSucursal.Add(new CE_Sucursal()
                             {
@@ -94,7 +94,7 @@ namespace CapaDatos
             }
         }
 
-        //------------- LISTA DE ESTADOS ------------------//
+        //------------- CONEX SP DE ESTADO ------------------//
         public List<CE_Estado> ListarEstado()
         {
             List<CE_Estado> listarEstado = new List<CE_Estado>();
@@ -130,6 +130,41 @@ namespace CapaDatos
                 return listarEstado;
             }
         }
+        //------------- CONEX SP DE FACTURA ------------------//
+        public bool VerFactura(int idOperacion, out string message)                                             //Metodo booleano que recibe un parametro de entrada INT, y sale un parametro string.
+        {
+            bool resultado = false;
+            message = string.Empty;                                                                             //Inicializo las variables que por default inician en NULL
+            using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("[dbo].[CMP_Factura_SEL]", onConexion);                     //Nuevo comando sql denominado cmd de tipo SP
+                    cmd.Parameters.AddWithValue("idOperacion", idOperacion);                                    //AddWithValue para parametro de entrada con valor, declarando el parametro para pasarlo al SP.
+                    cmd.Parameters.Add("message", SqlDbType.VarChar, 50).Direction=ParameterDirection.Output;   //Add para parametro de salida, declarando el parametro para pasarlo al capa presentacion.
+                    cmd.Parameters.Add("resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    
+
+                    onConexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    resultado = Convert.ToBoolean(cmd.Parameters["resultado"].Value);   //En la variable resultado, almaceno el parametro convertido a booleano
+                    message = Convert.ToString(cmd.Parameters["message"].Value);        
+                    onConexion.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error SQL: " + ex);
+                    resultado = false;
+                    message = ex.Message;
+                }
+            }
+            return resultado;
+        }
 
     }
+   
 }
