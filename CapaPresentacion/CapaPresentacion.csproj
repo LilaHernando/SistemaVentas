@@ -53,6 +53,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormArticulo.Designer.cs">
+      <DependentUpon>FormArticulo.cs</DependentUpon>
     <Compile Include="FormCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +97,9 @@
       <DependentUpon>FormUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Utilidades\OpcionCombo.cs" />
+    <EmbeddedResource Include="FormArticulo.resx">
+      <DependentUpon>FormArticulo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +134,24 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\bar-code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\price-tag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
       <Project>{d78026ad-21c2-4e6b-acc9-80f347f85f95}</Project>
       <Name>CapaEntidad</Name>
@@ -136,6 +162,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\before.png" />
+    <None Include="Resources\remove.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\magnifying-glass.png" />
+    <None Include="Resources\trash-bin.png" />
+    <None Include="Resources\lista-de-verificacion.png" />
+    <None Include="Resources\carretilla.png" />
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
