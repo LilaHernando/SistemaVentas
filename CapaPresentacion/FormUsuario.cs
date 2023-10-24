@@ -337,7 +337,8 @@ namespace CapaPresentacion
         private void btnLimpiarBuscar_Click(object sender, EventArgs e)
         {
             dgvData.Rows.Clear(); //Vaciar tabla
-            inputBuscar.Text = ""; //Vaciar campo
+            inputBuscar.Text = "Filtrar por DNI o Rol"; //Vaciar campo
+            inputBuscar.ForeColor = Color.Gray;
             Listar(); //Volver a Listar los Usuarios
         }
 
