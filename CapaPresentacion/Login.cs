@@ -34,6 +34,11 @@ namespace CapaPresentacion
                 //Mensaje
                 MessageBox.Show("Uno o más de los Campos estan vacios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            else if (inputUsuario.TextLength <= 7) 
+            {
+                //Mensaje
+                MessageBox.Show("Faltan digitos en su Documento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             else
             {
                 //Instanciamos un Objeto de tipo Usuario con su Método Listar 

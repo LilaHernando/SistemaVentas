@@ -30,10 +30,14 @@ namespace CapaNegocio
             {
                 mensaje = "Uno o más de los campos estan vacios";
             }
+            else if (Obj.Dni.Length <= 7) 
+            {
+                mensaje = "Faltan digitos en su Documento";
+            }
             else if (confirmar == "") //Verificar si la confirmacion de la contraseña esta vacia
             {
                 mensaje = "Falta confirmación de la contraseña";
-            }     
+            }
             else if (!Obj.Clave.Equals(confirmar)) //Verificamos si las contraseñas coinciden
             {
                 mensaje = "Las contraseñas no coinciden";
@@ -58,6 +62,10 @@ namespace CapaNegocio
             if (Obj.Nombre == "" || Obj.Apellido == "" || Obj.Dni == "") //Verificar si hay campos vacios
             {
                 mensaje = "Uno o más de los campos estan vacios";
+            }
+            else if (Obj.Dni.Length <= 7)
+            {
+                mensaje = "Faltan digitos en su Documento";
             }
             else if (Obj.Clave == "") //Si la clave esta vacia
             {

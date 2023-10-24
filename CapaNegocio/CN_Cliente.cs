@@ -32,7 +32,10 @@ namespace CapaNegocio
             {
                 mensaje = "Uno o más de los campos estan vacios";
             }
-
+            else if (Obj.Dni.Length <= 7)
+            {
+                mensaje = "Faltan digitos en su Documento";
+            }
             if (mensaje != string.Empty) //Si mensaje no esta vacio, retornamos 0 y no completamos el registro
             {
                 return 0;
@@ -53,7 +56,10 @@ namespace CapaNegocio
             {
                 mensaje = "Uno o más de los campos estan vacios";
             }
-
+            else if (Obj.Dni.Length <= 7)
+            {
+                mensaje = "Faltan digitos en su Documento";
+            }
             if (mensaje != string.Empty) //Si mensaje no esta vacio, retornamos false y no completamos la edicion
             {
                 return false;
