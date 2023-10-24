@@ -213,6 +213,38 @@ namespace CapaPresentacion
             this.menuRemitos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuRemitos.Click += new System.EventHandler(this.menuRemitos_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.DarkRed;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(976, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 24);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Usuario:";
+            // 
+            // textUsuarioActual
+            // 
+            this.textUsuarioActual.AutoSize = true;
+            this.textUsuarioActual.BackColor = System.Drawing.Color.DarkRed;
+            this.textUsuarioActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textUsuarioActual.Location = new System.Drawing.Point(1061, 40);
+            this.textUsuarioActual.Name = "textUsuarioActual";
+            this.textUsuarioActual.Size = new System.Drawing.Size(16, 24);
+            this.textUsuarioActual.TabIndex = 4;
+            this.textUsuarioActual.Text = "-";
+            // 
+            // contenedor
+            // 
+            this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contenedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.contenedor.ForeColor = System.Drawing.Color.Black;
+            this.contenedor.Location = new System.Drawing.Point(0, 182);
+            this.contenedor.Name = "contenedor";
+            this.contenedor.Size = new System.Drawing.Size(1370, 567);
+            this.contenedor.TabIndex = 5;
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
