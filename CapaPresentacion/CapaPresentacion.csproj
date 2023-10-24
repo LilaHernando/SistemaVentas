@@ -56,8 +56,9 @@
     <Compile Include="FormArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormArticulo.Designer.cs">
-      <DependentUpon>FormArticulo.cs</DependentUpon>
+	  <Compile Include="FormArticulo.Designer.cs">
+		  <DependentUpon>FormArticulo.cs</DependentUpon>
+	  </Compile>
     <Compile Include="FormCliente.cs">
       <SubType>Form</SubType>
     </Compile>
