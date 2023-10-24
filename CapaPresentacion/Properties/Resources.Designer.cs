@@ -66,6 +66,9 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap bar_code {
             get {
                 object obj = ResourceManager.GetObject("bar_code", resourceCulture);
+        internal static System.Drawing.Bitmap card {
+            get {
+                object obj = ResourceManager.GetObject("card", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -76,6 +79,9 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap before {
             get {
                 object obj = ResourceManager.GetObject("before", resourceCulture);
+        internal static System.Drawing.Bitmap edit_info {
+            get {
+                object obj = ResourceManager.GetObject("edit_info", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -86,6 +92,9 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap box {
             get {
                 object obj = ResourceManager.GetObject("box", resourceCulture);
+        internal static System.Drawing.Bitmap key {
+            get {
+                object obj = ResourceManager.GetObject("key", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +105,9 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap carretilla {
             get {
                 object obj = ResourceManager.GetObject("carretilla", resourceCulture);
+        internal static System.Drawing.Bitmap naldo_afa__1_ {
+            get {
+                object obj = ResourceManager.GetObject("naldo_afa__1_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,6 +198,9 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap trash_bin {
             get {
                 object obj = ResourceManager.GetObject("trash-bin", resourceCulture);
+        internal static System.Drawing.Bitmap sell {
+            get {
+                object obj = ResourceManager.GetObject("sell", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
