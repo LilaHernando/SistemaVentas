@@ -21,12 +21,8 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        //------------------ PRECARGA --------------------
-        private void CP_Remito_Load(object sender, EventArgs e)         //Metodo LOAD, precarga los datos antes de mostrar el formulario.
+        private void Listar()
         {
-            btnGuardar.Enabled = false;
-            btnEditar.Enabled = false;
-            //------------------ LISTA REMITOS ------------------
 
             List<CE_Remito> listaRemitos = new CN_Remito().Listar();    //Instancio una lista de objetos denominada listaremitos, que proviene del metodo Listar que ya contiene enlistado a los objetos en la capa NEGOCIO.
 
@@ -35,17 +31,35 @@ namespace CapaPresentacion
                 tablaRemito.Rows.Add(new object[]{                      //[nombretabla].[objeto].[funcion](new Object).
                     
                     cE_Remito.iden,
-                    cE_Remito.nombreSucursal,
-                    cE_Remito.estadoRemito,
+                    cE_Remito.Sucursal.Descripcion,
+                    cE_Remito.estadoRemito.descripcion,
                     cE_Remito.idOperacion,
                     cE_Remito.numero,
                     cE_Remito.letra,
                     cE_Remito.tipoRemito,
                     cE_Remito.fechaRemito
 
-                    });
+                });
 
             }
+
+        }
+
+        //------------------ PRECARGA --------------------
+        private void CP_Remito_Load(object sender, EventArgs e)         //Metodo LOAD, precarga los datos antes de mostrar el formulario.
+        {
+            btnGuardar.Enabled = false;
+            btnEditar.Enabled = false;
+            cbSucursal.Enabled = false;
+            NumRemito.Enabled = false;
+            cbEstado.Enabled = false;
+            NumRemito.Enabled = false;
+            tipoRem.Enabled = false;
+            fechaRem.Enabled = false;
+            //------------------ LISTA REMITOS ------------------
+
+            Listar();
+
 
             //------------------ LISTA SUCURSAL ------------------
 
@@ -53,8 +67,8 @@ namespace CapaPresentacion
 
             foreach (CE_Sucursal cE_Sucursal in listarSucursal)               
             {
-                string descripcion = cE_Sucursal.Descripcion;
-                cbSucursal.Items.Add(new OpcionCombo { Texto = descripcion, Valor = descripcion });
+              
+                cbSucursal.Items.Add(new OpcionCombo { Texto = cE_Sucursal.Descripcion, Valor = cE_Sucursal.iden });
 
             }
             cbSucursal.DisplayMember = "Texto";
@@ -95,6 +109,12 @@ namespace CapaPresentacion
                 {
                     MessageBox.Show("Existe una factura pendiente de remito");
                     btnGuardar.Enabled = true;
+                    cbSucursal.Enabled = true;
+                    NumRemito.Enabled = true;
+                    cbEstado.Enabled = true;
+                    NumRemito.Enabled = true;
+                    tipoRem.Enabled = true;
+                    fechaRem.Enabled = true;
                 }
                 else
                 {
@@ -119,6 +139,53 @@ namespace CapaPresentacion
             //    MessageBox.Show("No se encontró un ID");
             //}
 
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            string mensaje = string.Empty;
+
+            CE_Remito Remito = new CE_Remito()
+            {
+                Sucursal = new CE_Sucursal()
+                {
+                    iden = Convert.ToInt32(((OpcionCombo)cbSucursal.SelectedItem).Valor)
+                },
+
+                estadoRemito = new CE_Estado()
+                {
+
+                    iden = Convert.ToInt32(((OpcionCombo)cbEstado.SelectedItem).Valor)
+                },
+
+                idOperacion = Convert.ToInt32(txtIDOP.Text),
+
+                numero = Convert.ToInt32(NumRemito.Text),
+
+                letra = Convert.ToChar(letraRem.Text),
+
+                tipoRemito = Convert.ToString(tipoRem.Text),
+
+                fechaRemito = Convert.ToDateTime(fechaRem.Text),
+
+            };
+
+            new CN_Remito().CrearRemito(Remito, out mensaje);
+
+            if (mensaje == string.Empty)
+            {
+                tablaRemito.Rows.Clear();
+
+                Listar();
+
+
+                MessageBox.Show("Remito cargado con éxito");
+
+            }
+            else
+            {
+                MessageBox.Show(mensaje);
+            }
         }
     }
 }

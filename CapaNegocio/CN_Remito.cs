@@ -23,6 +23,11 @@ namespace CapaNegocio
 
             return cD_Remito.VerFactura(idOperacion, out message);
         }
+
+        public void CrearRemito(CE_Remito Remito, out string mensaje)
+        {
+            cD_Remito.CrearRemito(Remito, out mensaje);
+        }
     }
     
 }

@@ -11,7 +11,7 @@ namespace CapaDatos
 {
     public class CD_Remito
     {
-        //------------- CONEX SP DE REMITO ------------------//
+        //------------- CONEX SP DE REMITO SELECT ------------------//
         public List<CE_Remito> Listar()                                                     //Creo un metodo de tipo LISTA de la Entidad Remito
         {
             List<CE_Remito> listarRemitos = new List<CE_Remito>();                          //Creo el objeto y lo almaceno en la variable listarRemitos
@@ -32,8 +32,8 @@ namespace CapaDatos
                             listarRemitos.Add(new CE_Remito()                                   //Funciona como un consstructor y almacena los datos del SP en las variables.
                             {
                                 iden = Convert.ToInt32(dr["idRemito"]),
-                                nombreSucursal = Convert.ToString(dr["descripcionSucursal"]),
-                                estadoRemito = Convert.ToString(dr["descripcionEstado"]),
+                                Sucursal = new CE_Sucursal() { Descripcion = Convert.ToString(dr["descripcionSucursal"]) },
+                                estadoRemito = new CE_Estado() { descripcion = Convert.ToString(dr["descripcionEstado"]) },
                                 idOperacion = Convert.ToInt32(dr["idOperacion"]),
                                 numero = Convert.ToInt32(dr["numeroRemito"]),
                                 letra = Convert.ToChar(dr["letraRemito"]),
@@ -54,6 +54,47 @@ namespace CapaDatos
                 return listarRemitos;
             }
 
+        }
+
+        //------------- CONEX SP DE REMITO INSERT ------------------//
+        public void CrearRemito(CE_Remito Remito, out string mensaje)
+        {
+            mensaje = string.Empty;
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+
+                try
+                {
+                    SqlCommand cmdRemito = new SqlCommand("[dbo].[CMP_Remito_INSUPD]", conexion);
+                    cmdRemito.Parameters.AddWithValue("GN_Sucursal_iden", Remito.Sucursal.iden);
+                    cmdRemito.Parameters.AddWithValue("CMP_Estado_iden", Remito.estadoRemito.iden);
+                    cmdRemito.Parameters.AddWithValue("letra", Remito.letra);
+                    cmdRemito.Parameters.AddWithValue("tipoRemito", Remito.tipoRemito);
+                    cmdRemito.Parameters.AddWithValue("numero", Remito.numero);
+                    cmdRemito.Parameters.AddWithValue("idOperacion", Remito.idOperacion);
+                    cmdRemito.Parameters.AddWithValue("fechadecarga", Remito.fechaRemito);
+
+                    cmdRemito.CommandType = CommandType.StoredProcedure;
+
+                    conexion.Open();
+
+                    cmdRemito.ExecuteNonQuery();
+
+                    SqlCommand cmdRemitoPorFactura = new SqlCommand("CMP_CrearRemitoPorFactura_INSUPD", conexion);
+                    cmdRemitoPorFactura.Parameters.AddWithValue("GN_Sucursal_iden", Remito.Sucursal.iden);
+                    cmdRemitoPorFactura.Parameters.AddWithValue("idOperacion", Remito.idOperacion);
+
+                    cmdRemitoPorFactura.CommandType = CommandType.StoredProcedure;
+
+                    cmdRemitoPorFactura.ExecuteNonQuery();
+
+                    conexion.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    mensaje = ex.Message;
+                }
         }
 
         //------------- CONEX SP DE SUCURSALES ------------------//
