@@ -25,7 +25,30 @@ namespace CapaPresentacion
 
         public FormFactura() { InitializeComponent(); }
 
-       
+        private bool VerificarCampos(Control control)
+        {
+            foreach (Control c in control.Controls)
+            {
+                if (c is TextBox)
+                {
+                    TextBox textBox = (TextBox)c;
+                    if (string.IsNullOrWhiteSpace(textBox.Text))
+                    {
+                        return false; 
+                    }
+                }
+              
+                else if (c is ComboBox)
+                {
+                    ComboBox comboBox = (ComboBox)c;
+                    if (comboBox.SelectedIndex == -1)
+                    {
+                        return false; 
+                    }
+                }
+            }
+            return true; 
+        }
         private void ListarFacturas(int idOperacion)
         {
             ListaFacturas = new CN_Factura().ListarFacturas(idOperacion);
@@ -72,21 +95,20 @@ namespace CapaPresentacion
             }
             else
             {
-                BoxNombreUsuario.Text = 
                 BoxIdOperacion.Text = Convert.ToString(ListaFacturas[0].IdOperacion);
                 BoxTipoFactura.Text = Convert.ToString(ListaFacturas[0].Letra);
                 BoxSucursal.Text = ListaFacturas[0].CE_Sucursal.Descripcion;
                 BoxEstado.Text = ListaFacturas[0].CMP_Estado_iden == 1 ? "Pendiente" : (ListaFacturas[0].CMP_Estado_iden == 2 ? "Anulado" : "Cofirmado");
                 BoxNumeroFactura.Text = Convert.ToString(ListaFacturas[0].Numero);
                 BoxMonto.Text = Convert.ToString(ListaFacturas[0].MontoTotal);
-                BoxNombreUsuario.Text = $"{Convert.ToString(ListaFacturas[0].CE_Cliente.Nombre)}  {Convert.ToString(ListaFacturas[0].CE_Cliente.Nombre)}".ToUpper();
+                BoxNombreUsuario.Text = $"{Convert.ToString(ListaFacturas[0].CE_Cliente.Nombre)}  {Convert.ToString(ListaFacturas[0].CE_Cliente.Apellido)}".ToUpper();
                 BoxIdUsuario.Text = Convert.ToString(ListaFacturas[0].CE_Cliente.Dni);
             }
         }
 
-
         private void FormFactura_Load(object sender, EventArgs e)
         {
+
             //Listamos todas las facturas existentes en la DB
             ListarFacturas(0);
 
@@ -102,7 +124,6 @@ namespace CapaPresentacion
             BoxEstado.Items.Add(new OpcionCombo { Texto = "Cofirmado", Valor = 3 });
             BoxEstado.DisplayMember = "Texto";
             BoxEstado.ValueMember = "Valor";
-
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
@@ -153,6 +174,8 @@ namespace CapaPresentacion
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
+            if (VerificarCampos(GbRegistrar)) {
+            
             string mensaje = string.Empty;
 
             CE_Factura factura = new CE_Factura()
@@ -163,13 +186,12 @@ namespace CapaPresentacion
                 CMP_Estado_iden = Convert.ToInt32(((OpcionCombo)BoxEstado.SelectedItem).Valor),
                 IdOperacion = Convert.ToInt32(BoxIdOperacion.Text),
                 GN_Sucursal_iden = idSucursal,
-
+                FechaDeCarga = DateTime.Now,
             };
 
             new CN_Factura().CrearFactura(factura, out mensaje);
 
-            ToolTip toolTip = new ToolTip();
-            toolTip.Show(mensaje, this, 90, 90, 8000);
+            if (mensaje != "") { MessageBox.Show(mensaje); }
 
             GridFacturas.Rows.Add(new object[] {
 
@@ -192,6 +214,11 @@ namespace CapaPresentacion
             BoxEstado.SelectedItem = null;
             BoxNumeroFactura.Clear();
             BoxMonto.Clear();
+            } else
+            {
+            MessageBox.Show("Por favor, complete todos los campos para registrar una factura");
+
+            }
         }
 
         private void GridFacturas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

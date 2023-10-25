@@ -30,7 +30,7 @@ namespace CapaPresentacion
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.GbRegistrar = new System.Windows.Forms.GroupBox();
             this.BoxNombreUsuario = new System.Windows.Forms.TextBox();
             this.SearchBtn = new FontAwesome.Sharp.IconButton();
             this.BoxIdUsuario = new System.Windows.Forms.TextBox();
@@ -59,7 +59,7 @@ namespace CapaPresentacion
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LabelListadoFacturas = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.GbRegistrar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridFacturas)).BeginInit();
             this.SuspendLayout();
@@ -74,32 +74,32 @@ namespace CapaPresentacion
             this.label2.TabIndex = 1;
             this.label2.Text = "Nueva Factura";
             // 
-            // groupBox1
+            // GbRegistrar
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Controls.Add(this.BoxNombreUsuario);
-            this.groupBox1.Controls.Add(this.SearchBtn);
-            this.groupBox1.Controls.Add(this.BoxIdUsuario);
-            this.groupBox1.Controls.Add(this.LabelUsuario);
-            this.groupBox1.Controls.Add(this.BoxNumeroFactura);
-            this.groupBox1.Controls.Add(this.LabelNumeroFactura);
-            this.groupBox1.Controls.Add(this.BoxSucursal);
-            this.groupBox1.Controls.Add(this.LabelSucursal);
-            this.groupBox1.Controls.Add(this.BoxEstado);
-            this.groupBox1.Controls.Add(this.LabelEstado);
-            this.groupBox1.Controls.Add(this.AddBtn);
-            this.groupBox1.Controls.Add(this.BoxMonto);
-            this.groupBox1.Controls.Add(this.LabelMonto);
-            this.groupBox1.Controls.Add(this.BoxIdOperacion);
-            this.groupBox1.Controls.Add(this.LabelIdOperacion);
-            this.groupBox1.Controls.Add(this.BoxTipoFactura);
-            this.groupBox1.Controls.Add(this.LabelTipoFactura);
-            this.groupBox1.Location = new System.Drawing.Point(18, 37);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox1.Size = new System.Drawing.Size(202, 292);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
+            this.GbRegistrar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.GbRegistrar.Controls.Add(this.BoxNombreUsuario);
+            this.GbRegistrar.Controls.Add(this.SearchBtn);
+            this.GbRegistrar.Controls.Add(this.BoxIdUsuario);
+            this.GbRegistrar.Controls.Add(this.LabelUsuario);
+            this.GbRegistrar.Controls.Add(this.BoxNumeroFactura);
+            this.GbRegistrar.Controls.Add(this.LabelNumeroFactura);
+            this.GbRegistrar.Controls.Add(this.BoxSucursal);
+            this.GbRegistrar.Controls.Add(this.LabelSucursal);
+            this.GbRegistrar.Controls.Add(this.BoxEstado);
+            this.GbRegistrar.Controls.Add(this.LabelEstado);
+            this.GbRegistrar.Controls.Add(this.AddBtn);
+            this.GbRegistrar.Controls.Add(this.BoxMonto);
+            this.GbRegistrar.Controls.Add(this.LabelMonto);
+            this.GbRegistrar.Controls.Add(this.BoxIdOperacion);
+            this.GbRegistrar.Controls.Add(this.LabelIdOperacion);
+            this.GbRegistrar.Controls.Add(this.BoxTipoFactura);
+            this.GbRegistrar.Controls.Add(this.LabelTipoFactura);
+            this.GbRegistrar.Location = new System.Drawing.Point(18, 37);
+            this.GbRegistrar.Name = "GbRegistrar";
+            this.GbRegistrar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.GbRegistrar.Size = new System.Drawing.Size(202, 292);
+            this.GbRegistrar.TabIndex = 2;
+            this.GbRegistrar.TabStop = false;
             // 
             // BoxNombreUsuario
             // 
@@ -384,14 +384,14 @@ namespace CapaPresentacion
             this.ClientSize = new System.Drawing.Size(917, 341);
             this.Controls.Add(this.LabelListadoFacturas);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.GbRegistrar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormFactura";
             this.Text = "FormFactura";
             this.Load += new System.EventHandler(this.FormFactura_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.GbRegistrar.ResumeLayout(false);
+            this.GbRegistrar.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridFacturas)).EndInit();
             this.ResumeLayout(false);
@@ -401,7 +401,7 @@ namespace CapaPresentacion
 
         #endregion
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox GbRegistrar;
         private System.Windows.Forms.Label LabelIdOperacion;
         private System.Windows.Forms.ComboBox BoxTipoFactura;
         private System.Windows.Forms.Label LabelTipoFactura;

@@ -116,6 +116,7 @@ namespace CapaDatos
                     cmdFactura.Parameters.AddWithValue("montoTotal", Factura.MontoTotal);
                     cmdFactura.Parameters.AddWithValue("CMP_Estado_iden", Factura.CMP_Estado_iden);
                     cmdFactura.Parameters.AddWithValue("idOperacion", Factura.IdOperacion);
+                    cmdFactura.Parameters.AddWithValue("fechadecarga", Factura.FechaDeCarga);
 
                     cmdFactura.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 

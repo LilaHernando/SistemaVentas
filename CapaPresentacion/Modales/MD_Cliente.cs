@@ -42,6 +42,7 @@ namespace CapaPresentacion.Modales
         private void MD_Cliente_Load(object sender, EventArgs e)
         {
             ListarClientes(0);
+            SearchBtn.Enabled = false;
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
@@ -76,6 +77,12 @@ namespace CapaPresentacion.Modales
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+        }
+
+        private void BoxIdUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+            SearchBtn.Enabled = true;
         }
     }
 }
