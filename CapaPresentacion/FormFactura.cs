@@ -23,6 +23,7 @@ namespace CapaPresentacion
         public int idSucursal { get; set; }
         public string descripcionSucursal { get; set; }
 
+
         public FormFactura() { InitializeComponent(); }
 
         private bool VerificarCampos(Control control)
@@ -34,20 +35,41 @@ namespace CapaPresentacion
                     TextBox textBox = (TextBox)c;
                     if (string.IsNullOrWhiteSpace(textBox.Text))
                     {
-                        return false; 
+                        return false;
                     }
                 }
-              
+
                 else if (c is ComboBox)
                 {
                     ComboBox comboBox = (ComboBox)c;
                     if (comboBox.SelectedIndex == -1)
                     {
-                        return false; 
+                        return false;
                     }
                 }
             }
-            return true; 
+            return true;
+        }
+
+        private void LimpiarCampos()
+        {
+
+            BoxNombreUsuario.Clear();
+            BoxIdUsuario.Clear();
+            BoxIdOperacion.SelectedItem = null;
+            BoxTipoFactura.SelectedItem = null;
+            BoxSucursal.Clear();
+            BoxEstado.Clear();
+            BoxNumeroFactura.Clear();
+            BoxMonto.Clear();
+
+            BoxIdOperacion.Text = "";
+            BoxTipoFactura.Text = "";
+            BoxSucursal.Text = "";
+            BoxEstado.Text = "";
+            BoxMonto.Text = "";
+            BoxNumeroFactura.Text = "";
+
         }
         private void ListarFacturas(int idOperacion)
         {
@@ -82,6 +104,16 @@ namespace CapaPresentacion
             BoxIdOperacion.ValueMember = "Valor";
         }
 
+        private void CrearNumeroFactura()
+        {
+            int ultimoIndex = GridFacturas.Rows.Count - 1;
+            if (ultimoIndex < 0) { BoxNumeroFactura.Text = "1"; }
+            else
+            {
+            int ultimaFactura = Convert.ToInt32(GridFacturas.Rows[ultimoIndex].Cells["Numero"].Value);
+            BoxNumeroFactura.Text = Convert.ToString(ultimaFactura + 1);
+            }
+        }
         private void CargarDatos(int IdOperacion, string entidad)
         {
             if (entidad == "preventa")
@@ -108,9 +140,10 @@ namespace CapaPresentacion
 
         private void FormFactura_Load(object sender, EventArgs e)
         {
-
+            
             //Listamos todas las facturas existentes en la DB
             ListarFacturas(0);
+            CrearNumeroFactura();
 
             //Cargamos los tipos de Facturas
             BoxTipoFactura.Items.Add(new OpcionCombo { Texto = "A", Valor = "A" });
@@ -118,12 +151,6 @@ namespace CapaPresentacion
             BoxTipoFactura.DisplayMember = "Texto";
             BoxTipoFactura.ValueMember = "Valor";
 
-            //Cargamos los tipos de Estado
-            BoxEstado.Items.Add(new OpcionCombo { Texto = "Pendiente", Valor = 1 });
-            BoxEstado.Items.Add(new OpcionCombo { Texto = "Anulado", Valor = 2 });
-            BoxEstado.Items.Add(new OpcionCombo { Texto = "Cofirmado", Valor = 3 });
-            BoxEstado.DisplayMember = "Texto";
-            BoxEstado.ValueMember = "Valor";
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
@@ -134,18 +161,11 @@ namespace CapaPresentacion
 
                 if (result == DialogResult.OK)
                 {
-                    BoxIdOperacion.Text = "";
-                    BoxTipoFactura.Text = "";
-                    BoxSucursal.Text = "";
-                    BoxEstado.Text = "";
-                    BoxMonto.Text = "";
-
-                    string numFactura = Convert.ToString(random.Next(10000000, 99999999));
-                    BoxNumeroFactura.Text = numFactura;
-
                     AddBtn.Enabled = true;
                     BoxIdUsuario.Text = modal._Cliente.Dni;
                     BoxNombreUsuario.Text = $"{modal._Cliente.Nombre}  {modal._Cliente.Apellido}".ToUpper();
+                    BoxEstado.Text = "Pendiente";
+
                 }
             }
         }
@@ -156,6 +176,7 @@ namespace CapaPresentacion
             {
                 BoxIdOperacion.SelectedItem = null;
                 BoxIdOperacion.Items.Clear();
+
                 int boxDni = Convert.ToInt32(BoxIdUsuario.Text);
 
                 ListarPreventasPorDNI(boxDni);
@@ -174,28 +195,29 @@ namespace CapaPresentacion
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            if (VerificarCampos(GbRegistrar)) {
-            
-            string mensaje = string.Empty;
-
-            CE_Factura factura = new CE_Factura()
+            if (VerificarCampos(GbRegistrar))
             {
-                Letra = Convert.ToChar(BoxTipoFactura.Text),
-                Numero = Convert.ToInt32(BoxNumeroFactura.Text),
-                MontoTotal = Convert.ToDecimal(BoxMonto.Text),
-                CMP_Estado_iden = Convert.ToInt32(((OpcionCombo)BoxEstado.SelectedItem).Valor),
-                IdOperacion = Convert.ToInt32(BoxIdOperacion.Text),
-                GN_Sucursal_iden = idSucursal,
-                FechaDeCarga = DateTime.Now,
-            };
+                string mensaje = string.Empty;
 
-            new CN_Factura().CrearFactura(factura, out mensaje);
+                CE_Factura factura = new CE_Factura()
+                {
+                    Letra = Convert.ToChar(BoxTipoFactura.Text),
+                    Numero = Convert.ToInt32(BoxNumeroFactura.Text),
+                    MontoTotal = Convert.ToDecimal(BoxMonto.Text),
+                    CMP_Estado_iden = 1,
+                    IdOperacion = Convert.ToInt32(BoxIdOperacion.Text),
+                    GN_Sucursal_iden = idSucursal,
+                    FechaDeCarga = DateTime.Now,
+                };
 
-            if (mensaje != "") { MessageBox.Show(mensaje); }
+                new CN_Factura().CrearFactura(factura, out mensaje);
 
-            GridFacturas.Rows.Add(new object[] {
+                if (mensaje != "") { MessageBox.Show(mensaje); }
 
-                    factura.CMP_Estado_iden == 1? "Pendiente" : (factura.CMP_Estado_iden == 2? "Anulado" : "Cofirmado"),
+
+                GridFacturas.Rows.Add(new object[] {
+
+                    "Pendiente",
                     factura.FechaDeCarga,
                     descripcionSucursal,
                     factura.IdOperacion,
@@ -204,34 +226,23 @@ namespace CapaPresentacion
                     factura.MontoTotal,
                 });
 
-            GridFacturas.Refresh();
+                GridFacturas.Refresh();
+                LimpiarCampos();
+                CrearNumeroFactura();
 
-            BoxNombreUsuario.Clear();
-            BoxIdUsuario.Clear();
-            BoxIdOperacion.SelectedItem = null;
-            BoxTipoFactura.SelectedItem = null;
-            BoxSucursal.Clear();
-            BoxEstado.SelectedItem = null;
-            BoxNumeroFactura.Clear();
-            BoxMonto.Clear();
-            } else
+            }
+            else
             {
-            MessageBox.Show("Por favor, complete todos los campos para registrar una factura");
+                MessageBox.Show("Por favor, complete todos los campos para registrar una factura");
 
             }
         }
 
         private void GridFacturas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            BoxIdOperacion.Text = "";
-            BoxTipoFactura.Text = "";
-            BoxSucursal.Text = "";
-            BoxEstado.Text = "";
-            BoxNumeroFactura.Text = "";
-            BoxMonto.Text = "";
 
             AddBtn.Enabled = false;
-
+            LimpiarCampos();
 
             int iRow = e.RowIndex;
             int iColumn = e.ColumnIndex;

@@ -31,6 +31,7 @@ namespace CapaPresentacion
         {
             this.label2 = new System.Windows.Forms.Label();
             this.GbRegistrar = new System.Windows.Forms.GroupBox();
+            this.BoxEstado = new System.Windows.Forms.TextBox();
             this.BoxNombreUsuario = new System.Windows.Forms.TextBox();
             this.SearchBtn = new FontAwesome.Sharp.IconButton();
             this.BoxIdUsuario = new System.Windows.Forms.TextBox();
@@ -39,7 +40,6 @@ namespace CapaPresentacion
             this.LabelNumeroFactura = new System.Windows.Forms.Label();
             this.BoxSucursal = new System.Windows.Forms.TextBox();
             this.LabelSucursal = new System.Windows.Forms.Label();
-            this.BoxEstado = new System.Windows.Forms.ComboBox();
             this.LabelEstado = new System.Windows.Forms.Label();
             this.AddBtn = new FontAwesome.Sharp.IconButton();
             this.BoxMonto = new System.Windows.Forms.TextBox();
@@ -77,6 +77,7 @@ namespace CapaPresentacion
             // GbRegistrar
             // 
             this.GbRegistrar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.GbRegistrar.Controls.Add(this.BoxEstado);
             this.GbRegistrar.Controls.Add(this.BoxNombreUsuario);
             this.GbRegistrar.Controls.Add(this.SearchBtn);
             this.GbRegistrar.Controls.Add(this.BoxIdUsuario);
@@ -85,7 +86,6 @@ namespace CapaPresentacion
             this.GbRegistrar.Controls.Add(this.LabelNumeroFactura);
             this.GbRegistrar.Controls.Add(this.BoxSucursal);
             this.GbRegistrar.Controls.Add(this.LabelSucursal);
-            this.GbRegistrar.Controls.Add(this.BoxEstado);
             this.GbRegistrar.Controls.Add(this.LabelEstado);
             this.GbRegistrar.Controls.Add(this.AddBtn);
             this.GbRegistrar.Controls.Add(this.BoxMonto);
@@ -100,6 +100,14 @@ namespace CapaPresentacion
             this.GbRegistrar.Size = new System.Drawing.Size(202, 292);
             this.GbRegistrar.TabIndex = 2;
             this.GbRegistrar.TabStop = false;
+            // 
+            // BoxEstado
+            // 
+            this.BoxEstado.Location = new System.Drawing.Point(5, 194);
+            this.BoxEstado.Name = "BoxEstado";
+            this.BoxEstado.ReadOnly = true;
+            this.BoxEstado.Size = new System.Drawing.Size(68, 20);
+            this.BoxEstado.TabIndex = 20;
             // 
             // BoxNombreUsuario
             // 
@@ -184,14 +192,6 @@ namespace CapaPresentacion
             this.LabelSucursal.Size = new System.Drawing.Size(48, 13);
             this.LabelSucursal.TabIndex = 12;
             this.LabelSucursal.Text = "Sucursal";
-            // 
-            // BoxEstado
-            // 
-            this.BoxEstado.FormattingEnabled = true;
-            this.BoxEstado.Location = new System.Drawing.Point(6, 194);
-            this.BoxEstado.Name = "BoxEstado";
-            this.BoxEstado.Size = new System.Drawing.Size(67, 21);
-            this.BoxEstado.TabIndex = 11;
             // 
             // LabelEstado
             // 
@@ -409,7 +409,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label LabelMonto;
         private System.Windows.Forms.ComboBox BoxIdOperacion;
         private FontAwesome.Sharp.IconButton AddBtn;
-        private System.Windows.Forms.ComboBox BoxEstado;
         private System.Windows.Forms.Label LabelEstado;
         private System.Windows.Forms.TextBox BoxSucursal;
         private System.Windows.Forms.Label LabelSucursal;
@@ -430,5 +429,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox BoxNombreUsuario;
+        private System.Windows.Forms.TextBox BoxEstado;
     }
 }

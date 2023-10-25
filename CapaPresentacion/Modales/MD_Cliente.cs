@@ -22,7 +22,8 @@ namespace CapaPresentacion.Modales
             InitializeComponent();
         }
 
-        private void ListarClientes(int dni) {
+        private void ListarClientes(int dni)
+        {
 
             ListaClientes = new CN_Cliente().ListarClientes(dni);
 
@@ -64,7 +65,8 @@ namespace CapaPresentacion.Modales
             int iRow = e.RowIndex;
             int iColumn = e.ColumnIndex;
 
-            if (iRow >= 0 && iColumn > 0) {
+            if (iRow >= 0 && iColumn > 0)
+            {
 
                 _Cliente = new CE_Cliente()
                 {
