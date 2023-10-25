@@ -114,7 +114,7 @@ namespace CapaPresentacion
             if (e.RowIndex < 0)
                 return;
 
-            if (e.ColumnIndex == 7)
+            if (e.ColumnIndex == 0)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
@@ -184,6 +184,7 @@ namespace CapaPresentacion
                     //Agregamos el nuevo Cliente a una fila de la Grid
                     dgvData.Rows.Add(new object[]
                     {
+                        "",
                         resultado, //El resultado vendria a representar el ID del nuevo Cliente
                         inputNombre.Text,
                         inputApellido.Text,
@@ -191,7 +192,6 @@ namespace CapaPresentacion
                         inputFechaNacimiento.Value,
                         inputCorreo.Text,
                         inputTelefono.Text,
-                        "",
                     });
 
                     MessageBox.Show("Cliente registrado con éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -271,6 +271,7 @@ namespace CapaPresentacion
                 //Y agregamos a cada Usuario a la Grid
                 dgvData.Rows.Add(new object[]
                 {
+                    "",
                     cliente.Id,
                     cliente.Nombre,
                     cliente.Apellido,
@@ -278,7 +279,6 @@ namespace CapaPresentacion
                     cliente.Fecha_nacimiento,
                     cliente.Correo_electronico,
                     cliente.Telefono,
-                    "",
                 });
             }
 
@@ -307,6 +307,7 @@ namespace CapaPresentacion
                 //Y agregamos a cada Usuario a la Grid
                 dgvData.Rows.Add(new object[]
                 {
+                    "",
                     cliente.Id,
                     cliente.Nombre,
                     cliente.Apellido,
@@ -314,7 +315,6 @@ namespace CapaPresentacion
                     cliente.Fecha_nacimiento,
                     cliente.Correo_electronico,
                     cliente.Telefono,
-                    "",
                 });
             }
         }

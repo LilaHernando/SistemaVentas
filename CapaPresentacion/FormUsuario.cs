@@ -153,6 +153,7 @@ namespace CapaPresentacion
                     //Agregamos el nuevo Usuario a una fila de la Grid
                     dgvData.Rows.Add(new object[]
                     {
+                        "",
                         resultado, //El resultado vendria a representar el ID del nuevo Usuario
                         inputNombre.Text,
                         inputApellido.Text,
@@ -162,7 +163,6 @@ namespace CapaPresentacion
                         ((OpcionCombo)comboRol.SelectedItem).Valor.ToString(),
                         ((OpcionCombo)comboRol.SelectedItem).Texto.ToString(),
                         inputClave.Text,
-                        "",
                     });
 
                     Limpiar(); //Limpiamos
@@ -214,7 +214,7 @@ namespace CapaPresentacion
             if (e.RowIndex < 0)
                 return;
 
-            if (e.ColumnIndex == 9) 
+            if (e.ColumnIndex == 0) 
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
@@ -320,6 +320,7 @@ namespace CapaPresentacion
                 //Y agregamos a cada Usuario a la Grid
                 dgvData.Rows.Add(new object[]
                 {
+                    "",
                     usuario.Iden,
                     usuario.Nombre,
                     usuario.Apellido,
@@ -329,7 +330,6 @@ namespace CapaPresentacion
                     usuario.Rol.Iden,
                     usuario.Rol.Rol,
                     usuario.Clave,
-                    "",
                 });
             }
         }
@@ -357,6 +357,7 @@ namespace CapaPresentacion
                 //Y agregamos a cada Usuario a la Grid
                 dgvData.Rows.Add(new object[]
                 {
+                    "",
                     usuario.Iden,
                     usuario.Nombre,
                     usuario.Apellido,
@@ -366,7 +367,6 @@ namespace CapaPresentacion
                     usuario.Rol.Iden,
                     usuario.Rol.Rol,
                     usuario.Clave,
-                    "",
                 });
             }
         }
