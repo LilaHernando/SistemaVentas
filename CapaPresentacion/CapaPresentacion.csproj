@@ -159,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\before.png" />
+    <None Include="Resources\play.png" />
     <None Include="Resources\remove.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\magnifying-glass.png" />

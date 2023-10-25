@@ -47,18 +47,19 @@ namespace CapaPresentacion
             this.IdenPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbbEstado = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.labelBuscar = new System.Windows.Forms.Label();
             this.cbbBusqueda = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
+            this.labelLimpiar = new System.Windows.Forms.Label();
+            this.labelBuscar = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
@@ -66,7 +67,6 @@ namespace CapaPresentacion
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.labelLimpiar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPreventa)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -80,7 +80,7 @@ namespace CapaPresentacion
             this.txtDate.Location = new System.Drawing.Point(135, 116);
             this.txtDate.Margin = new System.Windows.Forms.Padding(2);
             this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(279, 26);
+            this.txtDate.Size = new System.Drawing.Size(279, 22);
             this.txtDate.TabIndex = 5;
             // 
             // txtMonto
@@ -88,7 +88,7 @@ namespace CapaPresentacion
             this.txtMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMonto.Location = new System.Drawing.Point(135, 175);
             this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(279, 26);
+            this.txtMonto.Size = new System.Drawing.Size(279, 22);
             this.txtMonto.TabIndex = 7;
             this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             // 
@@ -99,7 +99,7 @@ namespace CapaPresentacion
             this.cbbSucursal.FormattingEnabled = true;
             this.cbbSucursal.Location = new System.Drawing.Point(135, 296);
             this.cbbSucursal.Name = "cbbSucursal";
-            this.cbbSucursal.Size = new System.Drawing.Size(279, 28);
+            this.cbbSucursal.Size = new System.Drawing.Size(279, 24);
             this.cbbSucursal.TabIndex = 11;
             // 
             // dgvDataPreventa
@@ -120,10 +120,10 @@ namespace CapaPresentacion
             this.IdenCliente,
             this.IdenSucursal,
             this.IdenPreventa});
-            this.dgvDataPreventa.Location = new System.Drawing.Point(519, 117);
+            this.dgvDataPreventa.Location = new System.Drawing.Point(461, 117);
             this.dgvDataPreventa.Name = "dgvDataPreventa";
             this.dgvDataPreventa.RowHeadersWidth = 51;
-            this.dgvDataPreventa.Size = new System.Drawing.Size(824, 334);
+            this.dgvDataPreventa.Size = new System.Drawing.Size(882, 334);
             this.dgvDataPreventa.TabIndex = 12;
             this.dgvDataPreventa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPreventa_CellContentClick);
             this.dgvDataPreventa.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvDataPreventa_CellPainting);
@@ -216,7 +216,7 @@ namespace CapaPresentacion
             this.cbbEstado.FormattingEnabled = true;
             this.cbbEstado.Location = new System.Drawing.Point(135, 359);
             this.cbbEstado.Name = "cbbEstado";
-            this.cbbEstado.Size = new System.Drawing.Size(279, 28);
+            this.cbbEstado.Size = new System.Drawing.Size(279, 24);
             this.cbbEstado.TabIndex = 18;
             // 
             // panel1
@@ -225,21 +225,8 @@ namespace CapaPresentacion
             this.panel1.Controls.Add(this.label6);
             this.panel1.Location = new System.Drawing.Point(12, 32);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(485, 51);
+            this.panel1.Size = new System.Drawing.Size(443, 51);
             this.panel1.TabIndex = 19;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label6.Image = global::CapaPresentacion.Properties.Resources.plus_sign;
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(3, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(224, 33);
-            this.label6.TabIndex = 14;
-            this.label6.Text = " Ingreso de Datos";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -250,23 +237,10 @@ namespace CapaPresentacion
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.txtBuscar);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(519, 32);
+            this.panel2.Location = new System.Drawing.Point(461, 32);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(839, 51);
+            this.panel2.Size = new System.Drawing.Size(897, 51);
             this.panel2.TabIndex = 20;
-            // 
-            // labelBuscar
-            // 
-            this.labelBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBuscar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelBuscar.Image = global::CapaPresentacion.Properties.Resources.find;
-            this.labelBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelBuscar.Location = new System.Drawing.Point(746, 11);
-            this.labelBuscar.Name = "labelBuscar";
-            this.labelBuscar.Size = new System.Drawing.Size(24, 26);
-            this.labelBuscar.TabIndex = 26;
-            this.labelBuscar.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.labelBuscar.Click += new System.EventHandler(this.labelBuscar_Click);
             // 
             // cbbBusqueda
             // 
@@ -275,7 +249,7 @@ namespace CapaPresentacion
             this.cbbBusqueda.FormattingEnabled = true;
             this.cbbBusqueda.Location = new System.Drawing.Point(397, 11);
             this.cbbBusqueda.Name = "cbbBusqueda";
-            this.cbbBusqueda.Size = new System.Drawing.Size(152, 28);
+            this.cbbBusqueda.Size = new System.Drawing.Size(152, 24);
             this.cbbBusqueda.TabIndex = 25;
             // 
             // label8
@@ -295,21 +269,8 @@ namespace CapaPresentacion
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.Location = new System.Drawing.Point(568, 11);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(172, 26);
+            this.txtBuscar.Size = new System.Drawing.Size(172, 22);
             this.txtBuscar.TabIndex = 14;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Image = global::CapaPresentacion.Properties.Resources.checklist__1_;
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(3, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(242, 33);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Listado de Preventas";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3
             // 
@@ -326,7 +287,7 @@ namespace CapaPresentacion
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label9.Location = new System.Drawing.Point(1196, 8);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(188, 17);
+            this.label9.Size = new System.Drawing.Size(141, 13);
             this.label9.TabIndex = 0;
             this.label9.Text = "Administración de Preventas";
             // 
@@ -335,7 +296,7 @@ namespace CapaPresentacion
             this.txtCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCliente.Location = new System.Drawing.Point(135, 232);
             this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(279, 26);
+            this.txtCliente.Size = new System.Drawing.Size(279, 22);
             this.txtCliente.TabIndex = 22;
             // 
             // button1
@@ -362,9 +323,61 @@ namespace CapaPresentacion
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
             this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
+            // labelLimpiar
+            // 
+            this.labelLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLimpiar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelLimpiar.Image = global::CapaPresentacion.Properties.Resources.clean;
+            this.labelLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelLimpiar.Location = new System.Drawing.Point(799, 9);
+            this.labelLimpiar.Name = "labelLimpiar";
+            this.labelLimpiar.Size = new System.Drawing.Size(25, 28);
+            this.labelLimpiar.TabIndex = 27;
+            this.labelLimpiar.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.labelLimpiar.Click += new System.EventHandler(this.labelLimpiar_Click);
+            // 
+            // labelBuscar
+            // 
+            this.labelBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBuscar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelBuscar.Image = global::CapaPresentacion.Properties.Resources.find;
+            this.labelBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelBuscar.Location = new System.Drawing.Point(746, 11);
+            this.labelBuscar.Name = "labelBuscar";
+            this.labelBuscar.Size = new System.Drawing.Size(24, 26);
+            this.labelBuscar.TabIndex = 26;
+            this.labelBuscar.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.labelBuscar.Click += new System.EventHandler(this.labelBuscar_Click);
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label5.Image = global::CapaPresentacion.Properties.Resources.checklist__1_;
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Location = new System.Drawing.Point(3, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(242, 33);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Listado de Preventas";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label6.Image = global::CapaPresentacion.Properties.Resources.plus_sign;
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.Location = new System.Drawing.Point(3, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(224, 33);
+            this.label6.TabIndex = 14;
+            this.label6.Text = " Ingreso de Datos";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label7
             // 
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label7.Image = global::CapaPresentacion.Properties.Resources.boolean;
             this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label7.Location = new System.Drawing.Point(17, 358);
@@ -379,7 +392,7 @@ namespace CapaPresentacion
             this.btnEditar.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.Image = global::CapaPresentacion.Properties.Resources.pen;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(396, 416);
+            this.btnEditar.Location = new System.Drawing.Point(354, 416);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(101, 35);
             this.btnEditar.TabIndex = 16;
@@ -390,20 +403,20 @@ namespace CapaPresentacion
             // btnRegistrar
             // 
             this.btnRegistrar.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Image = global::CapaPresentacion.Properties.Resources.plus;
+            this.btnRegistrar.Image = global::CapaPresentacion.Properties.Resources.play;
             this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrar.Location = new System.Drawing.Point(289, 416);
+            this.btnRegistrar.Location = new System.Drawing.Point(247, 416);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(101, 35);
             this.btnRegistrar.TabIndex = 15;
-            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.Text = "Continuar";
             this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label4.Image = global::CapaPresentacion.Properties.Resources.office;
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label4.Location = new System.Drawing.Point(17, 299);
@@ -415,7 +428,7 @@ namespace CapaPresentacion
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label3.Image = global::CapaPresentacion.Properties.Resources.customer__1_;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label3.Location = new System.Drawing.Point(17, 232);
@@ -427,7 +440,7 @@ namespace CapaPresentacion
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label2.Location = new System.Drawing.Point(17, 175);
@@ -439,7 +452,7 @@ namespace CapaPresentacion
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label1.Image = global::CapaPresentacion.Properties.Resources.calendar;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(15, 116);
@@ -450,23 +463,10 @@ namespace CapaPresentacion
             this.label1.Text = "Fecha ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // labelLimpiar
-            // 
-            this.labelLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLimpiar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelLimpiar.Image = global::CapaPresentacion.Properties.Resources.clean;
-            this.labelLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelLimpiar.Location = new System.Drawing.Point(799, 9);
-            this.labelLimpiar.Name = "labelLimpiar";
-            this.labelLimpiar.Size = new System.Drawing.Size(25, 28);
-            this.labelLimpiar.TabIndex = 27;
-            this.labelLimpiar.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.labelLimpiar.Click += new System.EventHandler(this.labelLimpiar_Click);
-            // 
             // FormPreventa
             // 
             this.AccessibleName = "";
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1355, 511);
             this.Controls.Add(this.button1);

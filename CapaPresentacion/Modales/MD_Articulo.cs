@@ -32,6 +32,7 @@ namespace CapaPresentacion.Modales
 
         public void iniciarCbbBusqueda()
         {
+            cbbBusqueda.Items.Clear();
             cbbBusqueda.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Codigo" });
             cbbBusqueda.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Rubro" });
             cbbBusqueda.DisplayMember = "Texto";
