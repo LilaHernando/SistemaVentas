@@ -175,5 +175,41 @@ namespace CapaDatos
             }
         }
 
+        public List<CE_Articulo> ListarArticulosPreventa(int IdPreventa)
+        {
+            List<CE_Articulo> articulos_preventa = new List<CE_Articulo>();
+
+            using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("PVTA_Preventa_Articulo_SEL", onConexion);                
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id_preventa", IdPreventa);
+                    onConexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            articulos_preventa.Add(new CE_Articulo()
+                            {
+                                codigoDeMaterial = Convert.ToInt32(dr["codigoDeMaterial"]),
+                                rubro = Convert.ToString(dr["rubro"]),
+                                costo= Convert.ToInt32(dr["costo"]) 
+                            });
+                            
+                        }
+                    }
+                    onConexion.Close();
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Error SQL: " + e);
+                }
+
+                return articulos_preventa;
+            }
+        }
+
     }
 }

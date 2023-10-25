@@ -83,6 +83,12 @@
     <Compile Include="Modales\MD_Cliente.Designer.cs">
       <DependentUpon>MD_Cliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modales\MD_VerArticulosPreventa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\MD_VerArticulosPreventa.Designer.cs">
+      <DependentUpon>MD_VerArticulosPreventa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\OpcionCombo.cs" />
@@ -100,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\MD_Cliente.resx">
       <DependentUpon>MD_Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modales\MD_VerArticulosPreventa.resx">
+      <DependentUpon>MD_VerArticulosPreventa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -159,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\before.png" />
+    <None Include="Resources\eye.png" />
     <None Include="Resources\play.png" />
     <None Include="Resources\remove.png" />
     <None Include="Resources\search.png" />

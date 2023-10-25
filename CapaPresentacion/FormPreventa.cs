@@ -263,6 +263,19 @@ namespace CapaPresentacion
                 e.Graphics.DrawImage(Properties.Resources.click, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
+            else if(e.ColumnIndex == 11)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = Properties.Resources.click.Width;
+                var h = Properties.Resources.click.Height;
+
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.eye, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
         }
 
         private void dgvDataPreventa_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -293,12 +306,33 @@ namespace CapaPresentacion
                     catch (Exception ex)
                     {
                         MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                     }
-
 
                 }
             }
+            else if (dgvDataPreventa.Columns[e.ColumnIndex].Name == "btnVerArticulos")
+            {
+                int indice = e.RowIndex;
+                if (indice >= 0)
+                {
+                    try
+                    {
+                        NumeroPreventa = Convert.ToInt32(dgvDataPreventa.Rows[indice].Cells["Numero"].Value.ToString());
+                        IdPreventa = Convert.ToInt32(dgvDataPreventa.Rows[indice].Cells["IdenPreventa"].Value.ToString());
+                        using (var modal = new MD_VerArticulosPreventa(IdPreventa,NumeroPreventa))
+                        {
+                            var result = modal.ShowDialog();
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -36,6 +36,9 @@ namespace CapaNegocio
             cD_Preventa.INS_Preventa_Articulo(Item_Preventa_Articulo);
         }
 
-
+        public List<CE_Articulo> ListarPreventaArticulo(int IdPreventa)
+        {
+            return cD_Preventa.ListarArticulosPreventa(IdPreventa);
+        }
     }
 }

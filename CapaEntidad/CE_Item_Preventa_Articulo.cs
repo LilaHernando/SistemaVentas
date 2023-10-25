@@ -14,6 +14,6 @@ namespace CapaEntidad
         public int PVTA_Preventa_iden { get; set; }
         public int PVTA_Preventa_sucursal { get; set; }
         public int GN_Articulo_iden { get; set; }
-
+        public CE_Articulo CE_Articulo { get; set; }
     }
 }

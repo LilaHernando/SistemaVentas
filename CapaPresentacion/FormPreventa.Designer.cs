@@ -34,6 +34,28 @@ namespace CapaPresentacion
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.cbbSucursal = new System.Windows.Forms.ComboBox();
             this.dgvDataPreventa = new System.Windows.Forms.DataGridView();
+            this.cbbEstado = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.labelLimpiar = new System.Windows.Forms.Label();
+            this.labelBuscar = new System.Windows.Forms.Label();
+            this.cbbBusqueda = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtCliente = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,28 +67,7 @@ namespace CapaPresentacion
             this.IdenCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdenSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdenPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbbEstado = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.cbbBusqueda = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtCliente = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
-            this.labelLimpiar = new System.Windows.Forms.Label();
-            this.labelBuscar = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnRegistrar = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnVerArticulos = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPreventa)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -119,7 +120,8 @@ namespace CapaPresentacion
             this.btnSeleccionar,
             this.IdenCliente,
             this.IdenSucursal,
-            this.IdenPreventa});
+            this.IdenPreventa,
+            this.btnVerArticulos});
             this.dgvDataPreventa.Location = new System.Drawing.Point(461, 117);
             this.dgvDataPreventa.Name = "dgvDataPreventa";
             this.dgvDataPreventa.RowHeadersWidth = 51;
@@ -127,87 +129,6 @@ namespace CapaPresentacion
             this.dgvDataPreventa.TabIndex = 12;
             this.dgvDataPreventa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPreventa_CellContentClick);
             this.dgvDataPreventa.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvDataPreventa_CellPainting);
-            // 
-            // Numero
-            // 
-            this.Numero.HeaderText = "N° Preventa";
-            this.Numero.MinimumWidth = 6;
-            this.Numero.Name = "Numero";
-            this.Numero.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Numero.Width = 125;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha De Carga";
-            this.Fecha.MinimumWidth = 6;
-            this.Fecha.Name = "Fecha";
-            this.Fecha.Width = 125;
-            // 
-            // Monto
-            // 
-            this.Monto.HeaderText = "Monto";
-            this.Monto.MinimumWidth = 6;
-            this.Monto.Name = "Monto";
-            this.Monto.Width = 125;
-            // 
-            // Cliente
-            // 
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.MinimumWidth = 6;
-            this.Cliente.Name = "Cliente";
-            this.Cliente.Width = 125;
-            // 
-            // Sucursal
-            // 
-            this.Sucursal.HeaderText = "Sucursal";
-            this.Sucursal.MinimumWidth = 6;
-            this.Sucursal.Name = "Sucursal";
-            this.Sucursal.Width = 125;
-            // 
-            // numeroOperacion
-            // 
-            this.numeroOperacion.HeaderText = "N° Operacion";
-            this.numeroOperacion.MinimumWidth = 6;
-            this.numeroOperacion.Name = "numeroOperacion";
-            this.numeroOperacion.Width = 125;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.MinimumWidth = 6;
-            this.estado.Name = "estado";
-            this.estado.Width = 125;
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.MinimumWidth = 6;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Width = 30;
-            // 
-            // IdenCliente
-            // 
-            this.IdenCliente.HeaderText = "IdenCliente";
-            this.IdenCliente.MinimumWidth = 6;
-            this.IdenCliente.Name = "IdenCliente";
-            this.IdenCliente.Visible = false;
-            this.IdenCliente.Width = 125;
-            // 
-            // IdenSucursal
-            // 
-            this.IdenSucursal.HeaderText = "IdenSucursal";
-            this.IdenSucursal.MinimumWidth = 6;
-            this.IdenSucursal.Name = "IdenSucursal";
-            this.IdenSucursal.Visible = false;
-            this.IdenSucursal.Width = 125;
-            // 
-            // IdenPreventa
-            // 
-            this.IdenPreventa.HeaderText = "IdenPreventa";
-            this.IdenPreventa.MinimumWidth = 6;
-            this.IdenPreventa.Name = "IdenPreventa";
-            this.IdenPreventa.Visible = false;
-            this.IdenPreventa.Width = 125;
             // 
             // cbbEstado
             // 
@@ -228,6 +149,19 @@ namespace CapaPresentacion
             this.panel1.Size = new System.Drawing.Size(443, 51);
             this.panel1.TabIndex = 19;
             // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label6.Image = global::CapaPresentacion.Properties.Resources.plus_sign;
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.Location = new System.Drawing.Point(3, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(224, 33);
+            this.label6.TabIndex = 14;
+            this.label6.Text = " Ingreso de Datos";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DarkRed;
@@ -241,6 +175,32 @@ namespace CapaPresentacion
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(897, 51);
             this.panel2.TabIndex = 20;
+            // 
+            // labelLimpiar
+            // 
+            this.labelLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLimpiar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelLimpiar.Image = global::CapaPresentacion.Properties.Resources.clean;
+            this.labelLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelLimpiar.Location = new System.Drawing.Point(799, 9);
+            this.labelLimpiar.Name = "labelLimpiar";
+            this.labelLimpiar.Size = new System.Drawing.Size(25, 28);
+            this.labelLimpiar.TabIndex = 27;
+            this.labelLimpiar.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.labelLimpiar.Click += new System.EventHandler(this.labelLimpiar_Click);
+            // 
+            // labelBuscar
+            // 
+            this.labelBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBuscar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelBuscar.Image = global::CapaPresentacion.Properties.Resources.find;
+            this.labelBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelBuscar.Location = new System.Drawing.Point(746, 11);
+            this.labelBuscar.Name = "labelBuscar";
+            this.labelBuscar.Size = new System.Drawing.Size(24, 26);
+            this.labelBuscar.TabIndex = 26;
+            this.labelBuscar.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.labelBuscar.Click += new System.EventHandler(this.labelBuscar_Click);
             // 
             // cbbBusqueda
             // 
@@ -271,6 +231,19 @@ namespace CapaPresentacion
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(172, 22);
             this.txtBuscar.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label5.Image = global::CapaPresentacion.Properties.Resources.checklist__1_;
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Location = new System.Drawing.Point(3, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(242, 33);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Listado de Preventas";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3
             // 
@@ -322,58 +295,6 @@ namespace CapaPresentacion
             this.btnBuscarCliente.TabIndex = 23;
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
             this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
-            // 
-            // labelLimpiar
-            // 
-            this.labelLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLimpiar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelLimpiar.Image = global::CapaPresentacion.Properties.Resources.clean;
-            this.labelLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelLimpiar.Location = new System.Drawing.Point(799, 9);
-            this.labelLimpiar.Name = "labelLimpiar";
-            this.labelLimpiar.Size = new System.Drawing.Size(25, 28);
-            this.labelLimpiar.TabIndex = 27;
-            this.labelLimpiar.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.labelLimpiar.Click += new System.EventHandler(this.labelLimpiar_Click);
-            // 
-            // labelBuscar
-            // 
-            this.labelBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBuscar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelBuscar.Image = global::CapaPresentacion.Properties.Resources.find;
-            this.labelBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelBuscar.Location = new System.Drawing.Point(746, 11);
-            this.labelBuscar.Name = "labelBuscar";
-            this.labelBuscar.Size = new System.Drawing.Size(24, 26);
-            this.labelBuscar.TabIndex = 26;
-            this.labelBuscar.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.labelBuscar.Click += new System.EventHandler(this.labelBuscar_Click);
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Image = global::CapaPresentacion.Properties.Resources.checklist__1_;
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(3, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(242, 33);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Listado de Preventas";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label6.Image = global::CapaPresentacion.Properties.Resources.plus_sign;
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(3, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(224, 33);
-            this.label6.TabIndex = 14;
-            this.label6.Text = " Ingreso de Datos";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
@@ -463,6 +384,94 @@ namespace CapaPresentacion
             this.label1.Text = "Fecha ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // Numero
+            // 
+            this.Numero.HeaderText = "N° Preventa";
+            this.Numero.MinimumWidth = 6;
+            this.Numero.Name = "Numero";
+            this.Numero.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Numero.Width = 125;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha De Carga";
+            this.Fecha.MinimumWidth = 6;
+            this.Fecha.Name = "Fecha";
+            this.Fecha.Width = 125;
+            // 
+            // Monto
+            // 
+            this.Monto.HeaderText = "Monto";
+            this.Monto.MinimumWidth = 6;
+            this.Monto.Name = "Monto";
+            this.Monto.Width = 125;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.MinimumWidth = 6;
+            this.Cliente.Name = "Cliente";
+            this.Cliente.Width = 125;
+            // 
+            // Sucursal
+            // 
+            this.Sucursal.HeaderText = "Sucursal";
+            this.Sucursal.MinimumWidth = 6;
+            this.Sucursal.Name = "Sucursal";
+            this.Sucursal.Width = 125;
+            // 
+            // numeroOperacion
+            // 
+            this.numeroOperacion.HeaderText = "N° Operacion";
+            this.numeroOperacion.MinimumWidth = 6;
+            this.numeroOperacion.Name = "numeroOperacion";
+            this.numeroOperacion.Width = 125;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Estado";
+            this.estado.MinimumWidth = 6;
+            this.estado.Name = "estado";
+            this.estado.Width = 125;
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.MinimumWidth = 6;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Width = 30;
+            // 
+            // IdenCliente
+            // 
+            this.IdenCliente.HeaderText = "IdenCliente";
+            this.IdenCliente.MinimumWidth = 6;
+            this.IdenCliente.Name = "IdenCliente";
+            this.IdenCliente.Visible = false;
+            this.IdenCliente.Width = 125;
+            // 
+            // IdenSucursal
+            // 
+            this.IdenSucursal.HeaderText = "IdenSucursal";
+            this.IdenSucursal.MinimumWidth = 6;
+            this.IdenSucursal.Name = "IdenSucursal";
+            this.IdenSucursal.Visible = false;
+            this.IdenSucursal.Width = 125;
+            // 
+            // IdenPreventa
+            // 
+            this.IdenPreventa.HeaderText = "IdenPreventa";
+            this.IdenPreventa.MinimumWidth = 6;
+            this.IdenPreventa.Name = "IdenPreventa";
+            this.IdenPreventa.Visible = false;
+            this.IdenPreventa.Width = 125;
+            // 
+            // btnVerArticulos
+            // 
+            this.btnVerArticulos.HeaderText = "";
+            this.btnVerArticulos.MinimumWidth = 6;
+            this.btnVerArticulos.Name = "btnVerArticulos";
+            this.btnVerArticulos.Width = 30;
+            // 
             // FormPreventa
             // 
             this.AccessibleName = "";
@@ -526,6 +535,10 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.Button btnBuscarCliente;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbbBusqueda;
+        private System.Windows.Forms.Label labelBuscar;
+        private System.Windows.Forms.Label labelLimpiar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
@@ -537,9 +550,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn IdenCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdenSucursal;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdenPreventa;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox cbbBusqueda;
-        private System.Windows.Forms.Label labelBuscar;
-        private System.Windows.Forms.Label labelLimpiar;
+        private System.Windows.Forms.DataGridViewButtonColumn btnVerArticulos;
     }
 }
