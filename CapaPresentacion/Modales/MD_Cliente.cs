@@ -83,7 +83,6 @@ namespace CapaPresentacion.Modales
 
         private void BoxIdUsuario_TextChanged(object sender, EventArgs e)
         {
-
             SearchBtn.Enabled = true;
         }
     }

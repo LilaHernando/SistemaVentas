@@ -29,7 +29,6 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
             this.GbRegistrar = new System.Windows.Forms.GroupBox();
             this.BoxEstado = new System.Windows.Forms.TextBox();
             this.BoxNombreUsuario = new System.Windows.Forms.TextBox();
@@ -48,7 +47,9 @@ namespace CapaPresentacion
             this.LabelIdOperacion = new System.Windows.Forms.Label();
             this.BoxTipoFactura = new System.Windows.Forms.ComboBox();
             this.LabelTipoFactura = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.BaseListado = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.GridFacturas = new System.Windows.Forms.DataGridView();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,24 +59,14 @@ namespace CapaPresentacion
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LabelListadoFacturas = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.GbRegistrar.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridFacturas)).BeginInit();
             this.SuspendLayout();
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Nueva Factura";
-            // 
             // GbRegistrar
             // 
+            this.GbRegistrar.AccessibleDescription = "";
+            this.GbRegistrar.AutoSize = true;
             this.GbRegistrar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.GbRegistrar.Controls.Add(this.BoxEstado);
             this.GbRegistrar.Controls.Add(this.BoxNombreUsuario);
@@ -94,16 +85,17 @@ namespace CapaPresentacion
             this.GbRegistrar.Controls.Add(this.LabelIdOperacion);
             this.GbRegistrar.Controls.Add(this.BoxTipoFactura);
             this.GbRegistrar.Controls.Add(this.LabelTipoFactura);
-            this.GbRegistrar.Location = new System.Drawing.Point(18, 37);
+            this.GbRegistrar.Location = new System.Drawing.Point(3, 42);
             this.GbRegistrar.Name = "GbRegistrar";
             this.GbRegistrar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.GbRegistrar.Size = new System.Drawing.Size(202, 292);
+            this.GbRegistrar.Size = new System.Drawing.Size(225, 297);
             this.GbRegistrar.TabIndex = 2;
             this.GbRegistrar.TabStop = false;
+            this.GbRegistrar.Tag = "";
             // 
             // BoxEstado
             // 
-            this.BoxEstado.Location = new System.Drawing.Point(5, 194);
+            this.BoxEstado.Location = new System.Drawing.Point(14, 193);
             this.BoxEstado.Name = "BoxEstado";
             this.BoxEstado.ReadOnly = true;
             this.BoxEstado.Size = new System.Drawing.Size(68, 20);
@@ -117,13 +109,14 @@ namespace CapaPresentacion
             this.BoxNombreUsuario.BackColor = System.Drawing.SystemColors.Window;
             this.BoxNombreUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BoxNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.BoxNombreUsuario.ForeColor = System.Drawing.Color.DarkRed;
             this.BoxNombreUsuario.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.BoxNombreUsuario.Location = new System.Drawing.Point(6, 19);
+            this.BoxNombreUsuario.Location = new System.Drawing.Point(15, 18);
             this.BoxNombreUsuario.Multiline = true;
             this.BoxNombreUsuario.Name = "BoxNombreUsuario";
             this.BoxNombreUsuario.ReadOnly = true;
             this.BoxNombreUsuario.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BoxNombreUsuario.Size = new System.Drawing.Size(186, 23);
+            this.BoxNombreUsuario.Size = new System.Drawing.Size(188, 28);
             this.BoxNombreUsuario.TabIndex = 19;
             this.BoxNombreUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -133,7 +126,7 @@ namespace CapaPresentacion
             this.SearchBtn.IconColor = System.Drawing.Color.Maroon;
             this.SearchBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.SearchBtn.IconSize = 20;
-            this.SearchBtn.Location = new System.Drawing.Point(147, 63);
+            this.SearchBtn.Location = new System.Drawing.Point(156, 62);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(47, 29);
             this.SearchBtn.TabIndex = 18;
@@ -144,16 +137,16 @@ namespace CapaPresentacion
             // 
             // BoxIdUsuario
             // 
-            this.BoxIdUsuario.Location = new System.Drawing.Point(6, 68);
+            this.BoxIdUsuario.Location = new System.Drawing.Point(15, 67);
             this.BoxIdUsuario.Name = "BoxIdUsuario";
+            this.BoxIdUsuario.ReadOnly = true;
             this.BoxIdUsuario.Size = new System.Drawing.Size(132, 20);
             this.BoxIdUsuario.TabIndex = 17;
-            this.BoxIdUsuario.TextChanged += new System.EventHandler(this.BoxIdUsuario_TextChanged);
             // 
             // LabelUsuario
             // 
             this.LabelUsuario.AutoSize = true;
-            this.LabelUsuario.Location = new System.Drawing.Point(7, 52);
+            this.LabelUsuario.Location = new System.Drawing.Point(16, 51);
             this.LabelUsuario.Name = "LabelUsuario";
             this.LabelUsuario.Size = new System.Drawing.Size(67, 13);
             this.LabelUsuario.TabIndex = 16;
@@ -161,7 +154,7 @@ namespace CapaPresentacion
             // 
             // BoxNumeroFactura
             // 
-            this.BoxNumeroFactura.Location = new System.Drawing.Point(83, 194);
+            this.BoxNumeroFactura.Location = new System.Drawing.Point(92, 193);
             this.BoxNumeroFactura.Name = "BoxNumeroFactura";
             this.BoxNumeroFactura.ReadOnly = true;
             this.BoxNumeroFactura.Size = new System.Drawing.Size(111, 20);
@@ -170,7 +163,7 @@ namespace CapaPresentacion
             // LabelNumeroFactura
             // 
             this.LabelNumeroFactura.AutoSize = true;
-            this.LabelNumeroFactura.Location = new System.Drawing.Point(80, 178);
+            this.LabelNumeroFactura.Location = new System.Drawing.Point(89, 177);
             this.LabelNumeroFactura.Name = "LabelNumeroFactura";
             this.LabelNumeroFactura.Size = new System.Drawing.Size(83, 13);
             this.LabelNumeroFactura.TabIndex = 14;
@@ -178,7 +171,7 @@ namespace CapaPresentacion
             // 
             // BoxSucursal
             // 
-            this.BoxSucursal.Location = new System.Drawing.Point(83, 155);
+            this.BoxSucursal.Location = new System.Drawing.Point(92, 154);
             this.BoxSucursal.Name = "BoxSucursal";
             this.BoxSucursal.ReadOnly = true;
             this.BoxSucursal.Size = new System.Drawing.Size(111, 20);
@@ -187,7 +180,7 @@ namespace CapaPresentacion
             // LabelSucursal
             // 
             this.LabelSucursal.AutoSize = true;
-            this.LabelSucursal.Location = new System.Drawing.Point(82, 135);
+            this.LabelSucursal.Location = new System.Drawing.Point(91, 134);
             this.LabelSucursal.Name = "LabelSucursal";
             this.LabelSucursal.Size = new System.Drawing.Size(48, 13);
             this.LabelSucursal.TabIndex = 12;
@@ -196,7 +189,7 @@ namespace CapaPresentacion
             // LabelEstado
             // 
             this.LabelEstado.AutoSize = true;
-            this.LabelEstado.Location = new System.Drawing.Point(1, 178);
+            this.LabelEstado.Location = new System.Drawing.Point(10, 177);
             this.LabelEstado.Name = "LabelEstado";
             this.LabelEstado.Size = new System.Drawing.Size(40, 13);
             this.LabelEstado.TabIndex = 10;
@@ -204,12 +197,11 @@ namespace CapaPresentacion
             // 
             // AddBtn
             // 
-            this.AddBtn.Flip = FontAwesome.Sharp.FlipOrientation.Vertical;
             this.AddBtn.IconChar = FontAwesome.Sharp.IconChar.Add;
             this.AddBtn.IconColor = System.Drawing.Color.Green;
             this.AddBtn.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.AddBtn.IconSize = 20;
-            this.AddBtn.Location = new System.Drawing.Point(114, 236);
+            this.AddBtn.Location = new System.Drawing.Point(123, 235);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(80, 37);
             this.AddBtn.TabIndex = 9;
@@ -221,7 +213,7 @@ namespace CapaPresentacion
             // 
             // BoxMonto
             // 
-            this.BoxMonto.Location = new System.Drawing.Point(6, 245);
+            this.BoxMonto.Location = new System.Drawing.Point(15, 244);
             this.BoxMonto.Name = "BoxMonto";
             this.BoxMonto.ReadOnly = true;
             this.BoxMonto.Size = new System.Drawing.Size(97, 20);
@@ -230,7 +222,7 @@ namespace CapaPresentacion
             // LabelMonto
             // 
             this.LabelMonto.AutoSize = true;
-            this.LabelMonto.Location = new System.Drawing.Point(5, 229);
+            this.LabelMonto.Location = new System.Drawing.Point(14, 228);
             this.LabelMonto.Name = "LabelMonto";
             this.LabelMonto.Size = new System.Drawing.Size(64, 13);
             this.LabelMonto.TabIndex = 7;
@@ -239,7 +231,7 @@ namespace CapaPresentacion
             // BoxIdOperacion
             // 
             this.BoxIdOperacion.FormattingEnabled = true;
-            this.BoxIdOperacion.Location = new System.Drawing.Point(6, 110);
+            this.BoxIdOperacion.Location = new System.Drawing.Point(15, 109);
             this.BoxIdOperacion.Name = "BoxIdOperacion";
             this.BoxIdOperacion.Size = new System.Drawing.Size(186, 21);
             this.BoxIdOperacion.TabIndex = 6;
@@ -248,7 +240,7 @@ namespace CapaPresentacion
             // LabelIdOperacion
             // 
             this.LabelIdOperacion.AutoSize = true;
-            this.LabelIdOperacion.Location = new System.Drawing.Point(2, 94);
+            this.LabelIdOperacion.Location = new System.Drawing.Point(11, 93);
             this.LabelIdOperacion.Name = "LabelIdOperacion";
             this.LabelIdOperacion.Size = new System.Drawing.Size(70, 13);
             this.LabelIdOperacion.TabIndex = 5;
@@ -257,7 +249,7 @@ namespace CapaPresentacion
             // BoxTipoFactura
             // 
             this.BoxTipoFactura.FormattingEnabled = true;
-            this.BoxTipoFactura.Location = new System.Drawing.Point(6, 154);
+            this.BoxTipoFactura.Location = new System.Drawing.Point(15, 153);
             this.BoxTipoFactura.Name = "BoxTipoFactura";
             this.BoxTipoFactura.Size = new System.Drawing.Size(67, 21);
             this.BoxTipoFactura.TabIndex = 4;
@@ -265,23 +257,50 @@ namespace CapaPresentacion
             // LabelTipoFactura
             // 
             this.LabelTipoFactura.AutoSize = true;
-            this.LabelTipoFactura.Location = new System.Drawing.Point(3, 134);
+            this.LabelTipoFactura.Location = new System.Drawing.Point(12, 133);
             this.LabelTipoFactura.Name = "LabelTipoFactura";
             this.LabelTipoFactura.Size = new System.Drawing.Size(28, 13);
             this.LabelTipoFactura.TabIndex = 2;
             this.LabelTipoFactura.Text = "Tipo";
             // 
-            // panel1
+            // BaseListado
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.GridFacturas);
-            this.panel1.Location = new System.Drawing.Point(226, 47);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(669, 282);
-            this.panel1.TabIndex = 4;
+            this.BaseListado.BackColor = System.Drawing.Color.DarkRed;
+            this.BaseListado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BaseListado.ForeColor = System.Drawing.SystemColors.Control;
+            this.BaseListado.Location = new System.Drawing.Point(234, -1);
+            this.BaseListado.Name = "BaseListado";
+            this.BaseListado.Size = new System.Drawing.Size(683, 45);
+            this.BaseListado.TabIndex = 5;
+            this.BaseListado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.DarkRed;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(-1, -1);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(229, 45);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Nueva Factura";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(893, 298);
+            this.label1.TabIndex = 0;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.UseMnemonic = false;
             // 
             // GridFacturas
             // 
+            this.GridFacturas.AccessibleDescription = "";
+            this.GridFacturas.AccessibleName = "";
             this.GridFacturas.AllowUserToAddRows = false;
             this.GridFacturas.AllowUserToDeleteRows = false;
             this.GridFacturas.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
@@ -295,11 +314,11 @@ namespace CapaPresentacion
             this.Factura,
             this.Numero,
             this.Total});
-            this.GridFacturas.Location = new System.Drawing.Point(0, 0);
+            this.GridFacturas.Location = new System.Drawing.Point(234, 47);
             this.GridFacturas.Name = "GridFacturas";
             this.GridFacturas.ReadOnly = true;
             this.GridFacturas.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.GridFacturas.Size = new System.Drawing.Size(725, 290);
+            this.GridFacturas.Size = new System.Drawing.Size(714, 292);
             this.GridFacturas.TabIndex = 4;
             this.GridFacturas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridFacturas_CellDoubleClick);
             // 
@@ -357,25 +376,15 @@ namespace CapaPresentacion
             // 
             // LabelListadoFacturas
             // 
-            this.LabelListadoFacturas.AutoSize = true;
-            this.LabelListadoFacturas.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LabelListadoFacturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelListadoFacturas.Location = new System.Drawing.Point(222, 14);
+            this.LabelListadoFacturas.BackColor = System.Drawing.Color.DarkRed;
+            this.LabelListadoFacturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelListadoFacturas.ForeColor = System.Drawing.SystemColors.Control;
+            this.LabelListadoFacturas.Location = new System.Drawing.Point(274, -1);
             this.LabelListadoFacturas.Name = "LabelListadoFacturas";
-            this.LabelListadoFacturas.Size = new System.Drawing.Size(153, 20);
-            this.LabelListadoFacturas.TabIndex = 5;
+            this.LabelListadoFacturas.Size = new System.Drawing.Size(186, 45);
+            this.LabelListadoFacturas.TabIndex = 6;
             this.LabelListadoFacturas.Text = "Listado De Facturas";
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(893, 323);
-            this.label1.TabIndex = 0;
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.UseMnemonic = false;
+            this.LabelListadoFacturas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FormFactura
             // 
@@ -383,16 +392,16 @@ namespace CapaPresentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(917, 341);
             this.Controls.Add(this.LabelListadoFacturas);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.GbRegistrar);
+            this.Controls.Add(this.GridFacturas);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.BaseListado);
+            this.Controls.Add(this.GbRegistrar);
             this.Controls.Add(this.label1);
             this.Name = "FormFactura";
             this.Text = "FormFactura";
             this.Load += new System.EventHandler(this.FormFactura_Load);
             this.GbRegistrar.ResumeLayout(false);
             this.GbRegistrar.PerformLayout();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridFacturas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -400,7 +409,6 @@ namespace CapaPresentacion
         }
 
         #endregion
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox GbRegistrar;
         private System.Windows.Forms.Label LabelIdOperacion;
         private System.Windows.Forms.ComboBox BoxTipoFactura;
@@ -414,12 +422,15 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label LabelSucursal;
         private System.Windows.Forms.TextBox BoxNumeroFactura;
         private System.Windows.Forms.Label LabelNumeroFactura;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView GridFacturas;
-        private System.Windows.Forms.Label LabelListadoFacturas;
+        private System.Windows.Forms.Label BaseListado;
         private System.Windows.Forms.TextBox BoxIdUsuario;
         private System.Windows.Forms.Label LabelUsuario;
         private FontAwesome.Sharp.IconButton SearchBtn;
+        private System.Windows.Forms.TextBox BoxNombreUsuario;
+        private System.Windows.Forms.TextBox BoxEstado;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView GridFacturas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sucursal;
@@ -427,8 +438,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Factura;
         private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox BoxNombreUsuario;
-        private System.Windows.Forms.TextBox BoxEstado;
+        private System.Windows.Forms.Label LabelListadoFacturas;
     }
 }
