@@ -56,7 +56,7 @@ namespace CapaPresentacion
             this.NumRemito = new System.Windows.Forms.TextBox();
             this.cbEstado = new System.Windows.Forms.ComboBox();
             this.fechaRem = new System.Windows.Forms.DateTimePicker();
-            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.tipoRem = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -251,11 +251,13 @@ namespace CapaPresentacion
             this.NumRemito.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NumRemito.Location = new System.Drawing.Point(12, 166);
             this.NumRemito.Name = "NumRemito";
+            this.NumRemito.ReadOnly = true;
             this.NumRemito.Size = new System.Drawing.Size(123, 23);
             this.NumRemito.TabIndex = 34;
             // 
             // cbEstado
             // 
+            this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEstado.FormattingEnabled = true;
             this.cbEstado.Location = new System.Drawing.Point(12, 210);
@@ -265,28 +267,33 @@ namespace CapaPresentacion
             // 
             // fechaRem
             // 
+            this.fechaRem.Enabled = false;
             this.fechaRem.Location = new System.Drawing.Point(12, 298);
+            this.fechaRem.MaxDate = new System.DateTime(2023, 10, 26, 0, 0, 0, 0);
+            this.fechaRem.MinDate = new System.DateTime(2023, 10, 26, 0, 0, 0, 0);
             this.fechaRem.Name = "fechaRem";
             this.fechaRem.Size = new System.Drawing.Size(200, 20);
             this.fechaRem.TabIndex = 38;
+            this.fechaRem.Value = new System.DateTime(2023, 10, 26, 0, 0, 0, 0);
             // 
-            // btnEditar
+            // btnLimpiar
             // 
-            this.btnEditar.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Image = global::CapaPresentacion.Properties.Resources.editar;
-            this.btnEditar.Location = new System.Drawing.Point(0, 301);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(233, 20);
-            this.btnEditar.TabIndex = 39;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Image = global::CapaPresentacion.Properties.Resources.borrar;
+            this.btnLimpiar.Location = new System.Drawing.Point(0, 301);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(233, 20);
+            this.btnLimpiar.TabIndex = 39;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnGuardar
             // 
@@ -312,8 +319,10 @@ namespace CapaPresentacion
             this.tipoRem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tipoRem.Location = new System.Drawing.Point(12, 251);
             this.tipoRem.Name = "tipoRem";
+            this.tipoRem.ReadOnly = true;
             this.tipoRem.Size = new System.Drawing.Size(100, 23);
             this.tipoRem.TabIndex = 41;
+            this.tipoRem.Text = "Entrega";
             // 
             // label6
             // 
@@ -327,9 +336,11 @@ namespace CapaPresentacion
             // 
             // cbSucursal
             // 
+            this.cbSucursal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSucursal.FormattingEnabled = true;
             this.cbSucursal.Location = new System.Drawing.Point(12, 118);
+            this.cbSucursal.MaxDropDownItems = 20;
             this.cbSucursal.Name = "cbSucursal";
             this.cbSucursal.Size = new System.Drawing.Size(123, 24);
             this.cbSucursal.TabIndex = 43;
@@ -341,6 +352,7 @@ namespace CapaPresentacion
             this.txtIDOP.Name = "txtIDOP";
             this.txtIDOP.Size = new System.Drawing.Size(123, 23);
             this.txtIDOP.TabIndex = 45;
+            this.txtIDOP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIDOP_KeyPress);
             // 
             // label3
             // 
@@ -358,7 +370,7 @@ namespace CapaPresentacion
             this.btnBuscar.IconColor = System.Drawing.Color.Black;
             this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnBuscar.IconSize = 16;
-            this.btnBuscar.Location = new System.Drawing.Point(140, 68);
+            this.btnBuscar.Location = new System.Drawing.Point(140, 69);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(30, 23);
             this.btnBuscar.TabIndex = 46;
@@ -370,8 +382,10 @@ namespace CapaPresentacion
             this.letraRem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.letraRem.Location = new System.Drawing.Point(119, 251);
             this.letraRem.Name = "letraRem";
+            this.letraRem.ReadOnly = true;
             this.letraRem.Size = new System.Drawing.Size(100, 23);
             this.letraRem.TabIndex = 48;
+            this.letraRem.Text = "R";
             // 
             // label7
             // 
@@ -397,7 +411,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.cbSucursal);
             this.Controls.Add(this.tipoRem);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.fechaRem);
             this.Controls.Add(this.cbEstado);
@@ -437,7 +451,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.DateTimePicker fechaRem;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.TextBox tipoRem;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbSucursal;
