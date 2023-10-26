@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
+using System.Linq;
 using CapaEntidad;
-using CapaDatos;
 using FontAwesome.Sharp;
 using CapaPresentacion.Modales;
 using CapaPresentacion.Utilidades;
@@ -166,22 +161,49 @@ namespace CapaPresentacion
 
         public CE_Preventa crearPreventa()
         {
-            Random RandomOperacion = new Random();
+            
             CN_Preventa cN_preventa = new CN_Preventa();
             CE_Sucursal selectedSucursal = (CE_Sucursal)cbbSucursal.SelectedItem;
+            Random random = new Random();
+            int NumeroRandomPreventa = GenerarRandom("Numero",random);
+            int IdOperacionRandom = GenerarRandom("numeroOperacion",random);
+            
+
             CE_Preventa Preventa = new CE_Preventa()
             {
                 Id_Sucursal = selectedSucursal.Id,
                 Id_Cliente = IdCliente,
                 Fecha = Convert.ToDateTime(txtDate.Text),
-                Numero = RandomOperacion.Next(7, 10000),
+                Numero = NumeroRandomPreventa,
                 Monto = Convert.ToDecimal(0),
                 Baja = Convert.ToInt32(((OpcionCombo)cbbEstado.SelectedItem).Valor),
-                IdOperacion = RandomOperacion.Next(6, 10000)
+                IdOperacion = IdOperacionRandom
             };
             
             return Preventa;
         }
+
+        public int GenerarRandom(String Campo,Random random)
+        {
+            
+            int NumeroRandom;
+            while (true)
+            {
+                NumeroRandom = random.Next(7, 10000);
+
+                var QueryRandom =
+                    (from DataGridViewRow row in dgvDataPreventa.Rows
+                     where Convert.ToInt32(row.Cells[Campo].Value) == NumeroRandom
+                     select row).FirstOrDefault();
+
+                if (QueryRandom == null)
+                {
+                    break;
+                }
+            }
+            return NumeroRandom;
+        }
+
 
         public Boolean VerificarVacio(String txtDate, String txtCliente)
         {
