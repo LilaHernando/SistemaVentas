@@ -27,6 +27,7 @@ namespace CapaPresentacion
         private int IdOperacion;
         private int IdPreventa;
         private int IdCliente;
+        private int IdSucursal;
         private int UltimoIdPreventa;
         public FormPreventa()
         {
@@ -58,7 +59,7 @@ namespace CapaPresentacion
             List<CE_Preventa> listPreventas = new CN_Preventa().listar_Preventas();
             foreach (CE_Preventa p in listPreventas)
             {
-                string estado = (p.Baja == 1) ? "Inactivo" : "Activo";
+                string estado = (p.Baja == 1) ? "Inactiva" : "Activa";
                 string fechaFormateada = p.Fecha.ToString("yyyy/MM/dd");
 
                 dgvDataPreventa.Rows.Add(new Object[]{
@@ -84,6 +85,7 @@ namespace CapaPresentacion
             cbbSucursal.DisplayMember = "Descripcion";
             cbbSucursal.ValueMember = "Id";
             cbbSucursal.SelectedIndex = -1;
+            cbbSucursal.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         public void listarEstado(ComboBox cbb)
@@ -93,6 +95,7 @@ namespace CapaPresentacion
             cbb.DisplayMember = "Texto";
             cbb.ValueMember = "Valor";
             cbb.SelectedIndex = -1;
+            cbb.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
@@ -140,14 +143,11 @@ namespace CapaPresentacion
             CN_Preventa CN_Preventa  = new CN_Preventa();
             MessageBoxButtons botones = MessageBoxButtons.OK;
             CN_Preventa cN_preventa = new CN_Preventa();
-            if (VerificarVacio(txtMonto.Text,txtDate.Text,txtCliente.Text))
+            if (VerificarVacio(txtDate.Text,txtCliente.Text))
             {
                 CE_Preventa PreventaCreada = crearPreventa();
-                cN_preventa.InsertarPreventa(PreventaCreada);
-
-                UltimoIdPreventa = CN_Preventa.ObtenerUltimoIdPreventa();
-
-                using (var modal = new MD_Articulo(UltimoIdPreventa,PreventaCreada.Id_Sucursal,PreventaCreada.Id_Cliente))
+               
+                using (var modal = new MD_Articulo(PreventaCreada))
                 {
                     var result = modal.ShowDialog();
 
@@ -175,18 +175,18 @@ namespace CapaPresentacion
                 Id_Cliente = IdCliente,
                 Fecha = Convert.ToDateTime(txtDate.Text),
                 Numero = RandomOperacion.Next(7, 10000),
+                Monto = Convert.ToDecimal(0),
                 Baja = Convert.ToInt32(((OpcionCombo)cbbEstado.SelectedItem).Valor),
-                Monto = Convert.ToDecimal(txtMonto.Text),
                 IdOperacion = RandomOperacion.Next(6, 10000)
             };
             
             return Preventa;
         }
 
-        public Boolean VerificarVacio(String txtMonto, String txtDate, String txtCliente)
+        public Boolean VerificarVacio(String txtDate, String txtCliente)
         {
            
-                if (string.IsNullOrEmpty(txtMonto) || string.IsNullOrEmpty(txtDate) ||
+                if (string.IsNullOrEmpty(txtDate) ||
                 string.IsNullOrEmpty(txtCliente) || cbbEstado.SelectedIndex == -1)
                 {
                     return false;
@@ -201,24 +201,36 @@ namespace CapaPresentacion
         public void SetearCamposPreventa(String fecha, String monto, String cliente, String estado, String sucursal )
         {
             txtDate.Value = DateTime.Parse(fecha);
-            txtMonto.Text = monto;
             txtCliente.Text = cliente;
-            cbbEstado.Text = estado;
+            //cbbEstado.Text = estado;
+            SeleccionarValorCbb(cbbEstado, estado);
             cbbSucursal.Text = sucursal;
         }
 
+        /*Método para que el combobox se seleccione cuando recibe un dato del datagrid*/
+        public void SeleccionarValorCbb(ComboBox cbbEstado, String estado)
+        {
+            foreach (OpcionCombo oc in cbbEstado.Items)
+            {
+                if (oc.Texto == estado)
+                {
+                    cbbEstado.SelectedItem = oc;
+                    break; 
+                }
+            }
+        }
         private void btnEditar_Click(object sender, EventArgs e)
         {
             MessageBoxButtons botones = MessageBoxButtons.OK;
             CN_Preventa cN_preventa = new CN_Preventa();
             try
             {
-                if (VerificarVacio(txtMonto.Text, txtDate.Text, txtCliente.Text))
+                if (VerificarVacio(txtDate.Text, txtCliente.Text))
                 {
                     CE_Preventa PreventaEdit = new CE_Preventa();
                     PreventaEdit.Numero = NumeroPreventa;
-                    PreventaEdit.Monto = Convert.ToDecimal(txtMonto.Text);
                     PreventaEdit.Fecha = Convert.ToDateTime(txtDate.Value);
+                    PreventaEdit.Id_Sucursal = IdSucursal;
                     PreventaEdit.IdOperacion = IdOperacion;
                     PreventaEdit.Id_Cliente = IdCliente;
                     PreventaEdit.IdPreventa = IdPreventa;
@@ -230,6 +242,7 @@ namespace CapaPresentacion
                     btnBuscarCliente.Enabled = true;
                     cbbSucursal.Enabled = true;
                     btnEditar.Enabled = false;
+                    btnRegistrar.Enabled = true;
                     MessageBox.Show("Preventa actualizada correctamente", "Estado de actualización", botones, MessageBoxIcon.Information);
 
                 }
@@ -283,6 +296,7 @@ namespace CapaPresentacion
             if (dgvDataPreventa.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
                 btnEditar.Enabled = true;
+                btnRegistrar.Enabled = false;
                 btnBuscarCliente.Enabled = false;
                 cbbSucursal.Enabled = false;
                 txtDate.Select();
@@ -300,6 +314,7 @@ namespace CapaPresentacion
 
                         IdOperacion = Convert.ToInt32(dgvDataPreventa.Rows[indice].Cells["numeroOperacion"].Value.ToString());
                         NumeroPreventa = Convert.ToInt32(dgvDataPreventa.Rows[indice].Cells["Numero"].Value.ToString());
+                        IdSucursal = Convert.ToInt32(dgvDataPreventa.Rows[indice].Cells["IdenSucursal"].Value.ToString());
                         IdCliente = Convert.ToInt32(dgvDataPreventa.Rows[indice].Cells["IdenCliente"].Value.ToString());
                         IdPreventa = Convert.ToInt32(dgvDataPreventa.Rows[indice].Cells["IdenPreventa"].Value.ToString());
                     }
@@ -342,7 +357,6 @@ namespace CapaPresentacion
 
         public void LimpiarCampos()
         {
-            txtMonto.Text = "";
             txtCliente.Text = "";
             txtDate.Value = DateTime.Now;
             cbbEstado.Items.Clear();

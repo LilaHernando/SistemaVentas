@@ -51,8 +51,9 @@ namespace CapaDatos
 
         }
 
-        public void InsertarPreventa(CE_Preventa Preventa)
+        public int InsertarPreventa(CE_Preventa Preventa)
         {
+            int IdPreventaGenerada = 0;
             using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))
             {
                 try
@@ -67,12 +68,18 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("monto", Preventa.Monto);
                     cmd.Parameters.AddWithValue("fecha", Preventa.Fecha);
                     cmd.Parameters.AddWithValue("idOperacion", Preventa.IdOperacion);
-                   
+                    
                     cmd.CommandType = CommandType.StoredProcedure;
                     onConexion.Open();
-                    cmd.ExecuteNonQuery();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            IdPreventaGenerada = Convert.ToInt32(reader["UltimoIdPreventa"]);
+                        }
+                    }
 
-                    onConexion.Close();
+                onConexion.Close();
 
                     
                 }
@@ -80,7 +87,7 @@ namespace CapaDatos
                 {
                     Console.WriteLine("Error SQL: " + e);
                 }
-
+                return IdPreventaGenerada;
             }
         }
 
@@ -158,7 +165,6 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("PVTA_Preventa_sucursal", Item_Preventa_Articulo.PVTA_Preventa_sucursal);
                     cmd.Parameters.AddWithValue("GN_Articulo_iden", Item_Preventa_Articulo.GN_Articulo_iden);
                     
-
                     cmd.CommandType = CommandType.StoredProcedure;
                     onConexion.Open();
                     cmd.ExecuteNonQuery();
@@ -208,6 +214,30 @@ namespace CapaDatos
                 }
 
                 return articulos_preventa;
+            }
+        }
+
+        public void UpdateMontoPreventa(Decimal Monto, int IdPreventa)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                string consulta = "UPDATE PVTA_Preventa SET monto = @NuevoValor WHERE iden = @ID";
+
+                using (SqlCommand comando = new SqlCommand(consulta, conexion))
+                {
+                    comando.Parameters.AddWithValue("@NuevoValor", Monto);
+                    comando.Parameters.AddWithValue("@ID", IdPreventa);
+
+                    try
+                    {
+                        conexion.Open();
+                        comando.ExecuteNonQuery();
+                    }
+                    catch (SqlException ex)
+                    {
+                        Console.WriteLine("Error SQL: " + ex.Message);
+                    }
+                }
             }
         }
 

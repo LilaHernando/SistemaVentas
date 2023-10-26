@@ -29,11 +29,21 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPreventa));
             this.txtDate = new System.Windows.Forms.DateTimePicker();
-            this.txtMonto = new System.Windows.Forms.TextBox();
             this.cbbSucursal = new System.Windows.Forms.ComboBox();
             this.dgvDataPreventa = new System.Windows.Forms.DataGridView();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numeroOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.IdenCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdenSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdenPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnVerArticulos = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cbbEstado = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,20 +64,7 @@ namespace CapaPresentacion
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numeroOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.IdenCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdenSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdenPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnVerArticulos = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPreventa)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -84,21 +81,12 @@ namespace CapaPresentacion
             this.txtDate.Size = new System.Drawing.Size(279, 22);
             this.txtDate.TabIndex = 5;
             // 
-            // txtMonto
-            // 
-            this.txtMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMonto.Location = new System.Drawing.Point(135, 175);
-            this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(279, 22);
-            this.txtMonto.TabIndex = 7;
-            this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
-            // 
             // cbbSucursal
             // 
             this.cbbSucursal.AccessibleDescription = "Clientes";
             this.cbbSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbSucursal.FormattingEnabled = true;
-            this.cbbSucursal.Location = new System.Drawing.Point(135, 296);
+            this.cbbSucursal.Location = new System.Drawing.Point(135, 230);
             this.cbbSucursal.Name = "cbbSucursal";
             this.cbbSucursal.Size = new System.Drawing.Size(279, 24);
             this.cbbSucursal.TabIndex = 11;
@@ -107,8 +95,7 @@ namespace CapaPresentacion
             // 
             this.dgvDataPreventa.AllowUserToAddRows = false;
             this.dgvDataPreventa.AllowUserToDeleteRows = false;
-            this.dgvDataPreventa.ColumnHeadersHeight = 30;
-            this.dgvDataPreventa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvDataPreventa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDataPreventa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Numero,
             this.Fecha,
@@ -130,12 +117,100 @@ namespace CapaPresentacion
             this.dgvDataPreventa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPreventa_CellContentClick);
             this.dgvDataPreventa.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvDataPreventa_CellPainting);
             // 
+            // Numero
+            // 
+            this.Numero.HeaderText = "N° Preventa";
+            this.Numero.MinimumWidth = 6;
+            this.Numero.Name = "Numero";
+            this.Numero.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Numero.Width = 125;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha De Carga";
+            this.Fecha.MinimumWidth = 6;
+            this.Fecha.Name = "Fecha";
+            this.Fecha.Width = 125;
+            // 
+            // Monto
+            // 
+            this.Monto.HeaderText = "Monto";
+            this.Monto.MinimumWidth = 6;
+            this.Monto.Name = "Monto";
+            this.Monto.Width = 125;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.MinimumWidth = 6;
+            this.Cliente.Name = "Cliente";
+            this.Cliente.Width = 125;
+            // 
+            // Sucursal
+            // 
+            this.Sucursal.HeaderText = "Sucursal";
+            this.Sucursal.MinimumWidth = 6;
+            this.Sucursal.Name = "Sucursal";
+            this.Sucursal.Width = 125;
+            // 
+            // numeroOperacion
+            // 
+            this.numeroOperacion.HeaderText = "N° Operacion";
+            this.numeroOperacion.MinimumWidth = 6;
+            this.numeroOperacion.Name = "numeroOperacion";
+            this.numeroOperacion.Width = 125;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Estado";
+            this.estado.MinimumWidth = 6;
+            this.estado.Name = "estado";
+            this.estado.Width = 125;
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.MinimumWidth = 6;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Width = 30;
+            // 
+            // IdenCliente
+            // 
+            this.IdenCliente.HeaderText = "IdenCliente";
+            this.IdenCliente.MinimumWidth = 6;
+            this.IdenCliente.Name = "IdenCliente";
+            this.IdenCliente.Visible = false;
+            this.IdenCliente.Width = 125;
+            // 
+            // IdenSucursal
+            // 
+            this.IdenSucursal.HeaderText = "IdenSucursal";
+            this.IdenSucursal.MinimumWidth = 6;
+            this.IdenSucursal.Name = "IdenSucursal";
+            this.IdenSucursal.Visible = false;
+            this.IdenSucursal.Width = 125;
+            // 
+            // IdenPreventa
+            // 
+            this.IdenPreventa.HeaderText = "IdenPreventa";
+            this.IdenPreventa.MinimumWidth = 6;
+            this.IdenPreventa.Name = "IdenPreventa";
+            this.IdenPreventa.Visible = false;
+            this.IdenPreventa.Width = 125;
+            // 
+            // btnVerArticulos
+            // 
+            this.btnVerArticulos.HeaderText = "";
+            this.btnVerArticulos.MinimumWidth = 6;
+            this.btnVerArticulos.Name = "btnVerArticulos";
+            this.btnVerArticulos.Width = 30;
+            // 
             // cbbEstado
             // 
             this.cbbEstado.AccessibleDescription = "Clientes";
             this.cbbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbEstado.FormattingEnabled = true;
-            this.cbbEstado.Location = new System.Drawing.Point(135, 359);
+            this.cbbEstado.Location = new System.Drawing.Point(135, 293);
             this.cbbEstado.Name = "cbbEstado";
             this.cbbEstado.Size = new System.Drawing.Size(279, 24);
             this.cbbEstado.TabIndex = 18;
@@ -267,7 +342,7 @@ namespace CapaPresentacion
             // txtCliente
             // 
             this.txtCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCliente.Location = new System.Drawing.Point(135, 232);
+            this.txtCliente.Location = new System.Drawing.Point(135, 166);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(279, 22);
             this.txtCliente.TabIndex = 22;
@@ -277,7 +352,7 @@ namespace CapaPresentacion
             this.button1.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = global::CapaPresentacion.Properties.Resources.clean;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(20, 416);
+            this.button1.Location = new System.Drawing.Point(206, 416);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(101, 35);
             this.button1.TabIndex = 24;
@@ -289,7 +364,7 @@ namespace CapaPresentacion
             // 
             this.btnBuscarCliente.Image = global::CapaPresentacion.Properties.Resources.find;
             this.btnBuscarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(420, 228);
+            this.btnBuscarCliente.Location = new System.Drawing.Point(420, 162);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(35, 32);
             this.btnBuscarCliente.TabIndex = 23;
@@ -301,7 +376,7 @@ namespace CapaPresentacion
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label7.Image = global::CapaPresentacion.Properties.Resources.boolean;
             this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label7.Location = new System.Drawing.Point(17, 358);
+            this.label7.Location = new System.Drawing.Point(17, 292);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 23);
             this.label7.TabIndex = 17;
@@ -313,7 +388,7 @@ namespace CapaPresentacion
             this.btnEditar.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.Image = global::CapaPresentacion.Properties.Resources.pen;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(354, 416);
+            this.btnEditar.Location = new System.Drawing.Point(313, 416);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(101, 35);
             this.btnEditar.TabIndex = 16;
@@ -326,7 +401,7 @@ namespace CapaPresentacion
             this.btnRegistrar.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.Image = global::CapaPresentacion.Properties.Resources.play;
             this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrar.Location = new System.Drawing.Point(247, 416);
+            this.btnRegistrar.Location = new System.Drawing.Point(313, 336);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(101, 35);
             this.btnRegistrar.TabIndex = 15;
@@ -340,7 +415,7 @@ namespace CapaPresentacion
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label4.Image = global::CapaPresentacion.Properties.Resources.office;
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(17, 299);
+            this.label4.Location = new System.Drawing.Point(17, 233);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 23);
             this.label4.TabIndex = 10;
@@ -352,24 +427,12 @@ namespace CapaPresentacion
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label3.Image = global::CapaPresentacion.Properties.Resources.customer__1_;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(17, 232);
+            this.label3.Location = new System.Drawing.Point(17, 166);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 23);
             this.label3.TabIndex = 9;
             this.label3.Text = "Cliente";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(17, 175);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 18);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Monto";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label1
             // 
@@ -383,94 +446,6 @@ namespace CapaPresentacion
             this.label1.TabIndex = 4;
             this.label1.Text = "Fecha ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // Numero
-            // 
-            this.Numero.HeaderText = "N° Preventa";
-            this.Numero.MinimumWidth = 6;
-            this.Numero.Name = "Numero";
-            this.Numero.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Numero.Width = 125;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha De Carga";
-            this.Fecha.MinimumWidth = 6;
-            this.Fecha.Name = "Fecha";
-            this.Fecha.Width = 125;
-            // 
-            // Monto
-            // 
-            this.Monto.HeaderText = "Monto";
-            this.Monto.MinimumWidth = 6;
-            this.Monto.Name = "Monto";
-            this.Monto.Width = 125;
-            // 
-            // Cliente
-            // 
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.MinimumWidth = 6;
-            this.Cliente.Name = "Cliente";
-            this.Cliente.Width = 125;
-            // 
-            // Sucursal
-            // 
-            this.Sucursal.HeaderText = "Sucursal";
-            this.Sucursal.MinimumWidth = 6;
-            this.Sucursal.Name = "Sucursal";
-            this.Sucursal.Width = 125;
-            // 
-            // numeroOperacion
-            // 
-            this.numeroOperacion.HeaderText = "N° Operacion";
-            this.numeroOperacion.MinimumWidth = 6;
-            this.numeroOperacion.Name = "numeroOperacion";
-            this.numeroOperacion.Width = 125;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.MinimumWidth = 6;
-            this.estado.Name = "estado";
-            this.estado.Width = 125;
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.MinimumWidth = 6;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Width = 30;
-            // 
-            // IdenCliente
-            // 
-            this.IdenCliente.HeaderText = "IdenCliente";
-            this.IdenCliente.MinimumWidth = 6;
-            this.IdenCliente.Name = "IdenCliente";
-            this.IdenCliente.Visible = false;
-            this.IdenCliente.Width = 125;
-            // 
-            // IdenSucursal
-            // 
-            this.IdenSucursal.HeaderText = "IdenSucursal";
-            this.IdenSucursal.MinimumWidth = 6;
-            this.IdenSucursal.Name = "IdenSucursal";
-            this.IdenSucursal.Visible = false;
-            this.IdenSucursal.Width = 125;
-            // 
-            // IdenPreventa
-            // 
-            this.IdenPreventa.HeaderText = "IdenPreventa";
-            this.IdenPreventa.MinimumWidth = 6;
-            this.IdenPreventa.Name = "IdenPreventa";
-            this.IdenPreventa.Visible = false;
-            this.IdenPreventa.Width = 125;
-            // 
-            // btnVerArticulos
-            // 
-            this.btnVerArticulos.HeaderText = "";
-            this.btnVerArticulos.MinimumWidth = 6;
-            this.btnVerArticulos.Name = "btnVerArticulos";
-            this.btnVerArticulos.Width = 30;
             // 
             // FormPreventa
             // 
@@ -492,8 +467,6 @@ namespace CapaPresentacion
             this.Controls.Add(this.cbbSucursal);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtMonto);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -515,8 +488,6 @@ namespace CapaPresentacion
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker txtDate;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbbSucursal;

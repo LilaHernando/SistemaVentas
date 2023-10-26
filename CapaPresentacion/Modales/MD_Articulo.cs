@@ -15,16 +15,12 @@ namespace CapaPresentacion.Modales
 {
     public partial class MD_Articulo : Form
     {
-        private int CantidadSeleccionados;
-        private int IdPreventa;
-        private int IdSucursal;
-        private int IdCliente;
-        public MD_Articulo(int IdPreventa, int IdSucursal, int IdCliente)
+       
+        CE_Preventa Preventa = new CE_Preventa();
+        public MD_Articulo(CE_Preventa preventa)
         {
             InitializeComponent();
-            this.IdPreventa = IdPreventa;
-            this.IdSucursal = IdSucursal;
-            this.IdCliente = IdCliente;
+            this.Preventa = preventa;
             this.StartPosition = FormStartPosition.CenterScreen;
             iniciarCbbBusqueda();
             ListarArticulosActivos();
@@ -58,27 +54,31 @@ namespace CapaPresentacion.Modales
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            Decimal MontoTotal = 0;
             MessageBoxButtons botones = MessageBoxButtons.OK;
             CN_Preventa cN_Preventa = new CN_Preventa();
             List<CE_Articulo> listaArticulos = CrearLista();
             try {
+                int UltimoIdPreventa =cN_Preventa.InsertarPreventa(Preventa);
                 foreach (CE_Articulo articulos in listaArticulos)
                 {
                     CE_Item_Preventa_Articulo IPA = new CE_Item_Preventa_Articulo()
                     {
-                        GN_Sucursal_iden = IdSucursal,
-                        PVTA_Preventa_iden = IdPreventa,
-                        PVTA_Preventa_sucursal = IdSucursal,
-                        GN_Articulo_iden = articulos.iden
-
+                        GN_Sucursal_iden = Preventa.Id_Sucursal,
+                        PVTA_Preventa_iden = UltimoIdPreventa,
+                        PVTA_Preventa_sucursal = Preventa.Id_Sucursal,
+                        GN_Articulo_iden = articulos.iden,
                     };
+                    MontoTotal += articulos.costo;
                     cN_Preventa.INS_Preventa_Articulo(IPA);
-                    MessageBox.Show("Registro de Preventa " +
-                        "Efectuado Correctamente", "Informe de Registro", botones, MessageBoxIcon.Information);
-                    this.Close();
+                    
                 }
+                cN_Preventa.UpdateMontoPreventa(MontoTotal, UltimoIdPreventa);
+                MessageBox.Show("Registro de Preventa " +
+                        "Efectuado Correctamente", "Informe de Registro", botones, MessageBoxIcon.Information);
+                this.Close();
             }
-            catch(Exception ex) {
+            catch (Exception ex) {
                 MessageBox.Show(ex.ToString());
             }
             
@@ -90,20 +90,22 @@ namespace CapaPresentacion.Modales
             listaArticulos.Clear();
             foreach (DataGridViewRow row in dgvDataArticulos.Rows)
             {
-                if (row.Index == dgvDataArticulos.Rows.Count - 1)
-                    continue;
+                
 
                 DataGridViewCheckBoxCell checkBoxCell = row.Cells["Seleccionar"] as DataGridViewCheckBoxCell;
-                if (checkBoxCell.Value != null && (bool)checkBoxCell.Value)
+                if (Convert.ToBoolean(checkBoxCell.Value) == true)
                 {
 
                     int iden = Convert.ToInt32(row.Cells["Iden"].Value);
-                    
+                   
+                    string costoString = row.Cells["Costo"].Value.ToString();
+                    costoString = costoString.Substring(1);
                     // Crea una instancia de CE_Articulo y agrega a la lista
                     CE_Articulo articulo = new CE_Articulo
                     {
-                        iden = iden,  
-                    };
+                        iden = iden, 
+                        costo = Convert.ToDecimal(costoString)
+                };
 
                     listaArticulos.Add(articulo);
                 }
@@ -157,6 +159,11 @@ namespace CapaPresentacion.Modales
             iniciarCbbBusqueda();
             txtBusqueda.Text = "";
 
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -109,6 +109,8 @@ namespace CapaPresentacion.Modales
             this.Controls.Add(this.labelNumPreventa);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvDataArticulosPreventa);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MD_VerArticulosPreventa";
             this.Text = "MD_VerArticulosPreventa";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataArticulosPreventa)).EndInit();
