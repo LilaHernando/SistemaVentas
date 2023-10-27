@@ -45,11 +45,12 @@
     <Compile Include="CE_Permiso.cs" />
     <Compile Include="CE_Rol.cs" />
     <Compile Include="CE_Usuario.cs" />
+    <Compile Include="CE_Estado.cs" />
     <Compile Include="CE_Sucursal.cs" />
     <Compile Include="CE_Articulo.cs" />
     <Compile Include="CE_Preventa.cs" />
-    <Compile Include="CE_Cliente.cs" />
     <Compile Include="CE_Item_Preventa_Articulo.cs" />
+    <Compile Include="CE_Factura.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
