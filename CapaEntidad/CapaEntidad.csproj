@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CE_Cliente.cs" />
+    <Compile Include="CE_Permiso.cs" />
+    <Compile Include="CE_Rol.cs" />
+    <Compile Include="CE_Usuario.cs" />
     <Compile Include="CE_Sucursal.cs" />
     <Compile Include="CE_Articulo.cs" />
     <Compile Include="CE_Preventa.cs" />

@@ -1,49 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+//Consumimos la Capa Entidad
 using CapaEntidad;
+//Consumir Sql
+using System.Data;
+using System.Data.SqlClient;
 
 namespace CapaDatos
 {
-   public class CD_Cliente
-
+    public class CD_Usuario
     {
-
-        public List<CE_Cliente> ObtenerClientes(int dni) 
+        public List<CE_Usuario> Listar() //Este método va a retornar una Lista de tipo CE_Usuario (Clase Entidad de la tabla Usuario en la DB)
         {
-            List<CE_Cliente> ListaClientes = new List<CE_Cliente>();
-            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            List<CE_Usuario> lista = new List<CE_Usuario>(); //Instanciamos una Lista de tipo CE_Usuario
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena)) //Consumimos la Cadena de Conexion de la Clase Conexion situada en CapaDatos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("GN_ObtenerCliente_SEL", conexion); //Pasamos la Conexion y el SP a ejecutar al CMD
-                    cmd.Parameters.AddWithValue("dni", dni);
+                    SqlCommand cmd = new SqlCommand("US_TraerUsuarios_SEL_Todos", conexion); //Pasamos la Conexion y el SP a ejecutar al CMD
 
                     cmd.CommandType = CommandType.StoredProcedure; //Especificamos que el tipo de Comando que va a recibir el CMD es un SP
 
                     //Abrimos la Conexion
                     conexion.Open();
 
-
                     using (SqlDataReader dr = cmd.ExecuteReader()) //Usamos SqlDataReader para leer los datos devueltos por la DB
                     {
                         while (dr.Read()) //Mientras lea datos...
                         {
-                            ListaClientes.Add(new CE_Cliente() 
+                            lista.Add(new CE_Usuario() //Añadimos a la Lista nuevos Objetos de tipo Usuario
                             {
                                 //Atributos
-                                Id = Convert.ToInt32(dr["iden"]),
+                                Iden = Convert.ToInt32(dr["idenU"]),
+                                Rol = new CE_Rol()
+                                {
+                                    Iden = Convert.ToInt32(dr["idenR"]),
+                                    Rol = dr["rol"].ToString()
+                                },
                                 Nombre = dr["Nombre"].ToString(),
                                 Apellido = dr["Apellido"].ToString(),
                                 Dni = dr["DNI"].ToString(),
-                                Fecha_nacimiento = Convert.ToDateTime(dr["fechaNacimiento"]),
-                                Correo_electronico = dr["correo"].ToString(),
-                                Telefono = dr["telefono"].ToString()
-
+                                Clave = dr["Clave"].ToString(),
+                                Estado = Convert.ToBoolean(dr["Estado"])
                             });
                         }
                     }
@@ -52,14 +55,14 @@ namespace CapaDatos
                 }
                 catch (Exception ex)
                 {
-                    ListaClientes = new List<CE_Cliente>(); //En caso de error retornamos una Lista vacia
+                    Console.WriteLine(ex);
+                    lista = new List<CE_Usuario>(); //En caso de error retornamos una Lista vacia
                 }
             }
-            return ListaClientes; //Retornamos la Lista
-
+            return lista; //Retornamos la Lista
         }
 
-        public int Registrar(CE_Cliente ObjCliente, out string mensaje) //Este método va a registrar un Cliente en la DB atravez de un SP
+        public int Registrar(CE_Usuario ObjUsuario, out string mensaje) //Este método va a registrar un Usuario en la DB atravez de un SP
         {
             //Declaramos dos variables, una de tipo int y una de tipo string
             int resultado = 0;
@@ -69,15 +72,15 @@ namespace CapaDatos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("GN_Cliente_INSUPD", conexion); //Pasamos la Conexion y el SP a ejecutar al CMD
+                    SqlCommand cmd = new SqlCommand("US_Usuarios_INSUPD", conexion); //Pasamos la Conexion y el SP a ejecutar al CMD
 
                     //Parametros de entrada
-                    cmd.Parameters.AddWithValue("nombre", ObjCliente.Nombre); //Pasamos los valores de cada atributo del Objeto CE_Cliente
-                    cmd.Parameters.AddWithValue("apellido", ObjCliente.Apellido);
-                    cmd.Parameters.AddWithValue("dni", ObjCliente.Dni);
-                    cmd.Parameters.AddWithValue("fechaNacimiento", ObjCliente.Fecha_nacimiento);
-                    cmd.Parameters.AddWithValue("correo", ObjCliente.Correo_electronico);
-                    cmd.Parameters.AddWithValue("telefono", ObjCliente.Telefono);
+                    cmd.Parameters.AddWithValue("idenR", ObjUsuario.Rol.Iden); //Pasamos los valores de cada atributo del Objeto CE_Usuario
+                    cmd.Parameters.AddWithValue("nombre", ObjUsuario.Nombre);
+                    cmd.Parameters.AddWithValue("apellido", ObjUsuario.Apellido);
+                    cmd.Parameters.AddWithValue("dni", ObjUsuario.Dni);
+                    cmd.Parameters.AddWithValue("clave", ObjUsuario.Clave);
+                    cmd.Parameters.AddWithValue("estado", ObjUsuario.Estado);
 
                     //Parametros de salida
                     cmd.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -106,7 +109,7 @@ namespace CapaDatos
             return resultado; //Retornamos el resultado del SP
         }
 
-        public bool Editar(CE_Cliente ObjCliente, out string mensaje) //Este método va a editar un Cliente en la DB atravez de un SP
+        public bool Editar(CE_Usuario ObjUsuario, out string mensaje) //Este método va a editar un Usuario en la DB atravez de un SP
         {
             //Declaramos dos variables, una de tipo bool y una de tipo string
             bool resultado = false;
@@ -116,16 +119,16 @@ namespace CapaDatos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("GN_Cliente_INSUPD", conexion); //Pasamos la Conexion y el SP a ejecutar al CMD
+                    SqlCommand cmd = new SqlCommand("US_Usuarios_INSUPD", conexion); //Pasamos la Conexion y el SP a ejecutar al CMD
 
                     //Parametros de entrada
-                    cmd.Parameters.AddWithValue("idenC", ObjCliente.Id); //Pasamos los valores de cada atributo del Objeto CE_Cliente
-                    cmd.Parameters.AddWithValue("nombre", ObjCliente.Nombre);
-                    cmd.Parameters.AddWithValue("apellido", ObjCliente.Apellido);
-                    cmd.Parameters.AddWithValue("dni", ObjCliente.Dni);
-                    cmd.Parameters.AddWithValue("fechaNacimiento", ObjCliente.Fecha_nacimiento);
-                    cmd.Parameters.AddWithValue("correo", ObjCliente.Correo_electronico);
-                    cmd.Parameters.AddWithValue("telefono", ObjCliente.Telefono);
+                    cmd.Parameters.AddWithValue("idenU", ObjUsuario.Iden); //Pasamos los valores de cada atributo del Objeto CE_Usuario
+                    cmd.Parameters.AddWithValue("idenR", ObjUsuario.Rol.Iden);
+                    cmd.Parameters.AddWithValue("nombre", ObjUsuario.Nombre);
+                    cmd.Parameters.AddWithValue("apellido", ObjUsuario.Apellido);
+                    cmd.Parameters.AddWithValue("dni", ObjUsuario.Dni);
+                    cmd.Parameters.AddWithValue("clave", ObjUsuario.Clave);
+                    cmd.Parameters.AddWithValue("estado", ObjUsuario.Estado);
 
                     //Parametros de salida
                     cmd.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -154,38 +157,42 @@ namespace CapaDatos
             return resultado; //Retornamos el resultado del SP
         }
 
-        public List<CE_Cliente> Filtrar(string filtrar)
+        public List<CE_Usuario> Filtrar(string filtrar) 
         {
-            List<CE_Cliente> ListaClientes = new List<CE_Cliente>();
-            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            List<CE_Usuario> lista = new List<CE_Usuario>(); //Instanciamos una Lista de tipo CE_Usuario
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena)) //Consumimos la Cadena de Conexion de la Clase Conexion situada en CapaDatos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("GN_FiltrarCliente_SEL", conexion); //Pasamos la Conexion y el SP a ejecutar al CMD
-                    
-                    //Parametros de Entrada
-                    cmd.Parameters.AddWithValue("filtro", filtrar);
+                    SqlCommand cmd = new SqlCommand("US_FiltrarUsuario_SEL", conexion); //Pasamos la Conexion y el SP a ejecutar al CMD
+
+                    //Parametros de entrada
+                    cmd.Parameters.AddWithValue("filtro",filtrar);
 
                     cmd.CommandType = CommandType.StoredProcedure; //Especificamos que el tipo de Comando que va a recibir el CMD es un SP
 
                     //Abrimos la Conexion
                     conexion.Open();
 
-
                     using (SqlDataReader dr = cmd.ExecuteReader()) //Usamos SqlDataReader para leer los datos devueltos por la DB
                     {
                         while (dr.Read()) //Mientras lea datos...
                         {
-                            ListaClientes.Add(new CE_Cliente()
+                            lista.Add(new CE_Usuario() //Añadimos a la Lista nuevos Objetos de tipo Usuario
                             {
                                 //Atributos
-                                Id = Convert.ToInt32(dr["iden"]),
+                                Iden = Convert.ToInt32(dr["idenU"]),
+                                Rol = new CE_Rol()
+                                {
+                                    Iden = Convert.ToInt32(dr["idenR"]),
+                                    Rol = dr["rol"].ToString()
+                                },
                                 Nombre = dr["Nombre"].ToString(),
                                 Apellido = dr["Apellido"].ToString(),
                                 Dni = dr["DNI"].ToString(),
-                                Fecha_nacimiento = Convert.ToDateTime(dr["fechaNacimiento"]),
-                                Correo_electronico = dr["correo"].ToString(),
-                                Telefono = dr["telefono"].ToString()
+                                Clave = dr["Clave"].ToString(),
+                                Estado = Convert.ToBoolean(dr["Estado"])
                             });
                         }
                     }
@@ -194,12 +201,11 @@ namespace CapaDatos
                 }
                 catch (Exception ex)
                 {
-                    ListaClientes = new List<CE_Cliente>(); //En caso de error retornamos una Lista vacia
+                    Console.WriteLine(ex);
+                    lista = new List<CE_Usuario>(); //En caso de error retornamos una Lista vacia
                 }
             }
-            return ListaClientes; //Retornamos la Lista
-
+            return lista; //Retornamos la Lista
         }
     }
-
 }

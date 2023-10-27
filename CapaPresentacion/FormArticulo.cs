@@ -16,6 +16,8 @@ namespace CapaPresentacion
 {
     public partial class FormArticulo : Form
     {
+
+        private string valorOriginal;
         public FormArticulo()
         {
             InitializeComponent();
@@ -277,6 +279,7 @@ namespace CapaPresentacion
                 {
                     textBoxIden.Text = dataGridArticulo.Rows[indice].Cells["idenArticulo"].Value.ToString();
                     textBoxCodigoMaterial.Text = dataGridArticulo.Rows[indice].Cells["CodigoMaterial"].Value.ToString();
+                    valorOriginal = textBoxCodigoMaterial.Text;
                     textBoxCosto.Text = dataGridArticulo.Rows[indice].Cells["CostoArticulo"].Value.ToString();
                     checkBoxBaja.Checked = (dataGridArticulo.Rows[indice].Cells["Baja"].Value.ToString() == "Si") ? true : false;
 
@@ -346,16 +349,25 @@ namespace CapaPresentacion
                     baja = checkBoxBaja.Checked
                 };
 
-                List<CE_Articulo> listadoArticulo = new CN_Articulo().Listar(0, null);
                 bool codigoRepetido = false;
-                foreach (CE_Articulo articulo in listadoArticulo)
+                if (textBoxCodigoMaterial.Text != valorOriginal )
                 {
-                    if (Convert.ToInt32(textBoxCodigoMaterial.Text) == articulo.codigoDeMaterial)
+                    List<CE_Articulo> listadoArticulo = new CN_Articulo().Listar(0, null);
+                    foreach (CE_Articulo articulo in listadoArticulo)
                     {
-                        codigoRepetido = true;
+                        if (Convert.ToInt32(textBoxCodigoMaterial.Text) == articulo.codigoDeMaterial)
+                        {
+                            codigoRepetido = true;
+                        }
                     }
                 }
-                if (!codigoRepetido)
+
+                if (codigoRepetido)
+                {
+                    // Muestra un mensaje de error en una ventana emergente
+                    MessageBox.Show("Ya existe un artículo con este Código de Material ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
                 {
                     bool articuloEditado = new CN_Articulo().Editar(art);
                     if (articuloEditado)
@@ -379,11 +391,6 @@ namespace CapaPresentacion
 
                     Limpiar();
                     buttonRegistrar.Enabled = true;
-                }
-                else
-                {
-                    // Muestra un mensaje de error en una ventana emergente
-                    MessageBox.Show("Ya existe un artículo con este Código de Material ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
