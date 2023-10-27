@@ -20,16 +20,13 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
-        //------------------ PRECARGA --------------------
-        private void CP_Remito_Load(object sender, EventArgs e)         //Metodo LOAD, precarga los datos antes de mostrar el formulario.
+        private void CP_Remito_Load(object sender, EventArgs e)   
         {
-            LimpiarCampos();    //Limpia los campos
-            Listar();       //Lista los remitos
-            CrearNumeroRemito(); //Actualiza el numero de remito para el siguiente remito a generar.
+            LimpiarCampos(); 
+            Listar(); 
+            CrearNumeroRemito(); 
             btnLimpiar.Enabled = false;
 
-
-            //------------------ LISTA SUCURSAL ------------------
             List<CE_Sucursal> listarSucursal = new CN_Sucursal().ListarSucursal();
 
             foreach (CE_Sucursal cE_Sucursal in listarSucursal)               
@@ -41,8 +38,6 @@ namespace CapaPresentacion
             cbSucursal.DisplayMember = "Texto";
             cbSucursal.ValueMember = "Valor";
 
-
-            //------------------ LISTA ESTADO --------------------
             List<CE_Estado> listarEstado = new CN_Estado().ListarEstado();
 
             foreach (CE_Estado cE_Estado in listarEstado)
@@ -55,14 +50,13 @@ namespace CapaPresentacion
             cbEstado.ValueMember = "Valor";
         }
 
-        //------------------ LISTA TABLA --------------------
         private void Listar()
         {
-            List<CE_Remito> listaRemitos = new CN_Remito().Listar();    //Instancio una lista de objetos denominada listaremitos, que proviene del metodo Listar que ya contiene enlistado a los objetos en la capa NEGOCIO.
+            List<CE_Remito> listaRemitos = new CN_Remito().Listar();
 
-            foreach (CE_Remito cE_Remito in listaRemitos)               //Ciclo foreach que me permite traer varios objetos de varios tipos de datos.
+            foreach (CE_Remito cE_Remito in listaRemitos)        
             {
-                tablaRemito.Rows.Add(new object[]{                      //[nombretabla].[objeto].[funcion](new Object).
+                tablaRemito.Rows.Add(new object[]{                    
                     
                     cE_Remito.iden,
                     cE_Remito.Sucursal.Descripcion,
@@ -75,23 +69,20 @@ namespace CapaPresentacion
                 });
             }
         }
-
-
-        //------------------ METODOS Y EVENTOOS --------------------
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string message = string.Empty;
-            var idOpRemitos =                                                       //Declaro una variable
-                (from DataGridViewRow rows in tablaRemito.Rows                      //Indico de donde proviene la collecion de datos para la variable local rows.
-                 where rows.Cells["idOperacion"].Value.ToString() == txtIDOP.Text   //Donde evalua cada celda de mi colección rows, con el valor ingresado en el campo txtIDOP del fomulario.
-                 select rows).FirstOrDefault();                                     //Selecciona en rows la primera coincidencia y la almacena en idOpRemitos.
-            if (idOpRemitos != null)                                                //Si encontró un valor, idOpRemitos viene distinto de NULL, caso contrario no encontró coincidencia y pasamos al ELSE.
+            var idOpRemitos =                                                      
+                (from DataGridViewRow rows in tablaRemito.Rows                     
+                 where rows.Cells["idOperacion"].Value.ToString() == txtIDOP.Text   
+                 select rows).FirstOrDefault();                                   
+            if (idOpRemitos != null)                                              
             {
                 MessageBox.Show("Ya existe un remito con el ID de Operación");
             }
             else
             {
-                bool resultado = new CN_Remito().VerFactura(Convert.ToInt32(txtIDOP.Text), out message);    //resultado va a ser igual a un entero, de valor 1 o 0, hacia el SP.
+                bool resultado = new CN_Remito().VerFactura(Convert.ToInt32(txtIDOP.Text), out message);  
                 if (resultado)
                 {
                     MessageBox.Show("Existe una factura pendiente de remito");
@@ -108,23 +99,6 @@ namespace CapaPresentacion
                     MessageBox.Show(message);
                 }
             }
-                //basura
-            //bool resultadoOp = false;
-            //foreach (DataGridViewRow rows in tablaRemito.Rows)
-            //{
-            //    if (rows.Cells["idOperacion"].Value.ToString() == txtIDOP.Text)   ¡¡METODO SIN USAR LINQ1!!
-            //    {
-            //        MessageBox.Show("Se encontró un ID");
-            //        resultadoOp = true;
-            //        break;
-            //    }
-
-
-            //}
-            //if (!resultadoOp)
-            //{
-            //    MessageBox.Show("No se encontró un ID");
-            //}
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

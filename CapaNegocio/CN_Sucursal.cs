@@ -8,7 +8,6 @@ using CapaEntidad;
 
 namespace CapaNegocio
 {
-    //------------------ Clase Sucursal ------------------
     public class CN_Sucursal
     {
         private CD_Remito cD_Sucursal = new CD_Remito();

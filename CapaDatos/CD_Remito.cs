@@ -11,25 +11,24 @@ namespace CapaDatos
 {
     public class CD_Remito
     {
-        //------------- CONEX SP DE REMITO SELECT ------------------//
-        public List<CE_Remito> Listar()                                                     //Creo un metodo de tipo LISTA de la Entidad Remito
+        public List<CE_Remito> Listar()                                              
         {
-            List<CE_Remito> listarRemitos = new List<CE_Remito>();                          //Creo el objeto y lo almaceno en la variable listarRemitos
+            List<CE_Remito> listarRemitos = new List<CE_Remito>();               
 
-            using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))           //Creo la conexion con la DB
+            using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))         
             {
 
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("[dbo].[CMP_Remito_SEL]", onConexion);      //Nuevo comando SQL, indico el SP a utilizar y la conexion
-                    cmd.CommandType = CommandType.StoredProcedure;                              //Indico que es un comando de tipo SP
+                    SqlCommand cmd = new SqlCommand("[dbo].[CMP_Remito_SEL]", onConexion);    
+                    cmd.CommandType = CommandType.StoredProcedure;                          
 
                     onConexion.Open();
-                    using (SqlDataReader dr = cmd.ExecuteReader())                              //Llamo a la funcion de SQL Data Reader encargada de leer los datos de la base.
+                    using (SqlDataReader dr = cmd.ExecuteReader())                            
                     {
-                        while (dr.Read())                                                       //Mientras se ejecute dataReader, se construye uno a uno las instancias de la entidad CE_Remito, y se agregan a la lista.
+                        while (dr.Read())                                                    
                         {
-                            listarRemitos.Add(new CE_Remito()                                   //Funciona como un consstructor y almacena los datos del SP en las variables.
+                            listarRemitos.Add(new CE_Remito()                                
                             {
                                 iden = Convert.ToInt32(dr["idRemito"]),
                                 Sucursal = new CE_Sucursal() { Descripcion = Convert.ToString(dr["descripcionSucursal"]) },
@@ -55,8 +54,6 @@ namespace CapaDatos
             }
 
         }
-
-        //------------- CONEX SP DE REMITO INSERT ------------------//
         public void CrearRemito(CE_Remito Remito, out string mensaje)
         {
             mensaje = string.Empty;
@@ -96,8 +93,6 @@ namespace CapaDatos
                     mensaje = ex.Message;
                 }
         }
-
-        //------------- CONEX SP DE SUCURSALES ------------------//
         public List<CE_Sucursal> ListarSucursal()
         {
             List<CE_Sucursal> listarSucursal = new List<CE_Sucursal>();
@@ -134,8 +129,6 @@ namespace CapaDatos
                 return listarSucursal;
             }
         }
-
-        //------------- CONEX SP DE ESTADO ------------------//
         public List<CE_Estado> ListarEstado()
         {
             List<CE_Estado> listarEstado = new List<CE_Estado>();
@@ -171,18 +164,17 @@ namespace CapaDatos
                 return listarEstado;
             }
         }
-        //------------- CONEX SP DE FACTURA ------------------//
-        public bool VerFactura(int idOperacion, out string message)                                             //Metodo booleano que recibe un parametro de entrada INT, y sale un parametro string.
+        public bool VerFactura(int idOperacion, out string message)                                             
         {
             bool resultado = false;
-            message = string.Empty;                                                                             //Inicializo las variables que por default inician en NULL
+            message = string.Empty;                                                                           
             using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("[dbo].[CMP_Factura_SEL]", onConexion);                     //Nuevo comando sql denominado cmd de tipo SP
-                    cmd.Parameters.AddWithValue("idOperacion", idOperacion);                                    //AddWithValue para parametro de entrada con valor, declarando el parametro para pasarlo al SP.
-                    cmd.Parameters.Add("message", SqlDbType.VarChar, 50).Direction=ParameterDirection.Output;   //Add para parametro de salida, declarando el parametro para pasarlo al capa presentacion.
+                    SqlCommand cmd = new SqlCommand("[dbo].[CMP_Factura_SEL]", onConexion);                    
+                    cmd.Parameters.AddWithValue("idOperacion", idOperacion);                                   
+                    cmd.Parameters.Add("message", SqlDbType.VarChar, 50).Direction=ParameterDirection.Output;   
                     cmd.Parameters.Add("resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
                     
@@ -191,7 +183,7 @@ namespace CapaDatos
 
                     cmd.ExecuteNonQuery();
 
-                    resultado = Convert.ToBoolean(cmd.Parameters["resultado"].Value);   //En la variable resultado, almaceno el parametro convertido a booleano
+                    resultado = Convert.ToBoolean(cmd.Parameters["resultado"].Value);
                     message = Convert.ToString(cmd.Parameters["message"].Value);        
                     onConexion.Close();
                 }
