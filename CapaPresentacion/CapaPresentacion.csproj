@@ -56,9 +56,9 @@
     <Compile Include="FormArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
-	  <Compile Include="FormArticulo.Designer.cs">
-		  <DependentUpon>FormArticulo.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="FormArticulo.Designer.cs">
+      <DependentUpon>FormArticulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +100,7 @@
     </Compile>
     <Compile Include="Modales\MD_VerArticulosPreventa.Designer.cs">
       <DependentUpon>MD_VerArticulosPreventa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,8 +133,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\MD_VerArticulosPreventa.resx">
       <DependentUpon>MD_VerArticulosPreventa.cs</DependentUpon>
-    <EmbeddedResource Include="Modales\MD_Cliente.resx">
-      <DependentUpon>MD_Cliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -204,7 +203,6 @@
     <None Include="Resources\trash-bin.png" />
     <None Include="Resources\lista-de-verificacion.png" />
     <None Include="Resources\carretilla.png" />
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\naldo-afa %281%29.png" />
