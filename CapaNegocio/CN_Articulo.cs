@@ -27,5 +27,9 @@ namespace CapaNegocio
         {
             return cdArticulo.Editar(articulo);
         }
+        public List<CE_Articulo> ListarArticulosActivos()
+        {
+            return cdArticulo.ListarArticulosActivos();
+        }
     }
 }

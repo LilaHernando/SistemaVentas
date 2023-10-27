@@ -10,7 +10,9 @@ using CapaEntidad;
 namespace CapaDatos
 {
    public class CD_Cliente
-   {
+
+    {
+
         public List<CE_Cliente> ObtenerClientes(int dni) 
         {
             List<CE_Cliente> ListaClientes = new List<CE_Cliente>();
@@ -184,7 +186,6 @@ namespace CapaDatos
                                 Fecha_nacimiento = Convert.ToDateTime(dr["fechaNacimiento"]),
                                 Correo_electronico = dr["correo"].ToString(),
                                 Telefono = dr["telefono"].ToString()
-
                             });
                         }
                     }
@@ -200,4 +201,5 @@ namespace CapaDatos
 
         }
     }
+
 }
