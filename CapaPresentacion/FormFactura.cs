@@ -124,7 +124,7 @@ namespace CapaPresentacion
             else
             {
                 BoxIdOperacion.Text = Convert.ToString(IdOperacion);
-                BoxIdOperacion.SelectedValue = "hola";
+                BoxIdOperacion.SelectedValue = "factura";
                 BoxTipoFactura.Text = Convert.ToString(ListaFacturas[0].Letra);
                 BoxSucursal.Text = ListaFacturas[0].CE_Sucursal.Descripcion;
                 BoxEstado.Text = ListaFacturas[0].CMP_Estado_iden == 1 ? "Pendiente" : (ListaFacturas[0].CMP_Estado_iden == 2 ? "Anulado" : "Cofirmado");

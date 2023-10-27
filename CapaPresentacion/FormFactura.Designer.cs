@@ -398,7 +398,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.GbRegistrar);
             this.Controls.Add(this.label1);
             this.Name = "FormFactura";
-            this.Text = "FormFactura";
+            this.Text = "sql";
             this.Load += new System.EventHandler(this.FormFactura_Load);
             this.GbRegistrar.ResumeLayout(false);
             this.GbRegistrar.PerformLayout();
