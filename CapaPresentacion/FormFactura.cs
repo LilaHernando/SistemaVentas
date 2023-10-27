@@ -155,6 +155,7 @@ namespace CapaPresentacion
 
                 if (result == DialogResult.OK)
                 {
+                    BoxIdOperacion.Items.Clear();
                     LimpiarCampos();
 
                     AddBtn.Enabled = true;
