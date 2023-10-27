@@ -153,7 +153,7 @@ namespace CapaDatos
             }
             return resultado; //Retornamos el resultado del SP
         }
-
+                              
         public List<CE_Cliente> Filtrar(string filtrar)
         {
             List<CE_Cliente> ListaClientes = new List<CE_Cliente>();
@@ -200,6 +200,6 @@ namespace CapaDatos
             return ListaClientes; //Retornamos la Lista
 
         }
-    }
+            }
 
 }

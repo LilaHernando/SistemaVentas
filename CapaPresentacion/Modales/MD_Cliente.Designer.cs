@@ -59,6 +59,7 @@ namespace CapaPresentacion.Modales
             this.BoxIdUsuario.Name = "BoxIdUsuario";
             this.BoxIdUsuario.Size = new System.Drawing.Size(158, 20);
             this.BoxIdUsuario.TabIndex = 17;
+            this.BoxIdUsuario.TextChanged += new System.EventHandler(this.BoxIdUsuario_TextChanged);
             // 
             // SearchBtn
             // 

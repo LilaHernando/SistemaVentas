@@ -22,7 +22,8 @@ namespace CapaPresentacion.Modales
             InitializeComponent();
         }
 
-        private void ListarClientes(int dni) {
+        private void ListarClientes(int dni)
+        {
 
             ListaClientes = new CN_Cliente().ListarClientes(dni);
 
@@ -42,6 +43,7 @@ namespace CapaPresentacion.Modales
         private void MD_Cliente_Load(object sender, EventArgs e)
         {
             ListarClientes(0);
+            SearchBtn.Enabled = false;
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
@@ -63,7 +65,8 @@ namespace CapaPresentacion.Modales
             int iRow = e.RowIndex;
             int iColumn = e.ColumnIndex;
 
-            if (iRow >= 0 && iColumn > 0) {
+            if (iRow >= 0 && iColumn > 0)
+            {
 
                 _Cliente = new CE_Cliente()
                 {
@@ -76,6 +79,11 @@ namespace CapaPresentacion.Modales
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+        }
+
+        private void BoxIdUsuario_TextChanged(object sender, EventArgs e)
+        {
+            SearchBtn.Enabled = true;
         }
     }
 }

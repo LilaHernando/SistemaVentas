@@ -62,12 +62,12 @@ namespace CapaPresentacion
                     fechaFormateada,
                     "$"+p.Monto,
                     p.CE_Cliente.Nombre +" "+p.CE_Cliente.Apellido,
-                    p.CE_Surcusal.Descripcion,
+                    p.CE_Sucursal.Descripcion,
                     p.IdOperacion,
                     estado,
                     "",
                     p.CE_Cliente.Id,
-                    p.CE_Surcusal.Id,
+                    p.CE_Sucursal.Id,
                     p.IdPreventa
                 });
             }
