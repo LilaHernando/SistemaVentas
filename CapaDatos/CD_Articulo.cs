@@ -37,7 +37,7 @@ namespace CapaDatos
                                 rubro = dr["rubro"].ToString(),
                                 costo = Convert.ToDecimal(dr["costo"]),
                                 marca = dr["marca"].ToString(),
-                                baja = Convert.ToBoolean(dr["baja"]) 
+                                baja = Convert.ToBoolean(dr["baja"])
                             });
                         }
                     }
@@ -55,7 +55,7 @@ namespace CapaDatos
         public int Registrar(CE_Articulo articulo)
         {
             int idArticuloGenerado = 0;
- 
+
             using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
             {
                 try
@@ -91,7 +91,7 @@ namespace CapaDatos
                     Console.WriteLine(mensaje);
                 }
             }
-            
+
             return idArticuloGenerado;
         }
 
@@ -122,13 +122,48 @@ namespace CapaDatos
                 }
                 catch (Exception ex)
                 {
-                    respuesta = false; 
+                    respuesta = false;
                     string mensaje = "Ocurrió un error inesperado: " + ex.Message;
                     Console.WriteLine(mensaje);
                 }
             }
 
             return respuesta;
+        }
+
+        public List<CE_Articulo> ListarArticulosActivos()
+        {
+            List<CE_Articulo> ListArticulosActivos = new List<CE_Articulo>();
+            using (SqlConnection onConexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("GN_Articulo_SEL_Activos", onConexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    onConexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            ListArticulosActivos.Add(new CE_Articulo()
+                            {
+                                iden = Convert.ToInt32(dr["iden"]),
+                                codigoDeMaterial = Convert.ToInt32(dr["codigoDeMaterial"]),
+                                rubro = dr["rubro"].ToString(),
+                                costo = Convert.ToDecimal(dr["costo"]),
+                            }) ;
+                        }
+                    }
+                    onConexion.Close();
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Error SQL: " + e);
+                }
+                return ListArticulosActivos;
+            }
+
         }
     }
 }

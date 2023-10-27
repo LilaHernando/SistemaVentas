@@ -56,9 +56,9 @@
     <Compile Include="FormArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
-	  <Compile Include="FormArticulo.Designer.cs">
-		  <DependentUpon>FormArticulo.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="FormArticulo.Designer.cs">
+      <DependentUpon>FormArticulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,17 +71,35 @@
     <Compile Include="FormUsuario.Designer.cs">
       <DependentUpon>FormUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPreventa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPreventa.Designer.cs">
+      <DependentUpon>FormPreventa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modales\MD_Articulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\MD_Articulo.Designer.cs">
+      <DependentUpon>MD_Articulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modales\MD_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modales\MD_Cliente.Designer.cs">
       <DependentUpon>MD_Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modales\MD_VerArticulosPreventa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\MD_VerArticulosPreventa.Designer.cs">
+      <DependentUpon>MD_VerArticulosPreventa.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -101,11 +119,20 @@
     <EmbeddedResource Include="FormArticulo.resx">
       <DependentUpon>FormArticulo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPreventa.resx">
+      <DependentUpon>FormPreventa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modales\MD_Articulo.resx">
+      <DependentUpon>MD_Articulo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modales\MD_Cliente.resx">
       <DependentUpon>MD_Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modales\MD_VerArticulosPreventa.resx">
+      <DependentUpon>MD_VerArticulosPreventa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -153,6 +180,10 @@
     <None Include="Resources\plus.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{3ae907f2-72a5-473b-961f-6e2fcfc963b3}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
       <Project>{d78026ad-21c2-4e6b-acc9-80f347f85f95}</Project>
       <Name>CapaEntidad</Name>
@@ -164,13 +195,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\before.png" />
+    <None Include="Resources\eye.png" />
+    <None Include="Resources\play.png" />
     <None Include="Resources\remove.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\magnifying-glass.png" />
     <None Include="Resources\trash-bin.png" />
     <None Include="Resources\lista-de-verificacion.png" />
     <None Include="Resources\carretilla.png" />
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\naldo-afa %281%29.png" />
@@ -192,6 +224,63 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\edit-info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\office.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checklist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checklist %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boolean.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\click.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clean.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\multiply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disk.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
