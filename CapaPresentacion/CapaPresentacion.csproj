@@ -123,5 +123,20 @@
   <ItemGroup>
     <None Include="Resources\borrar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tarjeta-sim.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\supermercado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\semaforo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contrato.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
