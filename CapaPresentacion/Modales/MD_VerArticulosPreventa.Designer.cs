@@ -51,6 +51,7 @@ namespace CapaPresentacion.Modales
             this.Costo});
             this.dgvDataArticulosPreventa.Location = new System.Drawing.Point(12, 72);
             this.dgvDataArticulosPreventa.Name = "dgvDataArticulosPreventa";
+            this.dgvDataArticulosPreventa.ReadOnly = true;
             this.dgvDataArticulosPreventa.RowHeadersWidth = 51;
             this.dgvDataArticulosPreventa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDataArticulosPreventa.Size = new System.Drawing.Size(446, 278);
@@ -61,6 +62,7 @@ namespace CapaPresentacion.Modales
             this.Codigo.HeaderText = "Codigo";
             this.Codigo.MinimumWidth = 6;
             this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
             this.Codigo.Width = 125;
             // 
             // Rubro
@@ -69,12 +71,14 @@ namespace CapaPresentacion.Modales
             this.Rubro.HeaderText = "Rubro";
             this.Rubro.MinimumWidth = 6;
             this.Rubro.Name = "Rubro";
+            this.Rubro.ReadOnly = true;
             // 
             // Costo
             // 
             this.Costo.HeaderText = "Costo";
             this.Costo.MinimumWidth = 6;
             this.Costo.Name = "Costo";
+            this.Costo.ReadOnly = true;
             this.Costo.Width = 125;
             // 
             // label2

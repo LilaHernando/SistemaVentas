@@ -159,5 +159,6 @@ namespace CapaPresentacion.Modales
         {
             this.Close();
         }
+
     }
 }

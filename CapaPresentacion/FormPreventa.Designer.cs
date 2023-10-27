@@ -111,6 +111,7 @@ namespace CapaPresentacion
             this.btnVerArticulos});
             this.dgvDataPreventa.Location = new System.Drawing.Point(461, 117);
             this.dgvDataPreventa.Name = "dgvDataPreventa";
+            this.dgvDataPreventa.ReadOnly = true;
             this.dgvDataPreventa.RowHeadersWidth = 51;
             this.dgvDataPreventa.Size = new System.Drawing.Size(882, 334);
             this.dgvDataPreventa.TabIndex = 12;

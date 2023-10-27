@@ -35,15 +35,15 @@ namespace CapaPresentacion.Modales
             this.label1 = new System.Windows.Forms.Label();
             this.cbbBusqueda = new System.Windows.Forms.ComboBox();
             this.dgvDataArticulos = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnLimpiarBusqueda = new FontAwesome.Sharp.IconButton();
+            this.btnBusqueda = new FontAwesome.Sharp.IconButton();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.Iden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnLimpiarBusqueda = new FontAwesome.Sharp.IconButton();
-            this.btnBusqueda = new FontAwesome.Sharp.IconButton();
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataArticulos)).BeginInit();
             this.SuspendLayout();
@@ -135,40 +135,6 @@ namespace CapaPresentacion.Modales
             this.dgvDataArticulos.Size = new System.Drawing.Size(532, 300);
             this.dgvDataArticulos.TabIndex = 21;
             // 
-            // Iden
-            // 
-            this.Iden.HeaderText = "Iden";
-            this.Iden.MinimumWidth = 6;
-            this.Iden.Name = "Iden";
-            this.Iden.Visible = false;
-            this.Iden.Width = 125;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.MinimumWidth = 6;
-            this.Codigo.Name = "Codigo";
-            this.Codigo.Width = 125;
-            // 
-            // Rubro
-            // 
-            this.Rubro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Rubro.HeaderText = "Rubro";
-            this.Rubro.MinimumWidth = 6;
-            this.Rubro.Name = "Rubro";
-            // 
-            // Costo
-            // 
-            this.Costo.HeaderText = "Costo";
-            this.Costo.MinimumWidth = 6;
-            this.Costo.Name = "Costo";
-            this.Costo.Width = 125;
-            // 
-            // Seleccionar
-            // 
-            this.Seleccionar.HeaderText = "Seleccionar";
-            this.Seleccionar.Name = "Seleccionar";
-            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -218,6 +184,44 @@ namespace CapaPresentacion.Modales
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(158, 20);
             this.txtBusqueda.TabIndex = 17;
+            // 
+            // Iden
+            // 
+            this.Iden.HeaderText = "Iden";
+            this.Iden.MinimumWidth = 6;
+            this.Iden.Name = "Iden";
+            this.Iden.ReadOnly = true;
+            this.Iden.Visible = false;
+            this.Iden.Width = 125;
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.MinimumWidth = 6;
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 125;
+            // 
+            // Rubro
+            // 
+            this.Rubro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Rubro.HeaderText = "Rubro";
+            this.Rubro.MinimumWidth = 6;
+            this.Rubro.Name = "Rubro";
+            this.Rubro.ReadOnly = true;
+            // 
+            // Costo
+            // 
+            this.Costo.HeaderText = "Costo";
+            this.Costo.MinimumWidth = 6;
+            this.Costo.Name = "Costo";
+            this.Costo.ReadOnly = true;
+            this.Costo.Width = 125;
+            // 
+            // Seleccionar
+            // 
+            this.Seleccionar.HeaderText = "Seleccionar";
+            this.Seleccionar.Name = "Seleccionar";
             // 
             // MD_Articulo
             // 
