@@ -41,6 +41,7 @@ namespace CapaPresentacion
             this.menuPreventas = new FontAwesome.Sharp.IconMenuItem();
             this.menuFacturas = new FontAwesome.Sharp.IconMenuItem();
             this.menuRemitos = new FontAwesome.Sharp.IconMenuItem();
+            this.menu = new System.Windows.Forms.MenuStrip();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +70,7 @@ namespace CapaPresentacion
             this.label1.TabIndex = 2;
             this.label1.Text = "Sistema De Ventas";
             // 
-            // menu
+            // label2
             // 
             this.menu.BackColor = System.Drawing.Color.White;
             this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -278,16 +279,16 @@ namespace CapaPresentacion
         #endregion
         private System.Windows.Forms.MenuStrip menuTitulo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MenuStrip menu;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label textUsuarioActual;
+        private System.Windows.Forms.Panel contenedor;
         private FontAwesome.Sharp.IconMenuItem menuUsuarios;
         private FontAwesome.Sharp.IconMenuItem menuClientes;
         private FontAwesome.Sharp.IconMenuItem menuArticulos;
         private FontAwesome.Sharp.IconMenuItem menuPreventas;
         private FontAwesome.Sharp.IconMenuItem menuFacturas;
         private FontAwesome.Sharp.IconMenuItem menuRemitos;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label textUsuarioActual;
-        private System.Windows.Forms.Panel contenedor;
+        private System.Windows.Forms.MenuStrip menu;
     }
 }
 

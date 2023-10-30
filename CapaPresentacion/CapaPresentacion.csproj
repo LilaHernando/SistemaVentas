@@ -83,6 +83,12 @@
     <Compile Include="FormPreventa.Designer.cs">
       <DependentUpon>FormPreventa.cs</DependentUpon>
     </Compile>
+    <Compile Include="CP_Remito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP_Remito.Designer.cs">
+      <DependentUpon>CP_Remito.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
       <DependentUpon>FormUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Utilidades\OpcionCombo.cs" />
+    <EmbeddedResource Include="CP_Remito.resx">
+      <DependentUpon>CP_Remito.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormFactura.resx">
       <DependentUpon>FormFactura.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,6 +299,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disquete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disquete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disquete%282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tarjeta-sim.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\supermercado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\semaforo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contrato.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

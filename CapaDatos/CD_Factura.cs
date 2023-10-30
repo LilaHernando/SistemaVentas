@@ -39,7 +39,7 @@ namespace CapaDatos
                                 CMP_Estado_iden = Convert.ToInt32(dr["CMP_Estado_iden"]),
                                 IdOperacion = Convert.ToInt32(dr["idOperacion"]),
                                 FechaDeCarga = Convert.ToDateTime(dr["fechadecarga"]),
-                                CE_Sucursal = new CE_Sucursal() { Descripcion = Convert.ToString(dr["descripcion"]) },
+                                CE_Sucursal = new CE_Sucursal() { descripcion = Convert.ToString(dr["descripcion"]) },
                                 CE_Cliente = new CE_Cliente() {
                                     Nombre = Convert.ToString(dr["nombre"]),
                                     Apellido = Convert.ToString(dr["apellido"]),
@@ -83,7 +83,7 @@ namespace CapaDatos
                             {
                                 Monto = Convert.ToDecimal(dr["monto"]),
                                 IdOperacion = Convert.ToInt32(dr["idOperacion"]),
-                                CE_Sucursal = new CE_Sucursal() { Descripcion = Convert.ToString(dr["descripcion"]), Id = Convert.ToInt32(dr["iden"]) },
+                                CE_Sucursal = new CE_Sucursal() { descripcion = Convert.ToString(dr["descripcion"]), iden = Convert.ToInt32(dr["iden"]) },
                                 CE_Cliente = new CE_Cliente() { Nombre = Convert.ToString(dr["nombre"]), Apellido = Convert.ToString(dr["apellido"]) }
 
                             });

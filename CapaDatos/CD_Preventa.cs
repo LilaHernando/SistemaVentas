@@ -32,7 +32,7 @@ namespace CapaDatos
                                 Monto = Convert.ToDecimal(dr["monto"]),
                                 Baja = Convert.ToInt32(dr["baja"]),
                                 IdOperacion = Convert.ToInt32(dr["idOperacion"]),
-                                CE_Sucursal = new CE_Sucursal() { Id = Convert.ToInt32(dr["iden"]), Descripcion = Convert.ToString(dr["descripcion"]) },
+                                CE_Sucursal = new CE_Sucursal() { iden = Convert.ToInt32(dr["iden"]), descripcion = Convert.ToString(dr["descripcion"]) },
                                 CE_Cliente = new CE_Cliente { Id = Convert.ToInt32(dr["iden"]), Nombre = Convert.ToString(dr["nombre"]), Apellido = Convert.ToString(dr["apellido"]) },
                             });
                         }
@@ -105,8 +105,8 @@ namespace CapaDatos
                         {
                             listSucursales.Add(new CE_Sucursal()
                             {
-                                Id = Convert.ToInt32(dr["iden"]),
-                                Descripcion = Convert.ToString(dr["descripcion"]),
+                                iden = Convert.ToInt32(dr["iden"]),
+                                descripcion = Convert.ToString(dr["descripcion"]),
                             });
                         }
                     }
