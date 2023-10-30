@@ -271,6 +271,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\before.png" />
+    <None Include="Resources\PDF_image.png" />
     <None Include="Resources\eye.png" />
     <None Include="Resources\play.png" />
     <None Include="Resources\remove.png" />

@@ -87,7 +87,7 @@ namespace CapaPresentacion
             foreach (CE_Factura factura in ListaFacturas)
             {
                 GridFacturas.Rows.Add(new object[] {
-
+                    "",
                     factura.CMP_Estado_iden == 1? "Pendiente" : (factura.CMP_Estado_iden == 2? "Anulado" : "Cofirmado"),
                     factura.FechaDeCarga,
                     factura.CE_Sucursal.descripcion,
@@ -137,6 +137,9 @@ namespace CapaPresentacion
         }
         private void FormFactura_Load(object sender, EventArgs e)
         {
+            DataGridViewRow row = GridFacturas.RowTemplate;
+            row.Height = 32;
+
             //Listamos todas las facturas existentes en la DB
             ListarFacturas(0);
             CrearNumeroFactura();
@@ -237,6 +240,26 @@ namespace CapaPresentacion
         private void BoxIdOperacion_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void GridFacturas_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            if (e.ColumnIndex == 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = Properties.Resources.PDF_image.Width;
+                var h = Properties.Resources.PDF_image.Height;
+
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.PDF_image, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
         }
     }
 }
