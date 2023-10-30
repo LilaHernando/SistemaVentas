@@ -29,15 +29,17 @@ namespace CapaPresentacion
         private void btnIngresar_Click(object sender, EventArgs e) //Método para Ingresar al Formulario Inicio
         {
             //Si uno o más de los Campos estan vacios, se lo notificamos al Usuario
-            if (inputClave.Text.Equals("") || inputUsuario.Text.Equals(""))
+            if (inputClave.Text.Equals(string.Empty) || inputUsuario.Text.Equals(string.Empty))
             {
                 //Mensaje
                 MessageBox.Show("Uno o más de los Campos estan vacios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                inputClave.Text = string.Empty;
             }
             else if (inputUsuario.TextLength <= 7) 
             {
                 //Mensaje
                 MessageBox.Show("Faltan digitos en su Documento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                inputClave.Text = string.Empty;
             }
             else
             {
@@ -58,6 +60,7 @@ namespace CapaPresentacion
                     if (userQuery.Estado != true) //Preguntamos si el Usuario esta INACTIVO
                     {
                         MessageBox.Show("Usuario INACTIVO", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        inputClave.Text = string.Empty;
                     }
                     else //Si esta ACTIVO se logea
                     {
@@ -74,6 +77,7 @@ namespace CapaPresentacion
                 {
                     //Mensaje
                     MessageBox.Show("Documento o Contraseña incorrectas", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    inputClave.Text = string.Empty;
                 }
             }
         }
@@ -81,8 +85,8 @@ namespace CapaPresentacion
         private void Form_Closing(object sender, FormClosingEventArgs e ) //Método para volver a mostrar el Formulario Login cuando se cierra el Formulario Inicio
         {
             //Se vacian los campos para que no se mantengan los datos en los campos de texto
-            inputUsuario.Text = "";
-            inputClave.Text = "";
+            inputUsuario.Text = string.Empty;
+            inputClave.Text = string.Empty;
 
             this.Show(); //Se muestra el Login
             inputUsuario.Select();
@@ -94,11 +98,23 @@ namespace CapaPresentacion
             {
                 e.Handled = true;
             }
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnIngresar_Click(sender, e);
+            }
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
             inputUsuario.Select();
+        }
+
+        private void inputClave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnIngresar_Click(sender, e);
+            }
         }
     }
 }

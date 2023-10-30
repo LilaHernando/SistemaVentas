@@ -43,21 +43,22 @@ namespace CapaPresentacion
             // 
             this.inputClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputClave.Location = new System.Drawing.Point(336, 205);
-            this.inputClave.Multiline = true;
+            this.inputClave.Multiline = false;
             this.inputClave.Name = "inputClave";
             this.inputClave.PasswordChar = '*';
             this.inputClave.Size = new System.Drawing.Size(221, 31);
-            this.inputClave.TabIndex = 3;
+            this.inputClave.TabIndex = 2;
+            this.inputClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputClave_KeyPress);
             // 
             // inputUsuario
             // 
             this.inputUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputUsuario.Location = new System.Drawing.Point(336, 136);
             this.inputUsuario.MaxLength = 8;
-            this.inputUsuario.Multiline = true;
+            this.inputUsuario.Multiline = false;
             this.inputUsuario.Name = "inputUsuario";
             this.inputUsuario.Size = new System.Drawing.Size(221, 31);
-            this.inputUsuario.TabIndex = 4;
+            this.inputUsuario.TabIndex = 1;
             this.inputUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputUsuario_KeyPress);
             // 
             // label4
@@ -113,7 +114,7 @@ namespace CapaPresentacion
             this.btnSalir.Location = new System.Drawing.Point(455, 260);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(102, 44);
-            this.btnSalir.TabIndex = 2;
+            this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -133,7 +134,7 @@ namespace CapaPresentacion
             this.btnIngresar.Location = new System.Drawing.Point(336, 260);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(102, 44);
-            this.btnIngresar.TabIndex = 1;
+            this.btnIngresar.TabIndex = 3;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnIngresar.UseVisualStyleBackColor = false;
