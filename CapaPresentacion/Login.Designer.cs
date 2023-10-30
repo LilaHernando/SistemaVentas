@@ -43,7 +43,6 @@ namespace CapaPresentacion
             // 
             this.inputClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputClave.Location = new System.Drawing.Point(336, 205);
-            this.inputClave.Multiline = false;
             this.inputClave.Name = "inputClave";
             this.inputClave.PasswordChar = '*';
             this.inputClave.Size = new System.Drawing.Size(221, 31);
@@ -55,9 +54,8 @@ namespace CapaPresentacion
             this.inputUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputUsuario.Location = new System.Drawing.Point(336, 136);
             this.inputUsuario.MaxLength = 8;
-            this.inputUsuario.Multiline = false;
             this.inputUsuario.Name = "inputUsuario";
-            this.inputUsuario.Size = new System.Drawing.Size(221, 31);
+            this.inputUsuario.Size = new System.Drawing.Size(221, 26);
             this.inputUsuario.TabIndex = 1;
             this.inputUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputUsuario_KeyPress);
             // 
