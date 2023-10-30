@@ -62,12 +62,12 @@ namespace CapaPresentacion
                     fechaFormateada,
                     "$"+p.Monto,
                     p.CE_Cliente.Nombre +" "+p.CE_Cliente.Apellido,
-                    p.CE_Sucursal.Descripcion,
+                    p.CE_Sucursal.descripcion,
                     p.IdOperacion,
                     estado,
                     "",
                     p.CE_Cliente.Id,
-                    p.CE_Sucursal.Id,
+                    p.CE_Sucursal.iden,
                     p.IdPreventa
                 });
             }
@@ -78,7 +78,7 @@ namespace CapaPresentacion
             List<CE_Sucursal> listSucursales = new CN_Preventa().Listar_Sucursales();
             cbbSucursal.DataSource = listSucursales;
             cbbSucursal.DisplayMember = "Descripcion";
-            cbbSucursal.ValueMember = "Id";
+            cbbSucursal.ValueMember = "iden";
             cbbSucursal.SelectedIndex = -1;
             cbbSucursal.DropDownStyle = ComboBoxStyle.DropDownList;
         }
@@ -171,7 +171,7 @@ namespace CapaPresentacion
 
             CE_Preventa Preventa = new CE_Preventa()
             {
-                Id_Sucursal = selectedSucursal.Id,
+                Id_Sucursal = selectedSucursal.iden,
                 Id_Cliente = IdCliente,
                 Fecha = Convert.ToDateTime(txtDate.Text),
                 Numero = NumeroRandomPreventa,

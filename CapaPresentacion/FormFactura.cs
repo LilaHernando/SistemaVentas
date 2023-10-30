@@ -79,7 +79,7 @@ namespace CapaPresentacion
 
                     factura.CMP_Estado_iden == 1? "Pendiente" : (factura.CMP_Estado_iden == 2? "Anulado" : "Cofirmado"),
                     factura.FechaDeCarga,
-                    factura.CE_Sucursal.Descripcion,
+                    factura.CE_Sucursal.descripcion,
                     factura.IdOperacion,
                     factura.Letra,
                     factura.Numero,
@@ -115,10 +115,10 @@ namespace CapaPresentacion
             if (entidad == "preventa")
             {
                 int indice = ListaPreventas.FindIndex(prev => prev.IdOperacion == Convert.ToInt32(IdOperacion));
-                BoxSucursal.Text = ListaPreventas[indice].CE_Sucursal.Descripcion;
+                BoxSucursal.Text = ListaPreventas[indice].CE_Sucursal.descripcion;
                 BoxMonto.Text = Convert.ToString(ListaPreventas[indice].Monto);
-                idSucursal = ListaPreventas[indice].CE_Sucursal.Id;
-                descripcionSucursal = ListaPreventas[indice].CE_Sucursal.Descripcion;
+                idSucursal = ListaPreventas[indice].CE_Sucursal.iden;
+                descripcionSucursal = ListaPreventas[indice].CE_Sucursal.descripcion;
 
             }
             else
@@ -126,7 +126,7 @@ namespace CapaPresentacion
                 BoxIdOperacion.Text = Convert.ToString(IdOperacion);
                 BoxIdOperacion.SelectedValue = "factura";
                 BoxTipoFactura.Text = Convert.ToString(ListaFacturas[0].Letra);
-                BoxSucursal.Text = ListaFacturas[0].CE_Sucursal.Descripcion;
+                BoxSucursal.Text = ListaFacturas[0].CE_Sucursal.descripcion;
                 BoxEstado.Text = ListaFacturas[0].CMP_Estado_iden == 1 ? "Pendiente" : (ListaFacturas[0].CMP_Estado_iden == 2 ? "Anulado" : "Cofirmado");
                 BoxNumeroFactura.Text = Convert.ToString(ListaFacturas[0].Numero);
                 BoxMonto.Text = Convert.ToString(ListaFacturas[0].MontoTotal);
