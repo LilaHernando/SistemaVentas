@@ -236,6 +236,7 @@ namespace CapaPresentacion
             this.BoxIdOperacion.Size = new System.Drawing.Size(186, 21);
             this.BoxIdOperacion.TabIndex = 6;
             this.BoxIdOperacion.SelectedIndexChanged += new System.EventHandler(this.BoxIdOperacion_SelectedIndexChanged);
+            this.BoxIdOperacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxIdOperacion_KeyPress);
             // 
             // LabelIdOperacion
             // 
@@ -248,6 +249,7 @@ namespace CapaPresentacion
             // 
             // BoxTipoFactura
             // 
+            this.BoxTipoFactura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.BoxTipoFactura.FormattingEnabled = true;
             this.BoxTipoFactura.Location = new System.Drawing.Point(15, 153);
             this.BoxTipoFactura.Name = "BoxTipoFactura";
