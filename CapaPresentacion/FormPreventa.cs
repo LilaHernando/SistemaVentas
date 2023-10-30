@@ -133,6 +133,7 @@ namespace CapaPresentacion
             }
         }
 
+        /*Hace referencia al btn Continuar*/
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             CN_Preventa CN_Preventa  = new CN_Preventa();
@@ -154,7 +155,7 @@ namespace CapaPresentacion
             }
             else
             {
-                MessageBox.Show("Por favor, complete todos los campos y seleccione un elemento en el ComboBox antes de registrar.", "Campos Incompletos",botones ,MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, complete todos los campos y seleccione un elemento en la caja de texto antes de registrar.", "Campos Incompletos",botones ,MessageBoxIcon.Error);
             }
 
         }
@@ -224,7 +225,6 @@ namespace CapaPresentacion
         {
             txtDate.Value = DateTime.Parse(fecha);
             txtCliente.Text = cliente;
-            //cbbEstado.Text = estado;
             SeleccionarValorCbb(cbbEstado, estado);
             cbbSucursal.Text = sucursal;
         }
@@ -261,10 +261,7 @@ namespace CapaPresentacion
                     dgvDataPreventa.Rows.Clear();
                     listarPreventas();
                     LimpiarCampos();
-                    btnBuscarCliente.Enabled = true;
-                    cbbSucursal.Enabled = true;
-                    btnEditar.Enabled = false;
-                    btnRegistrar.Enabled = true;
+                    habilitarCampos();
                     MessageBox.Show("Preventa actualizada correctamente", "Estado de actualización", botones, MessageBoxIcon.Information);
 
                 }
@@ -375,6 +372,7 @@ namespace CapaPresentacion
         private void button1_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
+            habilitarCampos();
         }
 
         public void LimpiarCampos()
@@ -435,7 +433,13 @@ namespace CapaPresentacion
             txtBuscar.Text = "";
         }
 
-        
+        public void habilitarCampos()
+        {
+            btnBuscarCliente.Enabled = true;
+            cbbSucursal.Enabled = true;
+            btnEditar.Enabled = false;
+            btnRegistrar.Enabled = true;
+        }
 
     }
 

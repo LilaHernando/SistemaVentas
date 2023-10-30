@@ -52,28 +52,34 @@ namespace CapaPresentacion.Modales
             MessageBoxButtons botones = MessageBoxButtons.OK;
             CN_Preventa cN_Preventa = new CN_Preventa();
             List<CE_Articulo> listaArticulos = CrearLista();
-            try {
-                int UltimoIdPreventa =cN_Preventa.InsertarPreventa(Preventa);
-                foreach (CE_Articulo articulos in listaArticulos)
-                {
-                    CE_Item_Preventa_Articulo IPA = new CE_Item_Preventa_Articulo()
+            if (listaArticulos.Count > 0) {
+                try {
+                    int UltimoIdPreventa = cN_Preventa.InsertarPreventa(Preventa);
+                    foreach (CE_Articulo articulos in listaArticulos)
                     {
-                        GN_Sucursal_iden = Preventa.Id_Sucursal,
-                        PVTA_Preventa_iden = UltimoIdPreventa,
-                        PVTA_Preventa_sucursal = Preventa.Id_Sucursal,
-                        GN_Articulo_iden = articulos.iden,
-                    };
-                    MontoTotal += articulos.costo;
-                    cN_Preventa.INS_Preventa_Articulo(IPA);
-                    
+                        CE_Item_Preventa_Articulo IPA = new CE_Item_Preventa_Articulo()
+                        {
+                            GN_Sucursal_iden = Preventa.Id_Sucursal,
+                            PVTA_Preventa_iden = UltimoIdPreventa,
+                            PVTA_Preventa_sucursal = Preventa.Id_Sucursal,
+                            GN_Articulo_iden = articulos.iden,
+                        };
+                        MontoTotal += articulos.costo;
+                        cN_Preventa.INS_Preventa_Articulo(IPA);
+
+                    }
+                    cN_Preventa.UpdateMontoPreventa(MontoTotal, UltimoIdPreventa);
+                    MessageBox.Show("Registro de Preventa " +
+                            "Efectuado Correctamente", "Informe de Registro", botones, MessageBoxIcon.Information);
+                    this.Close();
                 }
-                cN_Preventa.UpdateMontoPreventa(MontoTotal, UltimoIdPreventa);
-                MessageBox.Show("Registro de Preventa " +
-                        "Efectuado Correctamente", "Informe de Registro", botones, MessageBoxIcon.Information);
-                this.Close();
+                catch (Exception ex) {
+                    MessageBox.Show(ex.ToString());
+                }
             }
-            catch (Exception ex) {
-                MessageBox.Show(ex.ToString());
+            else
+            {
+                MessageBox.Show("No seleccionó ningun articulo, seleccione como minimo uno para continuar", "Informe de Registro", botones, MessageBoxIcon.Information);
             }
             
         }

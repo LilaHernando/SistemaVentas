@@ -54,6 +54,7 @@ namespace CapaPresentacion
 
             BoxNombreUsuario.Clear();
             BoxIdUsuario.Clear();
+            BoxIdOperacion.Items.Clear();
             BoxIdOperacion.SelectedItem = null;
             BoxTipoFactura.SelectedItem = null;
             BoxSucursal.Clear();
@@ -68,6 +69,16 @@ namespace CapaPresentacion
             BoxMonto.Text = "";
             BoxNumeroFactura.Text = "";
 
+        }
+        private void CrearNumeroFactura()
+        {
+            int ultimoIndex = GridFacturas.Rows.Count - 1;
+            if (ultimoIndex < 0) { BoxNumeroFactura.Text = "1"; }
+            else
+            {
+                int ultimaFactura = Convert.ToInt32(GridFacturas.Rows[ultimoIndex].Cells["Numero"].Value);
+                BoxNumeroFactura.Text = Convert.ToString(ultimaFactura + 1);
+            }
         }
         private void ListarFacturas(int idOperacion)
         {
@@ -100,16 +111,6 @@ namespace CapaPresentacion
             BoxIdOperacion.DisplayMember = "Texto";
             BoxIdOperacion.ValueMember = "preventa";
         }
-        private void CrearNumeroFactura()
-        {
-            int ultimoIndex = GridFacturas.Rows.Count - 1;
-            if (ultimoIndex < 0) { BoxNumeroFactura.Text = "1"; }
-            else
-            {
-                int ultimaFactura = Convert.ToInt32(GridFacturas.Rows[ultimoIndex].Cells["Numero"].Value);
-                BoxNumeroFactura.Text = Convert.ToString(ultimaFactura + 1);
-            }
-        }
         private void CargarDatos(int IdOperacion, string entidad)
         {
             if (entidad == "preventa")
@@ -123,8 +124,8 @@ namespace CapaPresentacion
             }
             else
             {
-                BoxIdOperacion.Text = Convert.ToString(IdOperacion);
                 BoxIdOperacion.SelectedValue = "factura";
+                BoxIdOperacion.Text = Convert.ToString(IdOperacion);
                 BoxTipoFactura.Text = Convert.ToString(ListaFacturas[0].Letra);
                 BoxSucursal.Text = ListaFacturas[0].CE_Sucursal.descripcion;
                 BoxEstado.Text = ListaFacturas[0].CMP_Estado_iden == 1 ? "Pendiente" : (ListaFacturas[0].CMP_Estado_iden == 2 ? "Anulado" : "Cofirmado");
@@ -147,6 +148,23 @@ namespace CapaPresentacion
             BoxTipoFactura.ValueMember = "Valor";
 
         }
+        private void GridFacturas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AddBtn.Enabled = false;
+            BoxTipoFactura.Enabled = false;
+            LimpiarCampos();
+
+            int iRow = e.RowIndex;
+            int iColumn = e.ColumnIndex;
+
+            if (iRow >= 0 && iColumn > 0)
+            {
+                int IdOperacion = Convert.ToInt32(GridFacturas.Rows[iRow].Cells["IdOperacion"].Value.ToString());
+                ListaFacturas = new CN_Factura().ListarFacturas(IdOperacion);
+
+                CargarDatos(IdOperacion, "factura");
+            }
+        }
         private void SearchBtn_Click(object sender, EventArgs e)
         {
             using (var modal = new MD_Cliente())
@@ -155,23 +173,14 @@ namespace CapaPresentacion
 
                 if (result == DialogResult.OK)
                 {
-                    BoxIdOperacion.Items.Clear();
+                    BoxTipoFactura.Enabled = true;
                     LimpiarCampos();
-
                     AddBtn.Enabled = true;
                     BoxIdUsuario.Text = modal._Cliente.Dni;
                     ListarPreventasPorDNI(Convert.ToInt32(BoxIdUsuario.Text));
                     BoxNombreUsuario.Text = $"{modal._Cliente.Nombre}  {modal._Cliente.Apellido}".ToUpper();
                     BoxEstado.Text = "Pendiente";
                 }
-            }
-        }
-        private void BoxIdOperacion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (BoxIdOperacion.Text != "" && BoxIdOperacion.ValueMember == "preventa")
-            {
-                CargarDatos(Convert.ToInt32(BoxIdOperacion.Text), "preventa");
-                CrearNumeroFactura();
             }
         }
         private void AddBtn_Click(object sender, EventArgs e)
@@ -217,22 +226,17 @@ namespace CapaPresentacion
 
             }
         }
-        private void GridFacturas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void BoxIdOperacion_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            AddBtn.Enabled = false;
-            LimpiarCampos();
-
-            int iRow = e.RowIndex;
-            int iColumn = e.ColumnIndex;
-
-            if (iRow >= 0 && iColumn > 0)
+            if (BoxIdOperacion.Text != "" && BoxIdOperacion.ValueMember == "preventa")
             {
-                int IdOperacion = Convert.ToInt32(GridFacturas.Rows[iRow].Cells["IdOperacion"].Value.ToString());
-                ListaFacturas = new CN_Factura().ListarFacturas(IdOperacion);
-
-                CargarDatos(IdOperacion, "factura");
+                CargarDatos(Convert.ToInt32(BoxIdOperacion.Text), "preventa");
+                CrearNumeroFactura();
             }
+        }
+        private void BoxIdOperacion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

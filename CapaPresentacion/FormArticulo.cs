@@ -304,6 +304,7 @@ namespace CapaPresentacion
                     }
 
                 }
+                textBoxCodigoMaterial.Enabled = false;
                 buttonEditar.Enabled = true;
                 buttonRegistrar.Enabled = false;
             }
@@ -391,6 +392,7 @@ namespace CapaPresentacion
 
                     Limpiar();
                     buttonRegistrar.Enabled = true;
+                    textBoxCodigoMaterial.Enabled = true;
                 }
             }
             else
@@ -404,6 +406,7 @@ namespace CapaPresentacion
             Limpiar();
             buttonEditar.Enabled = false;
             buttonRegistrar.Enabled = true;
+            textBoxCodigoMaterial.Enabled = true;
         }
 
         private void buttonBusqueda_Click(object sender, EventArgs e)

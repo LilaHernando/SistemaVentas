@@ -123,6 +123,7 @@ namespace CapaPresentacion
             this.Numero.HeaderText = "N° Preventa";
             this.Numero.MinimumWidth = 6;
             this.Numero.Name = "Numero";
+            this.Numero.ReadOnly = true;
             this.Numero.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Numero.Width = 125;
             // 
@@ -131,6 +132,7 @@ namespace CapaPresentacion
             this.Fecha.HeaderText = "Fecha De Carga";
             this.Fecha.MinimumWidth = 6;
             this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
             this.Fecha.Width = 125;
             // 
             // Monto
@@ -138,6 +140,7 @@ namespace CapaPresentacion
             this.Monto.HeaderText = "Monto";
             this.Monto.MinimumWidth = 6;
             this.Monto.Name = "Monto";
+            this.Monto.ReadOnly = true;
             this.Monto.Width = 125;
             // 
             // Cliente
@@ -145,6 +148,7 @@ namespace CapaPresentacion
             this.Cliente.HeaderText = "Cliente";
             this.Cliente.MinimumWidth = 6;
             this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
             this.Cliente.Width = 125;
             // 
             // Sucursal
@@ -152,6 +156,7 @@ namespace CapaPresentacion
             this.Sucursal.HeaderText = "Sucursal";
             this.Sucursal.MinimumWidth = 6;
             this.Sucursal.Name = "Sucursal";
+            this.Sucursal.ReadOnly = true;
             this.Sucursal.Width = 125;
             // 
             // numeroOperacion
@@ -159,6 +164,7 @@ namespace CapaPresentacion
             this.numeroOperacion.HeaderText = "N° Operacion";
             this.numeroOperacion.MinimumWidth = 6;
             this.numeroOperacion.Name = "numeroOperacion";
+            this.numeroOperacion.ReadOnly = true;
             this.numeroOperacion.Width = 125;
             // 
             // estado
@@ -166,6 +172,7 @@ namespace CapaPresentacion
             this.estado.HeaderText = "Estado";
             this.estado.MinimumWidth = 6;
             this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
             this.estado.Width = 125;
             // 
             // btnSeleccionar
@@ -173,6 +180,7 @@ namespace CapaPresentacion
             this.btnSeleccionar.HeaderText = "";
             this.btnSeleccionar.MinimumWidth = 6;
             this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
             this.btnSeleccionar.Width = 30;
             // 
             // IdenCliente
@@ -180,6 +188,7 @@ namespace CapaPresentacion
             this.IdenCliente.HeaderText = "IdenCliente";
             this.IdenCliente.MinimumWidth = 6;
             this.IdenCliente.Name = "IdenCliente";
+            this.IdenCliente.ReadOnly = true;
             this.IdenCliente.Visible = false;
             this.IdenCliente.Width = 125;
             // 
@@ -188,6 +197,7 @@ namespace CapaPresentacion
             this.IdenSucursal.HeaderText = "IdenSucursal";
             this.IdenSucursal.MinimumWidth = 6;
             this.IdenSucursal.Name = "IdenSucursal";
+            this.IdenSucursal.ReadOnly = true;
             this.IdenSucursal.Visible = false;
             this.IdenSucursal.Width = 125;
             // 
@@ -196,6 +206,7 @@ namespace CapaPresentacion
             this.IdenPreventa.HeaderText = "IdenPreventa";
             this.IdenPreventa.MinimumWidth = 6;
             this.IdenPreventa.Name = "IdenPreventa";
+            this.IdenPreventa.ReadOnly = true;
             this.IdenPreventa.Visible = false;
             this.IdenPreventa.Width = 125;
             // 
@@ -204,6 +215,7 @@ namespace CapaPresentacion
             this.btnVerArticulos.HeaderText = "";
             this.btnVerArticulos.MinimumWidth = 6;
             this.btnVerArticulos.Name = "btnVerArticulos";
+            this.btnVerArticulos.ReadOnly = true;
             this.btnVerArticulos.Width = 30;
             // 
             // cbbEstado
@@ -453,7 +465,7 @@ namespace CapaPresentacion
             this.AccessibleName = "";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1355, 511);
+            this.ClientSize = new System.Drawing.Size(917, 420);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnBuscarCliente);
             this.Controls.Add(this.txtCliente);
