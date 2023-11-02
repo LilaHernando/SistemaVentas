@@ -296,6 +296,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\LogoCoding.png" />
     <Content Include="Resources\before.png" />
     <None Include="Resources\Logo Capacitacion.png" />
     <None Include="Resources\PDF_image.png" />
