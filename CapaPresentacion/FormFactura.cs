@@ -11,7 +11,9 @@ using CapaPresentacion.Modales;
 using CapaPresentacion.Utilidades;
 using CapaNegocio;
 using CapaEntidad;
-
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using CrystalDecisions.Windows.Forms;
 
 namespace CapaPresentacion
 {
@@ -88,6 +90,7 @@ namespace CapaPresentacion
             {
                 GridFacturas.Rows.Add(new object[] {
                     "",
+                    factura.Iden,
                     factura.CMP_Estado_iden == 1? "Pendiente" : (factura.CMP_Estado_iden == 2? "Anulado" : "Cofirmado"),
                     factura.FechaDeCarga,
                     factura.CE_Sucursal.descripcion,
@@ -208,7 +211,8 @@ namespace CapaPresentacion
                 if (mensaje != "") { MessageBox.Show(mensaje); }
                 else { MessageBox.Show("Factura creada correctamente!", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk); }
                 GridFacturas.Rows.Add(new object[] {
-
+                    "",
+                    factura.Iden,
                     "Pendiente",
                     factura.FechaDeCarga,
                     descripcionSucursal,
@@ -259,6 +263,26 @@ namespace CapaPresentacion
 
                 e.Graphics.DrawImage(Properties.Resources.PDF_image, new Rectangle(x, y, w, h));
                 e.Handled = true;
+            }
+        }
+
+        private void GridFacturas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (GridFacturas.Columns[e.ColumnIndex].Name == "BtnPDF")
+            {
+                int iRow = e.RowIndex;
+                int iColumn = e.ColumnIndex;
+
+                if (iRow >= 0 && iColumn == 0)
+                {
+                    int IdFactura = Convert.ToInt32(GridFacturas.Rows[iRow].Cells["IdFactura"].Value.ToString());
+
+                    FormReporteFactura reporteFactura = new FormReporteFactura();
+
+                    reporteFactura.SolicitarIdFactura(IdFactura);
+
+                    reporteFactura.Show();
+                } 
             }
         }
     }

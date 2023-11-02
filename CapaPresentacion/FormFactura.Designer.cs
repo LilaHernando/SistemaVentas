@@ -52,7 +52,8 @@ namespace CapaPresentacion
             this.label1 = new System.Windows.Forms.Label();
             this.GridFacturas = new System.Windows.Forms.DataGridView();
             this.LabelListadoFacturas = new System.Windows.Forms.Label();
-            this.BtnPDF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnPDF = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.idFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -311,6 +312,7 @@ namespace CapaPresentacion
             this.GridFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridFacturas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BtnPDF,
+            this.idFactura,
             this.Estado,
             this.Fecha,
             this.Sucursal,
@@ -324,6 +326,7 @@ namespace CapaPresentacion
             this.GridFacturas.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.GridFacturas.Size = new System.Drawing.Size(714, 292);
             this.GridFacturas.TabIndex = 4;
+            this.GridFacturas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridFacturas_CellContentClick);
             this.GridFacturas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridFacturas_CellDoubleClick);
             this.GridFacturas.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.GridFacturas_CellPainting);
             // 
@@ -344,7 +347,16 @@ namespace CapaPresentacion
             this.BtnPDF.HeaderText = "";
             this.BtnPDF.Name = "BtnPDF";
             this.BtnPDF.ReadOnly = true;
+            this.BtnPDF.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.BtnPDF.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.BtnPDF.Width = 32;
+            // 
+            // idFactura
+            // 
+            this.idFactura.HeaderText = "ID Factura";
+            this.idFactura.Name = "idFactura";
+            this.idFactura.ReadOnly = true;
+            this.idFactura.Visible = false;
             // 
             // Estado
             // 
@@ -444,7 +456,8 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView GridFacturas;
         private System.Windows.Forms.Label LabelListadoFacturas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BtnPDF;
+        private System.Windows.Forms.DataGridViewButtonColumn BtnPDF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sucursal;

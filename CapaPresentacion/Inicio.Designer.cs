@@ -41,7 +41,6 @@ namespace CapaPresentacion
             this.menuPreventas = new FontAwesome.Sharp.IconMenuItem();
             this.menuFacturas = new FontAwesome.Sharp.IconMenuItem();
             this.menuRemitos = new FontAwesome.Sharp.IconMenuItem();
-            this.menu = new System.Windows.Forms.MenuStrip();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
