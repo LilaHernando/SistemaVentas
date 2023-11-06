@@ -31,7 +31,7 @@ namespace CapaPresentacion.Modales
 
             ReportDocument report = new ReportDocument();
 
-            report.Load(userProfilePath + "\\source\\repos\\CursoSistemaVentas\\CapaPresentacion\\Modales\\ReporteFactura.rpt");
+            report.Load(userProfilePath + "\\source\\repos\\SistemaVentas\\CapaPresentacion\\Modales\\ReporteFactura.rpt");
 
             ParameterField idFactura = (ParameterField)report.ParameterFields["@iden"];
             ParameterField user = (ParameterField)report.ParameterFields["user"];
