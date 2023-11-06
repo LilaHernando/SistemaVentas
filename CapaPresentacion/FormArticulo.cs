@@ -26,7 +26,7 @@ namespace CapaPresentacion
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
 
-            if (this.ValidateChildren(ValidationConstraints.Enabled))
+            if (VerificarVacio(textBoxCodigoMaterial.Text, textBoxCosto.Text))
             {
                 CE_Articulo art = new CE_Articulo()
                 {
@@ -70,7 +70,7 @@ namespace CapaPresentacion
             }
             else
             {
-                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, complete los campos 'Codigo de Material' y 'Costo'.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -310,35 +310,22 @@ namespace CapaPresentacion
             }
         }
 
-        private void textBoxCodigoMaterial_Validating(object sender, CancelEventArgs e)
+        public Boolean VerificarVacio(String txtCodigoMaterial, String txtCosto)
         {
-            if (string.IsNullOrEmpty(textBoxCodigoMaterial.Text))
+
+            if (string.IsNullOrEmpty(txtCodigoMaterial) ||
+            string.IsNullOrEmpty(txtCosto))
             {
-                errorProvider1.SetError(textBoxCodigoMaterial, "Este campo es obligatorio");
-                e.Cancel = true; // Evita que el usuario cambie el foco
+                return false;
             }
             else
             {
-                errorProvider1.SetError(textBoxCodigoMaterial, ""); // Borra el mensaje de error
+                return true;
             }
         }
-
-        private void textBoxCosto_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBoxCosto.Text))
-            {
-                errorProvider1.SetError(textBoxCosto, "Este campo es obligatorio");
-                e.Cancel = true; // Evita que el usuario cambie el foco
-            }
-            else
-            {
-                errorProvider1.SetError(textBoxCosto, ""); // Borra el mensaje de error
-            }
-        }
-
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-            if (this.ValidateChildren(ValidationConstraints.Enabled))
+            if (VerificarVacio(textBoxCodigoMaterial.Text, textBoxCosto.Text))
             {
                 CE_Articulo art = new CE_Articulo()
                 {
@@ -397,7 +384,7 @@ namespace CapaPresentacion
             }
             else
             {
-                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El campo 'Costo' no puede ser vacío", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

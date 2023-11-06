@@ -82,7 +82,6 @@ namespace CapaPresentacion
             this.textBoxCodigoMaterial.Name = "textBoxCodigoMaterial";
             this.textBoxCodigoMaterial.Size = new System.Drawing.Size(199, 24);
             this.textBoxCodigoMaterial.TabIndex = 6;
-            this.textBoxCodigoMaterial.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCodigoMaterial_Validating);
             // 
             // comboRubro
             // 
@@ -101,7 +100,6 @@ namespace CapaPresentacion
             this.textBoxCosto.Name = "textBoxCosto";
             this.textBoxCosto.Size = new System.Drawing.Size(199, 24);
             this.textBoxCosto.TabIndex = 10;
-            this.textBoxCosto.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCosto_Validating);
             // 
             // comboMarca
             // 
