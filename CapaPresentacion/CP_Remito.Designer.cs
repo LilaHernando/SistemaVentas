@@ -29,29 +29,20 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tablaRemito = new System.Windows.Forms.DataGridView();
-            this.IDRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumeroRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LetraRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Titulo = new System.Windows.Forms.Label();
             this.NumRemito = new System.Windows.Forms.TextBox();
             this.cbEstado = new System.Windows.Forms.ComboBox();
-            this.fechaRem = new System.Windows.Forms.DateTimePicker();
             this.tipoRem = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cbSucursal = new System.Windows.Forms.ComboBox();
@@ -62,10 +53,20 @@ namespace CapaPresentacion
             this.label3 = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnPdfRemito = new System.Windows.Forms.DataGridViewButtonColumn();
+            
+            this.TitTabla = new System.Windows.Forms.Label();
+            this.IDRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LetraRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablaRemito)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,16 +75,17 @@ namespace CapaPresentacion
             this.tablaRemito.AllowUserToAddRows = false;
             this.tablaRemito.AllowUserToDeleteRows = false;
             this.tablaRemito.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaRemito.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaRemito.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.tablaRemito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaRemito.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.btnPdfRemito,
             this.IDRemito,
             this.Sucursal,
             this.Estado,
@@ -92,116 +94,36 @@ namespace CapaPresentacion
             this.LetraRemito,
             this.TipoRemito,
             this.FechaRemito});
-            this.tablaRemito.Dock = System.Windows.Forms.DockStyle.Right;
             this.tablaRemito.GridColor = System.Drawing.Color.Black;
-            this.tablaRemito.Location = new System.Drawing.Point(233, 0);
+            this.tablaRemito.Location = new System.Drawing.Point(231, 42);
             this.tablaRemito.MultiSelect = false;
             this.tablaRemito.Name = "tablaRemito";
             this.tablaRemito.ReadOnly = true;
             this.tablaRemito.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaRemito.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaRemito.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
             this.tablaRemito.RowHeadersWidth = 51;
-            this.tablaRemito.Size = new System.Drawing.Size(684, 341);
+            this.tablaRemito.Size = new System.Drawing.Size(674, 287);
             this.tablaRemito.TabIndex = 3;
-            // 
-            // IDRemito
-            // 
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.IDRemito.DefaultCellStyle = dataGridViewCellStyle2;
-            this.IDRemito.HeaderText = "ID";
-            this.IDRemito.MinimumWidth = 6;
-            this.IDRemito.Name = "IDRemito";
-            this.IDRemito.ReadOnly = true;
-            this.IDRemito.Width = 50;
-            // 
-            // Sucursal
-            // 
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.Sucursal.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Sucursal.HeaderText = "Sucursal";
-            this.Sucursal.MinimumWidth = 6;
-            this.Sucursal.Name = "Sucursal";
-            this.Sucursal.ReadOnly = true;
-            this.Sucursal.Width = 160;
-            // 
-            // Estado
-            // 
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.Estado.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Estado.HeaderText = "Estado";
-            this.Estado.MinimumWidth = 6;
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Width = 110;
-            // 
-            // IDOperacion
-            // 
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            this.IDOperacion.DefaultCellStyle = dataGridViewCellStyle5;
-            this.IDOperacion.HeaderText = "ID Operacion";
-            this.IDOperacion.MinimumWidth = 6;
-            this.IDOperacion.Name = "IDOperacion";
-            this.IDOperacion.ReadOnly = true;
-            this.IDOperacion.Width = 160;
-            // 
-            // NumeroRemito
-            // 
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.NumeroRemito.DefaultCellStyle = dataGridViewCellStyle6;
-            this.NumeroRemito.HeaderText = "Num";
-            this.NumeroRemito.MinimumWidth = 6;
-            this.NumeroRemito.Name = "NumeroRemito";
-            this.NumeroRemito.ReadOnly = true;
-            this.NumeroRemito.Width = 125;
-            // 
-            // LetraRemito
-            // 
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.LetraRemito.DefaultCellStyle = dataGridViewCellStyle7;
-            this.LetraRemito.HeaderText = "Letra";
-            this.LetraRemito.MinimumWidth = 6;
-            this.LetraRemito.Name = "LetraRemito";
-            this.LetraRemito.ReadOnly = true;
-            this.LetraRemito.Width = 90;
-            // 
-            // TipoRemito
-            // 
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.TipoRemito.DefaultCellStyle = dataGridViewCellStyle8;
-            this.TipoRemito.HeaderText = "Tipo";
-            this.TipoRemito.MinimumWidth = 6;
-            this.TipoRemito.Name = "TipoRemito";
-            this.TipoRemito.ReadOnly = true;
-            this.TipoRemito.Width = 125;
-            // 
-            // FechaRemito
-            // 
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            this.FechaRemito.DefaultCellStyle = dataGridViewCellStyle9;
-            this.FechaRemito.HeaderText = "Fecha";
-            this.FechaRemito.MinimumWidth = 6;
-            this.FechaRemito.Name = "FechaRemito";
-            this.FechaRemito.ReadOnly = true;
-            this.FechaRemito.Width = 155;
+            this.tablaRemito.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaRemito_CellContentClick);
+            this.tablaRemito.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.tablaRemito_CellPainting);
             // 
             // Titulo
             // 
             this.Titulo.BackColor = System.Drawing.Color.DarkRed;
             this.Titulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Titulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.Titulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Titulo.ForeColor = System.Drawing.Color.Black;
-            this.Titulo.Location = new System.Drawing.Point(0, 0);
+            this.Titulo.ForeColor = System.Drawing.Color.White;
+            this.Titulo.Location = new System.Drawing.Point(3, 5);
             this.Titulo.Name = "Titulo";
-            this.Titulo.Size = new System.Drawing.Size(233, 45);
+            this.Titulo.Size = new System.Drawing.Size(225, 34);
             this.Titulo.TabIndex = 28;
             this.Titulo.Text = "Nuevo remito";
             this.Titulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -224,17 +146,6 @@ namespace CapaPresentacion
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(123, 24);
             this.cbEstado.TabIndex = 37;
-            // 
-            // fechaRem
-            // 
-            this.fechaRem.Enabled = false;
-            this.fechaRem.Location = new System.Drawing.Point(12, 298);
-            this.fechaRem.MaxDate = new System.DateTime(2023, 10, 26, 0, 0, 0, 0);
-            this.fechaRem.MinDate = new System.DateTime(2023, 10, 26, 0, 0, 0, 0);
-            this.fechaRem.Name = "fechaRem";
-            this.fechaRem.Size = new System.Drawing.Size(200, 20);
-            this.fechaRem.TabIndex = 38;
-            this.fechaRem.Value = new System.DateTime(2023, 10, 26, 0, 0, 0, 0);
             // 
             // tipoRem
             // 
@@ -325,14 +236,13 @@ namespace CapaPresentacion
             // 
             this.btnLimpiar.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLimpiar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.Image = global::CapaPresentacion.Properties.Resources.borrar;
-            this.btnLimpiar.Location = new System.Drawing.Point(0, 301);
+            this.btnLimpiar.Location = new System.Drawing.Point(2, 288);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(233, 20);
+            this.btnLimpiar.Size = new System.Drawing.Size(224, 20);
             this.btnLimpiar.TabIndex = 39;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -344,31 +254,19 @@ namespace CapaPresentacion
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.ForestGreen;
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::CapaPresentacion.Properties.Resources.disquete_2_;
-            this.btnGuardar.Location = new System.Drawing.Point(0, 321);
+            this.btnGuardar.Location = new System.Drawing.Point(2, 308);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(233, 20);
+            this.btnGuardar.Size = new System.Drawing.Size(224, 20);
             this.btnGuardar.TabIndex = 3;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(9, 281);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(200, 20);
-            this.label5.TabIndex = 33;
-            this.label5.Text = "FECHA";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -406,12 +304,194 @@ namespace CapaPresentacion
             this.label1.Text = "    Numero de remito";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // btnPdfRemito
+            // 
+            this.btnPdfRemito.HeaderText = "";
+            this.btnPdfRemito.Name = "btnPdfRemito";
+            this.btnPdfRemito.ReadOnly = true;
+            this.btnPdfRemito.Width = 32;
+            // 
+            // IDRemito
+            // 
+            //dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            //this.IDRemito.DefaultCellStyle = dataGridViewCellStyle2;
+            this.IDRemito.HeaderText = "ID";
+            this.IDRemito.MinimumWidth = 6;
+            this.IDRemito.Name = "IDRemito";
+            this.IDRemito.ReadOnly = true;
+            this.IDRemito.Width = 50;
+            // 
+            // Sucursal
+            // 
+            //dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            //this.Sucursal.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Sucursal.HeaderText = "Sucursal";
+            this.Sucursal.MinimumWidth = 6;
+            this.Sucursal.Name = "Sucursal";
+            this.Sucursal.ReadOnly = true;
+            this.Sucursal.Width = 160;
+            // 
+            // Estado
+            // 
+            //dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            //this.Estado.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.MinimumWidth = 6;
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 110;
+            // 
+            // IDOperacion
+            // 
+            //dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            //this.IDOperacion.DefaultCellStyle = dataGridViewCellStyle5;
+            this.IDOperacion.HeaderText = "ID Operacion";
+            this.IDOperacion.MinimumWidth = 6;
+            this.IDOperacion.Name = "IDOperacion";
+            this.IDOperacion.ReadOnly = true;
+            this.IDOperacion.Width = 160;
+            // 
+            // NumeroRemito
+            // 
+            //dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            //this.NumeroRemito.DefaultCellStyle = dataGridViewCellStyle6;
+            this.NumeroRemito.HeaderText = "Num";
+            this.NumeroRemito.MinimumWidth = 6;
+            this.NumeroRemito.Name = "NumeroRemito";
+            this.NumeroRemito.ReadOnly = true;
+            this.NumeroRemito.Width = 125;
+            // 
+            // LetraRemito
+            // 
+            //dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            //this.LetraRemito.DefaultCellStyle = dataGridViewCellStyle7;
+            this.LetraRemito.HeaderText = "Letra";
+            this.LetraRemito.MinimumWidth = 6;
+            this.LetraRemito.Name = "LetraRemito";
+            this.LetraRemito.ReadOnly = true;
+            this.LetraRemito.Width = 90;
+            // 
+            // TipoRemito
+            // 
+            //dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            //this.TipoRemito.DefaultCellStyle = dataGridViewCellStyle8;
+            this.TipoRemito.HeaderText = "Tipo";
+            this.TipoRemito.MinimumWidth = 6;
+            this.TipoRemito.Name = "TipoRemito";
+            this.TipoRemito.ReadOnly = true;
+            this.TipoRemito.Width = 125;
+            // 
+            // FechaRemito
+            // 
+            //dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            //this.FechaRemito.DefaultCellStyle = dataGridViewCellStyle9;
+            this.FechaRemito.HeaderText = "Fecha";
+            this.FechaRemito.MinimumWidth = 6;
+            this.FechaRemito.Name = "FechaRemito";
+            this.FechaRemito.ReadOnly = true;
+            this.FechaRemito.Width = 155;
+            // 
+            // TitTabla
+            // 
+            this.TitTabla.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TitTabla.BackColor = System.Drawing.Color.DarkRed;
+            this.TitTabla.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TitTabla.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitTabla.ForeColor = System.Drawing.Color.White;
+            this.TitTabla.Location = new System.Drawing.Point(233, 5);
+            this.TitTabla.Name = "TitTabla";
+            this.TitTabla.Size = new System.Drawing.Size(678, 34);
+            this.TitTabla.TabIndex = 49;
+            this.TitTabla.Text = "LISTADO DE REMITOS";
+            this.TitTabla.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // IDRemito
+            // 
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
+            this.IDRemito.DefaultCellStyle = dataGridViewCellStyle22;
+            this.IDRemito.HeaderText = "ID";
+            this.IDRemito.MinimumWidth = 6;
+            this.IDRemito.Name = "IDRemito";
+            this.IDRemito.ReadOnly = true;
+            this.IDRemito.Width = 50;
+            // 
+            // Sucursal
+            // 
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.Black;
+            this.Sucursal.DefaultCellStyle = dataGridViewCellStyle23;
+            this.Sucursal.HeaderText = "Sucursal";
+            this.Sucursal.MinimumWidth = 6;
+            this.Sucursal.Name = "Sucursal";
+            this.Sucursal.ReadOnly = true;
+            this.Sucursal.Width = 160;
+            // 
+            // Estado
+            // 
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
+            this.Estado.DefaultCellStyle = dataGridViewCellStyle24;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.MinimumWidth = 6;
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 110;
+            // 
+            // IDOperacion
+            // 
+            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.Black;
+            this.IDOperacion.DefaultCellStyle = dataGridViewCellStyle25;
+            this.IDOperacion.HeaderText = "ID Operacion";
+            this.IDOperacion.MinimumWidth = 6;
+            this.IDOperacion.Name = "IDOperacion";
+            this.IDOperacion.ReadOnly = true;
+            this.IDOperacion.Width = 160;
+            // 
+            // NumeroRemito
+            // 
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.Black;
+            this.NumeroRemito.DefaultCellStyle = dataGridViewCellStyle26;
+            this.NumeroRemito.HeaderText = "Num";
+            this.NumeroRemito.MinimumWidth = 6;
+            this.NumeroRemito.Name = "NumeroRemito";
+            this.NumeroRemito.ReadOnly = true;
+            this.NumeroRemito.Width = 75;
+            // 
+            // LetraRemito
+            // 
+            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.Black;
+            this.LetraRemito.DefaultCellStyle = dataGridViewCellStyle27;
+            this.LetraRemito.HeaderText = "Letra";
+            this.LetraRemito.MinimumWidth = 6;
+            this.LetraRemito.Name = "LetraRemito";
+            this.LetraRemito.ReadOnly = true;
+            this.LetraRemito.Width = 90;
+            // 
+            // TipoRemito
+            // 
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Black;
+            this.TipoRemito.DefaultCellStyle = dataGridViewCellStyle28;
+            this.TipoRemito.HeaderText = "Tipo";
+            this.TipoRemito.MinimumWidth = 6;
+            this.TipoRemito.Name = "TipoRemito";
+            this.TipoRemito.ReadOnly = true;
+            this.TipoRemito.Width = 125;
+            // 
+            // FechaRemito
+            // 
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.Black;
+            this.FechaRemito.DefaultCellStyle = dataGridViewCellStyle29;
+            this.FechaRemito.HeaderText = "Fecha";
+            this.FechaRemito.MinimumWidth = 6;
+            this.FechaRemito.Name = "FechaRemito";
+            this.FechaRemito.ReadOnly = true;
+            this.FechaRemito.Width = 200;
+            // 
             // CP_Remito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(917, 341);
+            this.Controls.Add(this.TitTabla);
             this.Controls.Add(this.letraRem);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnBuscar);
@@ -422,10 +502,8 @@ namespace CapaPresentacion
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.fechaRem);
             this.Controls.Add(this.cbEstado);
             this.Controls.Add(this.NumRemito);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -444,21 +522,11 @@ namespace CapaPresentacion
         #endregion
         private System.Windows.Forms.DataGridView tablaRemito;
         private System.Windows.Forms.Label Titulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDRemito;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sucursal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDOperacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroRemito;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LetraRemito;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoRemito;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaRemito;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox NumRemito;
         private System.Windows.Forms.ComboBox cbEstado;
-        private System.Windows.Forms.DateTimePicker fechaRem;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.TextBox tipoRem;
@@ -469,5 +537,16 @@ namespace CapaPresentacion
         private FontAwesome.Sharp.IconButton btnBuscar;
         private System.Windows.Forms.TextBox letraRem;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewButtonColumn btnPdfRemito;
+      
+        private System.Windows.Forms.Label TitTabla;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDRemito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sucursal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDOperacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroRemito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LetraRemito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoRemito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaRemito;
     }
 }

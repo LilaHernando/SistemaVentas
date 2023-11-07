@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaEntidad;
 using CapaNegocio;
+using CapaPresentacion.Modales;
 using CapaPresentacion.Properties;
 using CapaPresentacion.Utilidades;
 
@@ -58,6 +59,7 @@ namespace CapaPresentacion
             {
                 tablaRemito.Rows.Add(new object[]{
 
+                    "",
                     cE_Remito.iden,
                     cE_Remito.Sucursal.descripcion,
                     cE_Remito.estadoRemito.descripcion,
@@ -127,7 +129,7 @@ namespace CapaPresentacion
                 numero = Convert.ToInt32(NumRemito.Text),
                 letra = Convert.ToChar(letraRem.Text),
                 tipoRemito = Convert.ToString(tipoRem.Text),
-                fechaRemito = Convert.ToDateTime(fechaRem.Text),
+                fechaRemito = DateTime.Now,
             };
 
             new CN_Remito().CrearRemito(Remito, out mensaje);
@@ -153,7 +155,6 @@ namespace CapaPresentacion
             cbEstado.Enabled = false;
             NumRemito.Enabled = false;
             tipoRem.Enabled = false;
-            fechaRem.Enabled = false;
             letraRem.Enabled = false;
             cbEstado.SelectedItem = null;
             cbSucursal.SelectedItem = null;
@@ -197,6 +198,46 @@ namespace CapaPresentacion
                 }
             }
             return true;
+        }
+
+        private void tablaRemito_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            if (e.ColumnIndex == 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = Properties.Resources.PDF_image.Width;
+                var h = Properties.Resources.PDF_image.Height;
+
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.PDF_image, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void tablaRemito_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (tablaRemito.Columns[e.ColumnIndex].Name == "btnPdfRemito")
+            {
+                int iRow = e.RowIndex;
+                int iColumn = e.ColumnIndex;
+
+                if (iRow >= 0 && iColumn == 0)
+                {
+                    int IdRemito = Convert.ToInt32(tablaRemito.Rows[iRow].Cells["IDRemito"].Value.ToString());
+
+                    FormReporteRemito reporteRemito = new FormReporteRemito();
+
+                    reporteRemito.SolicitarIdRemito(IdRemito);
+
+                    reporteRemito.Show();
+                }
+            }
         }
     }
 }

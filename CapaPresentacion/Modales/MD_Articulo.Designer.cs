@@ -205,7 +205,7 @@ namespace CapaPresentacion.Modales
             // Rubro
             // 
             this.Rubro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Rubro.HeaderText = "Rubro";
+            this.Rubro.HeaderText = "Descripcion";
             this.Rubro.MinimumWidth = 6;
             this.Rubro.Name = "Rubro";
             this.Rubro.ReadOnly = true;
