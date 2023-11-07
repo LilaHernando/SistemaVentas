@@ -127,7 +127,7 @@ namespace CapaPresentacion
                 numero = Convert.ToInt32(NumRemito.Text),
                 letra = Convert.ToChar(letraRem.Text),
                 tipoRemito = Convert.ToString(tipoRem.Text),
-                fechaRemito = Convert.ToDateTime(fechaRem.Text),
+                fechaRemito = DateTime.Now,
             };
 
             new CN_Remito().CrearRemito(Remito, out mensaje);
@@ -153,7 +153,6 @@ namespace CapaPresentacion
             cbEstado.Enabled = false;
             NumRemito.Enabled = false;
             tipoRem.Enabled = false;
-            fechaRem.Enabled = false;
             letraRem.Enabled = false;
             cbEstado.SelectedItem = null;
             cbSucursal.SelectedItem = null;
