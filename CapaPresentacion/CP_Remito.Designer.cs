@@ -40,14 +40,6 @@ namespace CapaPresentacion
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tablaRemito = new System.Windows.Forms.DataGridView();
-            this.IDRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumeroRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LetraRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Titulo = new System.Windows.Forms.Label();
             this.NumRemito = new System.Windows.Forms.TextBox();
             this.cbEstado = new System.Windows.Forms.ComboBox();
@@ -66,6 +58,15 @@ namespace CapaPresentacion
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnPdfRemito = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.IDRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LetraRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaRemito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablaRemito)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,6 +85,7 @@ namespace CapaPresentacion
             this.tablaRemito.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.tablaRemito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaRemito.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.btnPdfRemito,
             this.IDRemito,
             this.Sucursal,
             this.Estado,
@@ -110,86 +112,8 @@ namespace CapaPresentacion
             this.tablaRemito.RowHeadersWidth = 51;
             this.tablaRemito.Size = new System.Drawing.Size(684, 341);
             this.tablaRemito.TabIndex = 3;
-            // 
-            // IDRemito
-            // 
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.IDRemito.DefaultCellStyle = dataGridViewCellStyle2;
-            this.IDRemito.HeaderText = "ID";
-            this.IDRemito.MinimumWidth = 6;
-            this.IDRemito.Name = "IDRemito";
-            this.IDRemito.ReadOnly = true;
-            this.IDRemito.Width = 50;
-            // 
-            // Sucursal
-            // 
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.Sucursal.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Sucursal.HeaderText = "Sucursal";
-            this.Sucursal.MinimumWidth = 6;
-            this.Sucursal.Name = "Sucursal";
-            this.Sucursal.ReadOnly = true;
-            this.Sucursal.Width = 160;
-            // 
-            // Estado
-            // 
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.Estado.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Estado.HeaderText = "Estado";
-            this.Estado.MinimumWidth = 6;
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Width = 110;
-            // 
-            // IDOperacion
-            // 
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            this.IDOperacion.DefaultCellStyle = dataGridViewCellStyle5;
-            this.IDOperacion.HeaderText = "ID Operacion";
-            this.IDOperacion.MinimumWidth = 6;
-            this.IDOperacion.Name = "IDOperacion";
-            this.IDOperacion.ReadOnly = true;
-            this.IDOperacion.Width = 160;
-            // 
-            // NumeroRemito
-            // 
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.NumeroRemito.DefaultCellStyle = dataGridViewCellStyle6;
-            this.NumeroRemito.HeaderText = "Num";
-            this.NumeroRemito.MinimumWidth = 6;
-            this.NumeroRemito.Name = "NumeroRemito";
-            this.NumeroRemito.ReadOnly = true;
-            this.NumeroRemito.Width = 125;
-            // 
-            // LetraRemito
-            // 
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.LetraRemito.DefaultCellStyle = dataGridViewCellStyle7;
-            this.LetraRemito.HeaderText = "Letra";
-            this.LetraRemito.MinimumWidth = 6;
-            this.LetraRemito.Name = "LetraRemito";
-            this.LetraRemito.ReadOnly = true;
-            this.LetraRemito.Width = 90;
-            // 
-            // TipoRemito
-            // 
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.TipoRemito.DefaultCellStyle = dataGridViewCellStyle8;
-            this.TipoRemito.HeaderText = "Tipo";
-            this.TipoRemito.MinimumWidth = 6;
-            this.TipoRemito.Name = "TipoRemito";
-            this.TipoRemito.ReadOnly = true;
-            this.TipoRemito.Width = 125;
-            // 
-            // FechaRemito
-            // 
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            this.FechaRemito.DefaultCellStyle = dataGridViewCellStyle9;
-            this.FechaRemito.HeaderText = "Fecha";
-            this.FechaRemito.MinimumWidth = 6;
-            this.FechaRemito.Name = "FechaRemito";
-            this.FechaRemito.ReadOnly = true;
-            this.FechaRemito.Width = 155;
+            this.tablaRemito.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaRemito_CellContentClick);
+            this.tablaRemito.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.tablaRemito_CellPainting);
             // 
             // Titulo
             // 
@@ -406,6 +330,93 @@ namespace CapaPresentacion
             this.label1.Text = "    Numero de remito";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // btnPdfRemito
+            // 
+            this.btnPdfRemito.HeaderText = "";
+            this.btnPdfRemito.Name = "btnPdfRemito";
+            this.btnPdfRemito.ReadOnly = true;
+            this.btnPdfRemito.Width = 32;
+            // 
+            // IDRemito
+            // 
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.IDRemito.DefaultCellStyle = dataGridViewCellStyle2;
+            this.IDRemito.HeaderText = "ID";
+            this.IDRemito.MinimumWidth = 6;
+            this.IDRemito.Name = "IDRemito";
+            this.IDRemito.ReadOnly = true;
+            this.IDRemito.Width = 50;
+            // 
+            // Sucursal
+            // 
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.Sucursal.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Sucursal.HeaderText = "Sucursal";
+            this.Sucursal.MinimumWidth = 6;
+            this.Sucursal.Name = "Sucursal";
+            this.Sucursal.ReadOnly = true;
+            this.Sucursal.Width = 160;
+            // 
+            // Estado
+            // 
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.Estado.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.MinimumWidth = 6;
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 110;
+            // 
+            // IDOperacion
+            // 
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.IDOperacion.DefaultCellStyle = dataGridViewCellStyle5;
+            this.IDOperacion.HeaderText = "ID Operacion";
+            this.IDOperacion.MinimumWidth = 6;
+            this.IDOperacion.Name = "IDOperacion";
+            this.IDOperacion.ReadOnly = true;
+            this.IDOperacion.Width = 160;
+            // 
+            // NumeroRemito
+            // 
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            this.NumeroRemito.DefaultCellStyle = dataGridViewCellStyle6;
+            this.NumeroRemito.HeaderText = "Num";
+            this.NumeroRemito.MinimumWidth = 6;
+            this.NumeroRemito.Name = "NumeroRemito";
+            this.NumeroRemito.ReadOnly = true;
+            this.NumeroRemito.Width = 125;
+            // 
+            // LetraRemito
+            // 
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.LetraRemito.DefaultCellStyle = dataGridViewCellStyle7;
+            this.LetraRemito.HeaderText = "Letra";
+            this.LetraRemito.MinimumWidth = 6;
+            this.LetraRemito.Name = "LetraRemito";
+            this.LetraRemito.ReadOnly = true;
+            this.LetraRemito.Width = 90;
+            // 
+            // TipoRemito
+            // 
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.TipoRemito.DefaultCellStyle = dataGridViewCellStyle8;
+            this.TipoRemito.HeaderText = "Tipo";
+            this.TipoRemito.MinimumWidth = 6;
+            this.TipoRemito.Name = "TipoRemito";
+            this.TipoRemito.ReadOnly = true;
+            this.TipoRemito.Width = 125;
+            // 
+            // FechaRemito
+            // 
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            this.FechaRemito.DefaultCellStyle = dataGridViewCellStyle9;
+            this.FechaRemito.HeaderText = "Fecha";
+            this.FechaRemito.MinimumWidth = 6;
+            this.FechaRemito.Name = "FechaRemito";
+            this.FechaRemito.ReadOnly = true;
+            this.FechaRemito.Width = 155;
+            // 
             // CP_Remito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,14 +455,6 @@ namespace CapaPresentacion
         #endregion
         private System.Windows.Forms.DataGridView tablaRemito;
         private System.Windows.Forms.Label Titulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDRemito;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sucursal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDOperacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroRemito;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LetraRemito;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoRemito;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaRemito;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
@@ -469,5 +472,14 @@ namespace CapaPresentacion
         private FontAwesome.Sharp.IconButton btnBuscar;
         private System.Windows.Forms.TextBox letraRem;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewButtonColumn btnPdfRemito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDRemito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sucursal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDOperacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroRemito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LetraRemito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoRemito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaRemito;
     }
 }
