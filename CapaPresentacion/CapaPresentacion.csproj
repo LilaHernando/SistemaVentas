@@ -166,6 +166,12 @@
     <Compile Include="Modales\FormReporteFactura.Designer.cs">
       <DependentUpon>FormReporteFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modales\FormReporteRemito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\FormReporteRemito.Designer.cs">
+      <DependentUpon>FormReporteRemito.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modales\ReporteFactura.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -196,6 +202,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modales\ReporteRemito.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteRemito.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormCliente.resx">
@@ -223,6 +235,9 @@
     <EmbeddedResource Include="Modales\FormReporteFactura.resx">
       <DependentUpon>FormReporteFactura.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modales\FormReporteRemito.resx">
+      <DependentUpon>FormReporteRemito.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modales\ReporteFactura.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteFactura.cs</LastGenOutput>
@@ -238,6 +253,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modales\ReporteRemito.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteRemito.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

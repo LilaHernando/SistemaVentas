@@ -197,7 +197,7 @@ namespace CapaDatos
                             articulos_preventa.Add(new CE_Articulo()
                             {
                                 codigoDeMaterial = Convert.ToInt32(dr["codigoDeMaterial"]),
-                                rubro = Convert.ToString(dr["rubro"]),
+                                descripcion = Convert.ToString(dr["descripcion"]),
                                 costo= Convert.ToInt32(dr["costo"]) 
                             });
                             
