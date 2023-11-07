@@ -150,7 +150,7 @@ namespace CapaDatos
                             {
                                 iden = Convert.ToInt32(dr["iden"]),
                                 codigoDeMaterial = Convert.ToInt32(dr["codigoDeMaterial"]),
-                                rubro = dr["rubro"].ToString(),
+                                descripcion = dr["descripcion"].ToString(),
                                 costo = Convert.ToDecimal(dr["costo"]),
                             }) ;
                         }

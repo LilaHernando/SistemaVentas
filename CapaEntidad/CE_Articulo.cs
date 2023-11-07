@@ -14,5 +14,6 @@ namespace CapaEntidad
         public decimal costo { get; set; }
         public string marca { get; set; }
         public bool baja { get; set; }
+        public string descripcion { get; set; }
     }
 }

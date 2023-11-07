@@ -30,11 +30,11 @@ namespace CapaPresentacion.Modales
         private void InitializeComponent()
         {
             this.dgvDataArticulosPreventa = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelNumPreventa = new System.Windows.Forms.Label();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.labelNumPreventa = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataArticulosPreventa)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,30 +56,6 @@ namespace CapaPresentacion.Modales
             this.dgvDataArticulosPreventa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDataArticulosPreventa.Size = new System.Drawing.Size(446, 278);
             this.dgvDataArticulosPreventa.TabIndex = 22;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.MinimumWidth = 6;
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 125;
-            // 
-            // Rubro
-            // 
-            this.Rubro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Rubro.HeaderText = "Rubro";
-            this.Rubro.MinimumWidth = 6;
-            this.Rubro.Name = "Rubro";
-            this.Rubro.ReadOnly = true;
-            // 
-            // Costo
-            // 
-            this.Costo.HeaderText = "Costo";
-            this.Costo.MinimumWidth = 6;
-            this.Costo.Name = "Costo";
-            this.Costo.ReadOnly = true;
-            this.Costo.Width = 125;
             // 
             // label2
             // 
@@ -104,6 +80,30 @@ namespace CapaPresentacion.Modales
             this.labelNumPreventa.Size = new System.Drawing.Size(120, 24);
             this.labelNumPreventa.TabIndex = 24;
             this.labelNumPreventa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.MinimumWidth = 6;
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 125;
+            // 
+            // Rubro
+            // 
+            this.Rubro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Rubro.HeaderText = "Descripcion";
+            this.Rubro.MinimumWidth = 6;
+            this.Rubro.Name = "Rubro";
+            this.Rubro.ReadOnly = true;
+            // 
+            // Costo
+            // 
+            this.Costo.HeaderText = "Costo";
+            this.Costo.MinimumWidth = 6;
+            this.Costo.Name = "Costo";
+            this.Costo.ReadOnly = true;
+            this.Costo.Width = 125;
             // 
             // MD_VerArticulosPreventa
             // 

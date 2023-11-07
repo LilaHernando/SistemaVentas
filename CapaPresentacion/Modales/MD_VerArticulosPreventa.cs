@@ -34,7 +34,7 @@ namespace CapaPresentacion.Modales
 
                 dgvDataArticulosPreventa.Rows.Add(new Object[]{
                 articulo.codigoDeMaterial,
-                articulo.rubro,
+                articulo.descripcion,
                 "$"+articulo.costo
             });
             }
