@@ -51,7 +51,6 @@ namespace CapaPresentacion
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.GridFacturas = new System.Windows.Forms.DataGridView();
-            this.LabelListadoFacturas = new System.Windows.Forms.Label();
             this.BtnPDF = new System.Windows.Forms.DataGridViewButtonColumn();
             this.idFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +60,7 @@ namespace CapaPresentacion
             this.Factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LabelListadoFacturas = new System.Windows.Forms.Label();
             this.GbRegistrar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridFacturas)).BeginInit();
             this.SuspendLayout();
@@ -323,24 +323,11 @@ namespace CapaPresentacion
             this.GridFacturas.Location = new System.Drawing.Point(234, 47);
             this.GridFacturas.Name = "GridFacturas";
             this.GridFacturas.ReadOnly = true;
-            this.GridFacturas.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.GridFacturas.Size = new System.Drawing.Size(714, 292);
             this.GridFacturas.TabIndex = 4;
             this.GridFacturas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridFacturas_CellContentClick);
             this.GridFacturas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridFacturas_CellDoubleClick);
             this.GridFacturas.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.GridFacturas_CellPainting);
-            // 
-            // LabelListadoFacturas
-            // 
-            this.LabelListadoFacturas.BackColor = System.Drawing.Color.DarkRed;
-            this.LabelListadoFacturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelListadoFacturas.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelListadoFacturas.Location = new System.Drawing.Point(274, -1);
-            this.LabelListadoFacturas.Name = "LabelListadoFacturas";
-            this.LabelListadoFacturas.Size = new System.Drawing.Size(186, 45);
-            this.LabelListadoFacturas.TabIndex = 6;
-            this.LabelListadoFacturas.Text = "Listado De Facturas";
-            this.LabelListadoFacturas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // BtnPDF
             // 
@@ -409,6 +396,18 @@ namespace CapaPresentacion
             this.Total.HeaderText = "Total";
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
+            // 
+            // LabelListadoFacturas
+            // 
+            this.LabelListadoFacturas.BackColor = System.Drawing.Color.DarkRed;
+            this.LabelListadoFacturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelListadoFacturas.ForeColor = System.Drawing.SystemColors.Control;
+            this.LabelListadoFacturas.Location = new System.Drawing.Point(274, -1);
+            this.LabelListadoFacturas.Name = "LabelListadoFacturas";
+            this.LabelListadoFacturas.Size = new System.Drawing.Size(186, 45);
+            this.LabelListadoFacturas.TabIndex = 6;
+            this.LabelListadoFacturas.Text = "Listado De Facturas";
+            this.LabelListadoFacturas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FormFactura
             // 
