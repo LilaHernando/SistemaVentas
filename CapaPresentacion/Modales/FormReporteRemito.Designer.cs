@@ -51,6 +51,7 @@ namespace CapaPresentacion.Modales
             this.Controls.Add(this.reporteRemitoView);
             this.Name = "FormReporteRemito";
             this.Text = "FormReporteRemito";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }

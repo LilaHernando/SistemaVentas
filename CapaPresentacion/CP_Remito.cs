@@ -23,6 +23,8 @@ namespace CapaPresentacion
         }
         private void CP_Remito_Load(object sender, EventArgs e)
         {
+            DataGridViewRow row = tablaRemito.RowTemplate;
+            row.Height = 32;
             LimpiarCampos();
             Listar();
             CrearNumeroRemito();
