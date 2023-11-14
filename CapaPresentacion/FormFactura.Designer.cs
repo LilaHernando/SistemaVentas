@@ -61,6 +61,9 @@ namespace CapaPresentacion
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LabelListadoFacturas = new System.Windows.Forms.Label();
+            this.InputBuscarFactura = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new FontAwesome.Sharp.IconButton();
+            this.btnLimpiarBuscar = new FontAwesome.Sharp.IconButton();
             this.GbRegistrar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridFacturas)).BeginInit();
             this.SuspendLayout();
@@ -109,7 +112,7 @@ namespace CapaPresentacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BoxNombreUsuario.BackColor = System.Drawing.SystemColors.Window;
-            this.BoxNombreUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BoxNombreUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.BoxNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.BoxNombreUsuario.ForeColor = System.Drawing.Color.DarkRed;
             this.BoxNombreUsuario.ImeMode = System.Windows.Forms.ImeMode.On;
@@ -118,7 +121,7 @@ namespace CapaPresentacion
             this.BoxNombreUsuario.Name = "BoxNombreUsuario";
             this.BoxNombreUsuario.ReadOnly = true;
             this.BoxNombreUsuario.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BoxNombreUsuario.Size = new System.Drawing.Size(188, 28);
+            this.BoxNombreUsuario.Size = new System.Drawing.Size(188, 19);
             this.BoxNombreUsuario.TabIndex = 19;
             this.BoxNombreUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -127,10 +130,10 @@ namespace CapaPresentacion
             this.SearchBtn.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
             this.SearchBtn.IconColor = System.Drawing.Color.Maroon;
             this.SearchBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SearchBtn.IconSize = 20;
-            this.SearchBtn.Location = new System.Drawing.Point(156, 62);
+            this.SearchBtn.IconSize = 24;
+            this.SearchBtn.Location = new System.Drawing.Point(170, 62);
             this.SearchBtn.Name = "SearchBtn";
-            this.SearchBtn.Size = new System.Drawing.Size(47, 29);
+            this.SearchBtn.Size = new System.Drawing.Size(31, 29);
             this.SearchBtn.TabIndex = 18;
             this.SearchBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.SearchBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -142,7 +145,7 @@ namespace CapaPresentacion
             this.BoxIdUsuario.Location = new System.Drawing.Point(15, 67);
             this.BoxIdUsuario.Name = "BoxIdUsuario";
             this.BoxIdUsuario.ReadOnly = true;
-            this.BoxIdUsuario.Size = new System.Drawing.Size(132, 20);
+            this.BoxIdUsuario.Size = new System.Drawing.Size(149, 20);
             this.BoxIdUsuario.TabIndex = 17;
             // 
             // LabelUsuario
@@ -409,11 +412,61 @@ namespace CapaPresentacion
             this.LabelListadoFacturas.Text = "Listado De Facturas";
             this.LabelListadoFacturas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // InputBuscarFactura
+            // 
+            this.InputBuscarFactura.Location = new System.Drawing.Point(706, 13);
+            this.InputBuscarFactura.Multiline = true;
+            this.InputBuscarFactura.Name = "InputBuscarFactura";
+            this.InputBuscarFactura.Size = new System.Drawing.Size(120, 21);
+            this.InputBuscarFactura.TabIndex = 56;
+            this.InputBuscarFactura.Click += new System.EventHandler(this.InputSearchBill_Click);
+            this.InputBuscarFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxIdOperacion_KeyPress);
+            this.InputBuscarFactura.Leave += new System.EventHandler(this.InputBuscarFactura_Leave);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.White;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnBuscar.IconColor = System.Drawing.Color.DarkRed;
+            this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnBuscar.IconSize = 24;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(832, 13);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(21, 21);
+            this.btnBuscar.TabIndex = 54;
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnLimpiarBuscar
+            // 
+            this.btnLimpiarBuscar.BackColor = System.Drawing.Color.White;
+            this.btnLimpiarBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiarBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiarBuscar.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.btnLimpiarBuscar.IconColor = System.Drawing.Color.DarkRed;
+            this.btnLimpiarBuscar.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnLimpiarBuscar.IconSize = 24;
+            this.btnLimpiarBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiarBuscar.Location = new System.Drawing.Point(859, 13);
+            this.btnLimpiarBuscar.Name = "btnLimpiarBuscar";
+            this.btnLimpiarBuscar.Size = new System.Drawing.Size(21, 21);
+            this.btnLimpiarBuscar.TabIndex = 53;
+            this.btnLimpiarBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnLimpiarBuscar.UseVisualStyleBackColor = false;
+            this.btnLimpiarBuscar.Click += new System.EventHandler(this.btnLimpiarBuscar_Click);
+            // 
             // FormFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(917, 341);
+            this.Controls.Add(this.InputBuscarFactura);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.btnLimpiarBuscar);
             this.Controls.Add(this.LabelListadoFacturas);
             this.Controls.Add(this.GridFacturas);
             this.Controls.Add(this.label2);
@@ -464,5 +517,8 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Factura;
         private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.TextBox InputBuscarFactura;
+        private FontAwesome.Sharp.IconButton btnBuscar;
+        private FontAwesome.Sharp.IconButton btnLimpiarBuscar;
     }
 }

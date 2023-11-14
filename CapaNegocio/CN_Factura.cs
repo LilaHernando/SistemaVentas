@@ -24,5 +24,9 @@ namespace CapaNegocio
         {
             ObjFactura.CrearFactura(Factura, out mensaje);
         }
+        public List<CE_Factura> Filtrar(int idOperacion)
+        {
+            return ObjFactura.ObtenerFacturas(idOperacion);  //Retorna el Obj con su método
+        }
     }
 }

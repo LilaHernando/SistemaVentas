@@ -140,6 +140,9 @@ namespace CapaPresentacion
         }
         private void FormFactura_Load(object sender, EventArgs e)
         {
+            InputBuscarFactura.Text = "Filtrar por Operación";
+            InputBuscarFactura.ForeColor = Color.Gray;
+
             DataGridViewRow row = GridFacturas.RowTemplate;
             row.Height = 32;
 
@@ -243,7 +246,10 @@ namespace CapaPresentacion
         }
         private void BoxIdOperacion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            if (!char.IsNumber(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
         }
 
         private void GridFacturas_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -283,6 +289,68 @@ namespace CapaPresentacion
 
                     reporteFactura.Show();
                 } 
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (InputBuscarFactura.Text == "Filtrar por Operación")
+            {
+                MessageBox.Show("Por favor, ingrese un número de operación válido");
+            } else
+            {
+
+            GridFacturas.Rows.Clear(); 
+
+            List<CE_Factura> listaFacturas = new CN_Factura().ListarFacturas(Convert.ToInt32(InputBuscarFactura.Text));
+
+    
+            DataGridViewRow row = GridFacturas.RowTemplate;
+            row.Height = 28;
+
+            
+            foreach (CE_Factura factura in listaFacturas)
+            {
+                GridFacturas.Rows.Add(new object[] {
+                    "",
+                    factura.Iden,
+                    factura.CMP_Estado_iden == 1? "Pendiente" : (factura.CMP_Estado_iden == 2? "Anulado" : "Cofirmado"),
+                    factura.FechaDeCarga,
+                    factura.CE_Sucursal.descripcion,
+                    factura.IdOperacion,
+                    factura.Letra,
+                    factura.Numero,
+                    factura.MontoTotal,
+                });
+            }
+
+            }
+        }
+
+        private void btnLimpiarBuscar_Click(object sender, EventArgs e)
+        {
+            GridFacturas.Rows.Clear();
+            InputBuscarFactura.Text = "Filtrar por Operación";
+            InputBuscarFactura.ForeColor = Color.Gray;
+            ListarFacturas(0); 
+        }
+
+        private void InputSearchBill_Click(object sender, EventArgs e)
+        {
+            if (InputBuscarFactura.Text == "Filtrar por Operación")
+            {
+                InputBuscarFactura.Text = "";
+                InputBuscarFactura.ForeColor = Color.Black;
+            }
+            
+        }
+
+        private void InputBuscarFactura_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(InputBuscarFactura.Text))
+            {
+                InputBuscarFactura.Text = "Filtrar por Operación";
+                InputBuscarFactura.ForeColor = Color.Gray;
             }
         }
     }
