@@ -28,9 +28,13 @@ namespace CapaNegocio
             mensaje = string.Empty;
 
             //Reglas
-            if (Obj.Nombre == "" || Obj.Apellido == "" || Obj.Dni == "" || Obj.Correo_electronico == "" || Obj.Telefono == "") //Verificar si hay campos vacios
+            if (string.IsNullOrWhiteSpace(Obj.Nombre) || string.IsNullOrWhiteSpace(Obj.Apellido) || string.IsNullOrWhiteSpace(Obj.Dni) || string.IsNullOrWhiteSpace(Obj.Correo_electronico) || string.IsNullOrWhiteSpace(Obj.Telefono)) //Verificar si hay campos vacios
             {
                 mensaje = "Uno o más de los campos estan vacios";
+            }
+            else if (!Obj.Correo_electronico.Contains("@")) 
+            {
+                mensaje = "Ingrese un Correo valido";
             }
             else if (Obj.Dni.Length <= 7)
             {
@@ -52,7 +56,7 @@ namespace CapaNegocio
             mensaje = string.Empty;
 
             //Reglas
-            if (Obj.Nombre == "" || Obj.Apellido == "" || Obj.Dni == "" || Obj.Correo_electronico == "" || Obj.Telefono == "") //Verificar si hay campos vacios
+            if (string.IsNullOrWhiteSpace(Obj.Nombre) || string.IsNullOrWhiteSpace(Obj.Apellido) || string.IsNullOrWhiteSpace(Obj.Dni) || string.IsNullOrWhiteSpace(Obj.Correo_electronico) || string.IsNullOrWhiteSpace(Obj.Telefono)) //Verificar si hay campos vacios
             {
                 mensaje = "Uno o más de los campos estan vacios";
             }

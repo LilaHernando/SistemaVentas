@@ -388,5 +388,21 @@ namespace CapaPresentacion
                 inputBuscar.ForeColor = Color.Gray;
             }
         }
+
+        private void inputClave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void inputConfClave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

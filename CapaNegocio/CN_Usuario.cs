@@ -26,7 +26,7 @@ namespace CapaNegocio
             mensaje = string.Empty;
 
             //Reglas
-            if (Obj.Nombre == "" || Obj.Apellido == "" || Obj.Dni == "" || Obj.Clave == "") //Verificar si hay campos vacios
+            if (string.IsNullOrWhiteSpace(Obj.Nombre) || string.IsNullOrWhiteSpace(Obj.Apellido) || string.IsNullOrWhiteSpace(Obj.Dni) || string.IsNullOrWhiteSpace(Obj.Clave)) //Verificar si hay campos vacios
             {
                 mensaje = "Uno o más de los campos estan vacios";
             }
@@ -34,7 +34,7 @@ namespace CapaNegocio
             {
                 mensaje = "Faltan digitos en su Documento";
             }
-            else if (confirmar == "") //Verificar si la confirmacion de la contraseña esta vacia
+            else if (string.IsNullOrWhiteSpace(confirmar)) //Verificar si la confirmacion de la contraseña esta vacia
             {
                 mensaje = "Falta confirmación de la contraseña";
             }
@@ -59,7 +59,7 @@ namespace CapaNegocio
             mensaje = string.Empty;
 
             //Reglas
-            if (Obj.Nombre == "" || Obj.Apellido == "" || Obj.Dni == "") //Verificar si hay campos vacios
+            if (string.IsNullOrWhiteSpace(Obj.Nombre) || string.IsNullOrWhiteSpace(Obj.Apellido) || string.IsNullOrWhiteSpace(Obj.Dni)) //Verificar si hay campos vacios
             {
                 mensaje = "Uno o más de los campos estan vacios";
             }
@@ -67,13 +67,13 @@ namespace CapaNegocio
             {
                 mensaje = "Faltan digitos en su Documento";
             }
-            else if (Obj.Clave == "") //Si la clave esta vacia
+            else if (string.IsNullOrWhiteSpace(Obj.Clave)) //Si la clave esta vacia
             {
                 Obj.Clave =  null; //Asignamos a la propiedad Clave un valor Null para evitar la modificacion de la clave
             }
-            else if (Obj.Clave != "") //Si la clave no esta vacia
+            else if (!string.IsNullOrWhiteSpace(Obj.Clave)) //Si la clave no esta vacia
             {
-                if (confirmar == "") //Verificar si la confirmacion de la contraseña esta vacia
+                if (string.IsNullOrWhiteSpace(confirmar)) //Verificar si la confirmacion de la contraseña esta vacia
                     mensaje = "Falta confirmación de la contraseña";
             }
             else if (!Obj.Clave.Equals(confirmar)) //Verificamos si las contraseñas coinciden
