@@ -30,16 +30,16 @@ namespace CapaPresentacion.Modales
         private void InitializeComponent()
         {
             this.LabelUsuario = new System.Windows.Forms.Label();
-            this.BoxIdUsuario = new System.Windows.Forms.TextBox();
             this.SearchBtn = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.label2 = new System.Windows.Forms.Label();
             this.GridClientes = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Iden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BoxIdUsuario = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.GridClientes)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -52,14 +52,6 @@ namespace CapaPresentacion.Modales
             this.LabelUsuario.Size = new System.Drawing.Size(67, 13);
             this.LabelUsuario.TabIndex = 16;
             this.LabelUsuario.Text = "D.N.I Cliente";
-            // 
-            // BoxIdUsuario
-            // 
-            this.BoxIdUsuario.Location = new System.Drawing.Point(9, 67);
-            this.BoxIdUsuario.Name = "BoxIdUsuario";
-            this.BoxIdUsuario.Size = new System.Drawing.Size(158, 20);
-            this.BoxIdUsuario.TabIndex = 17;
-            this.BoxIdUsuario.TextChanged += new System.EventHandler(this.BoxIdUsuario_TextChanged);
             // 
             // SearchBtn
             // 
@@ -122,22 +114,6 @@ namespace CapaPresentacion.Modales
             this.GridClientes.TabIndex = 21;
             this.GridClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridClientes_CellDoubleClick);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Controls.Add(this.GridClientes);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.iconButton1);
-            this.groupBox1.Controls.Add(this.SearchBtn);
-            this.groupBox1.Controls.Add(this.BoxIdUsuario);
-            this.groupBox1.Controls.Add(this.LabelUsuario);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox1.Size = new System.Drawing.Size(435, 337);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            // 
             // Iden
             // 
             this.Iden.HeaderText = "Iden";
@@ -166,6 +142,31 @@ namespace CapaPresentacion.Modales
             this.Apellido.Name = "Apellido";
             this.Apellido.ReadOnly = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox1.Controls.Add(this.GridClientes);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.iconButton1);
+            this.groupBox1.Controls.Add(this.SearchBtn);
+            this.groupBox1.Controls.Add(this.BoxIdUsuario);
+            this.groupBox1.Controls.Add(this.LabelUsuario);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.groupBox1.Size = new System.Drawing.Size(435, 337);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            // 
+            // BoxIdUsuario
+            // 
+            this.BoxIdUsuario.Location = new System.Drawing.Point(9, 67);
+            this.BoxIdUsuario.Name = "BoxIdUsuario";
+            this.BoxIdUsuario.Size = new System.Drawing.Size(158, 20);
+            this.BoxIdUsuario.TabIndex = 17;
+            this.BoxIdUsuario.TextChanged += new System.EventHandler(this.BoxIdUsuario_TextChanged);
+            this.BoxIdUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BoxIdUsuario_KeyPress);
+            // 
             // MD_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,7 +186,6 @@ namespace CapaPresentacion.Modales
         #endregion
 
         private System.Windows.Forms.Label LabelUsuario;
-        private System.Windows.Forms.TextBox BoxIdUsuario;
         private FontAwesome.Sharp.IconButton SearchBtn;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.Label label2;
@@ -195,5 +195,6 @@ namespace CapaPresentacion.Modales
         private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
+        private System.Windows.Forms.TextBox BoxIdUsuario;
     }
 }
