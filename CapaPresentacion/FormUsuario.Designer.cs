@@ -29,7 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.inputNombre = new System.Windows.Forms.TextBox();
@@ -90,7 +90,7 @@ namespace CapaPresentacion
             this.inputNombre.Location = new System.Drawing.Point(18, 25);
             this.inputNombre.Name = "inputNombre";
             this.inputNombre.Size = new System.Drawing.Size(185, 20);
-            this.inputNombre.TabIndex = 6;
+            this.inputNombre.TabIndex = 1;
             this.inputNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputNombre_KeyPress);
             // 
             // inputApellido
@@ -98,7 +98,7 @@ namespace CapaPresentacion
             this.inputApellido.Location = new System.Drawing.Point(18, 71);
             this.inputApellido.Name = "inputApellido";
             this.inputApellido.Size = new System.Drawing.Size(185, 20);
-            this.inputApellido.TabIndex = 8;
+            this.inputApellido.TabIndex = 2;
             this.inputApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputApellido_KeyPress);
             // 
             // label5
@@ -117,7 +117,7 @@ namespace CapaPresentacion
             this.inputDNI.MaxLength = 8;
             this.inputDNI.Name = "inputDNI";
             this.inputDNI.Size = new System.Drawing.Size(185, 20);
-            this.inputDNI.TabIndex = 10;
+            this.inputDNI.TabIndex = 3;
             this.inputDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputDNI_KeyPress);
             // 
             // label6
@@ -136,7 +136,7 @@ namespace CapaPresentacion
             this.inputClave.Name = "inputClave";
             this.inputClave.PasswordChar = '*';
             this.inputClave.Size = new System.Drawing.Size(185, 20);
-            this.inputClave.TabIndex = 12;
+            this.inputClave.TabIndex = 6;
             this.inputClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputClave_KeyPress);
             // 
             // label7
@@ -155,7 +155,7 @@ namespace CapaPresentacion
             this.inputConfClave.Name = "inputConfClave";
             this.inputConfClave.PasswordChar = '*';
             this.inputConfClave.Size = new System.Drawing.Size(185, 20);
-            this.inputConfClave.TabIndex = 14;
+            this.inputConfClave.TabIndex = 7;
             this.inputConfClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputConfClave_KeyPress);
             // 
             // label8
@@ -186,7 +186,7 @@ namespace CapaPresentacion
             this.comboRol.Location = new System.Drawing.Point(85, 163);
             this.comboRol.Name = "comboRol";
             this.comboRol.Size = new System.Drawing.Size(118, 21);
-            this.comboRol.TabIndex = 16;
+            this.comboRol.TabIndex = 5;
             // 
             // comboEstado
             // 
@@ -196,7 +196,7 @@ namespace CapaPresentacion
             this.comboEstado.Location = new System.Drawing.Point(18, 163);
             this.comboEstado.Name = "comboEstado";
             this.comboEstado.Size = new System.Drawing.Size(61, 21);
-            this.comboEstado.TabIndex = 18;
+            this.comboEstado.TabIndex = 4;
             // 
             // label10
             // 
@@ -241,15 +241,15 @@ namespace CapaPresentacion
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
             this.dgvData.Size = new System.Drawing.Size(669, 265);
-            this.dgvData.TabIndex = 23;
+            this.dgvData.TabIndex = 13;
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
             // 
             // btnSeleccionar
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle13;
             this.btnSeleccionar.HeaderText = "";
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.ReadOnly = true;
@@ -335,7 +335,7 @@ namespace CapaPresentacion
             this.inputBuscar.Multiline = true;
             this.inputBuscar.Name = "inputBuscar";
             this.inputBuscar.Size = new System.Drawing.Size(120, 21);
-            this.inputBuscar.TabIndex = 28;
+            this.inputBuscar.TabIndex = 10;
             this.inputBuscar.Tag = "";
             this.inputBuscar.Click += new System.EventHandler(this.inputBuscar_Click);
             this.inputBuscar.Leave += new System.EventHandler(this.inputBuscar_Leave);
@@ -353,7 +353,7 @@ namespace CapaPresentacion
             this.btnBuscar.Location = new System.Drawing.Point(842, 21);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(21, 21);
-            this.btnBuscar.TabIndex = 25;
+            this.btnBuscar.TabIndex = 11;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -371,7 +371,7 @@ namespace CapaPresentacion
             this.btnLimpiarBuscar.Location = new System.Drawing.Point(869, 21);
             this.btnLimpiarBuscar.Name = "btnLimpiarBuscar";
             this.btnLimpiarBuscar.Size = new System.Drawing.Size(21, 21);
-            this.btnLimpiarBuscar.TabIndex = 24;
+            this.btnLimpiarBuscar.TabIndex = 12;
             this.btnLimpiarBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLimpiarBuscar.UseVisualStyleBackColor = false;
             this.btnLimpiarBuscar.Click += new System.EventHandler(this.btnLimpiarBuscar_Click);
@@ -389,7 +389,7 @@ namespace CapaPresentacion
             this.btnGuardar.Location = new System.Drawing.Point(18, 296);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(90, 29);
-            this.btnGuardar.TabIndex = 19;
+            this.btnGuardar.TabIndex = 8;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -407,7 +407,7 @@ namespace CapaPresentacion
             this.btnLimpiar.Location = new System.Drawing.Point(114, 296);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(89, 29);
-            this.btnLimpiar.TabIndex = 21;
+            this.btnLimpiar.TabIndex = 9;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
