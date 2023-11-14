@@ -49,8 +49,16 @@ namespace CapaPresentacion.Modales
         private void SearchBtn_Click(object sender, EventArgs e)
         {
             GridClientes.Rows.Clear();
-            int dni = Convert.ToInt32(BoxIdUsuario.Text);
-            ListarClientes(dni);
+            if (!string.IsNullOrWhiteSpace(BoxIdUsuario.Text))
+            {
+                int dni = Convert.ToInt32(BoxIdUsuario.Text);
+                ListarClientes(dni);
+            }
+            else
+            {
+                ListarClientes(0);
+                MessageBox.Show("Ingrese un DNI válido");
+            }
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -84,6 +92,14 @@ namespace CapaPresentacion.Modales
         private void BoxIdUsuario_TextChanged(object sender, EventArgs e)
         {
             SearchBtn.Enabled = true;
+        }
+
+        private void BoxIdUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
         }
     }
 }
