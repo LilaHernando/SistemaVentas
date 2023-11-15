@@ -86,23 +86,24 @@ namespace CapaPresentacion
             }
             else
             {
-                if (!txtIDOP.Text.Equals("")) { 
-                bool resultado = new CN_Remito().VerFactura(Convert.ToInt32(txtIDOP.Text), out message);
-                if (resultado)
+                if (!txtIDOP.Text.Equals(""))
                 {
-                    MessageBox.Show("Existe una factura pendiente de remito");
-                    btnGuardar.Enabled = true;
-                    btnLimpiar.Enabled = true;
-                    cbSucursal.Enabled = true;
-                    NumRemito.Enabled = true;
-                    cbEstado.Enabled = true;
-                    NumRemito.Enabled = true;
-                    tipoRem.Enabled = true;
-                }
-                else
-                {
-                    MessageBox.Show(message);
-                }
+                    bool resultado = new CN_Remito().VerFactura(Convert.ToInt32(txtIDOP.Text), out message);
+                    if (resultado)
+                    {
+                        MessageBox.Show("Existe una factura pendiente de remito");
+                        btnGuardar.Enabled = true;
+                        btnLimpiar.Enabled = true;
+                        cbSucursal.Enabled = true;
+                        NumRemito.Enabled = true;
+                        cbEstado.Enabled = true;
+                        NumRemito.Enabled = true;
+                        tipoRem.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show(message);
+                    }
                 }
                 else
                 {
@@ -116,36 +117,42 @@ namespace CapaPresentacion
         {
             string mensaje = string.Empty;
 
-            CE_Remito Remito = new CE_Remito()
+            if (!string.IsNullOrWhiteSpace(cbSucursal.Text) && !string.IsNullOrWhiteSpace(cbEstado.Text))
             {
-                Sucursal = new CE_Sucursal()
+                CE_Remito Remito = new CE_Remito()
                 {
-                    iden = Convert.ToInt32(((OpcionCombo)cbSucursal.SelectedItem).Valor)
-                },
-                estadoRemito = new CE_Estado()
+                    Sucursal = new CE_Sucursal()
+                    {
+                        iden = Convert.ToInt32(((OpcionCombo)cbSucursal.SelectedItem).Valor)
+                    },
+                    estadoRemito = new CE_Estado()
+                    {
+
+                        iden = Convert.ToInt32(((OpcionCombo)cbEstado.SelectedItem).Valor)
+                    },
+                    idOperacion = Convert.ToInt32(txtIDOP.Text),
+                    numero = Convert.ToInt32(NumRemito.Text),
+                    letra = Convert.ToChar(letraRem.Text),
+                    tipoRemito = Convert.ToString(tipoRem.Text),
+                    fechaRemito = DateTime.Now,
+                };
+
+                new CN_Remito().CrearRemito(Remito, out mensaje);
+                if (mensaje == string.Empty)
                 {
-
-                    iden = Convert.ToInt32(((OpcionCombo)cbEstado.SelectedItem).Valor)
-                },
-                idOperacion = Convert.ToInt32(txtIDOP.Text),
-                numero = Convert.ToInt32(NumRemito.Text),
-                letra = Convert.ToChar(letraRem.Text),
-                tipoRemito = Convert.ToString(tipoRem.Text),
-                fechaRemito = DateTime.Now,
-            };
-
-            new CN_Remito().CrearRemito(Remito, out mensaje);
-            if (mensaje == string.Empty)
+                    tablaRemito.Rows.Clear();
+                    Listar();
+                    MessageBox.Show("Remito cargado con éxito");
+                }
+                else
+                {
+                    MessageBox.Show(mensaje);
+                }
+                LimpiarCampos();
+            } else
             {
-                tablaRemito.Rows.Clear();
-                Listar();
-                MessageBox.Show("Remito cargado con éxito");
+            MessageBox.Show("Complete todos los datos");
             }
-            else
-            {
-                MessageBox.Show(mensaje);
-            }
-            LimpiarCampos();
         }
 
         private void LimpiarCampos()
