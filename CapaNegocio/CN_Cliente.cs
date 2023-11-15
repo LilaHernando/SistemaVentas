@@ -60,6 +60,10 @@ namespace CapaNegocio
             {
                 mensaje = "Uno o más de los campos estan vacios";
             }
+            else if (!Obj.Correo_electronico.Contains("@"))
+            {
+                mensaje = "Ingrese un Correo valido";
+            }
             else if (Obj.Dni.Length <= 7)
             {
                 mensaje = "Faltan digitos en su Documento";
